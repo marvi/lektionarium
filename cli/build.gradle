@@ -1,0 +1,29 @@
+plugins {
+  id "com.github.johnrengelman.shadow" version "4.0.3"
+  id 'java'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+  manifest {
+    attributes 'Main-Class': 'lectio.LectioCli'
+  }
+}
+
+shadowJar {
+  baseName = 'lectio'
+  classifier = null
+  version = null
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+   compile project(':api')
+   compile 'info.picocli:picocli:3.8.2'
+   testCompile 'junit:junit:4.12'
+}

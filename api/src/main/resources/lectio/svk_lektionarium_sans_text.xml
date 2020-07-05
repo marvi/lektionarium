@@ -1,0 +1,1573 @@
+<?xml version='1.0' encoding='utf8'?>
+<year>
+  <day name="Första söndagen i advent" theme="Ett nådens år">
+    <readings cycle="1">
+      <reading enref="Zech. 9:9-10" svref="Sak 9:9-10" type="ot" />
+      <reading enref="Rom. 13:11-14" svref="Rom 13:11-14" type="ep" />
+      <reading enref="Matt. 21:1-9" svref="Matt 21:1-9" type="go" />
+      <reading enref="Psa. 24" svref="Ps 24" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Zech. 9:9-10" svref="Sak 9:9-10" type="ot" />
+      <reading enref="Rev. 3:20-22" svref="Upp 3:20-22" type="ep" />
+      <reading enref="Matt. 21:1-9" svref="Matt 21:1-9" type="go" />
+      <reading enref="Psa. 24" svref="Ps 24" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Zech. 9:9-10" svref="Sak 9:9-10" type="ot" />
+      <reading enref="Rev. 5:1-5" svref="Upp 5:1-5" type="ep" />
+      <reading enref="Matt. 21:1-9" svref="Matt 21:1-9" type="go" />
+      <reading enref="Psa. 24" svref="Ps 24" type="ps" />
+    </readings>
+  </day>
+  <day name="Andra söndagen i advent" theme="Guds rike är nära">
+    <readings cycle="1">
+      <reading enref="Mic. 4:1-4" svref="Mika 4:1-4" type="ot" />
+      <reading enref="Rom. 15:4-7" svref="Rom 15:4-7" type="ep" />
+      <reading enref="Luke 21:25-36" svref="Luk 21:25-36" type="go" />
+      <reading enref="Psa. 85:9-14" svref="Ps 85:9-14" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 35:1-10" svref="Jes 35:1-10" type="ot" />
+      <reading enref="James 5:7-11" svref="Jak 5:7-11" type="ep" />
+      <reading enref="Matt. 13:31-34" svref="Matt 13:31-34" type="go" />
+      <reading enref="Psa. 85:9-14" svref="Ps 85:9-14" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Jer. 33:14-16" svref="Jer 33:14-16" type="ot" />
+      <reading enref="Heb. 10:32-39" svref="Heb 10:32-39" type="ep" />
+      <reading enref="Mark. 1:14-15" svref="Mark 1:14-15" type="go" />
+      <reading enref="Psa. 85:9-14" svref="Ps 85:9-14" type="ps" />
+    </readings>
+  </day>
+  <day name="Tredje söndagen i advent" theme="Bana väg för Herren">
+    <readings cycle="1">
+      <reading enref="Is. 29:17-21" svref="Jes 29:17-21" type="ot" />
+      <reading enref="1Cor. 4:1-5" svref="1 Kor 4:1-5" type="ep" />
+      <reading enref="Matt. 11:2-11" svref="Matt 11:2-11" type="go" />
+      <reading enref="Psa. 146:3-9" svref="Ps 146:3-9" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Mal. 4:4-6" svref="Mal 4:4-6" type="ot" />
+      <reading enref="2Pet 1:19-21" svref="2 Petr 1:19-21" type="ep" />
+      <reading enref="Matt. 11:12-19" svref="Matt 11:12-19" type="go" />
+      <reading enref="Psa. 146:3-9" svref="Ps 146:3-9" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 40:1-8" svref="Jes 40:1-8" type="ot" />
+      <reading enref="Gal. 3:21-29" svref="Gal 3:21-29" type="ep" />
+      <reading enref="Luke 3:1-15" svref="Luk 3:1-15" type="go" />
+      <reading enref="Psa. 146:3-9" svref="Ps 146:3-9" type="ps" />
+    </readings>
+  </day>
+  <day name="Fjärde söndagen i advent" theme="Herrens moder">
+    <readings cycle="1">
+      <reading enref="Is. 40:9-11" svref="Jes 40:9-11" type="ot" />
+      <reading enref="Rom. 10:4-8" svref="Rom 10:4-8" type="ep" />
+      <reading enref="Luke 1:46-55" svref="Luk 1:46-55" type="go" />
+      <reading enref="Psa. 145:8-13" svref="Ps 145:8-13" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Zeph. 3:14-17" svref="Sef 3:14-17" type="ot" />
+      <reading enref="Phil. 4:4-7" svref="Fil 4:4-7" type="ep" />
+      <reading enref="Luke 1:30-35" svref="Luk 1:30-35" type="go" />
+      <reading enref="Psa. 145:8-13" svref="Ps 145:8-13" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 52:7-10" svref="Jes 52:7-10" type="ot" />
+      <reading enref="2Cor. 1:17-22" svref="2 Kor 1:17-22" type="ep" />
+      <reading enref="Luke 1:39-45" svref="Luk 1:39-45" type="go" />
+      <reading enref="Psa. 145:8-13" svref="Ps 145:8-13" type="ps" />
+    </readings>
+  </day>
+  <day name="Julnatten" theme="Den heliga natten">
+    <readings cycle="1">
+      <reading enref="Is. 9:2-7" svref="Jes 9:2-7" type="ot" />
+      <reading enref="Heb. 1:1-6" svref="Heb 1:1-6" type="ep" />
+      <reading enref="Luke 2:1-20" svref="Luk 2:1-20" type="go" />
+      <reading enref="Psa. 108:2-7" svref="Ps 108:2-7" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 9:2-7" svref="Jes 9:2-7" type="ot" />
+      <reading enref="Heb. 1:1-6" svref="Heb 1:1-6" type="ep" />
+      <reading enref="Luke 2:1-20" svref="Luk 2:1-20" type="go" />
+      <reading enref="Psa. 108:2-7" svref="Ps 108:2-7" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 9:2-7" svref="Jes 9:2-7" type="ot" />
+      <reading enref="Heb. 1:1-6" svref="Heb 1:1-6" type="ep" />
+      <reading enref="Luke 2:1-20" svref="Luk 2:1-20" type="go" />
+      <reading enref="Psa. 108:2-7" svref="Ps 108:2-7" type="ps" />
+    </readings>
+  </day>
+  <day name="Juldagen" theme="Jesu födelse">
+    <readings cycle="1">
+      <reading enref="Is. 9:2-7" svref="Jes 9:2-7" type="ot" />
+      <reading enref="1Tim. 3:16" svref="1 Tim 3:16" type="ep" />
+      <reading enref="Luke 2:1-20" svref="Luk 2:1-20" type="go" />
+      <reading enref="Psa. 72:1-7" svref="Ps 72:1-7" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 9:2-7" svref="Jes 9:2-7" type="ot" />
+      <reading enref="1John 1:1-4" svref="1 Joh 1:1-4" type="ep" />
+      <reading enref="Luke 2:1-20" svref="Luk 2:1-20" type="go" />
+      <reading enref="Psa. 72:1-7" svref="Ps 72:1-7" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 9:2-7" svref="Jes 9:2-7" type="ot" />
+      <reading enref="Heb. 1:1-3" svref="Heb 1:1-3" type="ep" />
+      <reading enref="Luke 2:1-20" svref="Luk 2:1-20" type="go" />
+      <reading enref="Psa. 72:1-7" svref="Ps 72:1-7" type="ps" />
+    </readings>
+  </day>
+  <day name="Annandag jul" theme="Martyrerna">
+    <readings cycle="1">
+      <reading enref="Jer. 1:17-19" svref="Jer 1:17-19" type="ot" />
+      <reading enref="Acts 6:8-15" svref="Apg 6:8-15" type="ep" />
+      <reading enref="Matt. 10:16-22" svref="Matt 10:16-22" type="go" />
+      <reading enref="Psa. 46:1-8" svref="Ps 46:1-8" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Jer. 20:7-11" svref="Jer 20:7-11" type="ot" />
+      <reading enref="Acts 7:55-8:8" svref="Apg 7:55-8:8" type="ep" />
+      <reading enref="Luke 12:49-53" svref="Luk 12:49-53" type="go" />
+      <reading enref="Psa. 46:1-8" svref="Ps 46:1-8" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Mic. 7:1-6" svref="Mika 7:1-6" type="ot" />
+      <reading enref="Acts 4:18-31" svref="Apg 4:18-31" type="ep" />
+      <reading enref="Matt. 10:32-39" svref="Matt 10:32-39" type="go" />
+      <reading enref="Psa. 46:1-8" svref="Ps 46:1-8" type="ps" />
+    </readings>
+  </day>
+  <day name="Söndagen efter jul" theme="Guds barn">
+    <readings cycle="1">
+      <reading enref="Jer. 31:15-17" svref="Jer 31:15-17" type="ot" />
+      <reading enref="Gal. 4:4-7" svref="Gal 4:4-7" type="ep" />
+      <reading enref="Matt. 2:13-23" svref="Matt 2:13-23" type="go" />
+      <reading enref="Psa. 71:2-6" svref="Ps 71:2-6" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 1:15-21" svref="2 Mos 1:15-21" type="ot" />
+      <reading enref="2Tim. 3:14-15" svref="2 Tim 3:14-15" type="ep" />
+      <reading enref="Mark. 10:13-16" svref="Mark 10:13-16" type="go" />
+      <reading enref="Psa. 71:2-6" svref="Ps 71:2-6" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 11:1-9" svref="Jes 11:1-9" type="ot" />
+      <reading enref="Acts 7:17-22" svref="Apg 7:17-22" type="ep" />
+      <reading enref="Matt. 18:1-5" svref="Matt 18:1-5" type="go" />
+      <reading enref="Psa. 71:2-6" svref="Ps 71:2-6" type="ps" />
+    </readings>
+  </day>
+  <day name="Nyårsdagen" theme="I Jesu namn">
+    <readings cycle="1">
+      <reading enref="Num. 6:22-27" svref="4 Mos 6:22-27" type="ot" />
+      <reading enref="Rom. 10:9-13" svref="Rom 10:9-13" type="ep" />
+      <reading enref="Luke 2:21" svref="Luk 2:21" type="go" />
+      <reading enref="Psa. 121" svref="Ps 121" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 49:13-16" svref="Jes 49:13-16" type="ot" />
+      <reading enref="Heb. 13:5-8" svref="Heb 13:5-8" type="ep" />
+      <reading enref="Luke 13:6-9" svref="Luk 13:6-9" type="go" />
+      <reading enref="Psa. 121" svref="Ps 121" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Lam. 3:22-26" svref="Klag 3:22-26" type="ot" />
+      <reading enref="Acts 10:42-43" svref="Apg 10:42-43" type="ep" />
+      <reading enref="Joh. 2:23-25" svref="Joh 2:23-25" type="go" />
+      <reading enref="Psa. 121" svref="Ps 121" type="ps" />
+    </readings>
+  </day>
+  <day name="Söndagen efter nyår" theme="Guds hus">
+    <readings cycle="1">
+      <reading enref="1Sam. 3:1-10" svref="1 Sam 3:1-10" type="ot" />
+      <reading enref="Heb. 3:1-6" svref="Heb 3:1-6" type="ep" />
+      <reading enref="Luke 2:42-52" svref="Luk 2:42-52" type="go" />
+      <reading enref="Psa. 84:2-5" svref="Ps 84:2-5" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 55:5-7" svref="Jes 55:5-7" type="ot" />
+      <reading enref="Rom. 12:1-2" svref="Rom 12:1-2" type="ep" />
+      <reading enref="Mark. 11:15-19" svref="Mark 11:15-19" type="go" />
+      <reading enref="Psa. 84:2-5" svref="Ps 84:2-5" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="1Kings 8:20,27-30" svref="1 Kung 8:20,27-30" type="ot" />
+      <reading enref="Phil. 2:1-4" svref="Fil 2:1-4" type="ep" />
+      <reading enref="Joh. 2:13-22" svref="Joh 2:13-22" type="go" />
+      <reading enref="Psa. 84:2-5" svref="Ps 84:2-5" type="ps" />
+    </readings>
+  </day>
+  <day name="Trettondedag jul" theme="Guds härlighet i Kristus">
+    <readings cycle="1">
+      <reading enref="Is. 60:1-6" svref="Jes 60:1-6" type="ot" />
+      <reading enref="Col. 1:11-14" svref="Kol 1:11-14" type="ep" />
+      <reading enref="Matt. 2:1-12" svref="Matt 2:1-12" type="go" />
+      <reading enref="Psa. 72:10-15" svref="Ps 72:10-15" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 49:5-7" svref="Jes 49:5-7" type="ot" />
+      <reading enref="2Cor. 4:3-6" svref="2 Kor 4:3-6" type="ep" />
+      <reading enref="Matt. 2:1-12" svref="Matt 2:1-12" type="go" />
+      <reading enref="Psa. 72:10-15" svref="Ps 72:10-15" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="1Kings 10:1-7" svref="1 Kung 10:1-7" type="ot" />
+      <reading enref="Eph. 2:17-19" svref="Ef 2:17-19" type="ep" />
+      <reading enref="Matt. 2:1-12" svref="Matt 2:1-12" type="go" />
+      <reading enref="Psa. 72:10-15" svref="Ps 72:10-15" type="ps" />
+    </readings>
+  </day>
+  <day name="Första söndagen efter trettondedagen" theme="Jesu dop">
+    <readings cycle="1">
+      <reading enref="Is. 42:1-7" svref="Jes 42:1-7" type="ot" />
+      <reading enref="Acts 18:24-19:6" svref="Apg 18:24-19:6" type="ep" />
+      <reading enref="Matt. 3:13-17" svref="Matt 3:13-17" type="go" />
+      <reading enref="Psa. 89:20-29" svref="Ps 89:20-29" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 1:22-2:10" svref="2 Mos 1:22-2:10" type="ot" />
+      <reading enref="1John 5:6-12" svref="1 Joh 5:6-12" type="ep" />
+      <reading enref="Luke 3:15-17, 21-22" svref="Luk 3:15-17, 21-22" type="go" />
+      <reading enref="Psa. 89:20-29" svref="Ps 89:20-29" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 43:1-4" svref="Jes 43:1-4" type="ot" />
+      <reading enref="Acts 8:14-17" svref="Apg 8:14-17" type="ep" />
+      <reading enref="Mark. 1:9-11" svref="Mark 1:9-11" type="go" />
+      <reading enref="Psa. 89:20-29" svref="Ps 89:20-29" type="ps" />
+    </readings>
+  </day>
+  <day name="Andra söndagen efter trettondedagen" theme="Livets källa">
+    <readings cycle="1">
+      <reading enref="Ex. 33:18-23" svref="2 Mos 33:18-23" type="ot" />
+      <reading enref="Eph. 1:7-14" svref="Ef 1:7-14" type="ep" />
+      <reading enref="Joh. 2:1-11" svref="Joh 2:1-11" type="go" />
+      <reading enref="Psa. 19:2-7" svref="Ps 19:2-7" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 55:1-4" svref="Jes 55:1-4" type="ot" />
+      <reading enref="Rev. 22:16-17" svref="Upp 22:16-17" type="ep" />
+      <reading enref="Joh. 4:5-26" svref="Joh 4:5-26" type="go" />
+      <reading enref="Psa. 19:2-7" svref="Ps 19:2-7" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Deut. 5:23-27" svref="5 Mos 5:23-27" type="ot" />
+      <reading enref="Heb. 2:9-10" svref="Heb 2:9-10" type="ep" />
+      <reading enref="Joh. 5:31-36" svref="Joh 5:31-36" type="go" />
+      <reading enref="Psa. 19:2-7" svref="Ps 19:2-7" type="ps" />
+    </readings>
+  </day>
+  <day name="Tredje söndagen efter trettondedagen" theme="Jesus skapar tro">
+    <readings cycle="1">
+      <reading enref="1Kings 8:41-43" svref="1 Kung 8:41-43" type="ot" />
+      <reading enref="Rom. 1:16-17" svref="Rom 1:16-17" type="ep" />
+      <reading enref="Matt. 8:5-13" svref="Matt 8:5-13" type="go" />
+      <reading enref="Psa. 36:6-10" svref="Ps 36:6-10" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 45:22-24" svref="Jes 45:22-24" type="ot" />
+      <reading enref="Gal. 2:16-21" svref="Gal 2:16-21" type="ep" />
+      <reading enref="Joh. 4:27-42" svref="Joh 4:27-42" type="go" />
+      <reading enref="Psa. 36:6-10" svref="Ps 36:6-10" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="2Kings 5:1-4,9-15" svref="2 Kung 5:1-4,9-15" type="ot" />
+      <reading enref="2Cor. 1:3-7" svref="2 Kor 1:3-7" type="ep" />
+      <reading enref="Joh. 4:46-54" svref="Joh 4:46-54" type="go" />
+      <reading enref="Psa. 36:6-10" svref="Ps 36:6-10" type="ps" />
+    </readings>
+  </day>
+  <day name="Fjärde söndagen efter trettondedagen" theme="Jesus är vårt hopp">
+    <readings cycle="1">
+      <reading enref="Job 38:1-11" svref="Job 38:1-11" type="ot" />
+      <reading enref="2Cor. 1:8-11" svref="2 Kor 1:8-11" type="ep" />
+      <reading enref="Mark. 4:35-41" svref="Mark 4:35-41" type="go" />
+      <reading enref="Psa. 107:28-32" svref="Ps 107:28-32" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 40:26-31" svref="Jes 40:26-31" type="ot" />
+      <reading enref="James 5:13-16" svref="Jak 5:13-16" type="ep" />
+      <reading enref="Joh. 5:1-9" svref="Joh 5:1-9" type="go" />
+      <reading enref="Psa. 107:28-32" svref="Ps 107:28-32" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="1Kings 17:1-6" svref="1 Kung 17:1-6" type="ot" />
+      <reading enref="2Tim. 1:7-10" svref="2 Tim 1:7-10" type="ep" />
+      <reading enref="Matt. 14:22-33" svref="Matt 14:22-33" type="go" />
+      <reading enref="Psa. 107:28-32" svref="Ps 107:28-32" type="ps" />
+    </readings>
+  </day>
+  <day name="Femte söndagen efter trettondedagen" theme="Sådd och skörd">
+    <readings cycle="1">
+      <reading enref="Ezek. 34:17-23" svref="Hes 34:17-23" type="ot" />
+      <reading enref="Col. 3:12-16" svref="Kol 3:12-16" type="ep" />
+      <reading enref="Matt. 13:2-30" svref="Matt 13:2-30" type="go" />
+      <reading enref="Psa. 37:1-7" svref="Ps 37:1-7" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Num. 11:24-30" svref="4 Mos 11:24-30" type="ot" />
+      <reading enref="Phil. 1:12-18" svref="Fil 1:12-18" type="ep" />
+      <reading enref="Mark. 9:38-41" svref="Mark 9:38-41" type="go" />
+      <reading enref="Psa. 37:1-7" svref="Ps 37:1-7" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Ezek. 33:10-16" svref="Hes 33:10-16" type="ot" />
+      <reading enref="Rom. 2:12-16" svref="Rom 2:12-16" type="ep" />
+      <reading enref="Luke 13:22-30" svref="Luk 13:22-30" type="go" />
+      <reading enref="Psa. 37:1-7" svref="Ps 37:1-7" type="ps" />
+    </readings>
+  </day>
+  <day name="Sjätte söndagen efter trettondedagen" theme="Gud verkar nu">
+    <readings cycle="1">
+      <reading enref="Is. 43:15-21" svref="Jes 43:15-21" type="ot" />
+      <reading enref="Phil. 2:12-13" svref="Fil 2:12-13" type="ep" />
+      <reading enref="Joh. 5:16-23" svref="Joh 5:16-23" type="go" />
+      <reading enref="Psa. 63:2-5" svref="Ps 63:2-5" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 43:15-21" svref="Jes 43:15-21" type="ot" />
+      <reading enref="Phil. 2:12-13" svref="Fil 2:12-13" type="ep" />
+      <reading enref="Joh. 5:16-23" svref="Joh 5:16-23" type="go" />
+      <reading enref="Psa. 63:2-5" svref="Ps 63:2-5" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 43:15-21" svref="Jes 43:15-21" type="ot" />
+      <reading enref="Phil. 2:12-13" svref="Fil 2:12-13" type="ep" />
+      <reading enref="Joh. 5:16-23" svref="Joh 5:16-23" type="go" />
+      <reading enref="Psa. 63:2-5" svref="Ps 63:2-5" type="ps" />
+    </readings>
+  </day>
+  <day name="Kyndelsmässodagen" theme="Uppenbarelsens ljus">
+    <readings cycle="1">
+      <reading enref="1Sam. 1:21-28" svref="1 Sam 1:21-28" type="ot" />
+      <reading enref="1John 1:5-7" svref="1 Joh 1:5-7" type="ep" />
+      <reading enref="Luke 2:22-40" svref="Luk 2:22-40" type="go" />
+      <reading enref="Psa. 138" svref="Ps 138" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Mal. 3:1-4" svref="Mal 3:1-4" type="ot" />
+      <reading enref="1Tim. 6:13-16" svref="1 Tim 6:13-16" type="ep" />
+      <reading enref="Luke 2:22-40" svref="Luk 2:22-40" type="go" />
+      <reading enref="Psa. 138" svref="Ps 138" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Mic. 7:7-8" svref="Mika 7:7-8" type="ot" />
+      <reading enref="Acts 2:42-46" svref="Apg 2:42-46" type="ep" />
+      <reading enref="Luke 2:22-40" svref="Luk 2:22-40" type="go" />
+      <reading enref="Psa. 138" svref="Ps 138" type="ps" />
+    </readings>
+  </day>
+  <day name="Septuagesima" theme="Nåd och tjänst">
+    <readings cycle="1">
+      <reading enref="Jer. 9:23-24" svref="Jer 9:23-24" type="ot" />
+      <reading enref="1Cor. 1:1-3" svref="1 Kor 1:1-3" type="ep" />
+      <reading enref="Matt. 20:1-16" svref="Matt 20:1-16" type="go" />
+      <reading enref="Psa. 25:4-11" svref="Ps 25:4-11" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Jonah 3:10-4:11" svref="Jona 3:10-4:11" type="ot" />
+      <reading enref="Phil. 1:3-11" svref="Fil 1:3-11" type="ep" />
+      <reading enref="Luke 17:7-10" svref="Luk 17:7-10" type="go" />
+      <reading enref="Psa. 25:4-11" svref="Ps 25:4-11" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Wis. 11:22-26" svref="Vis 11:22-26" type="ot" />
+      <reading enref="Phil. 3:7-14" svref="Fil 3:7-14" type="ep" />
+      <reading enref="Matt. 19:27-30" svref="Matt 19:27-30" type="go" />
+      <reading enref="Psa. 25:4-11" svref="Ps 25:4-11" type="ps" />
+    </readings>
+  </day>
+  <day name="Sexagesima" theme="Det levande ordet">
+    <readings cycle="1">
+      <reading enref="Is. 55:8-11" svref="Jes 55:8-11" type="ot" />
+      <reading enref="1Cor. 1:18-25" svref="1 Kor 1:18-25" type="ep" />
+      <reading enref="Luke 8:4-15" svref="Luk 8:4-15" type="go" />
+      <reading enref="Psa. 33:4-9" svref="Ps 33:4-9" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Psa. 119:129-135" svref="Ps 119:129-135" type="ot" />
+      <reading enref="Rom. 10:13-17" svref="Rom 10:13-17" type="ep" />
+      <reading enref="Joh. 7:40-52" svref="Joh 7:40-52" type="go" />
+      <reading enref="Psa. 33:4-9" svref="Ps 33:4-9" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Jer. 23:23–29" svref="Jer 23:23–29" type="ot" />
+      <reading enref="Heb. 4:12–13 " svref="Heb 4:12–13 " type="ep" />
+      <reading enref="Joh. 6:60–69" svref="Joh 6:60–69" type="go" />
+      <reading enref="Psa. 33:4-9" svref="Ps 33:4-9" type="ps" />
+    </readings>
+  </day>
+  <day name="Fastlagssöndagen" theme="Kärlekens väg">
+    <readings cycle="1">
+      <reading enref="Is. 52:13-15" svref="Jes 52:13-15" type="ot" />
+      <reading enref="1Cor. 13:1-13" svref="1 Kor 13:1-13" type="ep" />
+      <reading enref="Luke 18:31-43" svref="Luk 18:31-43" type="go" />
+      <reading enref="Psa. 86:5-11" svref="Ps 86:5-11" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Esth. 4:12-17" svref="Est 4:12-17" type="ot" />
+      <reading enref="1Tim. 2:4-6" svref="1 Tim 2:4-6" type="ep" />
+      <reading enref="Joh. 12:20-33" svref="Joh 12:20-33" type="go" />
+      <reading enref="Psa. 86:5-11" svref="Ps 86:5-11" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Song 8:6-7" svref="Hv 8:6-7" type="ot" />
+      <reading enref="2Cor. 5:14-21" svref="2 Kor 5:14-21" type="ep" />
+      <reading enref="Mark. 10:32-45" svref="Mark 10:32-45" type="go" />
+      <reading enref="Psa. 86:5-11" svref="Ps 86:5-11" type="ps" />
+    </readings>
+  </day>
+  <day name="Askonsdagen" theme="Bön och fasta">
+    <readings cycle="1">
+      <reading enref="Is. 58:4-9" svref="Jes 58:4-9" type="ot" />
+      <reading enref="James 2:14-17" svref="Jak 2:14-17" type="ep" />
+      <reading enref="Matt. 6:16-18" svref="Matt 6:16-18" type="go" />
+      <reading enref="Psa. 32:1-5" svref="Ps 32:1-5" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Joel 2:12-19" svref="Joel 2:12-19" type="ot" />
+      <reading enref="Acts 13:1-3" svref="Apg 13:1-3" type="ep" />
+      <reading enref="Mark. 2:18-20" svref="Mark 2:18-20" type="go" />
+      <reading enref="Psa. 32:1-5" svref="Ps 32:1-5" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Man. 11-15" svref="Man 11-15" type="ot" />
+      <reading enref="2Cor. 7:8-13" svref="2 Kor 7:8-13" type="ep" />
+      <reading enref="Luke 5:33-39" svref="Luk 5:33-39" type="go" />
+      <reading enref="Psa. 32:1-5" svref="Ps 32:1-5" type="ps" />
+    </readings>
+  </day>
+  <day name="Första söndagen i fastan" theme="Prövningens stund">
+    <readings cycle="1">
+      <reading enref="Gen. 16:1-13" svref="1 Mos 16:1-13" type="ot" />
+      <reading enref="Heb. 4:14-16" svref="Heb 4:14-16" type="ep" />
+      <reading enref="Matt. 4:1-11" svref="Matt 4:1-11" type="go" />
+      <reading enref="Psa. 31:2-6" svref="Ps 31:2-6" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Gen. 4:3-7" svref="1 Mos 4:3-7" type="ot" />
+      <reading enref="James 1:12-15" svref="Jak 1:12-15" type="ep" />
+      <reading enref="Matt. 16:21-23" svref="Matt 16:21-23" type="go" />
+      <reading enref="Psa. 31:2-6" svref="Ps 31:2-6" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Gen. 3:1-13" svref="1 Mos 3:1-13" type="ot" />
+      <reading enref="Heb. 5:7-10" svref="Heb 5:7-10" type="ep" />
+      <reading enref="Mark. 1:12-13" svref="Mark 1:12-13" type="go" />
+      <reading enref="Psa. 31:2-6" svref="Ps 31:2-6" type="ps" />
+    </readings>
+  </day>
+  <day name="Andra söndagen i fastan" theme="Den kämpande tron">
+    <readings cycle="1">
+      <reading enref="Gen. 32:22-31" svref="1 Mos 32:22-31" type="ot" />
+      <reading enref="2Cor. 6:1-10" svref="2 Kor 6:1-10" type="ep" />
+      <reading enref="Matt. 15:21-28" svref="Matt 15:21-28" type="go" />
+      <reading enref="Psa. 130" svref="Ps 130" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="1Kings 19:1-8" svref="1 Kung 19:1-8" type="ot" />
+      <reading enref="1Cor. 10:12-13" svref="1 Kor 10:12-13" type="ep" />
+      <reading enref="Luke 7:36-8:3" svref="Luk 7:36-8:3" type="go" />
+      <reading enref="Psa. 130" svref="Ps 130" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 61:1-3" svref="Jes 61:1-3" type="ot" />
+      <reading enref="Heb. 11:23-27" svref="Heb 11:23-27" type="ep" />
+      <reading enref="Mark. 14:3-9" svref="Mark 14:3-9" type="go" />
+      <reading enref="Psa. 130" svref="Ps 130" type="ps" />
+    </readings>
+  </day>
+  <day name="Tredje söndagen i fastan" theme="Kampen mot ondskan">
+    <readings cycle="1">
+      <reading enref="1Sam. 17:40-50" svref="1 Sam 17:40-50" type="ot" />
+      <reading enref="Eph. 5:1-9" svref="Ef 5:1-9" type="ep" />
+      <reading enref="Luke 11:14-26" svref="Luk 11:14-26" type="go" />
+      <reading enref="Psa. 25:12-22" svref="Ps 25:12-22" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 59:14-17" svref="Jes 59:14-17" type="ot" />
+      <reading enref="Eph. 6:10-18" svref="Ef 6:10-18" type="ep" />
+      <reading enref="Mark. 5:24-34" svref="Mark 5:24-34" type="go" />
+      <reading enref="Psa. 25:12-22" svref="Ps 25:12-22" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="1Kings 18:26-29, 36-39" svref="1 Kung 18:26-29, 36-39" type="ot" />
+      <reading enref="Rev. 3:14-19" svref="Upp 3:14-19" type="ep" />
+      <reading enref="Mark. 9:14-32" svref="Mark 9:14-32" type="go" />
+      <reading enref="Psa. 25:12-22" svref="Ps 25:12-22" type="ps" />
+    </readings>
+  </day>
+  <day name="Midfastosöndagen" theme="Livets bröd">
+    <readings cycle="1">
+      <reading enref="2Kings 4:42-44" svref="2 Kung 4:42-44" type="ot" />
+      <reading enref="2Cor. 9:8-10" svref="2 Kor 9:8-10" type="ep" />
+      <reading enref="Joh. 6:1-15" svref="Joh 6:1-15" type="go" />
+      <reading enref="Psa. 107:1-9" svref="Ps 107:1-9" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 16:11-18" svref="2 Mos 16:11-18" type="ot" />
+      <reading enref="1Pet. 2:1-3" svref="1 Petr 2:1-3" type="ep" />
+      <reading enref="Joh. 6:24-35" svref="Joh 6:24-35" type="go" />
+      <reading enref="Psa. 107:1-9" svref="Ps 107:1-9" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Prov. 9:1-6" svref="Ords 9:1-6" type="ot" />
+      <reading enref="1Cor. 10:1-6" svref="1 Kor 10:1-6" type="ep" />
+      <reading enref="Joh. 6:48-59" svref="Joh 6:48-59" type="go" />
+      <reading enref="Psa. 107:1-9" svref="Ps 107:1-9" type="ps" />
+    </readings>
+  </day>
+  <day name="Jungfru Marie bebådelsedag" theme="Guds mäktiga verk">
+    <readings cycle="1">
+      <reading enref="Is. 7:10-14" svref="Jes 7:10-14" type="ot" />
+      <reading enref="Rom. 4:18-21" svref="Rom 4:18-21" type="ep" />
+      <reading enref="Luke 1:26-38" svref="Luk 1:26-38" type="go" />
+      <reading enref="Psa. 147:7-15" svref="Ps 147:7-15" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Mic. 5:2-4" svref="Mika 5:2-4" type="ot" />
+      <reading enref="Rom. 4:18-21" svref="Rom 4:18-21" type="ep" />
+      <reading enref="Luke 1:26-38" svref="Luk 1:26-38" type="go" />
+      <reading enref="Psa. 147:7-15" svref="Ps 147:7-15" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="1Sam. 2:1-10" svref="1 Sam 2:1-10" type="ot" />
+      <reading enref="Col. 1:15-20" svref="Kol 1:15-20" type="ep" />
+      <reading enref="Luke 1:26-38" svref="Luk 1:26-38" type="go" />
+      <reading enref="Psa. 147:7-15" svref="Ps 147:7-15" type="ps" />
+    </readings>
+  </day>
+  <day name="Femte söndagen i fastan" theme="Försonaren">
+    <readings cycle="1">
+      <reading enref="Lev. 16:15-16" svref="3 Mos 16:15-16" type="ot" />
+      <reading enref="Heb. 7:24-27" svref="Heb 7:24-27" type="ep" />
+      <reading enref="Joh. 11:46-57" svref="Joh 11:46-57" type="go" />
+      <reading enref="Psa. 147:7-15" svref="Ps 147:7-15" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Gen. 22:1-14" svref="1 Mos 22:1-14" type="ot" />
+      <reading enref="Acts 4:1-12" svref="Apg 4:1-12" type="ep" />
+      <reading enref="Mark. 12:1-12" svref="Mark 12:1-12" type="go" />
+      <reading enref="Psa. 103:8-14" svref="Ps 103:8-14" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Num. 21:4–9" svref="4 Mos 21:4–9" type="ot" />
+      <reading enref="1John 1:8–2:2 " svref="1 Joh 1:8–2:2 " type="ep" />
+      <reading enref="Joh. 3:11–21" svref="Joh 3:11–21" type="go" />
+      <reading enref="Psa. 103:8-14" svref="Ps 103:8-14" type="ps" />
+    </readings>
+  </day>
+  <day name="Palmsöndagen" theme="Vägen till korset">
+    <readings cycle="1">
+      <reading enref="Is. 56:6-8" svref="Jes 56:6-8" type="ot" />
+      <reading enref="Eph. 2:12-16" svref="Ef 2:12-16" type="ep" />
+      <reading enref="Matt. 21:1-11" svref="Matt 21:1-11" type="go" />
+      <reading enref="Psa. 118:19-29" svref="Ps 118:19-29" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 13:6–10" svref="2 Mos 13:6–10" type="ot" />
+      <reading enref="Heb. 2:14–18 " svref="Heb 2:14–18 " type="ep" />
+      <reading enref="Mark. 11:1–11 " svref="Mark 11:1–11 " type="go" />
+      <reading enref="Psa. 118:19-29" svref="Ps 118:19-29" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 50:5–10 " svref="Jes 50:5–10 " type="ot" />
+      <reading enref="Rom. 5:1–5" svref="Rom 5:1–5" type="ep" />
+      <reading enref="Luke 19:28–40" svref="Luk 19:28–40" type="go" />
+      <reading enref="Psa. 118:19-29" svref="Ps 118:19-29" type="ps" />
+    </readings>
+    <readings cycle="4">
+      <reading enref="Zech. 2:10−13" svref="Sak 2:10−13" type="ot" />
+      <reading enref="Phil. 2:5−11" svref="Fil 2:5−11" type="ep" />
+      <reading enref="Joh. 12:1−16" svref="Joh 12:1−16" type="go" />
+      <reading enref="Psa. 118:19-29" svref="Ps 118:19-29" type="ps" />
+    </readings>
+  </day>
+  <day name="Skärtorsdagen" theme="Det nya förbundet">
+    <readings cycle="1">
+      <reading enref="Ex. 12:1-14" svref="2 Mos 12:1-14" type="ot" />
+      <reading enref="1Cor. 11:20-25" svref="1 Kor 11:20-25" type="ep" />
+      <reading enref="Matt. 26:17-30" svref="Matt 26:17-30" type="go" />
+      <reading enref="Psa. 111:1-5" svref="Ps 111:1-5" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 24:3−11" svref="2 Mos 24:3−11" type="ot" />
+      <reading enref="1Cor. 10:16−17" svref="1 Kor 10:16−17" type="ep" />
+      <reading enref="Mark. 14:12−26" svref="Mark 14:12−26" type="go" />
+      <reading enref="Psa. 111:1-5" svref="Ps 111:1-5" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Ex. 12:15-20" svref="2 Mos 12:15-20" type="ot" />
+      <reading enref="1Cor. 5:6-8" svref="1 Kor 5:6-8" type="ep" />
+      <reading enref="Luke 22:7-23" svref="Luk 22:7-23" type="go" />
+      <reading enref="Psa. 111:1-5" svref="Ps 111:1-5" type="ps" />
+    </readings>
+    <readings cycle="4">
+      <reading enref="Jer. 31:31−34" svref="Jer 31:31−34" type="ot" />
+      <reading enref="Heb. 10:12−18" svref="Heb 10:12−18" type="ep" />
+      <reading enref="Joh. 13:1−17" svref="Joh 13:1−17" type="go" />
+      <reading enref="Psa. 111:1-5" svref="Ps 111:1-5" type="ps" />
+    </readings>
+  </day>
+  <day name="Långfredagen" theme="Korset">
+    <readings cycle="1">
+      <reading enref="Is. 53:1-12" svref="Jes 53:1-12" type="ot" />
+      <reading enref="1Pet. 3:18-19" svref="1 Petr 3:18-19" type="ep" />
+      <reading enref="Matt. 27:32-56" svref="Matt 27:32-56" type="go" />
+      <reading enref="Psa. 22" svref="Ps 22" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 53:1-12" svref="Jes 53:1-12" type="ot" />
+      <reading enref="1Cor. 2:1−10" svref="1 Kor 2:1−10" type="ep" />
+      <reading enref="Mark. 15:21−41" svref="Mark 15:21−41" type="go" />
+      <reading enref="Psa. 22" svref="Ps 22" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 53:1-12" svref="Jes 53:1-12" type="ot" />
+      <reading enref="Phil. 2:6-8" svref="Fil 2:6-8" type="ep" />
+      <reading enref="Luke 23:26-49" svref="Luk 23:26-49" type="go" />
+      <reading enref="Psa. 22" svref="Ps 22" type="ps" />
+    </readings>
+    <readings cycle="4">
+      <reading enref="Is. 53:1-12" svref="Jes 53:1-12" type="ot" />
+      <reading enref="Heb. 10:19−25" svref="Heb 10:19−25" type="ep" />
+      <reading enref="Joh. 19:17−37" svref="Joh 19:17−37" type="go" />
+      <reading enref="Psa. 22" svref="Ps 22" type="ps" />
+    </readings>
+  </day>
+  <day name="Påsknatten" theme="Genom död till liv">
+    <readings cycle="1">
+      <reading enref="Ex. 14:10-16, 21-22" svref="2 Mos 14:10-16, 21-22" type="ot" />
+      <reading enref="Rom. 6:3-11" svref="Rom 6:3-11" type="ep" />
+      <reading enref="Matt. 28:1-8" svref="Matt 28:1-8" type="go" />
+      <reading enref="Psa. 114" svref="Ps 114" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Dan. 3:19−25 " svref="Dan 3:19−25 " type="ot" />
+      <reading enref="2Tim. 2:8−13" svref="2 Tim 2:8−13" type="ep" />
+      <reading enref="Mark. 16:1−8 " svref="Mark 16:1−8 " type="go" />
+      <reading enref="Psa. 114" svref="Ps 114" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Ex. 12:21-28" svref="2 Mos 12:21-28" type="ot" />
+      <reading enref="Col. 2:6-15" svref="Kol 2:6-15" type="ep" />
+      <reading enref="Luke 23:55-24:12" svref="Luk 23:55-24:12" type="go" />
+      <reading enref="Psa. 114" svref="Ps 114" type="ps" />
+    </readings>
+    <readings cycle="4">
+      <reading enref="Job 19:25−27 " svref="Job 19:25−27 " type="ot" />
+      <reading enref="Eph. 2:1−6" svref="Ef 2:1−6" type="ep" />
+      <reading enref="Joh. 20:1−10" svref="Joh 20:1−10" type="go" />
+      <reading enref="Psa. 114" svref="Ps 114" type="ps" />
+    </readings>
+  </day>
+  <day name="Påskdagen" theme="Kristus är uppstånden">
+    <readings cycle="1">
+      <reading enref="Is. 25:6-9" svref="Jes 25:6-9" type="ot" />
+      <reading enref="1Cor. 15:53-57" svref="1 Kor 15:53-57" type="ep" />
+      <reading enref="Matt. 28:1-20" svref="Matt 28:1-20" type="go" />
+      <reading enref="Psa. 118:15-24" svref="Ps 118:15-24" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 15:1-11" svref="2 Mos 15:1-11" type="ot" />
+      <reading enref="1Cor. 15:12-21" svref="1 Kor 15:12-21" type="ep" />
+      <reading enref="Mark. 16:1-14" svref="Mark 16:1-14" type="go" />
+      <reading enref="Psa. 118:15-24" svref="Ps 118:15-24" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Hos. 6:1-3" svref="Hos 6:1-3" type="ot" />
+      <reading enref="Acts 3:14-16" svref="Apg 3:14-16" type="ep" />
+      <reading enref="Luke 24:1-12" svref="Luk 24:1-12" type="go" />
+      <reading enref="Psa. 118:15-24" svref="Ps 118:15-24" type="ps" />
+    </readings>
+    <readings cycle="4">
+      <reading enref="Jonah 2:1−11" svref="Jona 2:1−11" type="ot" />
+      <reading enref="Acts 13:32−37" svref="Apg 13:32−37" type="ep" />
+      <reading enref="Joh. 20:1−18" svref="Joh 20:1−18" type="go" />
+      <reading enref="Psa. 118:15-24" svref="Ps 118:15-24" type="ps" />
+    </readings>
+  </day>
+  <day name="Annandag påsk" theme="Möte med den uppståndne">
+    <readings cycle="1">
+      <reading enref="Ezek. 37:1-10" svref="Hes 37:1-10" type="ot" />
+      <reading enref="Acts 10:34-43" svref="Apg 10:34-43" type="ep" />
+      <reading enref="Luke 24:13-35" svref="Luk 24:13-35" type="go" />
+      <reading enref="Psa. 16:6-11" svref="Ps 16:6-11" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Deut. 18:15-18" svref="5 Mos 18:15-18" type="ot" />
+      <reading enref="Col. 3:1-4" svref="Kol 3:1-4" type="ep" />
+      <reading enref="Luke 24:36-49" svref="Luk 24:36-49" type="go" />
+      <reading enref="Psa. 16:6-11" svref="Ps 16:6-11" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Jer. 31:9-13" svref="Jer 31:9-13" type="ot" />
+      <reading enref="1Pet. 1:18-23" svref="1 Petr 1:18-23" type="ep" />
+      <reading enref="Joh. 20:19-23" svref="Joh 20:19-23" type="go" />
+      <reading enref="Psa. 16:6-11" svref="Ps 16:6-11" type="ps" />
+    </readings>
+  </day>
+  <day name="Andra söndagen i påsktiden" theme="Påskens vittnen">
+    <readings cycle="1">
+      <reading enref="Is. 43:10-13" svref="Jes 43:10-13" type="ot" />
+      <reading enref="1Cor. 15:1-11" svref="1 Kor 15:1-11" type="ep" />
+      <reading enref="Joh. 21:1-14" svref="Joh 21:1-14" type="go" />
+      <reading enref="Psa. 145:1-7" svref="Ps 145:1-7" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Jer. 18:1-6" svref="Jer 18:1-6" type="ot" />
+      <reading enref="1John 5:1-5" svref="1 Joh 5:1-5" type="ep" />
+      <reading enref="Joh. 21:15-19" svref="Joh 21:15-19" type="go" />
+      <reading enref="Psa. 145:1-7" svref="Ps 145:1-7" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Zech. 8:6-8" svref="Sak 8:6-8" type="ot" />
+      <reading enref="1Pet. 1:3-9" svref="1 Petr 1:3-9" type="ep" />
+      <reading enref="Joh. 20:24-31" svref="Joh 20:24-31" type="go" />
+      <reading enref="Psa. 145:1-7" svref="Ps 145:1-7" type="ps" />
+    </readings>
+  </day>
+  <day name="Tredje söndagen i påsktiden" theme="Den gode herden">
+    <readings cycle="1">
+      <reading enref="Ezek. 34:11-16" svref="Hes 34:11-16" type="ot" />
+      <reading enref="1Pet. 2:22-25" svref="1 Petr 2:22-25" type="ep" />
+      <reading enref="Joh. 10:1-10" svref="Joh 10:1-10" type="go" />
+      <reading enref="Psa. 23" svref="Ps 23" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ezek. 34:23-31" svref="Hes 34:23-31" type="ot" />
+      <reading enref="Heb. 13:20-21" svref="Heb 13:20-21" type="ep" />
+      <reading enref="Joh. 10:11-16" svref="Joh 10:11-16" type="go" />
+      <reading enref="Psa. 23" svref="Ps 23" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Jer. 23:3-8" svref="Jer 23:3-8" type="ot" />
+      <reading enref="1Pet. 5:1-4" svref="1 Petr 5:1-4" type="ep" />
+      <reading enref="Joh. 10:22-30" svref="Joh 10:22-30" type="go" />
+      <reading enref="Psa. 23" svref="Ps 23" type="ps" />
+    </readings>
+  </day>
+  <day name="Fjärde söndagen i påsktiden" theme="Vägen till livet">
+    <readings cycle="1">
+      <reading enref="Is. 54:7-10" svref="Jes 54:7-10" type="ot" />
+      <reading enref="Heb. 13:12-16" svref="Heb 13:12-16" type="ep" />
+      <reading enref="Joh. 16:16-22" svref="Joh 16:16-22" type="go" />
+      <reading enref="Psa. 147:1-7" svref="Ps 147:1-7" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Sir. 28:3-7" svref="Syr 28:3-7" type="ot" />
+      <reading enref="2Cor. 4:16-18" svref="2 Kor 4:16-18" type="ep" />
+      <reading enref="Joh. 14:1-14" svref="Joh 14:1-14" type="go" />
+      <reading enref="Psa. 147:1-7" svref="Ps 147:1-7" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Ex. 13:20-22" svref="2 Mos 13:20-22" type="ot" />
+      <reading enref="1Th. 5:9-11" svref="1 Thess 5:9-11" type="ep" />
+      <reading enref="Joh. 13:31-35" svref="Joh 13:31-35" type="go" />
+      <reading enref="Psa. 147:1-7" svref="Ps 147:1-7" type="ps" />
+    </readings>
+  </day>
+  <day name="Femte söndagen i påsktiden" theme="Att växa i tro">
+    <readings cycle="1">
+      <reading enref="Hos. 11:1-4" svref="Hos 11:1-4" type="ot" />
+      <reading enref="1John 4:10-16" svref="1 Joh 4:10-16" type="ep" />
+      <reading enref="Joh. 16:5-11" svref="Joh 16:5-11" type="go" />
+      <reading enref="Psa. 98:1-8" svref="Ps 98:1-8" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Hos. 14:5-9" svref="Hos 14:5-9" type="ot" />
+      <reading enref="1John 3:18-24" svref="1 Joh 3:18-24" type="ep" />
+      <reading enref="Joh. 15:10-17" svref="Joh 15:10-17" type="go" />
+      <reading enref="Psa. 98:1-8" svref="Ps 98:1-8" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 57:15-16" svref="Jes 57:15-16" type="ot" />
+      <reading enref="Gal. 5:13-18" svref="Gal 5:13-18" type="ep" />
+      <reading enref="Joh. 17:9-17" svref="Joh 17:9-17" type="go" />
+      <reading enref="Psa. 98:1-8" svref="Ps 98:1-8" type="ps" />
+    </readings>
+  </day>
+  <day name="Bönsöndagen" theme="Bönen">
+    <readings cycle="1">
+      <reading enref="Gen. 18:26-32" svref="1 Mos 18:26-32" type="ot" />
+      <reading enref="Eph. 3:14-21" svref="Ef 3:14-21" type="ep" />
+      <reading enref="Luke 18:1-8" svref="Luk 18:1-8" type="go" />
+      <reading enref="Psa. 13" svref="Ps 13" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Jer. 29:11-14" svref="Jer 29:11-14" type="ot" />
+      <reading enref="1John 5:13-15" svref="1 Joh 5:13-15" type="ep" />
+      <reading enref="Luke 11:1-13" svref="Luk 11:1-13" type="go" />
+      <reading enref="Psa. 13" svref="Ps 13" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="1Kings 3:5-14" svref="1 Kung 3:5-14" type="ot" />
+      <reading enref="Rom. 8:24-27" svref="Rom 8:24-27" type="ep" />
+      <reading enref="Matt. 6:5-8" svref="Matt 6:5-8" type="go" />
+      <reading enref="Psa. 13" svref="Ps 13" type="ps" />
+    </readings>
+  </day>
+  <day name="Kristi himmelsfärds dag" theme="Herre över allting">
+    <readings cycle="1">
+      <reading enref="2Kings 2:11-14" svref="2 Kung 2:11-14" type="ot" />
+      <reading enref="Acts 1:1-11" svref="Apg 1:1-11" type="ep" />
+      <reading enref="Mark. 16:19-20" svref="Mark 16:19-20" type="go" />
+      <reading enref="Psa. 110" svref="Ps 110" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 61:10-11" svref="Jes 61:10-11" type="ot" />
+      <reading enref="Acts 1:1-11" svref="Apg 1:1-11" type="ep" />
+      <reading enref="Luke 24:49-53" svref="Luk 24:49-53" type="go" />
+      <reading enref="Psa. 110" svref="Ps 110" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Dan. 7:13-14" svref="Dan 7:13-14" type="ot" />
+      <reading enref="Acts 1:1-11" svref="Apg 1:1-11" type="ep" />
+      <reading enref="Joh. 17:1-8" svref="Joh 17:1-8" type="go" />
+      <reading enref="Psa. 110" svref="Ps 110" type="ps" />
+    </readings>
+  </day>
+  <day name="Söndagen före pingst" theme="Hjälparen kommer">
+    <readings cycle="1">
+      <reading enref="Zech. 14:6-9" svref="Sak 14:6-9" type="ot" />
+      <reading enref="Rom. 8:16-18" svref="Rom 8:16-18" type="ep" />
+      <reading enref="Joh. 15:26-16:4" svref="Joh 15:26-16:4" type="go" />
+      <reading enref="Psa. 33:18-22" svref="Ps 33:18-22" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Deut. 31:6-8" svref="5 Mos 31:6-8" type="ot" />
+      <reading enref="Rom. 8:31-39" svref="Rom 8:31-39" type="ep" />
+      <reading enref="Joh. 16:23-33" svref="Joh 16:23-33" type="go" />
+      <reading enref="Psa. 33:18-22" svref="Ps 33:18-22" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="1Kings 19:9-16" svref="1 Kung 19:9-16" type="ot" />
+      <reading enref="Acts 1:12-14" svref="Apg 1:12-14" type="ep" />
+      <reading enref="Joh. 16:12-15" svref="Joh 16:12-15" type="go" />
+      <reading enref="Psa. 33:18-22" svref="Ps 33:18-22" type="ps" />
+    </readings>
+  </day>
+  <day name="Pingstdagen" theme="Den heliga Anden">
+    <readings cycle="1">
+      <reading enref="Gen. 11:1-9" svref="1 Mos 11:1-9" type="ot" />
+      <reading enref="Acts 2:1-11" svref="Apg 2:1-11" type="ep" />
+      <reading enref="Joh. 14:25-29" svref="Joh 14:25-29" type="go" />
+      <reading enref="Psa. 104:27-31" svref="Ps 104:27-31" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Joel 2:28-29" svref="Joel 2:28-29" type="ot" />
+      <reading enref="Acts 2:1-11" svref="Apg 2:1-11" type="ep" />
+      <reading enref="Joh. 14:15-21" svref="Joh 14:15-21" type="go" />
+      <reading enref="Psa. 104:27-31" svref="Ps 104:27-31" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 12" svref="Jes 12" type="ot" />
+      <reading enref="Acts 2:1-11" svref="Apg 2:1-11" type="ep" />
+      <reading enref="Joh. 7:37-39" svref="Joh 7:37-39" type="go" />
+      <reading enref="Psa. 104:27-31" svref="Ps 104:27-31" type="ps" />
+    </readings>
+  </day>
+  <day name="Annandag pingst" theme="Andens vind över världen">
+    <readings cycle="1">
+      <reading enref="Ex. 17:1-7" svref="2 Mos 17:1-7" type="ot" />
+      <reading enref="Acts 10:42-48" svref="Apg 10:42-48" type="ep" />
+      <reading enref="Joh. 6:44-47" svref="Joh 6:44-47" type="go" />
+      <reading enref="Psa. 68:10-14, 20-21" svref="Ps 68:10-14, 20-21" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ezek. 11:17-20" svref="Hes 11:17-20" type="ot" />
+      <reading enref="Acts 11:19-26" svref="Apg 11:19-26" type="ep" />
+      <reading enref="Joh. 3:31-36" svref="Joh 3:31-36" type="go" />
+      <reading enref="Psa. 68:10-14, 20-21" svref="Ps 68:10-14, 20-21" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 44:1-8" svref="Jes 44:1-8" type="ot" />
+      <reading enref="Acts 2:36-41" svref="Apg 2:36-41" type="ep" />
+      <reading enref="Joh. 12:44-50" svref="Joh 12:44-50" type="go" />
+      <reading enref="Psa. 68:10-14, 20-21" svref="Ps 68:10-14, 20-21" type="ps" />
+    </readings>
+  </day>
+  <day name="Heliga trefaldighets dag" theme="Gud – Fader, Son och Ande">
+    <readings cycle="1">
+      <reading enref="Deut. 6:4-9" svref="5 Mos 6:4-9" type="ot" />
+      <reading enref="Acts 2:24-35" svref="Apg 2:24-35" type="ep" />
+      <reading enref="Matt. 11:25-27" svref="Matt 11:25-27" type="go" />
+      <reading enref="Psa. 113:1-6" svref="Ps 113:1-6" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 3:1-15" svref="2 Mos 3:1-15" type="ot" />
+      <reading enref="Rom. 11:33-36" svref="Rom 11:33-36" type="ep" />
+      <reading enref="Matt. 28:16-20" svref="Matt 28:16-20" type="go" />
+      <reading enref="Psa. 113:1-6" svref="Ps 113:1-6" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Gen. 18:1-8" svref="1 Mos 18:1-8" type="ot" />
+      <reading enref="Acts 4:5-12" svref="Apg 4:5-12" type="ep" />
+      <reading enref="Joh. 11:18-27" svref="Joh 11:18-27" type="go" />
+      <reading enref="Psa. 113:1-6" svref="Ps 113:1-6" type="ps" />
+    </readings>
+  </day>
+  <day name="Första söndagen efter trefaldighet" theme="Vårt dop">
+    <readings cycle="1">
+      <reading enref="Ezek. 36:25-28" svref="Hes 36:25-28" type="ot" />
+      <reading enref="Rom. 6:3-11" svref="Rom 6:3-11" type="ep" />
+      <reading enref="Joh. 3:1-8" svref="Joh 3:1-8" type="go" />
+      <reading enref="Psa. 66:5-12" svref="Ps 66:5-12" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 14:21-22" svref="2 Mos 14:21-22" type="ot" />
+      <reading enref="Tit. 3:4-8" svref="Tit 3:4-8" type="ep" />
+      <reading enref="Joh. 1:29-34" svref="Joh 1:29-34" type="go" />
+      <reading enref="Psa. 66:5-12" svref="Ps 66:5-12" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Gen. 7:11-23" svref="1 Mos 7:11-23" type="ot" />
+      <reading enref="Acts 8:26-39" svref="Apg 8:26-39" type="ep" />
+      <reading enref="Matt. 3:11-12" svref="Matt 3:11-12" type="go" />
+      <reading enref="Psa. 66:5-12" svref="Ps 66:5-12" type="ps" />
+    </readings>
+  </day>
+  <day name="Andra söndagen efter trefaldighet" theme="Kallelsen till Guds rike">
+    <readings cycle="1">
+      <reading enref="Zech. 3:1-7" svref="Sak 3:1-7" type="ot" />
+      <reading enref="Rev. 19:5-9" svref="Upp 19:5-9" type="ep" />
+      <reading enref="Luke 14:15-24" svref="Luk 14:15-24" type="go" />
+      <reading enref="Psa. 65:2-5" svref="Ps 65:2-5" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Deut. 7:6-9" svref="5 Mos 7:6-9" type="ot" />
+      <reading enref="Rom. 8:28-30" svref="Rom 8:28-30" type="ep" />
+      <reading enref="Joh. 1:35-46" svref="Joh 1:35-46" type="go" />
+      <reading enref="Psa. 65:2-5" svref="Ps 65:2-5" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Judg. 6:7-16" svref="Dom 6:7-16" type="ot" />
+      <reading enref="1Cor. 1:26-31" svref="1 Kor 1:26-31" type="ep" />
+      <reading enref="Mark. 2:13-17" svref="Mark 2:13-17" type="go" />
+      <reading enref="Psa. 65:2-5" svref="Ps 65:2-5" type="ps" />
+    </readings>
+  </day>
+  <day name="Midsommardagen" theme="Skapelsen">
+    <readings cycle="1">
+      <reading enref="Gen. 1:1-13" svref="1 Mos 1:1-13" type="ot" />
+      <reading enref="Acts 14:15-17" svref="Apg 14:15-17" type="ep" />
+      <reading enref="Joh. 1:1-5" svref="Joh 1:1-5" type="go" />
+      <reading enref="Psa. 104:1-13" svref="Ps 104:1-13" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Job 12:7-13" svref="Job 12:7-13" type="ot" />
+      <reading enref="Acts 17:22-31" svref="Apg 17:22-31" type="ep" />
+      <reading enref="Matt. 6:25-30" svref="Matt 6:25-30" type="go" />
+      <reading enref="Psa. 104:1-13" svref="Ps 104:1-13" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Gen. 9:8-17" svref="1 Mos 9:8-17" type="ot" />
+      <reading enref="Col. 1:21-23" svref="Kol 1:21-23" type="ep" />
+      <reading enref="Mark. 6:30-44" svref="Mark 6:30-44" type="go" />
+      <reading enref="Psa. 104:1-13" svref="Ps 104:1-13" type="ps" />
+    </readings>
+  </day>
+  <day name="Den helige Johannes Döparens dag" theme="Den Högstes profet">
+    <readings cycle="1">
+      <reading enref="Is. 49:1-2" svref="Jes 49:1-2" type="ot" />
+      <reading enref="Acts 19:4" svref="Apg 19:4" type="ep" />
+      <reading enref="Luke 1:5-17" svref="Luk 1:5-17" type="go" />
+      <reading enref="Psa. 96" svref="Ps 96" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Jer. 22:1-4" svref="Jer 22:1-4" type="ot" />
+      <reading enref="Acts 13:16-25" svref="Apg 13:16-25" type="ep" />
+      <reading enref="Luke 1:57-66" svref="Luk 1:57-66" type="go" />
+      <reading enref="Psa. 96" svref="Ps 96" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 42:5-9" svref="Jes 42:5-9" type="ot" />
+      <reading enref="Acts 10:37-38" svref="Apg 10:37-38" type="ep" />
+      <reading enref="Luke 1:67-80" svref="Luk 1:67-80" type="go" />
+      <reading enref="Psa. 96" svref="Ps 96" type="ps" />
+    </readings>
+  </day>
+  <day name="Tredje söndagen efter trefaldighet" theme="Förlorad och återfunnen">
+    <readings cycle="1">
+      <reading enref="Mic. 7:18-20" svref="Mika 7:18-20" type="ot" />
+      <reading enref="Rom. 5:6-11" svref="Rom 5:6-11" type="ep" />
+      <reading enref="Luke 15:1-7" svref="Luk 15:1-7" type="go" />
+      <reading enref="Psa. 119:170-176" svref="Ps 119:170-176" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 51:1-3" svref="Jes 51:1-3" type="ot" />
+      <reading enref="Eph. 2:1-10" svref="Ef 2:1-10" type="ep" />
+      <reading enref="Luke 15:8-10" svref="Luk 15:8-10" type="go" />
+      <reading enref="Psa. 119:170-176" svref="Ps 119:170-176" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 66:12-14" svref="Jes 66:12-14" type="ot" />
+      <reading enref="1Pet. 5:5-11" svref="1 Petr 5:5-11" type="ep" />
+      <reading enref="Luke 15:11-32" svref="Luk 15:11-32" type="go" />
+      <reading enref="Psa. 119:170-176" svref="Ps 119:170-176" type="ps" />
+    </readings>
+  </day>
+  <day name="Fjärde söndagen efter trefaldighet" theme="Att inte döma">
+    <readings cycle="1">
+      <reading enref="2Sam. 12:1-7" svref="2 Sam 12:1-7" type="ot" />
+      <reading enref="Rom. 2:1-4" svref="Rom 2:1-4" type="ep" />
+      <reading enref="Matt. 7:1-5" svref="Matt 7:1-5" type="go" />
+      <reading enref="Psa. 62:2-9" svref="Ps 62:2-9" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Zech. 7:8-10" svref="Sak 7:8-10" type="ot" />
+      <reading enref="Rom. 14:11-14" svref="Rom 14:11-14" type="ep" />
+      <reading enref="Joh. 8:1-11" svref="Joh 8:1-11" type="go" />
+      <reading enref="Psa. 62:2-9" svref="Ps 62:2-9" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Ezek. 18:30-32" svref="Hes 18:30-32" type="ot" />
+      <reading enref="Gal. 6:1-7" svref="Gal 6:1-7" type="ep" />
+      <reading enref="Luke 6:36-42" svref="Luk 6:36-42" type="go" />
+      <reading enref="Psa. 62:2-9" svref="Ps 62:2-9" type="ps" />
+    </readings>
+  </day>
+  <day name="Apostladagen" theme="Sänd mig">
+    <readings cycle="1">
+      <reading enref="Ezek. 1:26-2:3, 8-10" svref="Hes 1:26-2:3, 8-10" type="ot" />
+      <reading enref="1Tim. 1:12-17" svref="1 Tim 1:12-17" type="ep" />
+      <reading enref="Luke 5:1-11" svref="Luk 5:1-11" type="go" />
+      <reading enref="Psa. 40:6-12" svref="Ps 40:6-12" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 6:1-8" svref="Jes 6:1-8" type="ot" />
+      <reading enref="1Pet. 2:4-10" svref="1 Petr 2:4-10" type="ep" />
+      <reading enref="Matt. 16:13-20" svref="Matt 16:13-20" type="go" />
+      <reading enref="Psa. 40:6-12" svref="Ps 40:6-12" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Jer. 1:4-10" svref="Jer 1:4-10" type="ot" />
+      <reading enref="Rom. 16:1-7" svref="Rom 16:1-7" type="ep" />
+      <reading enref="Mark. 3:7-19" svref="Mark 3:7-19" type="go" />
+      <reading enref="Psa. 40:6-12" svref="Ps 40:6-12" type="ps" />
+    </readings>
+  </day>
+  <day name="Sjätte söndagen efter trefaldighet" theme="Efterföljelse">
+    <readings cycle="1">
+      <reading enref="Lev. 19:1-2, 13-18" svref="3 Mos 19:1-2, 13-18" type="ot" />
+      <reading enref="1Pet. 1:13-16" svref="1 Petr 1:13-16" type="ep" />
+      <reading enref="Matt. 5:20-26" svref="Matt 5:20-26" type="go" />
+      <reading enref="Psa. 15" svref="Ps 15" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Amos 7:10-15" svref="Amos 7:10-15" type="ot" />
+      <reading enref="1Th. 2:1-8" svref="1 Thess 2:1-8" type="ep" />
+      <reading enref="Matt. 16:24-27" svref="Matt 16:24-27" type="go" />
+      <reading enref="Psa. 15" svref="Ps 15" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="1Kings 19:19-21" svref="1 Kung 19:19-21" type="ot" />
+      <reading enref="1Cor. 9:19-26" svref="1 Kor 9:19-26" type="ep" />
+      <reading enref="Luke 9:51-62" svref="Luk 9:51-62" type="go" />
+      <reading enref="Psa. 15" svref="Ps 15" type="ps" />
+    </readings>
+  </day>
+  <day name="Kristi förklarings dag" theme="Jesus förhärligad">
+    <readings cycle="1">
+      <reading enref="Ex. 24:12-18" svref="2 Mos 24:12-18" type="ot" />
+      <reading enref="2Pet 1:16-18" svref="2 Petr 1:16-18" type="ep" />
+      <reading enref="Matt. 17:1-8" svref="Matt 17:1-8" type="go" />
+      <reading enref="Psa. 89:12-18" svref="Ps 89:12-18" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 34:27-35" svref="2 Mos 34:27-35" type="ot" />
+      <reading enref="2Cor. 3:9-18" svref="2 Kor 3:9-18" type="ep" />
+      <reading enref="Mark. 9:1-13" svref="Mark 9:1-13" type="go" />
+      <reading enref="Psa. 89:12-18" svref="Ps 89:12-18" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Ex. 40:34-38" svref="2 Mos 40:34-38" type="ot" />
+      <reading enref="Rev. 1:9-18" svref="Upp 1:9-18" type="ep" />
+      <reading enref="Luke 9:28-36" svref="Luk 9:28-36" type="go" />
+      <reading enref="Psa. 89:12-18" svref="Ps 89:12-18" type="ps" />
+    </readings>
+  </day>
+  <day name="Åttonde söndagen efter trefaldighet" theme="Andlig klarsyn">
+    <readings cycle="1">
+      <reading enref="Mic. 3:5-8" svref="Mika 3:5-8" type="ot" />
+      <reading enref="1John 4:1-6" svref="1 Joh 4:1-6" type="ep" />
+      <reading enref="Matt. 7:15-21" svref="Matt 7:15-21" type="go" />
+      <reading enref="Psa. 119:30-35" svref="Ps 119:30-35" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Prov. 7:1-3" svref="Ords 7:1-3" type="ot" />
+      <reading enref="1Cor. 3:10-15" svref="1 Kor 3:10-15" type="ep" />
+      <reading enref="Matt. 7:22-29" svref="Matt 7:22-29" type="go" />
+      <reading enref="Psa. 119:30-35" svref="Ps 119:30-35" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Jer. 7:1-7" svref="Jer 7:1-7" type="ot" />
+      <reading enref="Rom. 8:14-17" svref="Rom 8:14-17" type="ep" />
+      <reading enref="Matt. 7:13-14" svref="Matt 7:13-14" type="go" />
+      <reading enref="Psa. 119:30-35" svref="Ps 119:30-35" type="ps" />
+    </readings>
+  </day>
+  <day name="Nionde söndagen efter trefaldighet" theme="Goda förvaltare">
+    <readings cycle="1">
+      <reading enref="Gen. 1:24-2:3" svref="1 Mos 1:24-2:3" type="ot" />
+      <reading enref="1Pet. 4:7-11" svref="1 Petr 4:7-11" type="ep" />
+      <reading enref="Matt. 25:14-30" svref="Matt 25:14-30" type="go" />
+      <reading enref="Psa. 8" svref="Ps 8" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Prov. 3:27-32" svref="Ords 3:27-32" type="ot" />
+      <reading enref="Eph. 4:20-28" svref="Ef 4:20-28" type="ep" />
+      <reading enref="Luke 12:42-48" svref="Luk 12:42-48" type="go" />
+      <reading enref="Psa. 8" svref="Ps 8" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Amos 8:4-7" svref="Amos 8:4-7" type="ot" />
+      <reading enref="2Tim. 4:1-7" svref="2 Tim 4:1-7" type="ep" />
+      <reading enref="Luke 16:1-13" svref="Luk 16:1-13" type="go" />
+      <reading enref="Psa. 8" svref="Ps 8" type="ps" />
+    </readings>
+  </day>
+  <day name="Tionde söndagen efter trefaldighet" theme="Nådens gåvor">
+    <readings cycle="1">
+      <reading enref="Is. 27:2-6" svref="Jes 27:2-6" type="ot" />
+      <reading enref="1Cor. 12:12-26" svref="1 Kor 12:12-26" type="ep" />
+      <reading enref="Joh. 15:1-9" svref="Joh 15:1-9" type="go" />
+      <reading enref="Psa. 28:6-9" svref="Ps 28:6-9" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ex. 19:3-8" svref="2 Mos 19:3-8" type="ot" />
+      <reading enref="Rom. 12:3-8" svref="Rom 12:3-8" type="ep" />
+      <reading enref="Matt. 18:18-22" svref="Matt 18:18-22" type="go" />
+      <reading enref="Psa. 28:6-9" svref="Ps 28:6-9" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Josh. 24:16-18" svref="Jos 24:16-18" type="ot" />
+      <reading enref="1Cor. 12:4-11" svref="1 Kor 12:4-11" type="ep" />
+      <reading enref="Luke 9:46-48" svref="Luk 9:46-48" type="go" />
+      <reading enref="Psa. 28:6-9" svref="Ps 28:6-9" type="ps" />
+    </readings>
+  </day>
+  <day name="Elfte söndagen efter trefaldighet" theme="Tro och liv">
+    <readings cycle="1">
+      <reading enref="Is. 2:12-17" svref="Jes 2:12-17" type="ot" />
+      <reading enref="Rom. 3:21-28" svref="Rom 3:21-28" type="ep" />
+      <reading enref="Luke 18:9-14" svref="Luk 18:9-14" type="go" />
+      <reading enref="Psa. 143:6-10" svref="Ps 143:6-10" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Amos 5:21-24" svref="Amos 5:21-24" type="ot" />
+      <reading enref="Rom. 7:14-25" svref="Rom 7:14-25" type="ep" />
+      <reading enref="Matt. 21:28-31" svref="Matt 21:28-31" type="go" />
+      <reading enref="Psa. 143:6-10" svref="Ps 143:6-10" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 1:10-17" svref="Jes 1:10-17" type="ot" />
+      <reading enref="James 1:22-25" svref="Jak 1:22-25" type="ep" />
+      <reading enref="Matt. 23:1-12" svref="Matt 23:1-12" type="go" />
+      <reading enref="Psa. 143:6-10" svref="Ps 143:6-10" type="ps" />
+    </readings>
+  </day>
+  <day name="Tolfte söndagen efter trefaldighet" theme="Friheten i Kristus">
+    <readings cycle="1">
+      <reading enref="Ex. 4:10-17" svref="2 Mos 4:10-17" type="ot" />
+      <reading enref="2Cor. 3:4-8" svref="2 Kor 3:4-8" type="ep" />
+      <reading enref="Mark. 7:31-37" svref="Mark 7:31-37" type="go" />
+      <reading enref="Psa. 145:13-18" svref="Ps 145:13-18" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 38:1-6" svref="Jes 38:1-6" type="ot" />
+      <reading enref="Rom. 8:18-23" svref="Rom 8:18-23" type="ep" />
+      <reading enref="Luke 13:10-17" svref="Luk 13:10-17" type="go" />
+      <reading enref="Psa. 145:13-18" svref="Ps 145:13-18" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Ex. 23:10-12" svref="2 Mos 23:10-12" type="ot" />
+      <reading enref="Gal. 4:31-5:6" svref="Gal 4:31-5:6" type="ep" />
+      <reading enref="Mark. 2:23-28" svref="Mark 2:23-28" type="go" />
+      <reading enref="Psa. 145:13-18" svref="Ps 145:13-18" type="ps" />
+    </readings>
+  </day>
+  <day name="Trettonde söndagen efter trefaldighet" theme="Medmänniskan">
+    <readings cycle="1">
+      <reading enref="Gen. 4:8-12" svref="1 Mos 4:8-12" type="ot" />
+      <reading enref="1John 4:7-10" svref="1 Joh 4:7-10" type="ep" />
+      <reading enref="Luke 10:23-37" svref="Luk 10:23-37" type="go" />
+      <reading enref="Psa. 103:1-6" svref="Ps 103:1-6" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Deut. 15:7-11" svref="5 Mos 15:7-11" type="ot" />
+      <reading enref="Rom. 13:8-10" svref="Rom 13:8-10" type="ep" />
+      <reading enref="Matt. 5:38-48" svref="Matt 5:38-48" type="go" />
+      <reading enref="Psa. 103:1-6" svref="Ps 103:1-6" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Jer. 38:7-13" svref="Jer 38:7-13" type="ot" />
+      <reading enref="Rom. 12:16-21" svref="Rom 12:16-21" type="ep" />
+      <reading enref="Matt. 7:12" svref="Matt 7:12" type="go" />
+      <reading enref="Psa. 103:1-6" svref="Ps 103:1-6" type="ps" />
+    </readings>
+  </day>
+  <day name="Fjortonde söndagen efter trefaldighet" theme="Enheten i Kristus">
+    <readings cycle="1">
+      <reading enref="Ezek. 37:15-22" svref="Hes 37:15-22" type="ot" />
+      <reading enref="Eph. 4:1-6" svref="Ef 4:1-6" type="ep" />
+      <reading enref="Joh. 17:9-11" svref="Joh 17:9-11" type="go" />
+      <reading enref="Psa. 95:1-7" svref="Ps 95:1-7" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 11:10-13" svref="Jes 11:10-13" type="ot" />
+      <reading enref="Phil. 2:1-5" svref="Fil 2:1-5" type="ep" />
+      <reading enref="Luke 22:24-27" svref="Luk 22:24-27" type="go" />
+      <reading enref="Psa. 95:1-7" svref="Ps 95:1-7" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Amos 9:11-15" svref="Amos 9:11-15" type="ot" />
+      <reading enref="1Cor. 1:10-13" svref="1 Kor 1:10-13" type="ep" />
+      <reading enref="Joh. 17:18-23" svref="Joh 17:18-23" type="go" />
+      <reading enref="Psa. 95:1-7" svref="Ps 95:1-7" type="ps" />
+    </readings>
+  </day>
+  <day name="Femtonde söndagen efter trefaldighet" theme="Ett är nödvändigt">
+    <readings cycle="1">
+      <reading enref="Neh. 9:19-21" svref="Neh 9:19-21" type="ot" />
+      <reading enref="Acts 20:32-36" svref="Apg 20:32-36" type="ep" />
+      <reading enref="Matt. 6:31-34" svref="Matt 6:31-34" type="go" />
+      <reading enref="Psa. 123" svref="Ps 123" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="1Kings 17:8-16" svref="1 Kung 17:8-16" type="ot" />
+      <reading enref="Acts 4:32-35" svref="Apg 4:32-35" type="ep" />
+      <reading enref="Matt. 11:28-30" svref="Matt 11:28-30" type="go" />
+      <reading enref="Psa. 123" svref="Ps 123" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Deut. 4:29-31" svref="5 Mos 4:29-31" type="ot" />
+      <reading enref="Phil. 4:10-13" svref="Fil 4:10-13" type="ep" />
+      <reading enref="Luke 10:38-42" svref="Luk 10:38-42" type="go" />
+      <reading enref="Psa. 123" svref="Ps 123" type="ps" />
+    </readings>
+  </day>
+  <day name="Sextonde söndagen efter trefaldighet" theme="Döden och livet">
+    <readings cycle="1">
+      <reading enref="Is. 26:19" svref="Jes 26:19" type="ot" />
+      <reading enref="2Cor. 4:7-14" svref="2 Kor 4:7-14" type="ep" />
+      <reading enref="Joh. 11:28-44" svref="Joh 11:28-44" type="go" />
+      <reading enref="Psa. 107:18-22" svref="Ps 107:18-22" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="1Kings 17:17-24" svref="1 Kung 17:17-24" type="ot" />
+      <reading enref="Rev. 2:8-11" svref="Upp 2:8-11" type="ep" />
+      <reading enref="Luke 7:11-17" svref="Luk 7:11-17" type="go" />
+      <reading enref="Psa. 107:18-22" svref="Ps 107:18-22" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Job 14:13-15" svref="Job 14:13-15" type="ot" />
+      <reading enref="Phil. 1:20-26" svref="Fil 1:20-26" type="ep" />
+      <reading enref="Mark. 5:35-43" svref="Mark 5:35-43" type="go" />
+      <reading enref="Psa. 107:18-22" svref="Ps 107:18-22" type="ps" />
+    </readings>
+  </day>
+  <day name="Sjuttonde söndagen efter trefaldighet" theme="Rik inför Gud">
+    <readings cycle="1">
+      <reading enref="Ex. 32:1-4, 30-35" svref="2 Mos 32:1-4, 30-35" type="ot" />
+      <reading enref="1John 2:15-17" svref="1 Joh 2:15-17" type="ep" />
+      <reading enref="Matt. 6:19-24" svref="Matt 6:19-24" type="go" />
+      <reading enref="Psa. 49:6-12" svref="Ps 49:6-12" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Eccl. 5:9-15" svref="Pred 5:9-15" type="ot" />
+      <reading enref="1Tim. 6:7-11" svref="1 Tim 6:7-11" type="ep" />
+      <reading enref="Luke 12:13-21" svref="Luk 12:13-21" type="go" />
+      <reading enref="Psa. 49:6-12" svref="Ps 49:6-12" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Eccl. 12:1-7" svref="Pred 12:1-7" type="ot" />
+      <reading enref="1John 4:16-21" svref="1 Joh 4:16-21" type="ep" />
+      <reading enref="Luke 16:19-31" svref="Luk 16:19-31" type="go" />
+      <reading enref="Psa. 49:6-12" svref="Ps 49:6-12" type="ps" />
+    </readings>
+  </day>
+  <day name="Den helige Mikaels dag" theme="Änglarna">
+    <readings cycle="1">
+      <reading enref="Dan. 6:16-22" svref="Dan 6:16-22" type="ot" />
+      <reading enref="Rev. 12:7-12" svref="Upp 12:7-12" type="ep" />
+      <reading enref="Luke 10:17-20" svref="Luk 10:17-20" type="go" />
+      <reading enref="Psa. 103:19-22" svref="Ps 103:19-22" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Dan. 10:15-19" svref="Dan 10:15-19" type="ot" />
+      <reading enref="Rev. 12:7-12" svref="Upp 12:7-12" type="ep" />
+      <reading enref="Matt. 18:7-10" svref="Matt 18:7-10" type="go" />
+      <reading enref="Psa. 103:19-22" svref="Ps 103:19-22" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Gen. 28:10-17" svref="1 Mos 28:10-17" type="ot" />
+      <reading enref="Rev. 12:7-12" svref="Upp 12:7-12" type="ep" />
+      <reading enref="Joh. 1:47-51" svref="Joh 1:47-51" type="go" />
+      <reading enref="Psa. 103:19-22" svref="Ps 103:19-22" type="ps" />
+    </readings>
+  </day>
+  <day name="Tacksägelsedagen" theme="Lovsång">
+    <readings cycle="1">
+      <reading enref="1Chr. 29:10-14" svref="1 Krön 29:10-14" type="ot" />
+      <reading enref="1Th. 5:16-24" svref="1 Thess 5:16-24" type="ep" />
+      <reading enref="Luke 17:11-19" svref="Luk 17:11-19" type="go" />
+      <reading enref="Psa. 65:9-14" svref="Ps 65:9-14" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Jer. 31:3-6" svref="Jer 31:3-6" type="ot" />
+      <reading enref="Rev. 4:8-11" svref="Upp 4:8-11" type="ep" />
+      <reading enref="Matt. 15:29-31" svref="Matt 15:29-31" type="go" />
+      <reading enref="Psa. 65:9-14" svref="Ps 65:9-14" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Wis. 7:15-22" svref="Vis 7:15-22" type="ot" />
+      <reading enref="Col. 3:16-17" svref="Kol 3:16-17" type="ep" />
+      <reading enref="Luke 19:37-40" svref="Luk 19:37-40" type="go" />
+      <reading enref="Psa. 65:9-14" svref="Ps 65:9-14" type="ps" />
+    </readings>
+  </day>
+  <day name="Artonde söndagen efter trefaldighet" theme="Att lyssna i tro">
+    <readings cycle="1">
+      <reading enref="Mic. 6:6-8" svref="Mika 6:6-8" type="ot" />
+      <reading enref="Acts 16:11-15" svref="Apg 16:11-15" type="ep" />
+      <reading enref="Joh. 7:14-18" svref="Joh 7:14-18" type="go" />
+      <reading enref="Psa. 19:8-15" svref="Ps 19:8-15" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Deut. 30:11-16" svref="5 Mos 30:11-16" type="ot" />
+      <reading enref="James 2:8-13" svref="Jak 2:8-13" type="ep" />
+      <reading enref="Mark. 10:17-27" svref="Mark 10:17-27" type="go" />
+      <reading enref="Psa. 19:8-15" svref="Ps 19:8-15" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Prov. 8:32-36" svref="Ords 8:32-36" type="ot" />
+      <reading enref="Acts 5:27-29" svref="Apg 5:27-29" type="ep" />
+      <reading enref="Matt. 13:44-46" svref="Matt 13:44-46" type="go" />
+      <reading enref="Psa. 19:8-15" svref="Ps 19:8-15" type="ps" />
+    </readings>
+  </day>
+  <day name="Nittonde söndagen efter trefaldighet" theme="Trons kraft">
+    <readings cycle="1">
+      <reading enref="Gen. 6:13-22" svref="1 Mos 6:13-22" type="ot" />
+      <reading enref="Heb. 11:1-7" svref="Heb 11:1-7" type="ep" />
+      <reading enref="Mark. 12:41-44" svref="Mark 12:41-44" type="go" />
+      <reading enref="Psa. 73:23-26" svref="Ps 73:23-26" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Gen. 15:5-6" svref="1 Mos 15:5-6" type="ot" />
+      <reading enref="1Tim. 6:11-12" svref="1 Tim 6:11-12" type="ep" />
+      <reading enref="Joh. 9:1-7, 24-39" svref="Joh 9:1-7, 24-39" type="go" />
+      <reading enref="Psa. 73:23-26" svref="Ps 73:23-26" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Josh. 2:1-15" svref="Jos 2:1-15" type="ot" />
+      <reading enref="Heb. 11:29-33" svref="Heb 11:29-33" type="ep" />
+      <reading enref="Mark. 2:1-12" svref="Mark 2:1-12" type="go" />
+      <reading enref="Psa. 73:23-26" svref="Ps 73:23-26" type="ps" />
+    </readings>
+  </day>
+  <day name="Tjugonde söndagen efter trefaldighet" theme="Att leva tillsammans">
+    <readings cycle="1">
+      <reading enref="Ruth 2:8-12" svref="Rut 2:8-12" type="ot" />
+      <reading enref="Acts 9:36-43" svref="Apg 9:36-43" type="ep" />
+      <reading enref="Mark. 3:31-35" svref="Mark 3:31-35" type="go" />
+      <reading enref="Psa. 68:5-7" svref="Ps 68:5-7" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Ruth 1:6-19" svref="Rut 1:6-19" type="ot" />
+      <reading enref="Heb. 13:2-3" svref="Heb 13:2-3" type="ep" />
+      <reading enref="Joh. 11:1-7" svref="Joh 11:1-7" type="go" />
+      <reading enref="Psa. 68:5-7" svref="Ps 68:5-7" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Tob. 10:7-13" svref="Tob 10:7-13" type="ot" />
+      <reading enref="2Tim. 1:3-5" svref="2 Tim 1:3-5" type="ep" />
+      <reading enref="Matt. 13:53-57" svref="Matt 13:53-57" type="go" />
+      <reading enref="Psa. 68:5-7" svref="Ps 68:5-7" type="ps" />
+    </readings>
+  </day>
+  <day name="Tjugoförsta söndagen efter trefaldighet" theme="Samhällsansvar">
+    <readings cycle="1">
+      <reading enref="Jer. 29:4-7" svref="Jer 29:4-7" type="ot" />
+      <reading enref="Rom. 13:7-10" svref="Rom 13:7-10" type="ep" />
+      <reading enref="Matt. 22:15-22" svref="Matt 22:15-22" type="go" />
+      <reading enref="Psa. 40:14-18" svref="Ps 40:14-18" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Deut. 24:17-22" svref="5 Mos 24:17-22" type="ot" />
+      <reading enref="James 2:1-8" svref="Jak 2:1-8" type="ep" />
+      <reading enref="Luke 19:1-10" svref="Luk 19:1-10" type="go" />
+      <reading enref="Psa. 40:14-18" svref="Ps 40:14-18" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Ex. 23:1-9" svref="2 Mos 23:1-9" type="ot" />
+      <reading enref="2Cor. 8:9-15" svref="2 Kor 8:9-15" type="ep" />
+      <reading enref="Matt. 12:15-21" svref="Matt 12:15-21" type="go" />
+      <reading enref="Psa. 40:14-18" svref="Ps 40:14-18" type="ps" />
+    </readings>
+  </day>
+  <day name="Alla helgons dag" theme="Helgonen">
+    <readings cycle="1">
+      <reading enref="Is. 49:8-10" svref="Jes 49:8-10" type="ot" />
+      <reading enref="Rev. 7:9-17" svref="Upp 7:9-17" type="ep" />
+      <reading enref="Matt. 5:1-12" svref="Matt 5:1-12" type="go" />
+      <reading enref="Psa. 126" svref="Ps 126" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 60:18-22" svref="Jes 60:18-22" type="ot" />
+      <reading enref="Heb. 12:1-3" svref="Heb 12:1-3" type="ep" />
+      <reading enref="Matt. 5:13-16" svref="Matt 5:13-16" type="go" />
+      <reading enref="Psa. 126" svref="Ps 126" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Deut. 34:1-5" svref="5 Mos 34:1-5" type="ot" />
+      <reading enref="Heb. 12:22-24" svref="Heb 12:22-24" type="ep" />
+      <reading enref="Luke 6:20-26" svref="Luk 6:20-26" type="go" />
+      <reading enref="Psa. 126" svref="Ps 126" type="ps" />
+    </readings>
+  </day>
+  <day name="Söndagen efter alla helgons dag" theme="Vårt evighetshopp">
+    <readings cycle="1">
+      <reading enref="Ezek. 37:12-14" svref="Hes 37:12-14" type="ot" />
+      <reading enref="Rev. 22:1-5" svref="Upp 22:1-5" type="ep" />
+      <reading enref="Luke 12:4-7" svref="Luk 12:4-7" type="go" />
+      <reading enref="Psa. 116:1-9" svref="Ps 116:1-9" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Job 17:15-16" svref="Job 17:15-16" type="ot" />
+      <reading enref="1Cor. 15:35-49" svref="1 Kor 15:35-49" type="ep" />
+      <reading enref="Joh. 6:37-40" svref="Joh 6:37-40" type="go" />
+      <reading enref="Psa. 116:1-9" svref="Ps 116:1-9" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Josh. 1:10-11" svref="Jos 1:10-11" type="ot" />
+      <reading enref="Heb. 11:13-16" svref="Heb 11:13-16" type="ep" />
+      <reading enref="Luke 20:37-38" svref="Luk 20:37-38" type="go" />
+      <reading enref="Psa. 116:1-9" svref="Ps 116:1-9" type="ps" />
+    </readings>
+  </day>
+  <day name="Tjugoandra söndagen efter trefaldighet" theme="Frälsningen">
+    <readings cycle="1">
+      <reading enref="Gen. 45:4-8" svref="1 Mos 45:4-8" type="ot" />
+      <reading enref="1Pet. 4:12-19" svref="1 Petr 4:12-19" type="ep" />
+      <reading enref="Matt. 23:37-24:2" svref="Matt 23:37-24:2" type="go" />
+      <reading enref="Psa. 62:10-13" svref="Ps 62:10-13" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Neh. 2:11-20" svref="Neh 2:11-20" type="ot" />
+      <reading enref="Rom. 5:15-21" svref="Rom 5:15-21" type="ep" />
+      <reading enref="Mark. 4:26-29" svref="Mark 4:26-29" type="go" />
+      <reading enref="Psa. 62:10-13" svref="Ps 62:10-13" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 2:2-5" svref="Jes 2:2-5" type="ot" />
+      <reading enref="2Pet 1:2-8" svref="2 Petr 1:2-8" type="ep" />
+      <reading enref="Joh. 12:35-43" svref="Joh 12:35-43" type="go" />
+      <reading enref="Psa. 62:10-13" svref="Ps 62:10-13" type="ps" />
+    </readings>
+  </day>
+  <day name="Tjugotredje söndagen efter trefaldighet" theme="Förlåtelse utan gräns">
+    <readings cycle="1">
+      <reading enref="Gen. 50:15-21" svref="1 Mos 50:15-21" type="ot" />
+      <reading enref="2Th. 3:1-5" svref="2 Thess 3:1-5" type="ep" />
+      <reading enref="Matt. 18:15-20" svref="Matt 18:15-20" type="go" />
+      <reading enref="Psa. 78:35-39" svref="Ps 78:35-39" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 64:6-9" svref="Jes 64:6-9" type="ot" />
+      <reading enref="Eph. 4:29-32" svref="Ef 4:29-32" type="ep" />
+      <reading enref="Matt. 18:21-35" svref="Matt 18:21-35" type="go" />
+      <reading enref="Psa. 78:35-39" svref="Ps 78:35-39" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Hos. 11:8-9" svref="Hos 11:8-9" type="ot" />
+      <reading enref="1Th. 5:13-15" svref="1 Thess 5:13-15" type="ep" />
+      <reading enref="Matt. 6:9-15" svref="Matt 6:9-15" type="go" />
+      <reading enref="Psa. 78:35-39" svref="Ps 78:35-39" type="ps" />
+    </readings>
+  </day>
+  <day name="Tjugofjärde söndagen efter trefaldighet" theme="Den yttersta tiden">
+    <readings cycle="1">
+      <reading enref="Amos 4:12-13" svref="Amos 4:12-13" type="ot" />
+      <reading enref="1John 2:28-3:3" svref="1 Joh 2:28-3:3" type="ep" />
+      <reading enref="Matt. 24:3-14" svref="Matt 24:3-14" type="go" />
+      <reading enref="Psa. 39:5-8" svref="Ps 39:5-8" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Amos 4:12-13" svref="Amos 4:12-13" type="ot" />
+      <reading enref="1John 2:28-3:3" svref="1 Joh 2:28-3:3" type="ep" />
+      <reading enref="Matt. 24:3-14" svref="Matt 24:3-14" type="go" />
+      <reading enref="Psa. 39:5-8" svref="Ps 39:5-8" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Amos 4:12-13" svref="Amos 4:12-13" type="ot" />
+      <reading enref="1John 2:28-3:3" svref="1 Joh 2:28-3:3" type="ep" />
+      <reading enref="Matt. 24:3-14" svref="Matt 24:3-14" type="go" />
+      <reading enref="Psa. 39:5-8" svref="Ps 39:5-8" type="ps" />
+    </readings>
+  </day>
+  <day name="Tjugofemte söndagen efter trefaldighet" theme="Den yttersta tiden">
+    <readings cycle="1">
+      <reading enref="Amos 4:12-13" svref="Amos 4:12-13" type="ot" />
+      <reading enref="1John 2:28-3:3" svref="1 Joh 2:28-3:3" type="ep" />
+      <reading enref="Matt. 24:3-14" svref="Matt 24:3-14" type="go" />
+      <reading enref="Psa. 39:5-8" svref="Ps 39:5-8" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Amos 4:12-13" svref="Amos 4:12-13" type="ot" />
+      <reading enref="1John 2:28-3:3" svref="1 Joh 2:28-3:3" type="ep" />
+      <reading enref="Matt. 24:3-14" svref="Matt 24:3-14" type="go" />
+      <reading enref="Psa. 39:5-8" svref="Ps 39:5-8" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Amos 4:12-13" svref="Amos 4:12-13" type="ot" />
+      <reading enref="1John 2:28-3:3" svref="1 Joh 2:28-3:3" type="ep" />
+      <reading enref="Matt. 24:3-14" svref="Matt 24:3-14" type="go" />
+      <reading enref="Psa. 39:5-8" svref="Ps 39:5-8" type="ps" />
+    </readings>
+  </day>
+  <day name="Söndagen före domssöndagen" theme="Vaksamhet och väntan">
+    <readings cycle="1">
+      <reading enref="Zeph. 3:8-13" svref="Sef 3:8-13" type="ot" />
+      <reading enref="Rev. 3:10-13" svref="Upp 3:10-13" type="ep" />
+      <reading enref="Matt. 25:1-13" svref="Matt 25:1-13" type="go" />
+      <reading enref="Psa. 139:1-18" svref="Ps 139:1-18" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 51:4-6" svref="Jes 51:4-6" type="ot" />
+      <reading enref="2Cor. 13:5-9" svref="2 Kor 13:5-9" type="ep" />
+      <reading enref="Luke 12:35-40" svref="Luk 12:35-40" type="go" />
+      <reading enref="Psa. 139:1-18" svref="Ps 139:1-18" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Amos 8:9-12" svref="Amos 8:9-12" type="ot" />
+      <reading enref="Phil. 3:20-4:1" svref="Fil 3:20-4:1" type="ep" />
+      <reading enref="Luke 17:20-30" svref="Luk 17:20-30" type="go" />
+      <reading enref="Psa. 139:1-18" svref="Ps 139:1-18" type="ps" />
+    </readings>
+  </day>
+  <day name="Domssöndagen" theme="Kristi återkomst">
+    <readings cycle="1">
+      <reading enref="Is. 65:17-19" svref="Jes 65:17-19" type="ot" />
+      <reading enref="2Pet 3:8-13" svref="2 Petr 3:8-13" type="ep" />
+      <reading enref="Matt. 25:31-46" svref="Matt 25:31-46" type="go" />
+      <reading enref="Psa. 102:26-29" svref="Ps 102:26-29" type="ps" />
+    </readings>
+    <readings cycle="2">
+      <reading enref="Dan. 7:9-10" svref="Dan 7:9-10" type="ot" />
+      <reading enref="Rev. 20:11-21:5" svref="Upp 20:11-21:5" type="ep" />
+      <reading enref="Joh. 5:22-30" svref="Joh 5:22-30" type="go" />
+      <reading enref="Psa. 102:26-29" svref="Ps 102:26-29" type="ps" />
+    </readings>
+    <readings cycle="3">
+      <reading enref="Ezek. 47:6-12" svref="Hes 47:6-12" type="ot" />
+      <reading enref="1Cor. 15:22-28" svref="1 Kor 15:22-28" type="ep" />
+      <reading enref="Matt. 13:47-50" svref="Matt 13:47-50" type="go" />
+      <reading enref="Psa. 102:26-29" svref="Ps 102:26-29" type="ps" />
+    </readings>
+  </day>
+</year>

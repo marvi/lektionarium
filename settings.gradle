@@ -1,0 +1,5 @@
+rootProject.name = 'lektionarium'
+
+include 'api'
+include 'cli'
+include 'web'

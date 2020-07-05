@@ -1,0 +1,152 @@
+/*
+ * Copyright (c) 2006, 2020, marvi ab. All rights reserved.
+ * This code is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ */
+package lectio.cal;
+
+
+import org.jetbrains.annotations.NotNull;
+
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.SortedMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+
+/**
+ * This class acts as a LiturgicalYear cache for LiturgicalYear instances so that
+ * all the date calculations doesn't have to be repeated.
+ * It also has a few methods to "walk" the calendar back and forth,
+ * and to get the current Day.
+ *
+ * @author marvi
+ */
+public class LiturgicalYearFactory {
+
+  /**
+   * Concurrent hash map, able to handle multiple threads
+   */
+  private ConcurrentHashMap<Integer, LiturgicalYear> liturgicalYearCache = new ConcurrentHashMap<>();
+
+  public LiturgicalYear getYear(int year) {
+    return liturgicalYearCache.computeIfAbsent(year, y -> new LiturgicalYear(y));
+  }
+
+  /**
+   * Find the current holy day. In the liturgical year, we "live" in the last holy day until the next.
+   * So Tuesday after will show second day Easter.
+   * Todo: 1. handle days that don't continue, like Ash Wednesday
+   *       2. handle switching current day on saturday evening for Sundays
+   * @param d The current date
+   * @return The current holy day
+   */
+  @NotNull
+  public Day getCurrentDay(LocalDate d) {
+    Day day = null;
+    while (day == null) {
+      LiturgicalYear y = getYear(d.getYear());
+      LiturgicalYear yPrev = getYear(d.getYear() - 1);
+      if(y.getDaysOfYear().containsKey(d)) {
+        day = y.getDaysOfYear().get(d);
+      }
+      else if(yPrev.getDaysOfYear().containsKey(d)) {
+        day = yPrev.getDaysOfYear().get(d);
+      }
+      else {
+        d = d.minusDays(1);
+      }
+    }
+    return day;
+  }
+
+  /**
+   * From a given date, find the next holy day.
+   * @param d The day to start from
+   * @return The next holy day
+   */
+  @NotNull
+  public Day getNextDay(LocalDate d) {
+    Day day = null;
+    d = d.plusDays(1);
+    while (day == null) {
+      LiturgicalYear y = getYear(d.getYear());
+      LiturgicalYear yNext = getYear(d.getYear() + 1);
+      if(y.getDaysOfYear().containsKey(d)) {
+        day = y.getDaysOfYear().get(d);
+      }
+      else if(yNext.getDaysOfYear().containsKey(d)) {
+        day = yNext.getDaysOfYear().get(d);
+      }
+      else {
+        d = d.plusDays(1);
+      }
+    }
+    return day;
+  }
+
+  /**
+   * From a specified day, go back to the current holy day (on Tuesday go to the previous Sunday)
+   * Then from that holy day go back until we find the previous holy day.
+   *
+   * @param d The day to start from
+   * @return The previous holy day
+   */
+  @NotNull
+  public Day getPreviousDay(LocalDate d) {
+    Day day = null;
+    d = getCurrentDay(d).date;
+    d = d.minusDays(1);
+    while (day == null) {
+      LiturgicalYear y = getYear(d.getYear());
+      LiturgicalYear yPrev = getYear(d.getYear() - 1);
+      if(y.getDaysOfYear().containsKey(d)) {
+        day = y.getDaysOfYear().get(d);
+      }
+      else if(yPrev.getDaysOfYear().containsKey(d)) {
+        day = yPrev.getDaysOfYear().get(d);
+      }
+      else {
+        d = d.minusDays(1);
+      }
+    }
+    return day;
+  }
+
+  @NotNull
+  public LiturgicalYear getDaysOfLiturgicalYear(int year) {
+    return getYear(year);
+  }
+
+  /**
+   * Liturgical year != calendar year. This method returns all holy days for a calendar year
+   * @param year The calendar year to fetch holy days for
+   * @return All holy days for a calendar year
+   */
+  @NotNull
+  public Map<LocalDate, Day> getDaysOfCalendarYear(int year) {
+    // Fetch current and next liturgical year (to get Advent and Christmas)
+    SortedMap<LocalDate, Day> daysOfYear = getYear(year).getDaysOfYear();
+    daysOfYear.putAll(getYear(year + 1).getDaysOfYear());
+
+    // Filter map for days in supplied year
+    return daysOfYear.entrySet().stream()
+      .filter(map -> map.getKey().getYear() == year)
+      .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  }
+
+  @NotNull
+  public Map<LocalDate, Day> getCalendarMonth(int year, int month) {
+    Map<LocalDate, Day> daysOfYear = getDaysOfCalendarYear(year);
+
+    // Filter map for days in supplied month
+    return daysOfYear.entrySet().stream()
+      .filter(map -> map.getKey().getMonthValue() == month)
+      .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  }
+
+}
+
+

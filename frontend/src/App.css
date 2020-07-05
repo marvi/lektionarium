@@ -1,0 +1,10 @@
+.bibleText {
+  font-family: 'Libre Baskerville', serif;
+  max-width: 500px;
+  hyphens: auto;
+}
+
+.lectioHeader {
+  font-family: 'Cinzel Decorative', 'Libre Baskerville', serif !important;
+  font-weight: 300;
+}
