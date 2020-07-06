@@ -6,11 +6,6 @@ class Readings extends Component {
 
   state = { activeIndex: 0 };
 
-  constructor(props) {
-    super(props);
-    //console.log(props.readings);
-  }
-
   handleClick = (e, titleProps) => {
     const { index } = titleProps;
     const { activeIndex } = this.state;
