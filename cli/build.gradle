@@ -1,6 +1,7 @@
 plugins {
-  id "com.github.johnrengelman.shadow" version "4.0.3"
   id 'java'
+  id 'com.github.johnrengelman.shadow' version '6.0.0'
+  id 'maven-publish'
 }
 
 sourceCompatibility = 1.8
@@ -13,9 +14,6 @@ jar {
 }
 
 shadowJar {
-  baseName = 'lectio'
-  classifier = null
-  version = null
 }
 
 repositories {
@@ -23,7 +21,39 @@ repositories {
 }
 
 dependencies {
-   compile project(':api')
-   compile 'info.picocli:picocli:3.8.2'
-   testCompile 'junit:junit:4.12'
+   implementation project(':api')
+   implementation 'info.picocli:picocli:3.8.2'
+   testImplementation 'junit:junit:4.12'
+}
+
+publishing {
+  repositories {
+    maven {
+      name = "GitHubPackages"
+      url = uri("https://maven.pkg.github.com/marvi/lektionarium")
+      credentials {
+        username = System.getenv("USERNAME")
+        password = System.getenv("TOKEN")
+      }
+    }
+  }
+  publications {
+    mavenJava(MavenPublication) {
+      pom {
+        name = 'Lektionarium CLI'
+        description = 'Calendar CLI for Church of Sweden\'s Liturgical year'
+        url = 'http://lektionarium.se'
+        licenses {
+          license {
+            name = 'The GNU Public License, Version 3'
+            url = 'https://www.gnu.org/licenses/gpl-3.0.en.html'
+          }
+          scm {
+            connection = 'scm:git:git://github.com/marvi/lektionarium.git'
+            url = 'http://lektionarium.se'
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,5 +1,6 @@
 plugins {
   id 'java'
+  id 'maven-publish'
 }
 
 sourceCompatibility = 1.8
@@ -11,16 +12,48 @@ repositories {
 }
 
 test {
-    testLogging {
-        outputs.upToDateWhen {false}
-        showStandardStreams = true
-    }
+  testLogging {
+    outputs.upToDateWhen { false }
+    showStandardStreams = true
+  }
 }
 
 dependencies {
-  compile 'org.jetbrains:annotations:16.0.2'
-  compile 'org.mnode.ical4j:ical4j:3.0.4'
-  compile 'org.json:json:20180813'
-  testCompile 'junit:junit:4.12'
+  implementation 'org.jetbrains:annotations:16.0.2'
+  implementation 'org.mnode.ical4j:ical4j:3.0.4'
+  implementation 'org.json:json:20180813'
+  testImplementation 'junit:junit:4.12'
 
+}
+
+publishing {
+  repositories {
+    maven {
+      name = "GitHubPackages"
+      url = uri("https://maven.pkg.github.com/marvi/lektionarium")
+      credentials {
+        username = System.getenv("USERNAME")
+        password = System.getenv("TOKEN")
+      }
+    }
+  }
+  publications {
+    mavenJava(MavenPublication) {
+      pom {
+        name = 'Lektionarium API'
+        description = 'Calendar API for Church of Sweden\'s Liturgical year'
+        url = 'http://lektionarium.se'
+        licenses {
+          license {
+            name = 'The GNU Public License, Version 3'
+            url = 'https://www.gnu.org/licenses/gpl-3.0.en.html'
+          }
+          scm {
+            connection = 'scm:git:git://github.com/marvi/lektionarium.git'
+            url = 'http://lektionarium.se'
+          }
+        }
+      }
+    }
+  }
 }

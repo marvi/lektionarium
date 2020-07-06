@@ -2,3 +2,11 @@ plugins {
   id "com.moowork.node" version "1.2.0"
 }
 
+task installDeps(type: NpmTask) {
+  args = ['install']
+}
+
+task build(type: NpmTask) {
+  dependsOn(installDeps)
+  args = ['run', 'build']
+}
