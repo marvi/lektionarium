@@ -1,12 +1,12 @@
 plugins {
-  id "com.moowork.node" version "1.2.0"
+  id "com.github.node-gradle.node" version "2.2.4"
 }
 
-task installDeps(type: NpmTask) {
-  args = ['install']
+node {
+  // Whether to download and install Node.js or not
+  download = true
 }
 
-task build(type: NpmTask) {
-  dependsOn(installDeps)
+  task build(type: NpmTask) {
   args = ['run', 'build']
 }
