@@ -7,6 +7,11 @@ node {
   download = true
 }
 
-  task build(type: NpmTask) {
+task installDeps(type: NpmTask) {
+  args = ['install']
+}
+
+task build(type: NpmTask) {
+  dependsOn(installDeps)
   args = ['run', 'build']
 }
