@@ -79,10 +79,10 @@ public class IcalFormat {
 
   private static void addReadings(VEvent e, Readings r) {
     String desc = r.getTheme() + "\r\n" +
-      "GT: " + r.getOt() + "\r\n" +
-      "Ep: " + r.getEp() + "\r\n" +
-      "Ev: " + r.getGo() + "\r\n" +
-      "Ps: " + r.getPs() + "\r\n";
+      "GT: " + r.getOt().getSweRef() + "\r\n" +
+      "Ep: " + r.getEp().getSweRef()+ "\r\n" +
+      "Ev: " + r.getGo().getSweRef() + "\r\n" +
+      "Ps: " + r.getPs().getSweRef() + "\r\n";
     e.getProperties().add(new Description(desc));
   }
 
