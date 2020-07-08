@@ -5,7 +5,7 @@ WORKDIR /home/gradle/src
 RUN gradle --stacktrace build
 
 FROM openjdk:10-jre-slim
-EXPOSE 80
+EXPOSE 8080
 COPY --from=builder /home/gradle/src/web/build/libs/web.jar /app/
 WORKDIR /app
 CMD java -jar web.jar

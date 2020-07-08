@@ -12,7 +12,7 @@ const AppFooter = () => (
       <Image
         centered
         size='small'
-        src='/logo.svg'
+        src='/logo_transparent.svg'
       />
     </Container>
   </Segment>

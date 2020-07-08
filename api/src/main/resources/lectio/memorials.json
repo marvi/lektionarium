@@ -1,0 +1,40 @@
+{
+  "0101": [
+    {
+      "name": "Wilhelm Löhe",
+      "year_death": "1877",
+      "description": "Tysk luthersk teolog och kyrkoman. Verkade för att återföra liturgin till allmänkyrklig rit."
+    },
+    {
+      "name": "Waldemar Rudin P",
+      "year_death": "1921",
+      "description": "Svensk pietistisk mystiker, professor och hovpredikant."
+    },
+    {
+      "name": "Odilo av Cluny AB",
+      "year_death": "1048",
+      "description": "Abbot i Cluny i 54 år."
+    },
+    {
+      "name": "Basilius BL",
+      "year_death": "379",
+      "description": "Biskop av Caesarea i Kappadokien. Kyrkofader."
+    },
+    {
+      "name": "Abel och Set",
+      "description": "Adam och Evas söner"
+    },
+    {
+      "name": "Serafim av Sarov",
+      "year_death": "1833",
+      "description": "Rysk munk och mystiker."
+    },
+    {
+      "name": "Richard Baumann",
+      "year_death": "1997",
+      "description": "Tysk teolog och författare"
+    }
+  ]
+
+
+}
