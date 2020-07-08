@@ -31,7 +31,7 @@ class IcalController {
     HttpHeaders header = new HttpHeaders()
     header.set("Content-Type", "text/calendar")
     header.set(HttpHeaders.CONTENT_DISPOSITION,
-      "attachment; filename=" + year + ".ics")
+      "attachment; filename=lektionarium_" + year + ".ics")
     header.setContentLength(calData.getBytes().length)
 
     return new HttpEntity<byte[]>(calData.getBytes(), header)
