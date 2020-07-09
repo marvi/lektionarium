@@ -17,7 +17,7 @@ class Readings extends Component {
     const { activeIndex } = this.state;
     return (
       <Accordion>
-        <Accordion.Title className="lectioHeader" active={activeIndex === 1} index={1} onClick={this.handleClick}>
+        <Accordion.Title className="refHeader" active={activeIndex === 1} index={1} onClick={this.handleClick}>
           <Icon name='dropdown'/>
           {this.props.readings.ot.sweRef}
         </Accordion.Title>
@@ -25,7 +25,7 @@ class Readings extends Component {
           <div className="bibleText" dangerouslySetInnerHTML={this.createMarkup(this.props.readings.ot.text)} />
         </Accordion.Content>
 
-        <Accordion.Title className="lectioHeader" active={activeIndex === 2} index={2} onClick={this.handleClick}>
+        <Accordion.Title className="refHeader" active={activeIndex === 2} index={2} onClick={this.handleClick}>
           <Icon name='dropdown'/>
           {this.props.readings.ep.sweRef}
         </Accordion.Title>
@@ -33,14 +33,14 @@ class Readings extends Component {
           <div className="bibleText" dangerouslySetInnerHTML={this.createMarkup(this.props.readings.ep.text)} />
         </Accordion.Content>
 
-        <Accordion.Title className="lectioHeader" active={activeIndex === 3} index={3} onClick={this.handleClick}>
+        <Accordion.Title className="refHeader" active={activeIndex === 3} index={3} onClick={this.handleClick}>
           <Icon name='dropdown'/>
           {this.props.readings.go.sweRef}
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 3}>
           <div className="bibleText" dangerouslySetInnerHTML={this.createMarkup(this.props.readings.go.text)} />
         </Accordion.Content>
-        <Accordion.Title className="lectioHeader" active={activeIndex === 4} index={4} onClick={this.handleClick}>
+        <Accordion.Title className="refHeader" active={activeIndex === 4} index={4} onClick={this.handleClick}>
           <Icon name='dropdown'/>
           {this.props.readings.ps.sweRef}
         </Accordion.Title>

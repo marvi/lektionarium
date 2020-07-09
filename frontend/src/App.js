@@ -4,7 +4,6 @@ import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 import DayCard from './DayCard';
 
-
 class App extends Component {
 
 
