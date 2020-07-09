@@ -25,4 +25,4 @@ Ingen databas används utan kalenderdata läses från en XML-fil vid anrop. Då 
 > GNU General Public License for more details.
 > 
 > You should have received a copy of the GNU General Public License
-> along with Foobar.  If not, see <https://www.gnu.org/licenses/>.
+> along with Lektionarium.  If not, see <https://www.gnu.org/licenses/>.
