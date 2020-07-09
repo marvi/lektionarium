@@ -13,10 +13,10 @@ class DayCard extends Component {
       {
         errors: '',
         day: {
-          "day": "Palmsöndagen",
-          "date": "2020-04-05",
+          "day": "",
+          "date": "",
           "readings": {
-            "theme": "Dagens tema",
+            "theme": "",
             "ot": {"text": "", "sweRef": "", "enRef": "", "readingType": "OT"},
             "ep": {"text": "", "sweRef": "", "enRef": "", "readingType": "EP"},
             "go": {"text": "", "sweRef": "", "enRef": "", "readingType": "GO"},
