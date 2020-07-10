@@ -1,22 +1,78 @@
 # lektionarium
 
+![foo](frontend/public/logo.svg)
+
 Skapa en kyrkoårskalender för Svenska kyrkans kyrkoår. 
 
 Projektet består av flera delar:
 
-1. api - Grundläggande kod för att räkna ut kalendern och skapa olika utformat
-2. cli - Ett enkelt kommandoradsprogram för att skapa kalendrar i ditt skal
-3. web - Spring Boot-applikation för att skapa HTTP-kontaktpunkter för att hämta kalenderdata
-4. frontend - En React-application för att presentera kalenderdata i en webbkläsare. 
+| Modul | Beskrivning |
+| :--- | :---  |
+| api  |Grundläggande kod för att räkna ut kalendern och skapa olika utformat  |
+| cli  | Ett enkelt kommandoradsprogram för att skapa kalendrar i ditt skal  |
+| web  | Spring Boot-applikation för att skapa HTTP-kontaktpunkter för att hämta kalenderdata  |
+| frontend  | En React-application för att presentera kalenderdata i en webbläsare.  |
+
 
 Större delen av programmet är skrivet i Java. Webbapplikationen är skriven i Groovy och frontend i Javascript. 
 
 Ingen databas används utan kalenderdata läses från en XML-fil vid anrop. Då kalenderdata inte ändras cachas data ganska aggressivt. 
 
-# Bygga Lektionarium
-* Installera en JDK https://adoptopenjdk.net/
+## Bygga Lektionarium
+* Installera en [JDK](https://adoptopenjdk.net/)
 * Gå till root-katalogen i projektet
 * Kör `./gradlew build` (gradlew.bat på windows)
+
+## Starta webbapplikationen vid utveckling
+* Installera en [JDK](https://adoptopenjdk.net/)
+* Installera [NodeJS](https://nodejs.org/en/)
+* I ett terminalfönster, kör `./gradlew web:bootRun`
+* I ett annat terminalfönster, gåt till katalogen `frontend`
+* Kör `npm start`. Ett webbläsarfösnter öppnas med webbapplikationen.
+
+
+## API
+Om du vill anropa lektionarium från en annan webbplats, t.ex. för att visa söndagens texter på er webb,
+kan du anropa API:et från Javascript.
+
+`curl https://lektionarium.se/day` 
+
+Svaret kommer i JSON-format enligt följande:
+
+```json
+{
+  "day": "Fjärde söndagen efter trefaldighet",
+  "date": "2020-07-05",
+  "memorials": [],
+  "readings": {
+    "theme": "Att inte döma",
+    "ot": {
+      "sweRef": "Hes 18:30-32",
+      "enRef": "Ezek. 18:30-32",
+      "text": "bibeltext"
+    },
+    "ep": {
+      "sweRef": "Gal 6:1-7",
+      "enRef": "Gal. 6:1-7",
+      "text": "bibeltext"
+    },
+    "go": {
+      "sweRef": "Luk 6:36-42",
+      "enRef": "Luke 6:36-42",
+      "text": "bibeltext"
+    },
+    "ps": {
+      "sweRef": "Ps 62:2-9",
+      "enRef": "Psa. 62:2-9",
+      "text": "bibeltext"
+    },
+    "alt": null
+  }
+}
+```
+
+
+### Villkor för användning av källkoden
 
 
 > Lektionarium is free software: you can redistribute it and/or modify
