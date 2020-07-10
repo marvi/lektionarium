@@ -74,7 +74,7 @@ Svaret kommer i JSON-format enligt följande:
 
 ### Villkor för användning av källkoden
 
-
+> Copyright (c) 2010, 2020, marvi ab. All rights reserved.
 > Lektionarium is free software: you can redistribute it and/or modify
 > it under the terms of the GNU General Public License as published by
 > the Free Software Foundation, either version 3 of the License, or
