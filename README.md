@@ -13,6 +13,11 @@ Större delen av programmet är skrivet i Java. Webbapplikationen är skriven i 
 
 Ingen databas används utan kalenderdata läses från en XML-fil vid anrop. Då kalenderdata inte ändras cachas data ganska aggressivt. 
 
+# Bygga Lektionarium
+* Installera en JDK https://adoptopenjdk.net/
+* Gå till root-katalogen i projektet
+* Kör `./gradlew build` (gradlew.bat på windows)
+
 
 > Lektionarium is free software: you can redistribute it and/or modify
 > it under the terms of the GNU General Public License as published by
