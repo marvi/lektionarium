@@ -1,6 +1,9 @@
 # lektionarium
 
+
 ![foo](frontend/public/logo.svg)
+
+[lektionarium.se](https://lektionarium.se)
 
 Skapa en kyrkoårskalender för Svenska kyrkans kyrkoår. 
 
