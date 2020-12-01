@@ -105,12 +105,21 @@ public class LiturgicalYearTest extends TestCase {
 
   }
 
+  public void testLiturgicalYearNotEqualToCalendarYear() {
+    LiturgicalYear y2021 = new LiturgicalYear(2021);
+    assertTrue(y2021.getDaysOfYear().containsKey(LocalDate.of(2020, 12, 6)));
+  }
+
+
   public void testReadingCycle() {
     assertEquals(2, new LiturgicalYear(2007).getReadingCycle());
     assertEquals(2, new LiturgicalYear(2010).getReadingCycle());
     assertEquals(3, new LiturgicalYear(2011).getReadingCycle());
     assertEquals(2, new LiturgicalYear(2013).getReadingCycle());
+    assertEquals(3, new LiturgicalYear(2020).getReadingCycle());
+    assertEquals(1, new LiturgicalYear(2021).getReadingCycle());
   }
+
 
 
   public void testEasterSeries() {
