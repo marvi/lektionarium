@@ -30,7 +30,7 @@ Ingen databas används utan kalenderdata läses från en XML-fil vid anrop. Då 
 * Installera en [JDK](https://adoptopenjdk.net/)
 * Installera [NodeJS](https://nodejs.org/en/)
 * I ett terminalfönster, kör `./gradlew web:bootRun`
-* I ett annat terminalfönster, gåt till katalogen `frontend`
+* I ett annat terminalfönster, gå till katalogen `frontend`
 * Kör `npm start`. Ett webbläsarfösnter öppnas med webbapplikationen.
 
 

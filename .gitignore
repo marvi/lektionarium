@@ -36,3 +36,5 @@ gradle-app.setting
 **/.classpath/
 **/.project
 **/.settings/
+/.run/
+**/.classpath

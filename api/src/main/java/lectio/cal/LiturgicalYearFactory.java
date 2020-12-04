@@ -46,14 +46,11 @@ public class LiturgicalYearFactory {
   @NotNull
   public Day getCurrentDay(LocalDate d) {
     Day day = null;
+    SortedMap<LocalDate, Day> days = getYear(d.getYear()).getDaysOfYear();
+    days.putAll(getYear(d.getYear() + 1).getDaysOfYear());
     while (day == null) {
-      LiturgicalYear y = getYear(d.getYear());
-      LiturgicalYear yPrev = getYear(d.getYear() - 1);
-      if(y.getDaysOfYear().containsKey(d)) {
-        day = y.getDaysOfYear().get(d);
-      }
-      else if(yPrev.getDaysOfYear().containsKey(d)) {
-        day = yPrev.getDaysOfYear().get(d);
+      if(days.containsKey(d)) {
+        day = days.get(d);
       }
       else {
         d = d.minusDays(1);
@@ -71,14 +68,11 @@ public class LiturgicalYearFactory {
   public Day getNextDay(LocalDate d) {
     Day day = null;
     d = d.plusDays(1);
+    SortedMap<LocalDate, Day> days = getYear(d.getYear()).getDaysOfYear();
+    days.putAll(getYear(d.getYear() + 1).getDaysOfYear());
     while (day == null) {
-      LiturgicalYear y = getYear(d.getYear());
-      LiturgicalYear yNext = getYear(d.getYear() + 1);
-      if(y.getDaysOfYear().containsKey(d)) {
-        day = y.getDaysOfYear().get(d);
-      }
-      else if(yNext.getDaysOfYear().containsKey(d)) {
-        day = yNext.getDaysOfYear().get(d);
+      if(days.containsKey(d)) {
+        day = days.get(d);
       }
       else {
         d = d.plusDays(1);
@@ -99,14 +93,12 @@ public class LiturgicalYearFactory {
     Day day = null;
     d = getCurrentDay(d).date;
     d = d.minusDays(1);
+    SortedMap<LocalDate, Day> days = getYear(d.getYear()).getDaysOfYear();
+    days.putAll(getYear(d.getYear() - 1).getDaysOfYear());
+    days.putAll(getYear(d.getYear() + 1).getDaysOfYear());
     while (day == null) {
-      LiturgicalYear y = getYear(d.getYear());
-      LiturgicalYear yPrev = getYear(d.getYear() - 1);
-      if(y.getDaysOfYear().containsKey(d)) {
-        day = y.getDaysOfYear().get(d);
-      }
-      else if(yPrev.getDaysOfYear().containsKey(d)) {
-        day = yPrev.getDaysOfYear().get(d);
+      if(days.containsKey(d)) {
+        day = days.get(d);
       }
       else {
         d = d.minusDays(1);
