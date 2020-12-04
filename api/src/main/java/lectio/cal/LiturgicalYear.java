@@ -298,6 +298,18 @@ public class LiturgicalYear {
     return daysOfYear;
   }
 
+  public HolyDay getHolyDayByName(String name) {
+    Optional<Day> match = daysOfYear.values().parallelStream()
+      .filter(d -> d.name.equals(name)).findAny();
+    if(match.isPresent()) {
+      return (HolyDay) match.get();
+    }
+    else {
+      LOGGER.severe("Could not find "  +  name + " in " + this.year);
+      return null;
+    }
+  }
+
   public int getReadingCycle() {
     return getReadingCycle(this.year);
   }
@@ -320,6 +332,10 @@ public class LiturgicalYear {
       return 0;
     }
     return (year - 2004) % 4 + 1;
+  }
+
+  public int getYear() {
+    return this.year;
   }
 
   /**

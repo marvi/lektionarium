@@ -47,15 +47,17 @@ public class ReadingsTest extends TestCase {
     Map<LocalDate, String> epData = new HashMap<LocalDate, String>();
     epData.put(LocalDate.of(2023, 2, 22), "2 Kor 7:8-13");
     epData.put(LocalDate.of(2023, 4, 8), "Ef 2:1−6");
-    epData.put(LocalDate.of(2020, 11, 28), "Rom 13:11−14");
+    epData.put(LocalDate.of(2020, 11, 29), "Rom 13:11-14");
 
+    LiturgicalYearFactory factory = new LiturgicalYearFactory();
     Iterator it2 = epData.entrySet().iterator();
     while (it2.hasNext()) {
       Map.Entry pairs = (Map.Entry) it2.next();
       LocalDate date = (LocalDate) pairs.getKey();
-      Readings r = ((HolyDay) new LiturgicalYear(date.getYear()).getDaysOfYear().get(date)).getReadings();
-      System.out.println(r.theme);
-      assertEquals(r.getEp().getSweRef(), pairs.getValue());
+      LiturgicalYear year = factory.getLiturgicalYear(date);
+      HolyDay day = (HolyDay) year.getDaysOfYear().get(date);
+      Readings r = day.getReadings();
+      assertEquals(pairs.getValue(), r.getEp().getSweRef());
     }
 
     // GO

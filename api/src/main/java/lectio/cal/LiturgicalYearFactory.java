@@ -12,8 +12,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 import java.util.Map;
+import java.util.Optional;
 import java.util.SortedMap;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -25,6 +27,8 @@ import java.util.stream.Collectors;
  * @author marvi
  */
 public class LiturgicalYearFactory {
+
+  private static final Logger LOGGER = Logger.getLogger( LiturgicalYearFactory.class.getName() );
 
   /**
    * Concurrent hash map, able to handle multiple threads
@@ -127,6 +131,36 @@ public class LiturgicalYearFactory {
     return daysOfYear.entrySet().stream()
       .filter(map -> map.getKey().getYear() == year)
       .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  }
+
+  /**
+   * Find the Liturgical year for a date. Handle edge cases like first of advent.
+   *
+   * If a date is after first of Advent and before New Years day the liturgical
+   * year is calendar year + 1. Else it's equal to calendar year
+   *
+   *
+   * @param d A date
+   * @return The Liturgical year for this date
+   */
+  public LiturgicalYear getLiturgicalYear(LocalDate d) {
+    Map<LocalDate, Day> daysOfCalendarYear = this.getDaysOfCalendarYear(d.getYear());
+    Optional<Day> match = daysOfCalendarYear.values().parallelStream()
+      .filter(day -> day.name.equals("Första söndagen i advent")).findAny();
+    if(match.isPresent()) {
+      LocalDate firstAdv = match.get().date;
+      if(d.equals(firstAdv) ||
+        (d.isAfter(firstAdv) && (d.getYear() == firstAdv.getYear()))) {
+        return this.getYear(d.getYear() + 1);
+      }
+      else {
+        return this.getYear(d.getYear());
+      }
+    }
+    else {
+      LOGGER.severe("Could not find out liturgical year for date  "  + d);
+      return null;
+    }
   }
 
   @NotNull

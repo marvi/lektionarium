@@ -2,12 +2,9 @@ package lectio.cal;
 
 import junit.framework.TestCase;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.SortedMap;
+import java.util.*;
 
- /**
+/**
   * @author marvi
   */
 public class LiturgicalYearFactoryTest extends TestCase {
@@ -40,6 +37,22 @@ public class LiturgicalYearFactoryTest extends TestCase {
     while (it.hasNext()) {
       Map.Entry<LocalDate, LocalDate> pairs = (Map.Entry) it.next();
       assertEquals(pairs.getValue(), fact.getPreviousDay(pairs.getKey()).getDate());
+    }
+  }
+
+  public void testLiturgicalYear() {
+    Map<LocalDate, Integer> cornerCases = new HashMap<>();
+    cornerCases.put(LocalDate.of(2020, 11, 29), 2021);
+    cornerCases.put(LocalDate.of(2024, 11, 29), 2024);
+    cornerCases.put(LocalDate.of(2026, 9, 29), 2026);
+    cornerCases.put(LocalDate.of(2021, 4, 3), 2021);
+    cornerCases.put(LocalDate.of(2023, 12, 3), 2024);
+    LiturgicalYearFactory fact = new LiturgicalYearFactory();
+    Iterator it = cornerCases.entrySet().iterator();
+    while (it.hasNext()) {
+      Map.Entry<LocalDate, LocalDate> pairs = (Map.Entry) it.next();
+      assertEquals(pairs.getValue(), fact.getLiturgicalYear(pairs.getKey())
+        .getYear());
     }
   }
 
