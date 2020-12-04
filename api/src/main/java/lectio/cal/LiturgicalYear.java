@@ -235,7 +235,7 @@ public class LiturgicalYear {
   private Day makeDay(String name, LocalDate date, LiturgicalColor color) {
     List<Memorial> mem = new ArrayList<>();
     if(readingCycles.hasReadings(name)) {
-      return new HolyDay(name, date, mem, color, getReadingsForDay(name, date.getYear()));
+      return new HolyDay(name, date, mem, color, getReadingsForDay(name, this.year));
     }
     else {
       return new Day(name, date, mem, color);
