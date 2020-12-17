@@ -11,12 +11,15 @@ repositories {
   mavenCentral()
 }
 
+/**
+/ Uncomment when debugging
 test {
   testLogging {
     outputs.upToDateWhen { false }
     showStandardStreams = true
   }
 }
+*/
 
 dependencies {
   implementation 'org.jetbrains:annotations:16.0.2'
@@ -32,14 +35,16 @@ publishing {
       name = "GitHubPackages"
       url = uri("https://maven.pkg.github.com/marvi/lektionarium")
       credentials {
-        username = System.getenv("USERNAME")
-        password = System.getenv("TOKEN")
+        username = System.getenv("GITHUB_ACTOR")
+        password = System.getenv("GITHUB_TOKEN")
       }
     }
   }
   publications {
-    mavenJava(MavenPublication) {
+    gpr(MavenPublication) {
+      from(components.java)
       pom {
+        artifactId = 'lektionarium-api'
         name = 'Lektionarium API'
         description = 'Calendar API for Church of Sweden\'s Liturgical year'
         url = 'http://lektionarium.se'
@@ -50,7 +55,14 @@ publishing {
           }
           scm {
             connection = 'scm:git:git://github.com/marvi/lektionarium.git'
-            url = 'http://lektionarium.se'
+            url = 'https://github.org/marvi/lektionarium'
+          }
+          developers {
+            developer {
+              id = "marvi"
+              name = "Markus Härnvi"
+              email = "m@marvi.io"
+            }
           }
         }
       }

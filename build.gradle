@@ -1,9 +1,16 @@
 
+plugins {
+  id 'org.ajoberstar.reckon' version '0.13.0'
+}
+
 project.group = 'io.marvi'
-project.version = '2.0'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
   jcenter()
 }
 
+reckon {
+  scopeFromProp()
+  stageFromProp('beta', 'final')
+}
