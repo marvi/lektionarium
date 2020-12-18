@@ -21,6 +21,6 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Check tags
-      run: echo $(git tag -l)
+      run: echo  "Git tags:" $(git tag -l)
     - name: Build with Gradle
       run: ./gradlew test
