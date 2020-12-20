@@ -5,6 +5,7 @@ plugins {
 node {
   // Whether to download and install Node.js or not
   download = true
+  version = "14.15.3"
 }
 
 task installDeps(type: NpmTask) {
