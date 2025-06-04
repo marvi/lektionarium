@@ -10,15 +10,12 @@
 
     <modules>
         <module>api</module>
-        <module>web</module>
-        <module>frontend</module>
         <module>cli</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <reckon.version>0.13.0</reckon.version> <!-- Version from build.gradle -->
     </properties>
 
     <repositories>
@@ -37,32 +34,7 @@
                         <target>${java.version}</target>
                     </configuration>
                 </plugin>
-                <plugin>
-                    <groupId>org.ajoberstar.reckon</groupId>
-                    <artifactId>reckon-maven-plugin</artifactId>
-                    <version>${reckon.version}</version>
-                    <configuration>
-                        <scopeFromProp>true</scopeFromProp>
-                        <stages>
-                            <stage>beta</stage>
-                            <stage>final</stage>
-                        </stages>
-                    </configuration>
-                </plugin>
             </plugins>
         </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.ajoberstar.reckon</groupId>
-                <artifactId>reckon-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>reckon</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
     </build>
 </project>

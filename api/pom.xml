@@ -6,14 +6,14 @@
     <parent>
         <groupId>io.marvi</groupId>
         <artifactId>lektionarium-parent</artifactId>
-        <version>0.1.0-SNAPSHOT</version> <!-- This version will be managed by reckon in parent -->
+        <version>0.1.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>lektionarium-api</artifactId>
 
     <name>Lektionarium API</name>
     <description>Calendar API for Church of Sweden's Liturgical year</description>
-    <url>http://lektionarium.se</url>
+    <url>https://lektionarium.se</url>
 
     <licenses>
         <license>
@@ -25,9 +25,9 @@
     <developers>
         <developer>
             <name>Markus Härnvi</name>
-            <email>markus@harnvi.io</email> <!-- Placeholder email, replace if actual email is available -->
-            <organization>Marvi</organization> <!-- Placeholder organization, replace if actual organization is available -->
-            <organizationUrl>http://marvi.io</organizationUrl> <!-- Placeholder org URL, replace if actual org URL is available -->
+            <email>m@marvi.io</email>
+            <organization>marvi.io</organization>
+            <organizationUrl>https://marvi.io</organizationUrl>
         </developer>
     </developers>
 
@@ -39,20 +39,15 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>16.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mnode.ical4j</groupId>
-            <artifactId>ical4j</artifactId>
-            <version>3.0.4</version>
-        </dependency>
-        <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20180813</version>
         </dependency>
+      <dependency>
+        <groupId>net.sf.biweekly</groupId>
+        <artifactId>biweekly</artifactId>
+        <version>0.6.6</version>
+      </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
