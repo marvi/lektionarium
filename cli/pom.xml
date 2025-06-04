@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.marvi</groupId>
+        <artifactId>lektionarium-parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version> <!-- This version will be managed by reckon in parent -->
+    </parent>
+
+    <artifactId>lektionarium-cli</artifactId>
+
+    <name>Lektionarium CLI</name>
+    <description>Calendar CLI for Church of Sweden's Liturgical year</description>
+    <url>http://lektionarium.se</url>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/marvi/lektionarium.git</connection>
+        <developerConnection>scm:git:ssh://github.com:marvi/lektionarium.git</developerConnection>
+        <url>https://github.com/marvi/lektionarium/tree/master</url> <!-- Assuming master branch -->
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.marvi</groupId>
+            <artifactId>lektionarium-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>info.picocli</groupId>
+            <artifactId>picocli</artifactId>
+            <version>3.8.2</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id> <!-- This ID should match the server ID in settings.xml -->
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/marvi/lektionarium</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <!-- maven-compiler-plugin configuration is inherited from parent -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version> <!-- Or a more recent compatible version -->
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>lectio.LectioCli</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

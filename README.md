@@ -22,17 +22,43 @@ Större delen av programmet är skrivet i Java. Webbapplikationen är skriven i 
 Ingen databas används utan kalenderdata läses från en XML-fil vid anrop. Då kalenderdata inte ändras cachas data ganska aggressivt. 
 
 ## Bygga Lektionarium
-* Installera en [JDK](https://adoptopenjdk.net/)
-* Gå till root-katalogen i projektet
-* Kör `./gradlew build` (gradlew.bat på windows)
+
+Detta projekt använder [Apache Maven](https://maven.apache.org/) som byggsystem.
+
+* Installera en [JDK](https://adoptopenjdk.net/) (Java 8 eller senare rekommenderas).
+* Installera [Apache Maven](https://maven.apache.org/install.html) om du inte redan har det.
+* Gå till root-katalogen i projektet.
+* Kör `mvn clean install` för att bygga alla moduler och köra tester.
+    * För att bygga utan att köra tester: `mvn clean install -DskipTests`
+    * För att bara paketera (t.ex. skapa JAR-filer): `mvn clean package`
+
+Om du använder en IDE (som IntelliJ IDEA, Eclipse, VS Code), importera projektet som ett Maven-projekt.
 
 ## Starta webbapplikationen vid utveckling
-* Installera en [JDK](https://adoptopenjdk.net/)
-* Installera [NodeJS](https://nodejs.org/en/)
-* I ett terminalfönster, kör `./gradlew web:bootRun`
-* I ett annat terminalfönster, gå till katalogen `frontend`
-* Kör `npm start`. Ett webbläsarfösnter öppnas med webbapplikationen.
 
+För att utveckla webbapplikationen lokalt:
+
+* Installera en [JDK](https://adoptopenjdk.net/).
+* Installera [NodeJS](https://nodejs.org/en/) (för frontend-utveckling).
+* Installera [Apache Maven](https://maven.apache.org/install.html).
+
+Det finns två huvudsakliga delar att köra: backend (Spring Boot) och frontend (React).
+
+**1. Starta Backend (Spring Boot-applikationen):**
+* I ett terminalfönster, från projektets root-katalog, kör:
+  `mvn spring-boot:run -pl web`
+  Detta startar webbservern på port 8080 (eller annan konfigurerad port).
+
+**2. Starta Frontend (React utvecklingsserver):**
+* I ett annat terminalfönster, navigera till `frontend`-katalogen:
+  `cd frontend`
+* Installera frontend-beroenden (behövs bara första gången eller efter ändringar i `package.json`):
+  `npm install`
+* Starta React utvecklingsservern:
+  `npm start`
+  Detta öppnar vanligtvis ett webbläsarfönster med frontend-applikationen (ofta på port 3000) och den kommer att anropa backend på port 8080.
+
+**Notera:** För en produktionsbyggnad kommer `mvn clean install` att bygga frontend-resurserna och inkludera dem i Spring Boot JAR-filen, så du behöver inte köra `npm start` separat i produktion.
 
 ## API
 Om du vill anropa lektionarium från en annan webbplats, t.ex. för att visa söndagens texter på er webb,

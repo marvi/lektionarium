@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.marvi</groupId>
+        <artifactId>lektionarium-parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version> <!-- This version will be managed by reckon in parent -->
+    </parent>
+
+    <artifactId>lektionarium-api</artifactId>
+
+    <name>Lektionarium API</name>
+    <description>Calendar API for Church of Sweden's Liturgical year</description>
+    <url>http://lektionarium.se</url>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Markus Härnvi</name>
+            <email>markus@harnvi.io</email> <!-- Placeholder email, replace if actual email is available -->
+            <organization>Marvi</organization> <!-- Placeholder organization, replace if actual organization is available -->
+            <organizationUrl>http://marvi.io</organizationUrl> <!-- Placeholder org URL, replace if actual org URL is available -->
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/marvi/lektionarium.git</connection>
+        <developerConnection>scm:git:ssh://github.com:marvi/lektionarium.git</developerConnection>
+        <url>https://github.com/marvi/lektionarium/tree/master</url> <!-- Assuming master branch -->
+    </scm>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>16.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mnode.ical4j</groupId>
+            <artifactId>ical4j</artifactId>
+            <version>3.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180813</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id> <!-- This ID should match the server ID in settings.xml -->
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/marvi/lektionarium</url>
+        </repository>
+    </distributionManagement>
+
+    <build>
+        <plugins>
+            <!-- maven-compiler-plugin configuration is inherited from parent -->
+        </plugins>
+    </build>
+</project>

@@ -1,2 +1,0 @@
-rootProject.name='lektionarium'
-include 'api', 'web', 'frontend','cli'
