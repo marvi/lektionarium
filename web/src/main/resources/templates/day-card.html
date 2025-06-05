@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="dayCard(day)">
+        <h3 th:text="${day.date}">Date</h3>
+        <h1 th:text="${day.day}">Day Name</h1>
+
+        <div th:if="${day.readings != null}">
+            <h3 th:text="${day.readings.theme}">Theme</h3>
+            <!-- Basic display of readings - can be enhanced later -->
+            <div th:if="${day.readings.ot != null}">
+                <h4>Old Testament Reading</h4>
+                <p th:text="${day.readings.ot.sweRef}"></p>
+                <div th:utext="${day.readings.ot.text}"></div>
+            </div>
+            <div th:if="${day.readings.ep != null}">
+                <h4>Epistle Reading</h4>
+                <p th:text="${day.readings.ep.sweRef}"></p>
+                <div th:utext="${day.readings.ep.text}"></div>
+            </div>
+            <div th:if="${day.readings.go != null}">
+                <h4>Gospel Reading</h4>
+                <p th:text="${day.readings.go.sweRef}"></p>
+                <div th:utext="${day.readings.go.text}"></div>
+            </div>
+            <div th:if="${day.readings.ps != null}">
+                <h4>Psalm Reading</h4>
+                <p th:text="${day.readings.ps.sweRef}"></p>
+                <div th:utext="${day.readings.ps.text}"></div>
+            </div>
+        </div>
+        <div th:unless="${day.readings != null}">
+            <p>No readings available for this day.</p>
+        </div>
+
+        <hr/>
+
+        <div>
+            <button th:hx-get="@{'/previous-htmx/' + ${day.date}}" hx-target="#day-card-container" hx-swap="innerHTML">
+                Previous Day
+            </button>
+            <button th:hx-get="@{'/next-htmx/' + ${day.date}}" hx-target="#day-card-container" hx-swap="innerHTML">
+                Next Day
+            </button>
+        </div>
+    </div>
+</body>
+</html>

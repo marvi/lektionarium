@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lektionarium</title>
+    <!-- Add any global CSS links here if needed later -->
+    <script src="/webjars/htmx.org/1.9.10/dist/htmx.min.js" defer></script>
+</head>
+<body>
+    <h1>Lektionarium</h1>
+
+    <div id="day-card-container" hx-get="/day-htmx" hx-trigger="load">
+        <!-- Content will be loaded here by HTMX -->
+        <p>Loading current day...</p>
+    </div>
+
+    <!-- Footer or other static content can go here -->
+</body>
+</html>
