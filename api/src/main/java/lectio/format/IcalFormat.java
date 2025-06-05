@@ -22,6 +22,7 @@ import net.fortuna.ical4j.model.property.Version;
 import net.fortuna.ical4j.util.RandomUidGenerator;
 
 import java.io.IOException;
+// Standard Java Calendar is still used for date manipulation before converting to ical4j Date
 import java.io.StringWriter;
 import java.time.LocalDate;
 import java.util.Map.Entry;
@@ -42,30 +43,36 @@ public class IcalFormat {
    */
   public static String getIcalForYear(int year) {
     LiturgicalYearFactory lyf = new LiturgicalYearFactory();
-    RandomUidGenerator ug = new RandomUidGenerator();
+    RandomUidGenerator ug = new RandomUidGenerator(); // Re-instantiate RandomUidGenerator
     SortedMap<LocalDate, Day> daysOfYear = lyf.getDaysOfLiturgicalYear(year).getDaysOfYear();
-    Calendar calendar = new Calendar();
+    Calendar calendar = new Calendar(); // Changed back to net.fortuna.ical4j.model.Calendar
     calendar.getProperties().add(new ProdId("-//marvi.io//lektionarium//EN"));
     calendar.getProperties().add(Version.VERSION_2_0);
     calendar.getProperties().add(CalScale.GREGORIAN);
     for (Entry<LocalDate, Day> entry : daysOfYear.entrySet()) {
-      LocalDate date = entry.getKey();
+      LocalDate localDate = entry.getKey(); // Renamed to avoid conflict with ical4j.model.Date
       Day d = entry.getValue();
-      java.util.Calendar cal = java.util.Calendar.getInstance();
-      cal.clear();
-      cal.set(date.getYear(), date.getMonthValue()-1, date.getDayOfMonth(), 9, 0, 0);
-      VEvent day = new VEvent(new Date(cal.getTime()), d.getName());
-      day.getProperties().add(ug.generateUid());
+
+      // Convert LocalDate to java.util.Calendar for ical4j.model.Date constructor
+      java.util.Calendar javaCal = java.util.Calendar.getInstance();
+      javaCal.clear();
+      javaCal.set(localDate.getYear(), localDate.getMonthValue() - 1, localDate.getDayOfMonth(), 9, 0, 0);
+
+      // Create ical4j VEvent
+      VEvent event = new VEvent(new Date(javaCal.getTime()), d.getName()); // Use ical4j.model.Date
+      event.getProperties().add(ug.generateUid()); // Use RandomUidGenerator
+
       if (d instanceof HolyDay) {
         HolyDay hd = (HolyDay) d;
-        addReadings(day, hd.getReadings());
+        addReadings(event, hd.getReadings());
       }
-      calendar.getComponents().add(day);
+      calendar.getComponents().add(event);
     }
-    CalendarOutputter outputter = new CalendarOutputter(false);
+
     StringWriter strwr = new StringWriter();
+    CalendarOutputter outputter = new CalendarOutputter(false); // Use CalendarOutputter
     try {
-      outputter.output(calendar, strwr);
+      outputter.output(calendar, strwr); // Use CalendarOutputter
     } catch (IOException ex) {
       Logger.getLogger(IcalFormat.class.getName()).log(Level.SEVERE, null, ex);
       throw new RuntimeException("Could not write calendar", ex);
@@ -77,13 +84,13 @@ public class IcalFormat {
 
 
 
-  private static void addReadings(VEvent e, Readings r) {
-    String desc = r.getTheme() + "\r\n" +
+  private static void addReadings(VEvent event, Readings r) {
+    String descText = r.getTheme() + "\r\n" +
       "GT: " + r.getOt().getSweRef() + "\r\n" +
       "Ep: " + r.getEp().getSweRef()+ "\r\n" +
       "Ev: " + r.getGo().getSweRef() + "\r\n" +
       "Ps: " + r.getPs().getSweRef() + "\r\n";
-    e.getProperties().add(new Description(desc));
+    event.getProperties().add(new Description(descText)); // Revert to adding Description property
   }
 
 }

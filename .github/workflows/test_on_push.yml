@@ -19,7 +19,7 @@ jobs:
     - name: Set up JDK 1.8 and Maven
       uses: actions/setup-java@v3 # Updated to v3
       with:
-        java-version: '8'
+        java-version: '21'
         distribution: 'temurin'
         cache: 'maven' # Enable caching for Maven dependencies
 

@@ -64,7 +64,7 @@ jobs:
       uses: actions/setup-java@v3
       with:
         distribution: 'temurin' # Or another distribution like 'adopt'
-        java-version: '8' # Corresponds to Java 1.8
+        java-version: '21' # Corresponds to Java 1.8
         cache: 'maven'
 
     - name: Build with Maven
