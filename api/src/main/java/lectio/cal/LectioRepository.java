@@ -34,37 +34,37 @@ public class LectioRepository {
     ReadingCycles readingCycles = new ReadingCycles();
 
     for (int i = 0; i < days.getLength(); i++) {
-      Node day = days.item(i);
-      if (day instanceof Element) {
-        Element dayElem = (Element) day;
+      Node dayNode = days.item(i); // Renamed to avoid conflict with pattern variable
+      if (dayNode instanceof Element day) { // Pattern matching for instanceof
+        // Element dayElem = (Element) day; // Cast removed
         // Extract data from Node
-        String name = dayElem.getAttribute("name");
-        String theme = dayElem.getAttribute("theme");
+        String name = day.getAttribute("name");
+        String theme = day.getAttribute("theme"); // Use pattern variable 'day'
         Readings c1 = null;
         Readings c2 = null;
         Readings c3 = null;
         Readings c4 = null;
-        NodeList cycles = day.getChildNodes();
+        NodeList cycles = day.getChildNodes(); // Use pattern variable 'day'
         for (int j = 0; j < cycles.getLength(); j++) {
-          Node cycle = cycles.item(j);
-          if (cycle instanceof Element) {
-            Element cycleElem = (Element) cycle;
+          Node cycleNode = cycles.item(j); // Renamed to avoid conflict
+          if (cycleNode instanceof Element cycle) { // Pattern matching for instanceof
+            // Element cycleElem = (Element) cycle; // Cast removed
             // Extract data from Node
-            String cycleNum = cycleElem.getAttribute("cycle");
-            NodeList readings = cycleElem.getChildNodes();
+            String cycleNum = cycle.getAttribute("cycle"); // Use pattern variable 'cycle'
+            NodeList readings = cycle.getChildNodes(); // Use pattern variable 'cycle'
             Reading ot = null;
             Reading ep = null;
             Reading go = null;
             Reading ps = null;
             for (int k = 0; k < readings.getLength(); k++) {
-              Node reading = readings.item(k);
-              if (reading instanceof Element) {
-                Element readingElem = (Element) reading;
+              Node readingNode = readings.item(k); // Renamed to avoid conflict
+              if (readingNode instanceof Element reading) { // Pattern matching for instanceof
+                // Element readingElem = (Element) reading; // Cast removed
                 // Extract data from Node
-                String type = readingElem.getAttribute("type");
-                String svref = readingElem.getAttribute("svref");
-                String enref = readingElem.getAttribute("enref");
-                String content = readingElem.getTextContent();
+                String type = reading.getAttribute("type"); // Use pattern variable 'reading'
+                String svref = reading.getAttribute("svref"); // Use pattern variable 'reading'
+                String enref = reading.getAttribute("enref"); // Use pattern variable 'reading'
+                String content = reading.getTextContent(); // Use pattern variable 'reading'
 
                 if (type.equals("ot")) {
                   ot = new Reading(svref, enref, content);
@@ -80,19 +80,22 @@ public class LectioRepository {
                 }
               }
             }// End loop over readings
-            if (cycleNum.equals("1")) {
-              readingCycles.addCycle(name, 1, new Readings(theme, ot, ep, go, ps, null));
+            // Convert if statements to switch expression
+            switch (cycleNum) {
+              case "1":
+                readingCycles.addCycle(name, 1, new Readings(theme, ot, ep, go, ps, null));
+                break;
+              case "2":
+                readingCycles.addCycle(name, 2, new Readings(theme, ot, ep, go, ps, null));
+                break;
+              case "3":
+                readingCycles.addCycle(name, 3, new Readings(theme, ot, ep, go, ps, null));
+                break;
+              case "4":
+                readingCycles.addCycle(name, 4, new Readings(theme, ot, ep, go, ps, null));
+                break;
+              // Optional: default case if needed, though original code had no else
             }
-            if (cycleNum.equals("2")) {
-              readingCycles.addCycle(name, 2, new Readings(theme, ot, ep, go, ps, null));
-            }
-            if (cycleNum.equals("3")) {
-              readingCycles.addCycle(name, 3, new Readings(theme, ot, ep, go, ps, null));
-            }
-            if (cycleNum.equals("4")) {
-              readingCycles.addCycle(name, 4, new Readings(theme, ot, ep, go, ps, null));
-            }
-
           }
         }// End loop over cycles
       } // End loop over days

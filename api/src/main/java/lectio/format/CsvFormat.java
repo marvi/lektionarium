@@ -31,12 +31,12 @@ public class CsvFormat {
     desc.append("Datum;Namn;Tema;GT;Epistel;Evangelium;Alternativ text\n");
     for (Entry<LocalDate, Day> entry : lym.getDaysOfCalendarYear(year).entrySet()) {
       Day d = entry.getValue();
-      desc.append(d.getDate()).append(";");
-      desc.append(d.getName()).append(";");
-      if (d instanceof HolyDay) {
-        HolyDay hd = (HolyDay) d;
-        Readings r = hd.getReadings();
-        desc.append(hd.getTheme()).append(";");
+      desc.append(d.date()).append(";"); // Replaced getDate() with date()
+      desc.append(d.name()).append(";"); // Replaced getName() with name()
+      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
+        // HolyDay hd = (HolyDay) d; // Cast removed
+        Readings r = hd.readings(); // Replaced getReadings() with readings()
+        desc.append(hd.theme()).append(";"); // Replaced getTheme() with theme()
         desc.append(r.getOt()).append(";");
         desc.append(r.getEp()).append(";");
         desc.append(r.getGo()).append(";");

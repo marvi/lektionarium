@@ -1,8 +1,10 @@
 package lectio.format;
 
+import lectio.cal.Day; // Added import for Day
 import lectio.cal.LiturgicalYearFactory;
 import org.json.JSONArray;
 
+import java.time.LocalDate; // Added import for LocalDate
 import java.util.SortedMap;
 
 /**
@@ -18,7 +20,8 @@ public class JsonFormat {
    */
   public static String getJsonForYear(int year) {
     LiturgicalYearFactory lyf = new LiturgicalYearFactory();
-    SortedMap daysWithReadings = lyf.getDaysOfLiturgicalYear(year).getDaysOfYear();
+    // Changed raw type SortedMap to SortedMap<LocalDate, Day>
+    SortedMap<LocalDate, Day> daysWithReadings = lyf.getDaysOfLiturgicalYear(year).getDaysOfYear();
     JSONArray jsonCal = new JSONArray(daysWithReadings.values());
     return jsonCal.toString(4);
   }
