@@ -11,18 +11,19 @@ import lectio.cal.Day;
 import lectio.cal.HolyDay;
 import lectio.cal.LiturgicalYearFactory;
 import lectio.cal.Readings;
-import net.fortuna.ical4j.data.CalendarOutputter;
-import net.fortuna.ical4j.model.Calendar;
-import net.fortuna.ical4j.model.Date;
-import net.fortuna.ical4j.model.component.VEvent;
-import net.fortuna.ical4j.model.property.CalScale;
-import net.fortuna.ical4j.model.property.Description;
-import net.fortuna.ical4j.model.property.ProdId;
-import net.fortuna.ical4j.model.property.Version;
-import net.fortuna.ical4j.util.RandomUidGenerator;
+import biweekly.ICalendar;
+import biweekly.component.VEvent;
+import biweekly.io.text.ICalWriter;
+import biweekly.property.CalendarScale;
+import biweekly.property.Description;
+import biweekly.property.Summary;
+import biweekly.property.Uid;
+import biweekly.property.Version;
+import biweekly.ICalVersion;
 
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.UUID;
 import java.time.LocalDate;
 import java.util.Map.Entry;
 import java.util.SortedMap;
@@ -42,33 +43,41 @@ public class IcalFormat {
    */
   public static String getIcalForYear(int year) {
     LiturgicalYearFactory lyf = new LiturgicalYearFactory();
-    RandomUidGenerator ug = new RandomUidGenerator();
     SortedMap<LocalDate, Day> daysOfYear = lyf.getDaysOfLiturgicalYear(year).getDaysOfYear();
-    Calendar calendar = new Calendar();
-    calendar.getProperties().add(new ProdId("-//marvi.io//lektionarium//EN"));
-    calendar.getProperties().add(Version.VERSION_2_0);
-    calendar.getProperties().add(CalScale.GREGORIAN);
+    ICalendar calendar = new ICalendar();
+    calendar.setProductId("-//marvi.io//lektionarium//EN");
+    calendar.setVersion(ICalVersion.V2_0);
+    calendar.setCalendarScale(CalendarScale.gregorian());
+
     for (Entry<LocalDate, Day> entry : daysOfYear.entrySet()) {
       LocalDate date = entry.getKey();
       Day d = entry.getValue();
-      java.util.Calendar cal = java.util.Calendar.getInstance();
-      cal.clear();
-      cal.set(date.getYear(), date.getMonthValue()-1, date.getDayOfMonth(), 9, 0, 0);
-      VEvent day = new VEvent(new Date(cal.getTime()), d.getName());
-      day.getProperties().add(ug.generateUid());
+
+      VEvent event = new VEvent();
+      event.setSummary(new Summary(d.getName()));
+      event.setDateStart(java.util.Date.from(date.atStartOfDay().toInstant(java.time.ZoneOffset.UTC)));
+      event.setUid(new Uid(UUID.randomUUID().toString()));
+
       if (d instanceof HolyDay) {
         HolyDay hd = (HolyDay) d;
-        addReadings(day, hd.getReadings());
+        addReadings(event, hd.getReadings());
       }
-      calendar.getComponents().add(day);
+      calendar.addEvent(event);
     }
-    CalendarOutputter outputter = new CalendarOutputter(false);
+
     StringWriter strwr = new StringWriter();
+    ICalWriter writer = new ICalWriter(strwr, ICalVersion.V2_0);
     try {
-      outputter.output(calendar, strwr);
+      writer.write(calendar);
     } catch (IOException ex) {
       Logger.getLogger(IcalFormat.class.getName()).log(Level.SEVERE, null, ex);
       throw new RuntimeException("Could not write calendar", ex);
+    } finally {
+      try {
+        writer.close();
+      } catch (IOException ex) {
+        Logger.getLogger(IcalFormat.class.getName()).log(Level.SEVERE, null, ex);
+      }
     }
 
     return strwr.toString();
@@ -77,13 +86,13 @@ public class IcalFormat {
 
 
 
-  private static void addReadings(VEvent e, Readings r) {
-    String desc = r.getTheme() + "\r\n" +
+  private static void addReadings(VEvent event, Readings r) {
+    String descValue = r.getTheme() + "\r\n" +
       "GT: " + r.getOt().getSweRef() + "\r\n" +
       "Ep: " + r.getEp().getSweRef()+ "\r\n" +
       "Ev: " + r.getGo().getSweRef() + "\r\n" +
       "Ps: " + r.getPs().getSweRef() + "\r\n";
-    e.getProperties().add(new Description(desc));
+    event.setDescription(new Description(descValue));
   }
 
 }
