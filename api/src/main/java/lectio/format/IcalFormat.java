@@ -59,12 +59,12 @@ public class IcalFormat {
       javaCal.set(localDate.getYear(), localDate.getMonthValue() - 1, localDate.getDayOfMonth(), 9, 0, 0);
 
       // Create ical4j VEvent
-      VEvent event = new VEvent(new Date(javaCal.getTime()), d.getName()); // Use ical4j.model.Date
+      VEvent event = new VEvent(new Date(javaCal.getTime()), d.name()); // Replaced getName() with name()
       event.getProperties().add(ug.generateUid()); // Use RandomUidGenerator
 
-      if (d instanceof HolyDay) {
-        HolyDay hd = (HolyDay) d;
-        addReadings(event, hd.getReadings());
+      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
+        // HolyDay hd = (HolyDay) d; // Cast removed
+        addReadings(event, hd.readings()); // Replaced getReadings() with readings()
       }
       calendar.getComponents().add(event);
     }

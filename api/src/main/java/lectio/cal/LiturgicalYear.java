@@ -233,12 +233,14 @@ public class LiturgicalYear {
   }
 
   private Day makeDay(String name, LocalDate date, LiturgicalColor color) {
-    List<Memorial> mem = new ArrayList<>();
+    List<Memorial> mem = new ArrayList<>(); // Assuming Memorial is a class/record.
+    Day dayObject = new Day(name, date, mem, color); // Create Day record instance first
     if(readingCycles.hasReadings(name)) {
-      return new HolyDay(name, date, mem, color, getReadingsForDay(name, this.year));
+      // HolyDay constructor now takes a Day object and Readings
+      return new HolyDay(dayObject, getReadingsForDay(name, this.year));
     }
     else {
-      return new Day(name, date, mem, color);
+      return dayObject; // Return the created Day object
     }
   }
 
@@ -300,7 +302,7 @@ public class LiturgicalYear {
 
   public HolyDay getHolyDayByName(String name) {
     Optional<Day> match = daysOfYear.values().parallelStream()
-      .filter(d -> d.name.equals(name)).findAny();
+      .filter(d -> d.name().equals(name)).findAny(); // Replaced d.name with d.name()
     if(match.isPresent()) {
       return (HolyDay) match.get();
     }

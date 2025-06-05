@@ -37,6 +37,11 @@
         <url>https://github.com/marvi/lektionarium/tree/master</url> <!-- Assuming master branch -->
     </scm>
 
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.json</groupId>
@@ -47,12 +52,6 @@
             <groupId>org.mnode.ical4j</groupId>
             <artifactId>ical4j</artifactId>
             <version>3.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>24.1.0</version>
-            <!-- <scope>provided</scope> Defaulting to compile scope -->
         </dependency>
         <dependency>
             <groupId>junit</groupId>

@@ -26,12 +26,12 @@ public class TextFormat {
     StringBuffer desc = new StringBuffer();
     for (Entry<LocalDate, Day> entry : daysWithReadings.entrySet()) {
       Day d = entry.getValue();
-      desc.append(d.getDate() + " ");
-      desc.append(d.getName() + "\n");
-      if (d instanceof HolyDay) {
-        HolyDay hd = (HolyDay) d;
-        Readings r = hd.getReadings();
-        desc.append("  " + hd.getTheme() + "\n");
+      desc.append(d.date() + " "); // Replaced getDate() with date()
+      desc.append(d.name() + "\n"); // Replaced getName() with name()
+      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
+        // HolyDay hd = (HolyDay) d; // Cast removed
+        Readings r = hd.readings(); // Replaced getReadings() with readings()
+        desc.append("  " + hd.theme() + "\n"); // Replaced getTheme() with theme()
         desc.append("  Gammaltestamentlig text: " + r.getOt().getSweRef() + "\n");
         desc.append("  Epistel: " + r.getEp().getSweRef() + "\n");
         desc.append("  Evangelium: " + r.getGo().getSweRef() + "\n");

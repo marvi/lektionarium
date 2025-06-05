@@ -95,7 +95,7 @@ public class LiturgicalYearFactory {
   @NotNull
   public Day getPreviousDay(LocalDate d) {
     Day day = null;
-    d = getCurrentDay(d).date;
+    d = getCurrentDay(d).date(); // Replaced .date with .date()
     d = d.minusDays(1);
     SortedMap<LocalDate, Day> days = getYear(d.getYear()).getDaysOfYear();
     days.putAll(getYear(d.getYear() - 1).getDaysOfYear());
@@ -146,9 +146,9 @@ public class LiturgicalYearFactory {
   public LiturgicalYear getLiturgicalYear(LocalDate d) {
     Map<LocalDate, Day> daysOfCalendarYear = this.getDaysOfCalendarYear(d.getYear());
     Optional<Day> match = daysOfCalendarYear.values().parallelStream()
-      .filter(day -> day.name.equals("Första söndagen i advent")).findAny();
+      .filter(day -> day.name().equals("Första söndagen i advent")).findAny(); // Replaced .name with .name()
     if(match.isPresent()) {
-      LocalDate firstAdv = match.get().date;
+      LocalDate firstAdv = match.get().date(); // Replaced .date with .date()
       if(d.equals(firstAdv) ||
         (d.isAfter(firstAdv) && (d.getYear() == firstAdv.getYear()))) {
         return this.getYear(d.getYear() + 1);
