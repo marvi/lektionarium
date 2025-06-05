@@ -15,7 +15,7 @@
     <description>Web application for Lektionarium</description>
 
     <properties>
-        <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
+        <spring-boot.version>3.2.0</spring-boot.version>
         <!-- maven-resources-plugin version can be managed by parent or specified here if needed -->
     </properties>
 
@@ -37,9 +37,9 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.groovy</groupId>
+            <groupId>org.apache.groovy</groupId>
             <artifactId>groovy</artifactId>
-            <version>3.0.6</version>
+            <version>4.0.15</version>
         </dependency>
         <dependency>
             <groupId>io.marvi</groupId>
@@ -67,6 +67,21 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.13.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>addSources</goal>
+                            <goal>addTestSources</goal>
+                            <goal>compile</goal>
+                            <goal>compileTests</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
