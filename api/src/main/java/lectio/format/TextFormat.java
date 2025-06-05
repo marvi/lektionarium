@@ -26,25 +26,28 @@ public class TextFormat {
     StringBuffer desc = new StringBuffer();
     for (Entry<LocalDate, Day> entry : daysWithReadings.entrySet()) {
       Day d = entry.getValue();
-      desc.append(d.date() + " "); // Replaced getDate() with date()
-      desc.append(d.name() + "\n"); // Replaced getName() with name()
-      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
-        // HolyDay hd = (HolyDay) d; // Cast removed
-        Readings r = hd.readings(); // Replaced getReadings() with readings()
-        desc.append("  " + hd.theme() + "\n"); // Replaced getTheme() with theme()
-        desc.append("  Gammaltestamentlig text: " + r.getOt().getSweRef() + "\n");
-        desc.append("  Epistel: " + r.getEp().getSweRef() + "\n");
-        desc.append("  Evangelium: " + r.getGo().getSweRef() + "\n");
-        desc.append("  Psaltarpsalm: " + r.getPs().getSweRef() + "\n");
-        if (r.getAlt() != null) {
-          desc.append(r.getAlt().getSweRef() + "\n");
-        } else {
-          desc.append("\n");
+      desc.append(d.date()).append(" "); // Use Day's date accessor
+      desc.append(d.name()).append("\n"); // Use Day's name accessor
+      if (d.isHolyDay()) { // Use the new method from Day record
+        Readings r = d.readings(); // Access readings directly from Day
+        // Ensure readings is not null before calling methods on it, though isHolyDay should guarantee it.
+        if (r != null) {
+          desc.append("  ").append(d.theme()).append("\n"); // Access theme via Day's theme() method
+          desc.append("  Gammaltestamentlig text: ").append(r.getOt().getSweRef()).append("\n");
+          desc.append("  Epistel: ").append(r.getEp().getSweRef()).append("\n");
+          desc.append("  Evangelium: ").append(r.getGo().getSweRef()).append("\n");
+          desc.append("  Psaltarpsalm: ").append(r.getPs().getSweRef()).append("\n");
+          if (r.getAlt() != null) {
+            desc.append(r.getAlt().getSweRef()).append("\n");
+          } else {
+            desc.append("\n");
+          }
         }
       }
     }
     return desc.toString();
   }
+// No corresponding REPLACE block, this section is removed.
 
 
 }

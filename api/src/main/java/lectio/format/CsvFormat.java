@@ -31,21 +31,30 @@ public class CsvFormat {
     desc.append("Datum;Namn;Tema;GT;Epistel;Evangelium;Alternativ text\n");
     for (Entry<LocalDate, Day> entry : lym.getDaysOfCalendarYear(year).entrySet()) {
       Day d = entry.getValue();
-      desc.append(d.date()).append(";"); // Replaced getDate() with date()
-      desc.append(d.name()).append(";"); // Replaced getName() with name()
-      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
-        // HolyDay hd = (HolyDay) d; // Cast removed
-        Readings r = hd.readings(); // Replaced getReadings() with readings()
-        desc.append(hd.theme()).append(";"); // Replaced getTheme() with theme()
-        desc.append(r.getOt()).append(";");
-        desc.append(r.getEp()).append(";");
-        desc.append(r.getGo()).append(";");
-        desc.append(r.getPs()).append(";");
-        if (r.getAlt() != null) {
-          desc.append(r.getAlt()).append(";\n");
+      desc.append(d.date()).append(";"); // Use Day's date accessor
+      desc.append(d.name()).append(";"); // Use Day's name accessor
+      if (d.isHolyDay()) { // Use the new method from Day record
+        Readings r = d.readings(); // Access readings directly from Day
+        // Ensure readings is not null before calling methods on it, though isHolyDay should guarantee it.
+        if (r != null) {
+          desc.append(d.theme() != null ? d.theme() : "").append(";"); // Access theme via Day's theme() method, handle potential null
+          desc.append(r.getOt()).append(";");
+          desc.append(r.getEp()).append(";");
+          desc.append(r.getGo()).append(";");
+          desc.append(r.getPs()).append(";");
+          if (r.getAlt() != null) {
+            desc.append(r.getAlt()).append(";\n");
+          } else {
+            desc.append(";\n"); // Ensure a trailing semicolon for consistent CSV structure
+          }
         } else {
-          desc.append(";\n");
+          // If it's a holy day but readings are null (shouldn't happen with isHolyDay check),
+          // still add empty fields for CSV consistency.
+          desc.append(";;;;;;\n");
         }
+      } else {
+        // If not a holy day, add empty fields for theme and readings for CSV consistency
+        desc.append(";;;;;;\n");
       }
     }
     return desc.toString();

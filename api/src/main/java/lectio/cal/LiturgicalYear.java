@@ -234,14 +234,12 @@ public class LiturgicalYear {
 
   private Day makeDay(String name, LocalDate date, LiturgicalColor color) {
     List<Memorial> mem = new ArrayList<>(); // Assuming Memorial is a class/record.
-    Day dayObject = new Day(name, date, mem, color); // Create Day record instance first
-    if(readingCycles.hasReadings(name)) {
-      // HolyDay constructor now takes a Day object and Readings
-      return new HolyDay(dayObject, getReadingsForDay(name, this.year));
+    Readings readings = null;
+    if (readingCycles.hasReadings(name)) {
+      readings = getReadingsForDay(name, this.year);
     }
-    else {
-      return dayObject; // Return the created Day object
-    }
+    // Pass readings to the Day constructor (it can be null)
+    return new Day(name, date, mem, color, readings);
   }
 
   /**
@@ -300,14 +298,16 @@ public class LiturgicalYear {
     return daysOfYear;
   }
 
-  public HolyDay getHolyDayByName(String name) {
+  public @Nullable HolyDay getHolyDayByName(String name) {
     Optional<Day> match = daysOfYear.values().parallelStream()
-      .filter(d -> d.name().equals(name)).findAny(); // Replaced d.name with d.name()
-    if(match.isPresent()) {
-      return (HolyDay) match.get();
-    }
-    else {
-      LOGGER.severe("Could not find "  +  name + " in " + this.year);
+      .filter(d -> d.name().equals(name) && d.readings() != null) // Ensure it has readings, access via method
+      .findAny();
+    if (match.isPresent()) {
+      Day day = match.get();
+      // Construct HolyDay on the fly. Ensure day.readings() is not null due to filter.
+      return new HolyDay(day, day.readings());
+    } else {
+      LOGGER.severe("Could not find HolyDay " + name + " in " + this.year);
       return null;
     }
   }

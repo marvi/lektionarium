@@ -39,7 +39,11 @@ public class ReadingsTest extends TestCase {
     while (it.hasNext()) {
       Map.Entry pairs = (Map.Entry) it.next();
       LocalDate date = (LocalDate) pairs.getKey();
-      Readings r = ((HolyDay) new LiturgicalYear(date.getYear()).getDaysOfYear().get(date)).getReadings();
+      Day day = new LiturgicalYear(date.getYear()).getDaysOfYear().get(date);
+      assertNotNull("Day object should not be null for date: " + date, day);
+      assertTrue("Day should be a holy day: " + day.name(), day.isHolyDay());
+      Readings r = day.readings();
+      assertNotNull("Readings should not be null for day: " + day.name(), r);
       assertEquals(r.getOt().getSweRef(), pairs.getValue());
     }
 
@@ -55,8 +59,11 @@ public class ReadingsTest extends TestCase {
       Map.Entry pairs = (Map.Entry) it2.next();
       LocalDate date = (LocalDate) pairs.getKey();
       LiturgicalYear year = factory.getLiturgicalYear(date);
-      HolyDay day = (HolyDay) year.getDaysOfYear().get(date);
-      Readings r = day.getReadings();
+      Day day = year.getDaysOfYear().get(date);
+      assertNotNull("Day object should not be null for date: " + date, day);
+      assertTrue("Day should be a holy day: " + day.name(), day.isHolyDay());
+      Readings r = day.readings();
+      assertNotNull("Readings should not be null for day: " + day.name(), r);
       assertEquals(pairs.getValue(), r.getEp().getSweRef());
     }
 
@@ -69,7 +76,11 @@ public class ReadingsTest extends TestCase {
     while (it3.hasNext()) {
       Map.Entry pairs = (Map.Entry) it3.next();
       LocalDate date = (LocalDate) pairs.getKey();
-      Readings r = ((HolyDay) new LiturgicalYear(date.getYear()).getDaysOfYear().get(date)).getReadings();
+      Day day = new LiturgicalYear(date.getYear()).getDaysOfYear().get(date);
+      assertNotNull("Day object should not be null for date: " + date, day);
+      assertTrue("Day should be a holy day: " + day.name(), day.isHolyDay());
+      Readings r = day.readings();
+      assertNotNull("Readings should not be null for day: " + day.name(), r);
       assertEquals(r.getGo().getSweRef(), pairs.getValue());
     }
   }

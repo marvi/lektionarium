@@ -59,12 +59,11 @@ public class IcalFormat {
       javaCal.set(localDate.getYear(), localDate.getMonthValue() - 1, localDate.getDayOfMonth(), 9, 0, 0);
 
       // Create ical4j VEvent
-      VEvent event = new VEvent(new Date(javaCal.getTime()), d.name()); // Replaced getName() with name()
+      VEvent event = new VEvent(new Date(javaCal.getTime()), d.name()); // Use Day's name accessor
       event.getProperties().add(ug.generateUid()); // Use RandomUidGenerator
 
-      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
-        // HolyDay hd = (HolyDay) d; // Cast removed
-        addReadings(event, hd.readings()); // Replaced getReadings() with readings()
+      if (d.isHolyDay() && d.readings() != null) { // Use Day's isHolyDay and readings accessor
+        addReadings(event, d.readings(), d.theme()); // Pass readings and theme from Day
       }
       calendar.getComponents().add(event);
     }
@@ -81,16 +80,18 @@ public class IcalFormat {
     return strwr.toString();
   }
 
+  // Modified to accept theme directly, as Day record now provides it.
+  private static void addReadings(VEvent event, Readings r, String theme) {
+    // Ensure theme is not null if r is not null.
+    // isHolyDay() checks for non-null readings, and theme() in Day handles null readings if called directly.
+    String currentTheme = (theme != null) ? theme : ""; // Default to empty string if theme is somehow null
 
-
-
-  private static void addReadings(VEvent event, Readings r) {
-    String descText = r.getTheme() + "\r\n" +
-      "GT: " + r.getOt().getSweRef() + "\r\n" +
-      "Ep: " + r.getEp().getSweRef()+ "\r\n" +
-      "Ev: " + r.getGo().getSweRef() + "\r\n" +
-      "Ps: " + r.getPs().getSweRef() + "\r\n";
-    event.getProperties().add(new Description(descText)); // Revert to adding Description property
+    String descText = currentTheme + "\r\n" +
+        "GT: " + r.getOt().getSweRef() + "\r\n" +
+        "Ep: " + r.getEp().getSweRef() + "\r\n" +
+        "Ev: " + r.getGo().getSweRef() + "\r\n" +
+        "Ps: " + r.getPs().getSweRef() + "\r\n";
+    event.getProperties().add(new Description(descText));
   }
 
 }

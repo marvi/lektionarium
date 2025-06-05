@@ -13,10 +13,19 @@ import java.time.LocalDate;
 import java.util.List;
 // Objects import is no longer needed as equals and hashCode will be auto-generated
 // import java.util.Objects;
+import org.jetbrains.annotations.Nullable;
 
-public record Day(String name, LocalDate date, List<Memorial> memorials, LiturgicalColor liturgicalColor) implements Comparable<Day> {
+public record Day(String name, LocalDate date, List<Memorial> memorials, LiturgicalColor liturgicalColor, @Nullable Readings readings) implements Comparable<Day> {
 
   // Constructor, getters, equals, hashCode, and toString are auto-generated for records.
+
+  public boolean isHolyDay() {
+    return readings != null;
+  }
+
+  public @Nullable String theme() {
+    return readings != null ? readings.getTheme() : null;
+  }
 
   // The problem description asks to update compareTo(Object o) to compareTo(Day d)
   // However, for a record to implement Comparable<Day>, it should implement compareTo(Day d).
@@ -28,6 +37,9 @@ public record Day(String name, LocalDate date, List<Memorial> memorials, Liturgi
   public int compareTo(Day d) {
     // The original implementation only compared dates.
     // Records provide accessors like d.date()
+    if (this.date == null && d.date == null) return 0;
+    if (this.date == null) return -1;
+    if (d.date == null) return 1;
     return this.date.compareTo(d.date());
   }
 

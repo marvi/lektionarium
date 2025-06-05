@@ -80,7 +80,7 @@ public class LiturgicalYearTest extends TestCase {
       Map.Entry pairs = (Map.Entry) it.next();
       LocalDate date = (LocalDate) pairs.getKey();
       int year = date.getYear();
-      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).getName(), pairs.getValue());
+      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).name(), pairs.getValue()); // Replaced getName() with name()
     }
 
     Map<LocalDate, String> testDataChristmas = new HashMap<LocalDate, String>();
@@ -99,7 +99,7 @@ public class LiturgicalYearTest extends TestCase {
       LocalDate date = (LocalDate) pairs.getKey();
       int year = date.getYear();
       year++;
-      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).getName(), pairs.getValue());
+      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).name(), pairs.getValue()); // Replaced getName() with name()
     }
 
 
@@ -169,7 +169,82 @@ public class LiturgicalYearTest extends TestCase {
       DayOfWeek.SATURDAY, LocalDate.of(2015, 2, 14)));
     assertEquals(LocalDate.of(1967, 11, 12), LiturgicalYear.nextWeekdayOfType(
       DayOfWeek.SUNDAY, LocalDate.of(1967, 11, 7)));
-
   }
 
+  public void testGetHolyDayByNameBehavior() {
+    LiturgicalYear year2021 = new LiturgicalYear(2021);
+
+    // Test with a known holy day
+    HolyDay easterDay = year2021.getHolyDayByName("Påskdagen");
+    assertNotNull("Påskdagen should be found as a HolyDay in 2021", easterDay);
+    assertTrue("Day object within Påskdagen HolyDay should report isHolyDay() as true", easterDay.day().isHolyDay());
+    assertNotNull("Påskdagen HolyDay should have non-null readings", easterDay.readings());
+    assertEquals("Påskdagen theme should match", easterDay.readings().getTheme(), easterDay.day().theme());
+
+
+    // Test with a non-existent day name
+    HolyDay nonExistentDay = year2021.getHolyDayByName("En Ickeexisterande Dag");
+    assertNull("A non-existent day should not be found as a HolyDay", nonExistentDay);
+
+    // Test with a day name that exists but might not have readings (or is not considered a "HolyDay" by getHolyDayByName)
+    // "Onsdag i Stilla veckan" is created by LiturgicalYear.
+    // Whether it's a "HolyDay" via getHolyDayByName depends on whether it has readings in lectio.json
+    // and if getHolyDayByName filters for days with readings (which it now does).
+    HolyDay wednesdayHolyWeek = year2021.getHolyDayByName("Onsdag i Stilla veckan");
+    Day dayObjectWednesday = year2021.getDaysOfYear().get(CalculateEaster.forYear(2021).minusDays(4));
+    assertNotNull("Onsdag i Stilla veckan should exist as a Day object", dayObjectWednesday);
+
+    if (dayObjectWednesday.readings() != null) {
+      assertNotNull("If 'Onsdag i Stilla veckan' has readings, getHolyDayByName should return it", wednesdayHolyWeek);
+      assertTrue(wednesdayHolyWeek.day().isHolyDay());
+    } else {
+      assertNull("If 'Onsdag i Stilla veckan' has no readings, getHolyDayByName should return null", wednesdayHolyWeek);
+      assertFalse(dayObjectWednesday.isHolyDay());
+    }
+  }
+
+  public void testDayReadingsPopulation() {
+    LiturgicalYear year2021 = new LiturgicalYear(2021);
+    Map<LocalDate, Day> daysOfYear = year2021.getDaysOfYear();
+
+    // Easter Sunday in 2021 is April 4th
+    LocalDate easterDate2021 = LocalDate.of(2021, 4, 4);
+    Day easterDay = daysOfYear.get(easterDate2021);
+    assertNotNull("Easter Sunday (2021-04-04) should exist in the map", easterDay);
+    assertTrue("Easter Sunday should be a holy day", easterDay.isHolyDay());
+    assertNotNull("Easter Sunday should have non-null readings", easterDay.readings());
+    assertEquals("Påskdagen", easterDay.name());
+
+    // Wednesday in Holy Week (2021-03-31)
+    LocalDate wednesdayHolyWeekDate = CalculateEaster.forYear(2021).minusDays(4); // 2021-03-31
+    Day wednesdayHolyWeek = daysOfYear.get(wednesdayHolyWeekDate);
+    assertNotNull("Wednesday in Holy Week should exist in the map", wednesdayHolyWeek);
+    assertEquals("Onsdag i Stilla veckan", wednesdayHolyWeek.name());
+    // Check if it has readings - this depends on lectio.json
+    if (wednesdayHolyWeek.readings() != null) {
+      assertTrue("If Wednesday in Holy Week has readings, isHolyDay() should be true", wednesdayHolyWeek.isHolyDay());
+      assertNotNull("Theme should not be null if readings exist", wednesdayHolyWeek.theme());
+    } else {
+      assertFalse("If Wednesday in Holy Week has no readings, isHolyDay() should be false", wednesdayHolyWeek.isHolyDay());
+      assertNull("Theme should be null if no readings", wednesdayHolyWeek.theme());
+    }
+
+    // A day that is likely not a "named" holy day with specific readings, e.g., a random day after Christmas
+    // However, LiturgicalYear only populates specific days.
+    // Let's check "Juldagen" (Christmas Day for the liturgical year starting Advent 2020)
+    // This would be 2020-12-25 for LiturgicalYear(2021)
+    LocalDate christmasDayDate = LocalDate.of(2020, 12, 25);
+    Day christmasDay = daysOfYear.get(christmasDayDate);
+    assertNotNull("Christmas Day (2020-12-25) should exist for LiturgicalYear 2021", christmasDay);
+    assertEquals("Juldagen", christmasDay.name());
+    if (christmasDay.readings() != null) {
+        assertTrue("Christmas Day should be a holy day if it has readings", christmasDay.isHolyDay());
+        assertNotNull(christmasDay.readings());
+        assertNotNull(christmasDay.theme());
+    } else {
+        assertFalse("Christmas Day should not be a holy day if it has no readings", christmasDay.isHolyDay());
+        assertNull(christmasDay.readings());
+        assertNull(christmasDay.theme());
+    }
+  }
 }
