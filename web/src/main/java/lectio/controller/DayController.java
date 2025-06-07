@@ -28,7 +28,7 @@ public class DayController {
   @RequestMapping(value = "/next/{date}", method = RequestMethod.GET, produces="application/json")
   @ResponseBody
   @CrossOrigin
-  public Map<String, Object> next(@PathVariable String date) {
+  public Map<String, Object> next(@PathVariable("date") String date) {
     Map<String, Object> day = liturgicalYearService.nextDay(LocalDate.parse(date));
     return day;
   }
@@ -36,7 +36,7 @@ public class DayController {
   @RequestMapping(value = "/previous/{date}", method = RequestMethod.GET, produces="application/json")
   @ResponseBody
   @CrossOrigin
-  public Map<String, Object> previous(@PathVariable String date) {
+  public Map<String, Object> previous(@PathVariable("date") String date) {
     return liturgicalYearService.previousDay(LocalDate.parse(date));
   }
 }

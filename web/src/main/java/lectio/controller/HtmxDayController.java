@@ -33,14 +33,14 @@ public class HtmxDayController {
     }
 
     @GetMapping("/next-htmx/{date}") // Renamed to avoid conflict
-    public String getNextDay(@PathVariable String date, Model model) {
+    public String getNextDay(@PathVariable("date") String date, Model model) {
         Map<String, Object> dayData = liturgicalYearService.nextDay(LocalDate.parse(date));
         model.addAttribute("day", dayData);
         return "day-card :: dayCard"; // Renders the dayCard fragment
     }
 
     @GetMapping("/previous-htmx/{date}") // Renamed to avoid conflict
-    public String getPreviousDay(@PathVariable String date, Model model) {
+    public String getPreviousDay(@PathVariable("date") String date, Model model) {
         Map<String, Object> dayData = liturgicalYearService.previousDay(LocalDate.parse(date));
         model.addAttribute("day", dayData);
         return "day-card :: dayCard"; // Renders the dayCard fragment
