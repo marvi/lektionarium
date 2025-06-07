@@ -3,7 +3,7 @@
 <body>
     <div th:fragment="dayCard(day)">
         <h3 th:text="${day.date}">Date</h3>
-        <h1 th:text="${day.day}">Day Name</h1>
+        <h1 th:text="${day.name}">Day Name</h1>
 
         <div th:if="${day.readings != null}">
             <h3 th:text="${day.readings.theme}">Theme</h3>
@@ -36,10 +36,10 @@
         <hr/>
 
         <div>
-            <button th:hx-get="@{'/previous-htmx/' + ${day.date}}" hx-target="#day-card-container" hx-swap="innerHTML">
+            <button th:hx-get="@{'/previous/' + ${day.date}}" hx-target="#day-card-container" hx-swap="innerHTML">
                 Previous Day
             </button>
-            <button th:hx-get="@{'/next-htmx/' + ${day.date}}" hx-target="#day-card-container" hx-swap="innerHTML">
+            <button th:hx-get="@{'/next/' + ${day.date}}" hx-target="#day-card-container" hx-swap="innerHTML">
                 Next Day
             </button>
         </div>

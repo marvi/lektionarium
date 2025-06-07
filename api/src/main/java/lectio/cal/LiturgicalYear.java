@@ -233,15 +233,14 @@ public class LiturgicalYear {
   }
 
   private Day makeDay(String name, LocalDate date, LiturgicalColor color) {
-    List<Memorial> mem = new ArrayList<>(); // Assuming Memorial is a class/record.
-    Day dayObject = new Day(name, date, mem, color); // Create Day record instance first
-    if(readingCycles.hasReadings(name)) {
-      // HolyDay constructor now takes a Day object and Readings
-      return new HolyDay(dayObject, getReadingsForDay(name, this.year));
+    List<Memorial> mem = new ArrayList<>();
+    Readings currentReadings = null;
+    if (readingCycles.hasReadings(name)) {
+        currentReadings = getReadingsForDay(name, this.year);
     }
-    else {
-      return dayObject; // Return the created Day object
-    }
+    // Always return a Day object; readings are now part of it.
+    // The Day record constructor now includes a 'readings' parameter.
+    return new Day(name, date, mem, color, currentReadings);
   }
 
   /**
@@ -302,13 +301,20 @@ public class LiturgicalYear {
 
   public HolyDay getHolyDayByName(String name) {
     Optional<Day> match = daysOfYear.values().parallelStream()
-      .filter(d -> d.name().equals(name)).findAny(); // Replaced d.name with d.name()
-    if(match.isPresent()) {
-      return (HolyDay) match.get();
-    }
-    else {
-      LOGGER.severe("Could not find "  +  name + " in " + this.year);
-      return null;
+        .filter(d -> d.name().equals(name)).findAny();
+    if (match.isPresent()) {
+        Day day = match.get();
+        if (day.isHolyDay()) { // Use helper method from Day
+            // Create HolyDay on-demand. HolyDay record takes Day and Readings.
+            // Ensure day.readings() is not null, which is guaranteed by day.isHolyDay()
+            return new HolyDay(day, day.readings());
+        } else {
+            LOGGER.warning("Day found by name '" + name + "' but it has no readings, cannot return HolyDay.");
+            return null;
+        }
+    } else {
+        LOGGER.severe("Could not find day with name " + name + " in " + this.year);
+        return null;
     }
   }
 

@@ -31,21 +31,25 @@ public class CsvFormat {
     desc.append("Datum;Namn;Tema;GT;Epistel;Evangelium;Alternativ text\n");
     for (Entry<LocalDate, Day> entry : lym.getDaysOfCalendarYear(year).entrySet()) {
       Day d = entry.getValue();
-      desc.append(d.date()).append(";"); // Replaced getDate() with date()
-      desc.append(d.name()).append(";"); // Replaced getName() with name()
-      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
-        // HolyDay hd = (HolyDay) d; // Cast removed
-        Readings r = hd.readings(); // Replaced getReadings() with readings()
-        desc.append(hd.theme()).append(";"); // Replaced getTheme() with theme()
-        desc.append(r.getOt()).append(";");
-        desc.append(r.getEp()).append(";");
-        desc.append(r.getGo()).append(";");
-        desc.append(r.getPs()).append(";");
-        if (r.getAlt() != null) {
-          desc.append(r.getAlt()).append(";\n");
+      desc.append(d.date()).append(";");
+      desc.append(d.name()).append(";");
+      if (d.isHolyDay()) {
+        Readings r = d.readings();
+        // d.isHolyDay() ensures r is not null
+        desc.append(d.theme()).append(";");
+        // Check if Reading objects and their SweRefs are null before appending
+        desc.append(r.getOt() != null && r.getOt().getSweRef() != null ? r.getOt().getSweRef() : "").append(";");
+        desc.append(r.getEp() != null && r.getEp().getSweRef() != null ? r.getEp().getSweRef() : "").append(";");
+        desc.append(r.getGo() != null && r.getGo().getSweRef() != null ? r.getGo().getSweRef() : "").append(";");
+        desc.append(r.getPs() != null && r.getPs().getSweRef() != null ? r.getPs().getSweRef() : "").append(";");
+        if (r.getAlt() != null && r.getAlt().getSweRef() != null) {
+          desc.append(r.getAlt().getSweRef()).append(";\n");
         } else {
-          desc.append(";\n");
+          desc.append(";\n"); // Still need a semicolon for the alt field, then newline
         }
+      } else {
+        // For Days that are not HolyDays, add empty fields for theme and all readings
+        desc.append(";;;;;;\n"); // 6 empty fields: theme, OT, Ep, Go, Ps, Alt
       }
     }
     return desc.toString();

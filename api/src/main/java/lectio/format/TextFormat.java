@@ -26,20 +26,20 @@ public class TextFormat {
     StringBuffer desc = new StringBuffer();
     for (Entry<LocalDate, Day> entry : daysWithReadings.entrySet()) {
       Day d = entry.getValue();
-      desc.append(d.date() + " "); // Replaced getDate() with date()
-      desc.append(d.name() + "\n"); // Replaced getName() with name()
-      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
-        // HolyDay hd = (HolyDay) d; // Cast removed
-        Readings r = hd.readings(); // Replaced getReadings() with readings()
-        desc.append("  " + hd.theme() + "\n"); // Replaced getTheme() with theme()
-        desc.append("  Gammaltestamentlig text: " + r.getOt().getSweRef() + "\n");
-        desc.append("  Epistel: " + r.getEp().getSweRef() + "\n");
-        desc.append("  Evangelium: " + r.getGo().getSweRef() + "\n");
-        desc.append("  Psaltarpsalm: " + r.getPs().getSweRef() + "\n");
-        if (r.getAlt() != null) {
-          desc.append(r.getAlt().getSweRef() + "\n");
+      desc.append(d.date()).append(" ");
+      desc.append(d.name()).append("\n");
+      if (d.isHolyDay()) {
+        Readings r = d.readings();
+        // d.isHolyDay() ensures r is not null.
+        desc.append("  ").append(d.theme()).append("\n"); // Use d.theme()
+        if (r.getOt() != null && r.getOt().getSweRef() != null) desc.append("  Gammaltestamentlig text: ").append(r.getOt().getSweRef()).append("\n");
+        if (r.getEp() != null && r.getEp().getSweRef() != null) desc.append("  Epistel: ").append(r.getEp().getSweRef()).append("\n");
+        if (r.getGo() != null && r.getGo().getSweRef() != null) desc.append("  Evangelium: ").append(r.getGo().getSweRef()).append("\n");
+        if (r.getPs() != null && r.getPs().getSweRef() != null) desc.append("  Psaltarpsalm: ").append(r.getPs().getSweRef()).append("\n");
+        if (r.getAlt() != null && r.getAlt().getSweRef() != null) {
+          desc.append("  Alternativ text: ").append(r.getAlt().getSweRef()).append("\n"); // Added a label for clarity
         } else {
-          desc.append("\n");
+          desc.append("\n"); // Keep newline for spacing if no alt text
         }
       }
     }

@@ -14,7 +14,7 @@ public class LiturgicalYearFactoryTest extends TestCase {
      Day d = lyf.getCurrentDay(LocalDate.of(2020, 12, 6));
      LiturgicalYear y = lyf.getDaysOfLiturgicalYear(2021);
      SortedMap<LocalDate, Day> doy = y.getDaysOfYear();
-     assertEquals("Andra söndagen i advent", d.name);
+     assertEquals("Andra söndagen i advent", d.name());
    }
 
   public void testGetPrevDay() {
@@ -36,7 +36,7 @@ public class LiturgicalYearFactoryTest extends TestCase {
     Iterator it = findPrev.entrySet().iterator();
     while (it.hasNext()) {
       Map.Entry<LocalDate, LocalDate> pairs = (Map.Entry) it.next();
-      assertEquals(pairs.getValue(), fact.getPreviousDay(pairs.getKey()).getDate());
+      assertEquals(pairs.getValue(), fact.getPreviousDay(pairs.getKey()).date());
     }
   }
 
@@ -79,7 +79,7 @@ public class LiturgicalYearFactoryTest extends TestCase {
     Iterator it = findPrev.entrySet().iterator();
     while (it.hasNext()) {
       Map.Entry<LocalDate, LocalDate> pairs = (Map.Entry) it.next();
-      assertEquals(pairs.getValue(), fact.getNextDay(pairs.getKey()).getDate());
+      assertEquals(pairs.getValue(), fact.getNextDay(pairs.getKey()).date());
     }
   }
 

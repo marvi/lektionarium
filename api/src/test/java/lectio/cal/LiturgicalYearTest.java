@@ -80,7 +80,7 @@ public class LiturgicalYearTest extends TestCase {
       Map.Entry pairs = (Map.Entry) it.next();
       LocalDate date = (LocalDate) pairs.getKey();
       int year = date.getYear();
-      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).getName(), pairs.getValue());
+      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).name(), pairs.getValue());
     }
 
     Map<LocalDate, String> testDataChristmas = new HashMap<LocalDate, String>();
@@ -99,7 +99,7 @@ public class LiturgicalYearTest extends TestCase {
       LocalDate date = (LocalDate) pairs.getKey();
       int year = date.getYear();
       year++;
-      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).getName(), pairs.getValue());
+      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).name(), pairs.getValue());
     }
 
 

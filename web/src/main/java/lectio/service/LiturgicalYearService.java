@@ -1,45 +1,37 @@
 package lectio.service;
 
 import lectio.cal.Day;
-import lectio.cal.HolyDay;
+// HolyDay import might not be needed here anymore if service only deals with Day
+// import lectio.cal.HolyDay;
 import lectio.cal.LiturgicalYearFactory;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
+// DateTimeFormatter might not be needed here if Day object is returned directly
+// import java.time.format.DateTimeFormatter;
+// HashMap and Map might not be needed here
+// import java.util.HashMap;
+// import java.util.Map;
 
 @Service
 public class LiturgicalYearService {
 
-  // Making lyf non-static as per typical Spring service design, unless it's truly global and stateless.
-  // If it must be static final, it should be initialized in a static block or directly.
-  private static final LiturgicalYearFactory lyf = new LiturgicalYearFactory(); // Added private
-  private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Added final and private
+  private static final LiturgicalYearFactory lyf = new LiturgicalYearFactory();
+  // private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // No longer formatting date here
 
-  public Map<String, Object> currentDay(LocalDate d) { // Added public and specified Map generics
-    return generateDay(lyf.getCurrentDay(d));
+  public Day currentDay(LocalDate d) {
+    return lyf.getCurrentDay(d);
   }
 
-  public Map<String, Object> nextDay(LocalDate d) { // Added public and specified Map generics
-    return generateDay(lyf.getNextDay(d));
+  public Day nextDay(LocalDate d) {
+    return lyf.getNextDay(d);
   }
 
-  public Map<String, Object> previousDay(LocalDate d) { // Added public and specified Map generics
-    return generateDay(lyf.getPreviousDay(d));
+  public Day previousDay(LocalDate d) {
+    return lyf.getPreviousDay(d);
   }
 
-  // Changed to public, specified Map generics
-  public Map<String, Object> generateDay(Day day) {
-    Map<String, Object> dayMap = new HashMap<>();
-    dayMap.put("day", day.getName()); // Changed from day.name to day.getName()
-    dayMap.put("date", formatter.format(day.getDate())); // Changed from day.date to day.getDate()
-    dayMap.put("memorials", day.getMemorials()); // Changed from day.memorials to day.getMemorials()
-
-    if (day instanceof HolyDay) {
-      dayMap.put("readings", ((HolyDay) day).getReadings()); // Changed from .readings to .getReadings()
-    }
-    return dayMap;
-  }
+  // generateDay method is no longer needed as the service returns Day objects directly.
+  // The controller will handle passing the Day object to the model,
+  // and Spring/Jackson will handle JSON serialization from the Day record.
 }

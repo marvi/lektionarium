@@ -30,15 +30,15 @@ public class DayTest extends TestCase {
   public void testCompareTo() {
     List<Memorial> mems = new ArrayList<>();
     List<Day> days = new ArrayList<>();
-    days.add(new Day("Gazonk", LocalDate.of(2010, 1, 2), mems, LiturgicalColor.WHITE));
-    days.add(new Day("Foo", LocalDate.of(1910, 1, 1), mems, LiturgicalColor.WHITE));
-    days.add(new Day("Bar", LocalDate.of(2010, 1, 1), mems, LiturgicalColor.WHITE));
-    assertFalse("Should not have matched", days.get(2).getName().equals("Gazonk"));
+    days.add(new Day("Gazonk", LocalDate.of(2010, 1, 2), mems, LiturgicalColor.WHITE, null));
+    days.add(new Day("Foo", LocalDate.of(1910, 1, 1), mems, LiturgicalColor.WHITE, null));
+    days.add(new Day("Bar", LocalDate.of(2010, 1, 1), mems, LiturgicalColor.WHITE, null));
+    assertFalse("Should not have matched", days.get(2).name().equals("Gazonk"));
 
-    days.sort(Comparator.comparing(Day::getDate));
-    assertEquals("Should have been sorted", days.get(0).getName(), "Foo");
-    assertEquals("Should have been sorted", days.get(1).getName(), "Bar");
-    assertEquals("Should have been sorted", days.get(2).getName(), "Gazonk");
+    days.sort(Comparator.comparing(Day::date));
+    assertEquals("Should have been sorted", days.get(0).name(), "Foo");
+    assertEquals("Should have been sorted", days.get(1).name(), "Bar");
+    assertEquals("Should have been sorted", days.get(2).name(), "Gazonk");
 
   }
 }
