@@ -90,13 +90,12 @@
             <id>jte-generate</id>
             <phase>generate-sources</phase>
             <goals>
-              <goal>generate</goal>
+              <goal>precompile</goal>
             </goals>
             <configuration>
               <sourceDirectory>${project.basedir}/src/main/jte</sourceDirectory>
+              <targetDirectory>${project.build.directory}/generated-sources/jte</targetDirectory>
               <contentType>Html</contentType>
-              <binaryStaticContent>true</binaryStaticContent>
-              <targetResourceDirectory>${project.build.outputDirectory}</targetResourceDirectory>
             </configuration>
           </execution>
         </executions>
