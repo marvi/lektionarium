@@ -11,16 +11,13 @@
     <modules>
         <module>api</module>
         <module>cli</module>
+        <module>web</module>
     </modules>
 
     <properties>
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <repositories>
-        <!-- Maven Central should cover most dependencies -->
-    </repositories>
 
     <build>
         <pluginManagement>

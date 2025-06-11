@@ -75,12 +75,15 @@ public class LiturgicalYearTest extends TestCase {
     testData.put(LocalDate.of(2011, 10, 2), "Den helige Mikaels dag");
 
 
-    Iterator it = testData.entrySet().iterator();
-    while (it.hasNext()) {
-      Map.Entry pairs = (Map.Entry) it.next();
-      LocalDate date = (LocalDate) pairs.getKey();
+    // Test that the correct day name is returned for a variety of dates
+    for (Map.Entry<LocalDate, String> entry : testData.entrySet()) {
+      LocalDate date = entry.getKey();
+      String expectedName = entry.getValue();
       int year = date.getYear();
-      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).getName(), pairs.getValue());
+      LiturgicalYear ly = new LiturgicalYear(year);
+      LiturgicalDay day = ly.getDaysOfYear().get(date);
+      assertNotNull("No day found for date " + date, day);
+      assertEquals("Expected '" + expectedName + "' for date " + date, expectedName, day.name());
     }
 
     Map<LocalDate, String> testDataChristmas = new HashMap<LocalDate, String>();
@@ -93,13 +96,15 @@ public class LiturgicalYearTest extends TestCase {
     testDataChristmas.put(LocalDate.of(2023, 12, 24), "Fjärde söndagen i advent");
     testDataChristmas.put(LocalDate.of(2020, 12, 6), "Andra söndagen i advent");
 
-    it = testDataChristmas.entrySet().iterator();
-    while (it.hasNext()) {
-      Map.Entry pairs = (Map.Entry) it.next();
-      LocalDate date = (LocalDate) pairs.getKey();
-      int year = date.getYear();
-      year++;
-      assertEquals(new LiturgicalYear(year).getDaysOfYear().get(date).getName(), pairs.getValue());
+    // Test Christmas and Advent edge cases
+    for (Map.Entry<LocalDate, String> entry : testDataChristmas.entrySet()) {
+      LocalDate date = entry.getKey();
+      String expectedName = entry.getValue();
+      int year = date.getYear() + 1;
+      LiturgicalYear ly = new LiturgicalYear(year);
+      LiturgicalDay day = ly.getDaysOfYear().get(date);
+      assertNotNull("No day found for date " + date + " in year " + year, day);
+      assertEquals("Expected '" + expectedName + "' for date " + date + " in year " + year, expectedName, day.name());
     }
 
 
@@ -155,21 +160,34 @@ public class LiturgicalYearTest extends TestCase {
   }*/
 
   public void testNextWeekdayOfType() {
-    assertEquals(LocalDate.of(1985, 1, 7), LiturgicalYear.nextWeekdayOfType(
+    // Test that nextWeekdayOfType returns the correct next weekday for various cases
+    assertEquals("Next Monday after 1984-12-31 should be 1985-01-07",
+      LocalDate.of(1985, 1, 7), LiturgicalYear.nextWeekdayOfType(
       DayOfWeek.MONDAY, LocalDate.of(1984, 12, 31)));
-    assertEquals(LocalDate.of(1976, 3, 2), LiturgicalYear.nextWeekdayOfType(
-      DayOfWeek.TUESDAY, LocalDate.of(1976, 2, 29)));
-    assertEquals(LocalDate.of(2017, 10, 25), LiturgicalYear.nextWeekdayOfType(
-      DayOfWeek.WEDNESDAY, LocalDate.of(2017, 10, 19)));
-    assertEquals(LocalDate.of(2001, 6, 14), LiturgicalYear.nextWeekdayOfType(
-      DayOfWeek.THURSDAY, LocalDate.of(2001, 6, 11)));
-    assertEquals(LocalDate.of(2013, 1, 4), LiturgicalYear.nextWeekdayOfType(
-      DayOfWeek.FRIDAY, LocalDate.of(2012, 12, 30)));
-    assertEquals(LocalDate.of(2015, 2, 21), LiturgicalYear.nextWeekdayOfType(
-      DayOfWeek.SATURDAY, LocalDate.of(2015, 2, 14)));
-    assertEquals(LocalDate.of(1967, 11, 12), LiturgicalYear.nextWeekdayOfType(
-      DayOfWeek.SUNDAY, LocalDate.of(1967, 11, 7)));
 
+    assertEquals("Next Tuesday after 1976-02-29 should be 1976-03-02",
+      LocalDate.of(1976, 3, 2), LiturgicalYear.nextWeekdayOfType(
+      DayOfWeek.TUESDAY, LocalDate.of(1976, 2, 29)));
+
+    assertEquals("Next Wednesday after 2017-10-19 should be 2017-10-25",
+      LocalDate.of(2017, 10, 25), LiturgicalYear.nextWeekdayOfType(
+      DayOfWeek.WEDNESDAY, LocalDate.of(2017, 10, 19)));
+
+    assertEquals("Next Thursday after 2001-06-11 should be 2001-06-14",
+      LocalDate.of(2001, 6, 14), LiturgicalYear.nextWeekdayOfType(
+      DayOfWeek.THURSDAY, LocalDate.of(2001, 6, 11)));
+
+    assertEquals("Next Friday after 2012-12-30 should be 2013-01-04",
+      LocalDate.of(2013, 1, 4), LiturgicalYear.nextWeekdayOfType(
+      DayOfWeek.FRIDAY, LocalDate.of(2012, 12, 30)));
+
+    assertEquals("Next Saturday after 2015-02-14 should be 2015-02-21",
+      LocalDate.of(2015, 2, 21), LiturgicalYear.nextWeekdayOfType(
+      DayOfWeek.SATURDAY, LocalDate.of(2015, 2, 14)));
+
+    assertEquals("Next Sunday after 1967-11-07 should be 1967-11-12",
+      LocalDate.of(1967, 11, 12), LiturgicalYear.nextWeekdayOfType(
+      DayOfWeek.SUNDAY, LocalDate.of(1967, 11, 7)));
   }
 
 }

@@ -1,9 +1,6 @@
 package lectio.format;
 
-import lectio.cal.Day;
-import lectio.cal.HolyDay;
-import lectio.cal.LiturgicalYearFactory;
-import lectio.cal.Readings;
+import lectio.cal.*;
 
 import java.time.LocalDate;
 import java.util.Map.Entry;
@@ -29,8 +26,8 @@ public class CsvFormat {
     LiturgicalYearFactory lym = new LiturgicalYearFactory();
     StringBuilder desc = new StringBuilder();
     desc.append("Datum;Namn;Tema;GT;Epistel;Evangelium;Alternativ text\n");
-    for (Entry<LocalDate, Day> entry : lym.getDaysOfCalendarYear(year).entrySet()) {
-      Day d = entry.getValue();
+    for (Entry<LocalDate, LiturgicalDay> entry : lym.getDaysOfCalendarYear(year).entrySet()) {
+      LiturgicalDay d = entry.getValue();
       desc.append(d.date()).append(";"); // Replaced getDate() with date()
       desc.append(d.name()).append(";"); // Replaced getName() with name()
       if (d instanceof HolyDay hd) { // Used pattern matching for instanceof

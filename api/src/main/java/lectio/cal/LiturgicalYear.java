@@ -45,7 +45,7 @@ public class LiturgicalYear {
   private final LocalDate easterDay;
   private int readingCycle;
   private int easterSeries;
-  private SortedMap<LocalDate, Day> daysOfYear = new TreeMap<>();
+  private SortedMap<LocalDate, LiturgicalDay> daysOfYear = new TreeMap<>();
   private ReadingCycles readingCycles;
 
   /**
@@ -232,7 +232,7 @@ public class LiturgicalYear {
     LOGGER.info("populateDays took " + ((endTime - startTime) / 1000) + " ms");
   }
 
-  private Day makeDay(String name, LocalDate date, LiturgicalColor color) {
+  private LiturgicalDay makeDay(String name, LocalDate date, LiturgicalColor color) {
     List<Memorial> mem = new ArrayList<>(); // Assuming Memorial is a class/record.
     Day dayObject = new Day(name, date, mem, color); // Create Day record instance first
     if(readingCycles.hasReadings(name)) {
@@ -296,13 +296,14 @@ public class LiturgicalYear {
   /**
    * @return a map with a date as key and the Day as value.
    */
-  public SortedMap<LocalDate, Day> getDaysOfYear() {
+  public SortedMap<LocalDate, LiturgicalDay> getDaysOfYear() {
     return daysOfYear;
   }
 
   public HolyDay getHolyDayByName(String name) {
-    Optional<Day> match = daysOfYear.values().parallelStream()
-      .filter(d -> d.name().equals(name)).findAny(); // Replaced d.name with d.name()
+    Optional<LiturgicalDay> match = daysOfYear.values().parallelStream()
+      .filter(d -> d.name().equals(name) && d instanceof HolyDay)
+      .findAny();
     if(match.isPresent()) {
       return (HolyDay) match.get();
     }

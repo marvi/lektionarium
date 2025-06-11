@@ -1,9 +1,6 @@
 package lectio.format;
 
-import lectio.cal.Day;
-import lectio.cal.HolyDay;
-import lectio.cal.LiturgicalYearFactory;
-import lectio.cal.Readings;
+import lectio.cal.*;
 
 import java.time.LocalDate;
 import java.util.Map.Entry;
@@ -22,10 +19,10 @@ public class TextFormat {
    */
   public static String getTextForYear(int year) {
     LiturgicalYearFactory lyf = new LiturgicalYearFactory();
-    SortedMap<LocalDate, Day> daysWithReadings = lyf.getDaysOfLiturgicalYear(year).getDaysOfYear();
+    SortedMap<LocalDate, LiturgicalDay> daysWithReadings = lyf.getDaysOfLiturgicalYear(year).getDaysOfYear();
     StringBuffer desc = new StringBuffer();
-    for (Entry<LocalDate, Day> entry : daysWithReadings.entrySet()) {
-      Day d = entry.getValue();
+    for (Entry<LocalDate, LiturgicalDay> entry : daysWithReadings.entrySet()) {
+      LiturgicalDay d = entry.getValue();
       desc.append(d.date() + " "); // Replaced getDate() with date()
       desc.append(d.name() + "\n"); // Replaced getName() with name()
       if (d instanceof HolyDay hd) { // Used pattern matching for instanceof

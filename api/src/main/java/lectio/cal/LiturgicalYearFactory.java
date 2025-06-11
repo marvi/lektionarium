@@ -48,9 +48,9 @@ public class LiturgicalYearFactory {
    * @return The current holy day
    */
   @NotNull
-  public Day getCurrentDay(LocalDate d) {
-    Day day = null;
-    SortedMap<LocalDate, Day> days = getYear(d.getYear()).getDaysOfYear();
+  public LiturgicalDay getCurrentDay(LocalDate d) {
+    LiturgicalDay day = null;
+    SortedMap<LocalDate, LiturgicalDay> days = getYear(d.getYear()).getDaysOfYear();
     days.putAll(getYear(d.getYear() + 1).getDaysOfYear());
     while (day == null) {
       if(days.containsKey(d)) {
@@ -69,10 +69,10 @@ public class LiturgicalYearFactory {
    * @return The next holy day
    */
   @NotNull
-  public Day getNextDay(LocalDate d) {
-    Day day = null;
+  public LiturgicalDay getNextDay(LocalDate d) {
+    LiturgicalDay day = null;
     d = d.plusDays(1);
-    SortedMap<LocalDate, Day> days = getYear(d.getYear()).getDaysOfYear();
+    SortedMap<LocalDate, LiturgicalDay> days = getYear(d.getYear()).getDaysOfYear();
     days.putAll(getYear(d.getYear() + 1).getDaysOfYear());
     while (day == null) {
       if(days.containsKey(d)) {
@@ -93,11 +93,11 @@ public class LiturgicalYearFactory {
    * @return The previous holy day
    */
   @NotNull
-  public Day getPreviousDay(LocalDate d) {
-    Day day = null;
+  public LiturgicalDay getPreviousDay(LocalDate d) {
+    LiturgicalDay day = null;
     d = getCurrentDay(d).date(); // Replaced .date with .date()
     d = d.minusDays(1);
-    SortedMap<LocalDate, Day> days = getYear(d.getYear()).getDaysOfYear();
+    SortedMap<LocalDate, LiturgicalDay> days = getYear(d.getYear()).getDaysOfYear();
     days.putAll(getYear(d.getYear() - 1).getDaysOfYear());
     days.putAll(getYear(d.getYear() + 1).getDaysOfYear());
     while (day == null) {
@@ -122,9 +122,9 @@ public class LiturgicalYearFactory {
    * @return All holy days for a calendar year
    */
   @NotNull
-  public Map<LocalDate, Day> getDaysOfCalendarYear(int year) {
+  public Map<LocalDate, LiturgicalDay> getDaysOfCalendarYear(int year) {
     // Fetch current and next liturgical year (to get Advent and Christmas)
-    SortedMap<LocalDate, Day> daysOfYear = getYear(year).getDaysOfYear();
+    SortedMap<LocalDate, LiturgicalDay> daysOfYear = getYear(year).getDaysOfYear();
     daysOfYear.putAll(getYear(year + 1).getDaysOfYear());
 
     // Filter map for days in supplied year
@@ -144,8 +144,8 @@ public class LiturgicalYearFactory {
    * @return The Liturgical year for this date
    */
   public LiturgicalYear getLiturgicalYear(LocalDate d) {
-    Map<LocalDate, Day> daysOfCalendarYear = this.getDaysOfCalendarYear(d.getYear());
-    Optional<Day> match = daysOfCalendarYear.values().parallelStream()
+    Map<LocalDate, LiturgicalDay> daysOfCalendarYear = this.getDaysOfCalendarYear(d.getYear());
+    Optional<LiturgicalDay> match = daysOfCalendarYear.values().parallelStream()
       .filter(day -> day.name().equals("Första söndagen i advent")).findAny(); // Replaced .name with .name()
     if(match.isPresent()) {
       LocalDate firstAdv = match.get().date(); // Replaced .date with .date()
@@ -164,8 +164,8 @@ public class LiturgicalYearFactory {
   }
 
   @NotNull
-  public Map<LocalDate, Day> getCalendarMonth(int year, int month) {
-    Map<LocalDate, Day> daysOfYear = getDaysOfCalendarYear(year);
+  public Map<LocalDate, LiturgicalDay> getCalendarMonth(int year, int month) {
+    Map<LocalDate, LiturgicalDay> daysOfYear = getDaysOfCalendarYear(year);
 
     // Filter map for days in supplied month
     return daysOfYear.entrySet().stream()
@@ -174,5 +174,3 @@ public class LiturgicalYearFactory {
   }
 
 }
-
-

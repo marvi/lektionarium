@@ -31,14 +31,14 @@ public class LiturgicalYearService {
   }
 
   // Changed to public, specified Map generics
-  public Map<String, Object> generateDay(Day day) {
+  public Map<String, Object> generateDay(lectio.cal.LiturgicalDay day) {
     Map<String, Object> dayMap = new HashMap<>();
-    dayMap.put("day", day.getName()); // Changed from day.name to day.getName()
-    dayMap.put("date", formatter.format(day.getDate())); // Changed from day.date to day.getDate()
-    dayMap.put("memorials", day.getMemorials()); // Changed from day.memorials to day.getMemorials()
+    dayMap.put("day", day.name());
+    dayMap.put("date", formatter.format(day.date()));
+    dayMap.put("memorials", day.memorials());
 
     if (day instanceof HolyDay) {
-      dayMap.put("readings", ((HolyDay) day).getReadings()); // Changed from .readings to .getReadings()
+      dayMap.put("readings", ((HolyDay) day).readings());
     }
     return dayMap;
   }

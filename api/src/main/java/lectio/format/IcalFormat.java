@@ -7,8 +7,8 @@
  */
 package lectio.format;
 
-import lectio.cal.Day;
 import lectio.cal.HolyDay;
+import lectio.cal.LiturgicalDay;
 import lectio.cal.LiturgicalYearFactory;
 import lectio.cal.Readings;
 import net.fortuna.ical4j.data.CalendarOutputter;
@@ -44,14 +44,14 @@ public class IcalFormat {
   public static String getIcalForYear(int year) {
     LiturgicalYearFactory lyf = new LiturgicalYearFactory();
     RandomUidGenerator ug = new RandomUidGenerator(); // Re-instantiate RandomUidGenerator
-    SortedMap<LocalDate, Day> daysOfYear = lyf.getDaysOfLiturgicalYear(year).getDaysOfYear();
+    SortedMap<LocalDate, LiturgicalDay> daysOfYear = lyf.getDaysOfLiturgicalYear(year).getDaysOfYear();
     Calendar calendar = new Calendar(); // Changed back to net.fortuna.ical4j.model.Calendar
     calendar.getProperties().add(new ProdId("-//marvi.io//lektionarium//EN"));
     calendar.getProperties().add(Version.VERSION_2_0);
     calendar.getProperties().add(CalScale.GREGORIAN);
-    for (Entry<LocalDate, Day> entry : daysOfYear.entrySet()) {
+    for (Entry<LocalDate, LiturgicalDay> entry : daysOfYear.entrySet()) {
       LocalDate localDate = entry.getKey(); // Renamed to avoid conflict with ical4j.model.Date
-      Day d = entry.getValue();
+      LiturgicalDay d = entry.getValue();
 
       // Convert LocalDate to java.util.Calendar for ical4j.model.Date constructor
       java.util.Calendar javaCal = java.util.Calendar.getInstance();

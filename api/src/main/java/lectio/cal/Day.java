@@ -14,7 +14,7 @@ import java.util.List;
 // Objects import is no longer needed as equals and hashCode will be auto-generated
 // import java.util.Objects;
 
-public record Day(String name, LocalDate date, List<Memorial> memorials, LiturgicalColor liturgicalColor) implements Comparable<Day> {
+public record Day(String name, LocalDate date, List<Memorial> memorials, LiturgicalColor liturgicalColor) implements Comparable<Day>, LiturgicalDay {
 
   // Constructor, getters, equals, hashCode, and toString are auto-generated for records.
 
