@@ -79,6 +79,24 @@ public class DayController {
     return "day";
   }
 
+  @GetMapping("/htmx-next/{date}")
+  public String htmxNext(Model model, @PathVariable("date") String date) {
+    log.info("HTMX next day view requested for date: " + date);
+    Map<String, Object> dayData = liturgicalYearService.nextDay(LocalDate.parse(date));
+    processReadingsForTemplate(dayData);
+    model.addAttribute("dayData", dayData);
+    return "day-readings";
+  }
+
+  @GetMapping("/htmx-previous/{date}")
+  public String htmxPrevious(Model model, @PathVariable("date") String date) {
+    log.info("HTMX previous day view requested for date: " + date);
+    Map<String, Object> dayData = liturgicalYearService.previousDay(LocalDate.parse(date));
+    processReadingsForTemplate(dayData);
+    model.addAttribute("dayData", dayData);
+    return "day-readings";
+  }
+
   /**
    * Processes the readings in the dayData map to make them compatible with the template.
    * Converts a Readings object to a List of Maps, where each Map represents a reading.
@@ -89,6 +107,11 @@ public class DayController {
     if (dayData.containsKey("readings") && dayData.get("readings") instanceof Readings) {
       Readings readings = (Readings) dayData.get("readings");
       List<Map<String, String>> readingsList = new ArrayList<>();
+
+      // Add theme directly to dayData if available
+      if (readings.getTheme() != null) {
+        dayData.put("theme", readings.getTheme());
+      }
 
       // Process Old Testament reading
       if (readings.getOt() != null) {
@@ -143,14 +166,6 @@ public class DayController {
           altMap.put("content", readings.getAlt().getText());
         }
         readingsList.add(altMap);
-      }
-
-      // Add theme if available
-      if (readings.getTheme() != null) {
-        Map<String, String> themeMap = new HashMap<>();
-        themeMap.put("type", "Tema");
-        themeMap.put("text", readings.getTheme());
-        readingsList.add(themeMap);
       }
 
       // Replace the Readings object with the List of Maps

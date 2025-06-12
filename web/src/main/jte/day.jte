@@ -48,6 +48,9 @@
 </head>
 <body>
     <h1>${String.valueOf(dayData.get("day"))}</h1>
+    @if(dayData.containsKey("theme"))
+        <h2>${String.valueOf(dayData.get("theme"))}</h2>
+    @endif
     <p>Datum: ${String.valueOf(dayData.get("date"))}</p>
 
     <div class="navigation">
