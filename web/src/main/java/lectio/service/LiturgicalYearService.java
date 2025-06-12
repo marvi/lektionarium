@@ -13,8 +13,6 @@ import java.util.Map;
 @Service
 public class LiturgicalYearService {
 
-  // Making lyf non-static as per typical Spring service design, unless it's truly global and stateless.
-  // If it must be static final, it should be initialized in a static block or directly.
   private static final LiturgicalYearFactory lyf = new LiturgicalYearFactory(); // Added private
   private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // Added final and private
 
@@ -30,7 +28,6 @@ public class LiturgicalYearService {
     return generateDay(lyf.getPreviousDay(d));
   }
 
-  // Changed to public, specified Map generics
   public Map<String, Object> generateDay(lectio.cal.LiturgicalDay day) {
     Map<String, Object> dayMap = new HashMap<>();
     dayMap.put("day", day.name());

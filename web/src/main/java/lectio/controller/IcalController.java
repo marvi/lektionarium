@@ -32,9 +32,6 @@ public class IcalController {
     header.set("Content-Type", "text/calendar");
     header.set(HttpHeaders.CONTENT_DISPOSITION,
       "attachment; filename=lektionarium_" + year + ".ics");
-    // setContentLength is often managed by Spring automatically based on HttpEntity<byte[]>
-    // header.setContentLength(calData.getBytes().length); // Consider removing if Spring handles it
-
     return new HttpEntity<>(calData.getBytes(), header); // Added diamond operator
   }
 }
