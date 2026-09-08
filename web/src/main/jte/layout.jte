@@ -2,7 +2,6 @@
 @param String title
 @param Content content
 @param java.util.List<Integer> years = java.util.List.of()
-@param String feedUrl = ""
 @param String feedWebcal = ""
 <!DOCTYPE html>
 <html lang="sv">
@@ -35,7 +34,6 @@
           <li class="feed">
             <a href="${feedWebcal}">Evighetskalender &ndash; prenumerera</a>
             <p>Alltid uppdaterad. Läggs till en gång och sköter sig sedan själv.</p>
-            <code>${feedUrl}</code>
           </li>
           <li class="heading">Ladda hem ett enskilt år</li>
           @for(Integer year : years)

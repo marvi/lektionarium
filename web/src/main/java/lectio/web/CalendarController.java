@@ -71,7 +71,6 @@ public class CalendarController {
       return "dagkort";
     }
     model.addAttribute("years", downloadableYears());
-    model.addAttribute("feedUrl", feedUrl);
     model.addAttribute("feedWebcal", webcal(feedUrl));
     return "index";
   }

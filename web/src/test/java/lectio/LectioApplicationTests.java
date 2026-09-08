@@ -168,7 +168,6 @@ class LectioApplicationTests {
       // webcal-schemat gör länken till en prenumeration i stället för en
       // engångsnedladdning.
       assertTrue(page.contains("href=\"webcal://lektionarium.se/ical\""), page);
-      assertTrue(page.contains("https://lektionarium.se/ical"), "adressen att kopiera");
       assertTrue(page.contains("Evighetskalender"), page);
     }
 
