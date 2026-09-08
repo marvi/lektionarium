@@ -184,6 +184,14 @@ class LectioApplicationTests {
     }
   }
 
+  /** Utan konfigurerad adress ska ingen spårning läggas in. */
+  @Test
+  @DisplayName("ingen statistiktagg som standard")
+  void ingenStatistikSomStandard() throws Exception {
+    String page = mvc.perform(get("/")).andReturn().getResponse().getContentAsString();
+    assertFalse(page.contains("data-website-id"), page);
+  }
+
   @Nested
   @DisplayName("hälsokontroll")
   class Halsa {

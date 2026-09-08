@@ -33,10 +33,16 @@ public class CalendarController {
   private final BibleTextPolicy textPolicy;
   private final Clock clock;
   private final String feedUrl;
+  private final String umamiUrl;
+  private final String umamiWebsiteId;
 
   public CalendarController(LiturgicalYearFactory calendar, BibleTextPolicy textPolicy,
                             Clock clock,
-                            @Value("${lektionarium.base-url}") String baseUrl) {
+                            @Value("${lektionarium.base-url}") String baseUrl,
+                            @Value("${lektionarium.umami.url:}") String umamiUrl,
+                            @Value("${lektionarium.umami.website-id:}") String umamiWebsiteId) {
+    this.umamiUrl = umamiUrl;
+    this.umamiWebsiteId = umamiWebsiteId;
     this.calendar = calendar;
     this.textPolicy = textPolicy;
     this.clock = clock;
@@ -72,6 +78,8 @@ public class CalendarController {
     }
     model.addAttribute("years", downloadableYears());
     model.addAttribute("feedWebcal", webcal(feedUrl));
+    model.addAttribute("umamiUrl", umamiUrl);
+    model.addAttribute("umamiWebsiteId", umamiWebsiteId);
     return "index";
   }
 

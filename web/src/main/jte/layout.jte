@@ -3,6 +3,8 @@
 @param Content content
 @param java.util.List<Integer> years = java.util.List.of()
 @param String feedWebcal = ""
+@param String umamiUrl = ""
+@param String umamiWebsiteId = ""
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -19,6 +21,9 @@
         href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap">
   <link rel="stylesheet" href="/css/lektionarium.css">
   <script src="/webjars/htmx.org/dist/htmx.min.js" defer></script>
+  @if(!umamiUrl.isBlank())
+    <script defer src="${umamiUrl}" data-website-id="${umamiWebsiteId}"></script>
+  @endif
 </head>
 <body>
 <header class="topbar">
