@@ -1,0 +1,243 @@
+/* Lektionarium: en spalt text, satt för att läsas. */
+
+:root {
+  --ink: #1a1a1a;
+  --paper: #fdfdfb;
+  --muted: #6b6b6b;
+  --rule: #e2e0da;
+  --dark: #111111;
+  --link: #6a4c2f;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+a { color: var(--link); }
+
+/* Topbar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--dark);
+  color: #f5f5f0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: inherit;
+  text-decoration: none;
+  font-family: 'Cinzel Decorative', 'Libre Baskerville', serif;
+  letter-spacing: 0.04em;
+}
+
+.downloads details { position: relative; }
+
+.downloads summary {
+  cursor: pointer;
+  list-style: none;
+  color: #f5f5f0;
+}
+
+.downloads summary::-webkit-details-marker { display: none; }
+.downloads summary::after { content: " \25be"; }
+
+.downloads ul {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  min-width: 15rem;
+  margin: 0.5rem 0 0;
+  padding: 0.5rem 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 18%);
+}
+
+.downloads li a {
+  display: block;
+  padding: 0.35rem 1rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.downloads li a:hover { background: #f3f1ec; }
+
+/* Prenumerationen är det man oftast vill ha, så den står först och tydligast. */
+.downloads .feed {
+  padding: 0.6rem 1rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.downloads .feed a {
+  padding: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.downloads .feed p {
+  margin: 0.2rem 0 0.4rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.downloads .feed code {
+  display: block;
+  padding: 0.3rem 0.45rem;
+  overflow-wrap: anywhere;
+  background: #f3f1ec;
+  border-radius: 3px;
+  color: #444;
+  font-size: 0.72rem;
+}
+
+.downloads .heading {
+  padding: 0.6rem 1rem 0.2rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Dagkortet */
+main {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 4rem;
+}
+
+.date {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.daycard h1 {
+  margin: 0.25rem 0 0.75rem;
+  font-family: 'Cinzel Decorative', 'Libre Baskerville', serif;
+  font-weight: 400;
+  font-size: 1.9rem;
+  line-height: 1.25;
+}
+
+.color {
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.swatch {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.35rem;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  vertical-align: baseline;
+}
+
+.swatch-white { background: #ffffff; }
+.swatch-red { background: #a5232c; }
+.swatch-violet { background: #6b4a8a; }
+.swatch-blue { background: #2f5c9e; }
+.swatch-black { background: #222222; }
+.swatch-green { background: #3f7d4e; }
+.swatch-pink { background: #d9a3b4; }
+.swatch-unspecified { background: transparent; }
+
+.theme {
+  margin: 0 0 1rem;
+  font-family: 'Cinzel Decorative', 'Libre Baskerville', serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: #33322e;
+}
+
+.readings {
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.readings li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.readings .label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.readings summary { cursor: pointer; }
+
+.bibletext {
+  margin: 0.75rem 0 0.25rem;
+  hyphens: auto;
+  text-align: justify;
+}
+
+/* Bläddring */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.button:hover { background: #f3f1ec; }
+
+/* Sidfot */
+.sitefooter {
+  margin-top: 4rem;
+  padding: 3rem 1.25rem;
+  background: var(--dark);
+  color: #d8d6cf;
+  text-align: center;
+}
+
+.sitefooter ul {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sitefooter li { margin: 0.35rem 0; }
+
+.sitefooter a {
+  color: #d8d6cf;
+  font-size: 0.85rem;
+}
+
+/* htmx: dämpa kortet medan nästa dag hämtas */
+.daycard.htmx-swapping { opacity: 0.4; transition: opacity 120ms ease-out; }
