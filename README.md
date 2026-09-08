@@ -139,8 +139,8 @@ curl https://lektionarium.se/day
 }
 ```
 
-`text` är tom i den publicerade datafilen: bibeltexten ur Bibel 2000 är
-upphovsrättsskyddad och följer inte med i repot. Se `tools/README.md`.
+`text` är tom: bibeltexten ur Bibel 2000 är upphovsrättsskyddad, så
+evangelieboken som följer med innehåller enbart bibelhänvisningar.
 
 ## Prenumerera på kalendern
 
@@ -169,51 +169,6 @@ Däremellan är svaret identiskt byte för byte, och en klient som skickar
 `If-Modified-Since` får `304 Not Modified` utan att något genereras.
 
 De årsvisa adresserna finns kvar för den som hellre laddar hem en fil en gång.
-
-## Bibeltexten
-
-Evangelieboken som följer med i `api`-modulen innehåller bara bibelhänvisningar.
-Bibeltexten är upphovsrättsskyddad och ligger därför inte i repot.
-
-Har du rätt att återge texten kan du lägga en egen fil med texten i projektets
-rot som `svk_lektionarium.xml`. Finns den läses den, annars används den
-medföljande. Sökvägen kan pekas om:
-
-```properties
-lektionarium.lectionary-file=/etc/lektionarium/svk_lektionarium.xml
-lektionarium.text-days=3
-```
-
-Filen läses från filsystemet och **aldrig från classpath**. En fil under
-`src/main/resources` hade packats in i jar-filen, följt med i container-avbilden
-och publicerats till GitHub Packages. Filnamnet ligger dessutom i `.gitignore`,
-och vid start loggas vilken fil som lästes och om den bär text.
-
-### Var texten visas
-
-Rätten att återge gäller begränsade mängder, så texten lämnas bara ut för den
-dag vi befinner oss i och de två närmast följande. Den visas inte direkt utan
-när man klickar på bibelhänvisningen.
-
-Principen är att stryka som standard. Att lämna ut en dag går via
-`BibleTextPolicy.redact`, i stället för att förlita sig på att just den
-ändpunkten råkar vara ofarlig:
-
-| | Bibeltext |
-| :--- | :--- |
-| `/` och `/dag/{datum}` inom fönstret | ja |
-| `/day` | ja |
-| `/dag/{datum}` utanför fönstret | nej |
-| `/day/{datum}`, `/next`, `/previous` | nej, cachas immutable i 30 dagar |
-| `/json/{år}`, `/csv`, `/txt`, `/ical` | nej, ett helt år är aldrig en begränsad mängd |
-
-De datumstyrda ändpunkterna kan anropas för vilket datum som helst och vore
-annars ett sätt att hämta hem hela evangelieboken. Svar som bär text får
-`Cache-Control: private`, så de inte blir kvar i mellanliggande cachar efter
-att fönstret flyttat sig.
-
-`JsonFormat.forDays` stryker alltid texten, oavsett anropare. `TextFormat`,
-`CsvFormat` och `IcalFormat` skriver aldrig annat än hänvisningar.
 
 ## Cachning
 
@@ -292,38 +247,11 @@ podman run --rm -p 8080:8080 lektionarium
 Applikationen lyssnar på 8080 och terminerar inte TLS. Den är tänkt att stå
 bakom en omvänd proxy.
 
-### Bibeltexten monteras in
-
-Avbilden innehåller **inte** evangelieboken med bibeltext. Filen ligger i
-`.dockerignore` och kan därför inte följa med in i avbilden ens av misstag.
-Har du rätt att återge texten monterar du in filen skrivskyddat:
-
-```sh
-podman run --rm -p 8080:8080 \
-  -v /sökväg/till/svk_lektionarium.xml:/data/lektionarium.xml:ro \
-  -e LEKTIONARIUM_LECTIONARYFILE=/data/lektionarium.xml \
-  lektionarium
-```
-
-Miljövariabeln pekar på sökvägen **inne i containern** och måste alltså matcha
-högersidan av monteringen. Utan filen startar applikationen ändå, med enbart
-bibelhänvisningar. Startloggen säger alltid vilken fil som lästes och om den
-bär text:
-
-```
-Evangeliebok: /data/lektionarium.xml (med bibeltext)
-```
-
-Filen måste vara läsbar för containerns användare, som är UID 10001 och inte
-root.
-
 ### Inställningar
 
 | Miljövariabel | Standard | Styr |
 | :--- | :--- | :--- |
-| `LEKTIONARIUM_LECTIONARYFILE` | `svk_lektionarium.xml` | Sökväg inne i containern, ska matcha monteringen |
 | `LEKTIONARIUM_BASEURL` | `https://lektionarium.se` | Adressen prenumerationsflödet uppger att klienter ska hämta om ifrån. Läses inte ur `Host`-huvudet |
-| `LEKTIONARIUM_TEXTDAYS` | `3` | Hur många dagar framåt bibeltexten visas |
 | `LEKTIONARIUM_ZONE` | `Europe/Stockholm` | Tidszonen dagens dag räknas i, oavsett containerns egen zon |
 | `SERVER_PORT` | `8080` | Porten inne i containern |
 | `JAVA_TOOL_OPTIONS` | `-XX:MaxRAMPercentage=75.0` | Sätt om du ändrar minnesgränsen |
