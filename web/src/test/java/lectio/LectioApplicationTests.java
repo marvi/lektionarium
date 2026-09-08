@@ -185,6 +185,36 @@ class LectioApplicationTests {
   }
 
   @Nested
+  @DisplayName("hälsokontroll")
+  class Halsa {
+
+    @Test
+    @DisplayName("svarar UP när kalendern kan räkna")
+    void svararUp() throws Exception {
+      mvc.perform(get("/actuator/health"))
+        .andExpect(status().isOk())
+        .andExpect(content().string(org.hamcrest.Matchers.containsString("\"status\":\"UP\"")));
+    }
+
+    /** Ändpunkten ska kunna nås utan att röja något om driftsättningen. */
+    @Test
+    @DisplayName("röjer inga detaljer")
+    void rojerIngaDetaljer() throws Exception {
+      String body = mvc.perform(get("/actuator/health"))
+        .andReturn().getResponse().getContentAsString();
+      assertFalse(body.contains("bibleText"), body);
+      assertFalse(body.contains("lektionarium.xml"), body);
+    }
+
+    /** Bara hälsa exponeras, inte resten av actuator. */
+    @Test
+    void ovrigaAndpunkterArInteExponerade() throws Exception {
+      mvc.perform(get("/actuator/env")).andExpect(status().isNotFound());
+      mvc.perform(get("/actuator/beans")).andExpect(status().isNotFound());
+    }
+  }
+
+  @Nested
   @DisplayName("cachning")
   class Cachning {
 

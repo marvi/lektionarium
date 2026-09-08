@@ -47,7 +47,11 @@ RUN java -Djarmode=tools -jar web/target/lektionarium-web-*.jar \
 # ---------- Kör ----------
 FROM docker.io/library/eclipse-temurin:21-jre
 
-RUN groupadd --system --gid 10001 lektionarium \
+# curl används av hälsokontrollen längre ned.
+RUN apt-get update \
+ && apt-get install --yes --no-install-recommends curl \
+ && rm -rf /var/lib/apt/lists/* \
+ && groupadd --system --gid 10001 lektionarium \
  && useradd --system --uid 10001 --gid 10001 --home-dir /app --no-create-home lektionarium
 
 WORKDIR /app
@@ -65,5 +69,10 @@ EXPOSE 8080
 # MaxRAMPercentage får den att rätta sig efter containerns minnesgräns i
 # stället för efter värdens totala minne.
 ENV JAVA_TOOL_OPTIONS="-XX:MaxRAMPercentage=75.0"
+
+# Skalform, så att SERVER_PORT slår igenom om porten flyttas.
+# start-period ger JVM:en tid att komma igång innan misslyckanden räknas.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
+  CMD curl -fsS "http://localhost:${SERVER_PORT:-8080}/actuator/health" || exit 1
 
 ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
