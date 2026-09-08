@@ -44,10 +44,28 @@ jobs:
       - name: Bygg och kör testerna
         run: ./mvnw -B --no-transfer-progress clean verify
 
-      - name: Publicera till GitHub Packages
-        run: ./mvnw -B --no-transfer-progress -Prelease deploy -DskipTests
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Anslut till tailnetet
+        uses: tailscale/github-action@v3
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:deploy
+
+      - name: Hämta hem befintligt repo
+        run: |
+          mkdir -p "$HOME/maven/"
+          rsync -a deploy@{{ vars.MAVEN_HOST }}:/srv/www/maven/ \
+                   "$HOME/maven/"
+
+      - name: Deploya till det lokala trädet
+        run: |
+          ./mvnw -B --no-transfer-progress -Prelease deploy -DskipTests \
+            -DaltDeploymentRepository="marvi::file://$HOME/maven"
+
+      - name: Ladda upp
+        run: |
+          rsync -a --chmod=D755,F644 \
+            "$HOME/maven/" deploy@{{ vars.MAVEN_HOST }}:/srv/www/maven/
 
       # Avbilden byggs sist, så den bara publiceras när testerna gått igenom.
       # Bygget sker på en Linux-runner för linux/amd64. Vill du ha arm64 med
