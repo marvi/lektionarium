@@ -16,6 +16,14 @@
 # ---------- Bygg ----------
 FROM docker.io/library/eclipse-temurin:21-jdk AS build
 
+# Maven Wrapper väljer .tar.gz i stället för .zip när unzip saknas, och då
+# stämmer inte den pinnade sha256-summan. Felmeddelandet påstår att
+# distributionen kan vara komprometterad, men orsaken är bara att ett annat
+# arkivformat hämtades.
+RUN apt-get update \
+ && apt-get install --yes --no-install-recommends unzip \
+ && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /build
 
 # Pom-filerna först. Beroendena hamnar då i ett eget lager som bara byggs om
