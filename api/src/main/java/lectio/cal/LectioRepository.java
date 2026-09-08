@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010, 2020, marvi ab. All rights reserved.
+ * Copyright (c) 2010, 2026, marvi ab. All rights reserved.
  * This code is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -7,112 +7,121 @@
  */
 package lectio.cal;
 
-import org.jetbrains.annotations.NotNull;
+import lectio.cal.ReadingCycles.Cycle;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.InputStream;
+import java.io.UncheckedIOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
+ * Läser evangelieboken från den medföljande XML-filen.
+ * <p>
+ * Filen ändras aldrig i drift, så den tolkas en enda gång och delas sedan av
+ * alla anropare. {@link ReadingCycles} är oföränderlig efter inläsning och kan
+ * därför användas från flera trådar.
+ *
  * @author marvi
  */
-public class LectioRepository {
+public final class LectioRepository {
 
-  @NotNull
-  public static ReadingCycles getLectio() {
-    Document d = getDocument("/lectio/svk_lektionarium_sans_text.xml");
-    Element root = d.getDocumentElement();
-    NodeList days = root.getChildNodes();
-    ReadingCycles readingCycles = new ReadingCycles();
+  private static final String LECTIONARY = "/lectio/svk_lektionarium_sans_text.xml";
 
-    for (int i = 0; i < days.getLength(); i++) {
-      Node dayNode = days.item(i); // Renamed to avoid conflict with pattern variable
-      if (dayNode instanceof Element day) { // Pattern matching for instanceof
-        // Element dayElem = (Element) day; // Cast removed
-        // Extract data from Node
-        String name = day.getAttribute("name");
-        String theme = day.getAttribute("theme"); // Use pattern variable 'day'
-        Readings c1 = null;
-        Readings c2 = null;
-        Readings c3 = null;
-        Readings c4 = null;
-        NodeList cycles = day.getChildNodes(); // Use pattern variable 'day'
-        for (int j = 0; j < cycles.getLength(); j++) {
-          Node cycleNode = cycles.item(j); // Renamed to avoid conflict
-          if (cycleNode instanceof Element cycle) { // Pattern matching for instanceof
-            // Element cycleElem = (Element) cycle; // Cast removed
-            // Extract data from Node
-            String cycleNum = cycle.getAttribute("cycle"); // Use pattern variable 'cycle'
-            NodeList readings = cycle.getChildNodes(); // Use pattern variable 'cycle'
-            Reading ot = null;
-            Reading ep = null;
-            Reading go = null;
-            Reading ps = null;
-            for (int k = 0; k < readings.getLength(); k++) {
-              Node readingNode = readings.item(k); // Renamed to avoid conflict
-              if (readingNode instanceof Element reading) { // Pattern matching for instanceof
-                // Element readingElem = (Element) reading; // Cast removed
-                // Extract data from Node
-                String type = reading.getAttribute("type"); // Use pattern variable 'reading'
-                String svref = reading.getAttribute("svref"); // Use pattern variable 'reading'
-                String enref = reading.getAttribute("enref"); // Use pattern variable 'reading'
-                String content = reading.getTextContent(); // Use pattern variable 'reading'
-
-                if (type.equals("ot")) {
-                  ot = new Reading(svref, enref, content);
-                }
-                if (type.equals("ep")) {
-                  ep = new Reading(svref, enref, content);
-                }
-                if (type.equals("go")) {
-                  go = new Reading(svref, enref, content);
-                }
-                if (type.equals("ps")) {
-                  ps = new Reading(svref, enref, content);
-                }
-              }
-            }// End loop over readings
-            // Convert if statements to switch expression
-            switch (cycleNum) {
-              case "1":
-                readingCycles.addCycle(name, 1, new Readings(theme, ot, ep, go, ps, null));
-                break;
-              case "2":
-                readingCycles.addCycle(name, 2, new Readings(theme, ot, ep, go, ps, null));
-                break;
-              case "3":
-                readingCycles.addCycle(name, 3, new Readings(theme, ot, ep, go, ps, null));
-                break;
-              case "4":
-                readingCycles.addCycle(name, 4, new Readings(theme, ot, ep, go, ps, null));
-                break;
-              // Optional: default case if needed, though original code had no else
-            }
-          }
-        }// End loop over cycles
-      } // End loop over days
-    }
-    return readingCycles;
+  private LectioRepository() {
   }
 
-  private static Document getDocument(String file) {
-    try {
-      DocumentBuilderFactory dbf =
-        DocumentBuilderFactory.newInstance();
-      DocumentBuilder db = dbf.newDocumentBuilder();
-      return db.parse(LectioRepository.class.getResourceAsStream(file));
-    } catch (SAXException | ParserConfigurationException | IOException ex) {
-      Logger.getLogger(LectioRepository.class.getName()).log(Level.SEVERE,
-        "Error reading or parsing Lectio data", ex);
+  /**
+   * Initialiseras vid första anropet till {@link #getLectio()} och aldrig mer.
+   * Klassladdaren garanterar att det sker exakt en gång.
+   */
+  private static final class Holder {
+    static final ReadingCycles INSTANCE = parse(LECTIONARY);
+  }
+
+  /** @return evangelieboken, tolkad en gång och återanvänd */
+  public static ReadingCycles getLectio() {
+    return Holder.INSTANCE;
+  }
+
+  private static ReadingCycles parse(String resource) {
+    Document document = readDocument(resource);
+    ReadingCycles cycles = new ReadingCycles();
+
+    for (Element dayElement : childElements(document.getDocumentElement())) {
+      String name = dayElement.getAttribute("name");
+      String theme = dayElement.getAttribute("theme");
+
+      for (Element cycleElement : childElements(dayElement)) {
+        Map<String, Reading> byType = new HashMap<>();
+        for (Element readingElement : childElements(cycleElement)) {
+          byType.put(readingElement.getAttribute("type"), new Reading(
+            readingElement.getAttribute("svref"),
+            readingElement.getAttribute("enref"),
+            readingElement.getTextContent()));
+        }
+        Readings readings = new Readings(theme, byType.get("ot"), byType.get("ep"),
+          byType.get("go"), byType.get("ps"), byType.get("alt"));
+        cycles.add(name, cycleOf(cycleElement, name), readings);
+      }
     }
-    return null;
+    return cycles;
+  }
+
+  private static Cycle cycleOf(Element cycleElement, String dayName) {
+    String raw = cycleElement.getAttribute("cycle");
+    try {
+      return Cycle.of(Integer.parseInt(raw));
+    } catch (IllegalArgumentException ex) {
+      throw new IllegalStateException(
+        "Ogiltig läsningsserie '" + raw + "' för " + dayName + " i " + LECTIONARY, ex);
+    }
+  }
+
+  private static Document readDocument(String resource) {
+    InputStream in = LectioRepository.class.getResourceAsStream(resource);
+    if (in == null) {
+      throw new IllegalStateException("Hittar inte evangelieboken på classpath: " + resource);
+    }
+    try (in) {
+      return secureDocumentBuilderFactory().newDocumentBuilder().parse(in);
+    } catch (IOException ex) {
+      throw new UncheckedIOException("Kunde inte läsa " + resource, ex);
+    } catch (ParserConfigurationException | SAXException ex) {
+      throw new IllegalStateException("Kunde inte tolka " + resource, ex);
+    }
+  }
+
+  /** Filen är vår egen och saknar DTD. Stäng av allt externt för säkerhets skull. */
+  private static DocumentBuilderFactory secureDocumentBuilderFactory() throws ParserConfigurationException {
+    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
+    factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+    factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+    factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+    factory.setXIncludeAware(false);
+    factory.setExpandEntityReferences(false);
+    return factory;
+  }
+
+  private static List<Element> childElements(Node parent) {
+    NodeList children = parent.getChildNodes();
+    List<Element> elements = new ArrayList<>();
+    for (int i = 0; i < children.getLength(); i++) {
+      if (children.item(i) instanceof Element element) {
+        elements.add(element);
+      }
+    }
+    return elements;
   }
 }

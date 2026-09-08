@@ -1,55 +1,100 @@
+/*
+ * Copyright (c) 2010, 2026, marvi ab. All rights reserved.
+ * This code is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ */
 package lectio.format;
 
 import lectio.cal.Day;
-import lectio.cal.HolyDay;
 import lectio.cal.LiturgicalYearFactory;
+import lectio.cal.Reading;
 import lectio.cal.Readings;
 
-import java.time.LocalDate;
-import java.util.Map.Entry;
+import java.util.Collection;
+import java.util.Optional;
 
 /**
- * Generate an calendar in CSV format for a liturgical calendar year
- * Sample:
+ * Kyrkoåret som semikolonseparerad CSV, avsedd för kalkylprogram.
+ *
  * <pre>
- * Datum;Namn;Tema;GT;Epistel;Evangelium;Alternativ text
- * 2020-01-01;Nyårsdagen;I Jesu namn;Klag 3:22-26;Apg 10:42-43;Joh 2:23-25;Ps 121;;
- * 2020-01-05;Söndagen efter nyår;Guds hus;1 Kung 8:20,27-30;Fil 2:1-4;Joh 2:13-22;Ps 84:2-5;;
- * 2020-01-06;Trettondedag jul;Guds härlighet i Kristus;1 Kung 10:1-7;Ef 2:17-19;Matt 2:1-12;Ps 72:10-15;;
+ * Datum;Namn;Tema;GT;Epistel;Evangelium;Psaltarpsalm;Alternativ text
+ * 2020-01-01;Nyårsdagen;I Jesu namn;Klag 3:22-26;Apg 10:42-43;Joh 2:23-25;Ps 121;
  * </pre>
+ *
+ * Fält som innehåller semikolon, citattecken eller radbrytning citeras enligt
+ * RFC 4180, med dubblade citattecken inuti.
+ *
  * @author marvi
  */
-public class CsvFormat {
+public final class CsvFormat {
 
-  /**
-   * @param year The calendar year to generate calendar data for
-   * @return The calender content as a CSV String
-   */
-  public static String getCsvForYear(int year) {
-    LiturgicalYearFactory lym = new LiturgicalYearFactory();
-    StringBuilder desc = new StringBuilder();
-    desc.append("Datum;Namn;Tema;GT;Epistel;Evangelium;Alternativ text\n");
-    for (Entry<LocalDate, Day> entry : lym.getDaysOfCalendarYear(year).entrySet()) {
-      Day d = entry.getValue();
-      desc.append(d.date()).append(";"); // Replaced getDate() with date()
-      desc.append(d.name()).append(";"); // Replaced getName() with name()
-      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
-        // HolyDay hd = (HolyDay) d; // Cast removed
-        Readings r = hd.readings(); // Replaced getReadings() with readings()
-        desc.append(hd.theme()).append(";"); // Replaced getTheme() with theme()
-        desc.append(r.getOt()).append(";");
-        desc.append(r.getEp()).append(";");
-        desc.append(r.getGo()).append(";");
-        desc.append(r.getPs()).append(";");
-        if (r.getAlt() != null) {
-          desc.append(r.getAlt()).append(";\n");
-        } else {
-          desc.append(";\n");
-        }
-      }
-    }
-    return desc.toString();
+  private static final String HEADER =
+    "Datum;Namn;Tema;GT;Epistel;Evangelium;Psaltarpsalm;Alternativ text";
+
+  private CsvFormat() {
   }
 
+  /**
+   * @param year kyrkoåret
+   * @return kalendern som CSV
+   */
+  public static String forLiturgicalYear(int year) {
+    return forYear(Formats.SHARED, CalendarBasis.LITURGICAL, year);
+  }
 
+  /**
+   * @param year kalenderåret
+   * @return kalendern som CSV
+   */
+  public static String forCalendarYear(int year) {
+    return forYear(Formats.SHARED, CalendarBasis.CALENDAR, year);
+  }
+
+  /**
+   * @param factory kalendern att hämta dagarna ur
+   * @param basis   om årtalet syftar på kyrkoår eller kalenderår
+   * @param year    årtalet
+   * @return kalendern som CSV
+   */
+  public static String forYear(LiturgicalYearFactory factory, CalendarBasis basis, int year) {
+    return forDays(basis.daysOf(factory, year));
+  }
+
+  /**
+   * @param days dagarna att skriva ut, i den ordning de ska stå
+   * @return dagarna som CSV, med rubrikrad
+   */
+  public static String forDays(Collection<Day> days) {
+    StringBuilder out = new StringBuilder(HEADER).append('\n');
+    for (Day day : days) {
+      Optional<Readings> readings = day.findReadings();
+      appendField(out, day.date().toString());
+      appendField(out, day.name());
+      appendField(out, readings.map(Readings::theme).orElse(""));
+      appendField(out, ref(readings.map(Readings::ot)));
+      appendField(out, ref(readings.map(Readings::ep)));
+      appendField(out, ref(readings.map(Readings::go)));
+      appendField(out, ref(readings.map(Readings::ps)));
+      out.append(escape(ref(readings.map(Readings::alt)))).append('\n');
+    }
+    return out.toString();
+  }
+
+  private static String ref(Optional<Reading> reading) {
+    return reading.map(Reading::sweRef).orElse("");
+  }
+
+  private static void appendField(StringBuilder out, String value) {
+    out.append(escape(value)).append(';');
+  }
+
+  private static String escape(String value) {
+    if (value.indexOf(';') < 0 && value.indexOf('"') < 0
+      && value.indexOf('\n') < 0 && value.indexOf('\r') < 0) {
+      return value;
+    }
+    return '"' + value.replace("\"", "\"\"") + '"';
+  }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010, 2020, marvi ab. All rights reserved.
+ * Copyright (c) 2010, 2026, marvi ab. All rights reserved.
  * This code is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -8,45 +8,57 @@
 package lectio.cal;
 
 import java.time.LocalDate;
-// DateTimeFormatter import is no longer needed as toString is auto-generated
-// import java.time.format.DateTimeFormatter;
 import java.util.List;
-// Objects import is no longer needed as equals and hashCode will be auto-generated
-// import java.util.Objects;
+import java.util.Optional;
 
-public record Day(String name, LocalDate date, List<Memorial> memorials, LiturgicalColor liturgicalColor) implements Comparable<Day> {
+/**
+ * En dag i kyrkoåret.
+ * <p>
+ * En dag är antingen en {@link HolyDay} med egna texter ur evangelieboken,
+ * eller en {@link OrdinaryDay} utan. Typen är förseglad, så en {@code switch}
+ * över de två fallen är uttömmande:
+ * <pre>{@code
+ * String text = switch (day) {
+ *   case HolyDay h -> h.name() + ": " + h.theme();
+ *   case OrdinaryDay o -> o.name();
+ * };
+ * }</pre>
+ *
+ * @author marvi
+ */
+public sealed interface Day extends Comparable<Day> permits OrdinaryDay, HolyDay {
 
-  // Constructor, getters, equals, hashCode, and toString are auto-generated for records.
+  /** Dagens namn i kyrkoåret, t.ex. "Första söndagen i advent". */
+  String name();
 
-  // The problem description asks to update compareTo(Object o) to compareTo(Day d)
-  // However, for a record to implement Comparable<Day>, it should implement compareTo(Day d).
-  // Also, the existing compareTo only compares dates, which might not be what's desired
-  // for a full comparison of Day objects. For now, I will keep the logic as is,
-  // but just change the signature and remove the cast.
-  // A more complete compareTo would consider other fields if date is equal.
-  @Override
-  public int compareTo(Day d) {
-    // The original implementation only compared dates.
-    // Records provide accessors like d.date()
-    return this.date.compareTo(d.date());
+  /** Det datum dagen infaller detta år. */
+  LocalDate date();
+
+  /** Liturgisk färg för dagen. */
+  LiturgicalColor color();
+
+  /** Dagens minnesdagar. Aldrig null, men oftast tom. */
+  List<Memorial> memorials();
+
+  /**
+   * Läsningarna för dagen, om den har några.
+   * <p>
+   * Bekvämlighetsmetod för den som inte vill mönstermatcha på {@link HolyDay}.
+   *
+   * @return dagens läsningar, eller tomt för en {@link OrdinaryDay}
+   */
+  default Optional<Readings> findReadings() {
+    return this instanceof HolyDay holyDay ? Optional.of(holyDay.readings()) : Optional.empty();
   }
 
-  // The original toString() method had specific formatting for the date.
-  // The auto-generated toString() for a record will include all fields.
-  // If the specific format was important, a custom toString() would be needed.
-  // For this refactoring, I'm assuming the default toString() is acceptable.
-  // If not, the original toString() or a modified version would need to be added back.
-  //
-  // Example of how to override toString if needed:
-  // @Override
-  // public String toString() {
-  //   DateTimeFormatter fmt = DateTimeFormatter.ofPattern("Y-MM-dd");
-  //   return "Day{" + "name=" + name + ", date=" + fmt.format(date) + ", memorials=" + memorials + ", liturgicalColor=" + liturgicalColor + '}';
-  // }
-
-  // Note: The original compareTo compared this.date with d.getDate().
-  // For records, the accessor methods are named after the component, e.g., d.date().
-  // The original equals and hashCode methods were based only on the 'date' field.
-  // The auto-generated equals and hashCode for a record will use all components,
-  // which is generally more correct.
+  /**
+   * Ordnar dagar kronologiskt.
+   * <p>
+   * Observera att ordningen inte är förenlig med {@code equals}: två dagar med
+   * samma datum jämför lika utan att vara samma dag.
+   */
+  @Override
+  default int compareTo(Day other) {
+    return date().compareTo(other.date());
+  }
 }

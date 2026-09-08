@@ -1,76 +1,66 @@
 package lectio.cal;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
+ * Kontrollerar att rätt läsningsserie plockas fram för ett datum.
+ *
  * @author marvi
  */
-public class ReadingsTest extends TestCase {
+class ReadingsTest {
 
-  public ReadingsTest(String testName) {
-    super(testName);
+  private final LiturgicalYearFactory factory = new LiturgicalYearFactory();
+
+  @ParameterizedTest(name = "gammaltestamentlig text {0} är {1}")
+  @CsvSource({
+    "2020-04-10, Jes 53:1-12",
+    "2020-10-31, 5 Mos 34:1-5",
+  })
+  void hittarGammaltestamentligText(LocalDate date, String expected) {
+    assertEquals(expected, readingsFor(date).ot().sweRef());
   }
 
-  @Override
-  protected void setUp() throws Exception {
-    super.setUp();
+  @ParameterizedTest(name = "epistel {0} är {1}")
+  @CsvSource({
+    "2023-02-22, 2 Kor 7:8-13",
+    "2023-04-08, Ef 2:1−6",
+    "2020-11-29, Rom 13:11-14",
+  })
+  void hittarEpistel(LocalDate date, String expected) {
+    assertEquals(expected, readingsFor(date).ep().sweRef());
   }
 
-  @Override
-  protected void tearDown() throws Exception {
-    super.tearDown();
+  @ParameterizedTest(name = "evangelium {0} är {1}")
+  @CsvSource({
+    "2024-03-30, Matt 28:1-8",
+    "2024-05-12, Joh 15:26-16:4",
+  })
+  void hittarEvangelium(LocalDate date, String expected) {
+    assertEquals(expected, readingsFor(date).go().sweRef());
   }
 
-  public void testGetDaysOfYear() {
-
-
-    // OT
-    Map<LocalDate, String> otData = new HashMap<LocalDate, String>();
-    otData.put(LocalDate.of(2020, 4, 10), "Jes 53:1-12");
-    otData.put(LocalDate.of(2020, 10, 31), "5 Mos 34:1-5");
-
-    Iterator it = otData.entrySet().iterator();
-    while (it.hasNext()) {
-      Map.Entry pairs = (Map.Entry) it.next();
-      LocalDate date = (LocalDate) pairs.getKey();
-      Readings r = ((HolyDay) new LiturgicalYear(date.getYear()).getDaysOfYear().get(date)).getReadings();
-      assertEquals(r.getOt().getSweRef(), pairs.getValue());
+  @Test
+  void varjeHelgdagHarAllaFyraTexterna() {
+    for (Day day : factory.getYear(2026).getDaysOfYear().values()) {
+      day.findReadings().ifPresent(readings -> {
+        assertNotNull(readings.theme(), day.name());
+        assertNotNull(readings.ot(), day.name());
+        assertNotNull(readings.ep(), day.name());
+        assertNotNull(readings.go(), day.name());
+        assertNotNull(readings.ps(), day.name());
+      });
     }
+  }
 
-    // EP
-    Map<LocalDate, String> epData = new HashMap<LocalDate, String>();
-    epData.put(LocalDate.of(2023, 2, 22), "2 Kor 7:8-13");
-    epData.put(LocalDate.of(2023, 4, 8), "Ef 2:1−6");
-    epData.put(LocalDate.of(2020, 11, 29), "Rom 13:11-14");
-
-    LiturgicalYearFactory factory = new LiturgicalYearFactory();
-    Iterator it2 = epData.entrySet().iterator();
-    while (it2.hasNext()) {
-      Map.Entry pairs = (Map.Entry) it2.next();
-      LocalDate date = (LocalDate) pairs.getKey();
-      LiturgicalYear year = factory.getLiturgicalYear(date);
-      HolyDay day = (HolyDay) year.getDaysOfYear().get(date);
-      Readings r = day.getReadings();
-      assertEquals(pairs.getValue(), r.getEp().getSweRef());
-    }
-
-    // GO
-    Map<LocalDate, String> goData = new HashMap<LocalDate, String>();
-    goData.put(LocalDate.of(2024, 3, 30), "Matt 28:1-8");
-    goData.put(LocalDate.of(2024, 5, 12), "Joh 15:26-16:4");
-
-    Iterator it3 = goData.entrySet().iterator();
-    while (it3.hasNext()) {
-      Map.Entry pairs = (Map.Entry) it3.next();
-      LocalDate date = (LocalDate) pairs.getKey();
-      Readings r = ((HolyDay) new LiturgicalYear(date.getYear()).getDaysOfYear().get(date)).getReadings();
-      assertEquals(r.getGo().getSweRef(), pairs.getValue());
-    }
+  private Readings readingsFor(LocalDate date) {
+    return factory.getLiturgicalYear(date).getDaysOfYear().get(date)
+      .findReadings().orElseThrow(() -> new AssertionError("inga läsningar för " + date));
   }
 }

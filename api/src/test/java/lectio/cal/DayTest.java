@@ -1,44 +1,75 @@
 package lectio.cal;
 
-import junit.framework.TestCase;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author marvi
  */
-public class DayTest extends TestCase {
+class DayTest {
 
-  public DayTest(String testName) {
-    super(testName);
+  private static final Readings READINGS = new Readings("Ett nådens år",
+    new Reading("Sak 9:9-10", "Zech. 9:9-10"),
+    new Reading("Rom 13:11-14", "Rom. 13:11-14"),
+    new Reading("Matt 21:1-9", "Matt. 21:1-9"),
+    new Reading("Ps 24", "Psa. 24"),
+    null);
+
+  @Test
+  void ordnarDagarKronologiskt() {
+    List<Day> days = new ArrayList<>(List.of(
+      new OrdinaryDay("Gazonk", LocalDate.of(2010, 1, 2), LiturgicalColor.WHITE),
+      new OrdinaryDay("Foo", LocalDate.of(1910, 1, 1), LiturgicalColor.WHITE),
+      new OrdinaryDay("Bar", LocalDate.of(2010, 1, 1), LiturgicalColor.WHITE)));
+
+    assertFalse(days.get(2).name().equals("Gazonk"));
+
+    days.sort(null);
+    assertEquals("Foo", days.get(0).name());
+    assertEquals("Bar", days.get(1).name());
+    assertEquals("Gazonk", days.get(2).name());
   }
 
-  @Override
-  protected void setUp() throws Exception {
-    super.setUp();
+  @Test
+  void enVanligDagHarIngaLasningar() {
+    Day day = new OrdinaryDay("Måndag i Stilla veckan", LocalDate.of(2026, 3, 30),
+      LiturgicalColor.WHITE);
+    assertTrue(day.findReadings().isEmpty());
+    assertTrue(day.memorials().isEmpty());
   }
 
-  @Override
-  protected void tearDown() throws Exception {
-    super.tearDown();
+  @Test
+  void enHelgdagHarLasningarOchTema() {
+    HolyDay day = new HolyDay("Första söndagen i advent", LocalDate.of(2025, 11, 30),
+      LiturgicalColor.WHITE, READINGS);
+    assertEquals(READINGS, day.findReadings().orElseThrow());
+    assertEquals("Ett nådens år", day.theme());
   }
 
-  public void testCompareTo() {
-    List<Memorial> mems = new ArrayList<>();
-    List<Day> days = new ArrayList<>();
-    days.add(new Day("Gazonk", LocalDate.of(2010, 1, 2), mems, LiturgicalColor.WHITE));
-    days.add(new Day("Foo", LocalDate.of(1910, 1, 1), mems, LiturgicalColor.WHITE));
-    days.add(new Day("Bar", LocalDate.of(2010, 1, 1), mems, LiturgicalColor.WHITE));
-    assertFalse("Should not have matched", days.get(2).getName().equals("Gazonk"));
+  @Test
+  void paskensDagarFoljerPaskserien() {
+    assertTrue(HolyDay.usesEasterSeries("Långfredagen"));
+    assertTrue(HolyDay.usesEasterSeries("Påskdagen"));
+    assertFalse(HolyDay.usesEasterSeries("Midsommardagen"));
+  }
 
-    days.sort(Comparator.comparing(Day::getDate));
-    assertEquals("Should have been sorted", days.get(0).getName(), "Foo");
-    assertEquals("Should have been sorted", days.get(1).getName(), "Bar");
-    assertEquals("Should have been sorted", days.get(2).getName(), "Gazonk");
+  @Test
+  void minnesdagarKanInteAndrasUtifran() {
+    List<Memorial> memorials = new ArrayList<>();
+    memorials.add(new Memorial("Basilius BL", "379", "Biskop av Caesarea i Kappadokien."));
+    Day day = new OrdinaryDay("Nyårsdagen", LocalDate.of(2026, 1, 1),
+      LiturgicalColor.WHITE, memorials);
 
+    memorials.clear();
+    assertEquals(1, day.memorials().size(), "dagen ska ha en egen kopia");
+    assertThrows(UnsupportedOperationException.class, () -> day.memorials().clear());
   }
 }

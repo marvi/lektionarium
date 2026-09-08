@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2010, 2020, marvi ab. All rights reserved.
+ * Copyright (c) 2010, 2026, marvi ab. All rights reserved.
  * This code is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -8,89 +8,211 @@
 package lectio.format;
 
 import lectio.cal.Day;
-import lectio.cal.HolyDay;
 import lectio.cal.LiturgicalYearFactory;
+import lectio.cal.Reading;
 import lectio.cal.Readings;
-import net.fortuna.ical4j.data.CalendarOutputter;
-import net.fortuna.ical4j.model.Calendar;
-import net.fortuna.ical4j.model.Date;
-import net.fortuna.ical4j.model.component.VEvent;
-import net.fortuna.ical4j.model.property.CalScale;
-import net.fortuna.ical4j.model.property.Description;
-import net.fortuna.ical4j.model.property.ProdId;
-import net.fortuna.ical4j.model.property.Version;
-import net.fortuna.ical4j.util.RandomUidGenerator;
 
-import java.io.IOException;
-// Standard Java Calendar is still used for date manipulation before converting to ical4j Date
-import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Map.Entry;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.Collection;
 import java.util.SortedMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
- * Generate an iCalendar String for a liturgical calendar year
+ * Kyrkoåret som iCalendar enligt RFC 5545.
+ * <p>
+ * Dagarna skrivs som heldagshändelser, vilket är vad de är. UID:t härleds ur
+ * datum och namn och är därmed stabilt: hämtar man om kalendern uppdaterar
+ * klienten befintliga poster i stället för att lägga till dubbletter.
  *
  * @author marvi
  */
-public class IcalFormat {
+public final class IcalFormat {
+
+  private static final String CRLF = "\r\n";
+  private static final int MAX_OCTETS_PER_LINE = 75;
+  private static final String PRODID = "-//marvi.io//lektionarium//SV";
+  private static final String UID_DOMAIN = "@lektionarium.se";
+  private static final String FEED_UID = "kyrkoaret" + UID_DOMAIN;
+  private static final String DEFAULT_REFRESH_INTERVAL = "P1W";
+
+  private static final DateTimeFormatter DATE = DateTimeFormatter.ofPattern("yyyyMMdd");
+  private static final DateTimeFormatter TIMESTAMP =
+    DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'").withZone(ZoneOffset.UTC);
+
+  private IcalFormat() {
+  }
 
   /**
-   * @param year The calendar year to generate iCaledanr data for
-   * @return The iCalendar content as a String
+   * @param year kyrkoåret
+   * @return kalendern som iCalendar
    */
-  public static String getIcalForYear(int year) {
-    LiturgicalYearFactory lyf = new LiturgicalYearFactory();
-    RandomUidGenerator ug = new RandomUidGenerator(); // Re-instantiate RandomUidGenerator
-    SortedMap<LocalDate, Day> daysOfYear = lyf.getDaysOfLiturgicalYear(year).getDaysOfYear();
-    Calendar calendar = new Calendar(); // Changed back to net.fortuna.ical4j.model.Calendar
-    calendar.getProperties().add(new ProdId("-//marvi.io//lektionarium//EN"));
-    calendar.getProperties().add(Version.VERSION_2_0);
-    calendar.getProperties().add(CalScale.GREGORIAN);
-    for (Entry<LocalDate, Day> entry : daysOfYear.entrySet()) {
-      LocalDate localDate = entry.getKey(); // Renamed to avoid conflict with ical4j.model.Date
-      Day d = entry.getValue();
+  public static String forLiturgicalYear(int year) {
+    return forYear(Formats.SHARED, CalendarBasis.LITURGICAL, year);
+  }
 
-      // Convert LocalDate to java.util.Calendar for ical4j.model.Date constructor
-      java.util.Calendar javaCal = java.util.Calendar.getInstance();
-      javaCal.clear();
-      javaCal.set(localDate.getYear(), localDate.getMonthValue() - 1, localDate.getDayOfMonth(), 9, 0, 0);
+  /**
+   * @param year kalenderåret
+   * @return kalendern som iCalendar
+   */
+  public static String forCalendarYear(int year) {
+    return forYear(Formats.SHARED, CalendarBasis.CALENDAR, year);
+  }
 
-      // Create ical4j VEvent
-      VEvent event = new VEvent(new Date(javaCal.getTime()), d.name()); // Replaced getName() with name()
-      event.getProperties().add(ug.generateUid()); // Use RandomUidGenerator
+  /**
+   * @param factory kalendern att hämta dagarna ur
+   * @param basis   om årtalet syftar på kyrkoår eller kalenderår
+   * @param year    årtalet
+   * @return kalendern som iCalendar
+   */
+  public static String forYear(LiturgicalYearFactory factory, CalendarBasis basis, int year) {
+    SortedMap<LocalDate, Day> days = basis.days(factory, year);
+    // DTSTAMP måste vara härledd ur innehållet, inte ur stunden. Ett förflutet
+    // år ändras aldrig, och då ska två hämtningar ge samma bytes så att ETag
+    // och 304 betyder något.
+    Instant stamp = days.isEmpty()
+      ? Instant.EPOCH
+      : days.firstKey().atStartOfDay(ZoneOffset.UTC).toInstant();
+    return forDays(days.values(), basis.calendarName(year), stamp);
+  }
 
-      if (d instanceof HolyDay hd) { // Used pattern matching for instanceof
-        // HolyDay hd = (HolyDay) d; // Cast removed
-        addReadings(event, hd.readings()); // Replaced getReadings() with readings()
+  /**
+   * Ett flöde att prenumerera på, med uppgifterna ur RFC 7986 som talar om för
+   * klienten var den hämtar om och hur ofta.
+   * <p>
+   * Anropas typiskt med ett rullande fönster av kyrkoår. Eftersom UID:t härleds
+   * ur datum och namn känner klienten igen dagarna mellan hämtningarna och
+   * uppdaterar dem i stället för att lägga till dubbletter.
+   * <p>
+   * DTSTAMP sätts till {@code lastModified} och inte till stundens tidpunkt.
+   * Det gör utdatat identiskt mellan anrop så länge innehållet är oförändrat,
+   * vilket i sin tur gör det meningsfullt att svara med ETag och 304.
+   *
+   * @param days         dagarna att skriva ut
+   * @param calendarName namn på kalendern, visas i de flesta klienter
+   * @param source       adressen klienten ska hämta om flödet ifrån
+   * @param lastModified när innehållet senast ändrades
+   * @return flödet som iCalendar
+   */
+  public static String forSubscription(Collection<Day> days, String calendarName,
+                                       String source, Instant lastModified) {
+    String stamp = TIMESTAMP.format(lastModified.truncatedTo(ChronoUnit.SECONDS));
+    StringBuilder out = new StringBuilder();
+    appendCalendarHeader(out, calendarName);
+    line(out, "UID:" + FEED_UID);
+    line(out, "LAST-MODIFIED:" + stamp);
+    // SOURCE och URL är URI-värden och escapas därför inte som TEXT.
+    line(out, "SOURCE;VALUE=URI:" + source);
+    line(out, "URL;VALUE=URI:" + source);
+    line(out, "REFRESH-INTERVAL;VALUE=DURATION:" + DEFAULT_REFRESH_INTERVAL);
+    line(out, "X-PUBLISHED-TTL:" + DEFAULT_REFRESH_INTERVAL);
+    for (Day day : days) {
+      appendEvent(out, day, stamp);
+    }
+    line(out, "END:VCALENDAR");
+    return out.toString();
+  }
+
+  /**
+   * @param days         dagarna att skriva ut
+   * @param calendarName namn på kalendern, visas i de flesta klienter
+   * @param stamp        tidpunkt för DTSTAMP
+   * @return dagarna som iCalendar
+   */
+  public static String forDays(Collection<Day> days, String calendarName, Instant stamp) {
+    String dtstamp = TIMESTAMP.format(stamp.truncatedTo(ChronoUnit.SECONDS));
+    StringBuilder out = new StringBuilder();
+    appendCalendarHeader(out, calendarName);
+    for (Day day : days) {
+      appendEvent(out, day, dtstamp);
+    }
+    line(out, "END:VCALENDAR");
+    return out.toString();
+  }
+
+  private static void appendCalendarHeader(StringBuilder out, String calendarName) {
+    line(out, "BEGIN:VCALENDAR");
+    line(out, "VERSION:2.0");
+    line(out, "PRODID:" + PRODID);
+    line(out, "CALSCALE:GREGORIAN");
+    line(out, "METHOD:PUBLISH");
+    line(out, "NAME:" + escape(calendarName));
+    // X-WR-CALNAME är inte standard men är det äldre klienter faktiskt läser.
+    line(out, "X-WR-CALNAME:" + escape(calendarName));
+  }
+
+  private static void appendEvent(StringBuilder out, Day day, String dtstamp) {
+    line(out, "BEGIN:VEVENT");
+    line(out, "UID:" + uid(day));
+    line(out, "DTSTAMP:" + dtstamp);
+    // Heldagshändelse: DTEND är exklusivt och pekar därför på nästa dag.
+    line(out, "DTSTART;VALUE=DATE:" + DATE.format(day.date()));
+    line(out, "DTEND;VALUE=DATE:" + DATE.format(day.date().plusDays(1)));
+    line(out, "SUMMARY:" + escape(day.name()));
+    line(out, "TRANSP:TRANSPARENT");
+    day.findReadings().ifPresent(readings ->
+      line(out, "DESCRIPTION:" + escape(description(readings))));
+    line(out, "END:VEVENT");
+  }
+
+  /**
+   * Stabilt UID härlett ur datum och namn. {@code String.hashCode} är
+   * specificerad i språkdefinitionen och ger därför samma värde överallt.
+   */
+  private static String uid(Day day) {
+    return "%s-%08x%s".formatted(DATE.format(day.date()), day.name().hashCode(), UID_DOMAIN);
+  }
+
+  private static String description(Readings readings) {
+    StringBuilder text = new StringBuilder(readings.theme()).append('\n');
+    append(text, "GT", readings.ot());
+    append(text, "Ep", readings.ep());
+    append(text, "Ev", readings.go());
+    append(text, "Ps", readings.ps());
+    append(text, "Alt", readings.alt());
+    return text.toString();
+  }
+
+  private static void append(StringBuilder text, String label, Reading reading) {
+    if (reading != null) {
+      text.append(label).append(": ").append(reading.sweRef()).append('\n');
+    }
+  }
+
+  /** Escaping av TEXT-värden enligt RFC 5545 avsnitt 3.3.11. */
+  private static String escape(String value) {
+    return value
+      .replace("\\", "\\\\")
+      .replace(";", "\\;")
+      .replace(",", "\\,")
+      .replace("\r\n", "\\n")
+      .replace("\n", "\\n")
+      .replace("\r", "\\n");
+  }
+
+  /**
+   * Skriver en rad och viker den enligt RFC 5545 avsnitt 3.1.
+   * <p>
+   * Gränsen på 75 gäller oktetter, inte tecken, så vikningen räknar i UTF-8 och
+   * bryter aldrig mitt i ett tecken.
+   */
+  private static void line(StringBuilder out, String content) {
+    int octets = 0;
+    for (int i = 0; i < content.length(); ) {
+      int codePoint = content.codePointAt(i);
+      int width = new String(Character.toChars(codePoint)).getBytes(StandardCharsets.UTF_8).length;
+      // Vikta rader inleds med ett mellanslag, som också räknas.
+      if (octets > 0 && octets + width > MAX_OCTETS_PER_LINE) {
+        out.append(CRLF).append(' ');
+        octets = 1;
       }
-      calendar.getComponents().add(event);
+      out.appendCodePoint(codePoint);
+      octets += width;
+      i += Character.charCount(codePoint);
     }
-
-    StringWriter strwr = new StringWriter();
-    CalendarOutputter outputter = new CalendarOutputter(false); // Use CalendarOutputter
-    try {
-      outputter.output(calendar, strwr); // Use CalendarOutputter
-    } catch (IOException ex) {
-      Logger.getLogger(IcalFormat.class.getName()).log(Level.SEVERE, null, ex);
-      throw new RuntimeException("Could not write calendar", ex);
-    }
-
-    return strwr.toString();
+    out.append(CRLF);
   }
-
-
-
-
-  private static void addReadings(VEvent event, Readings r) {
-    String descText = r.getTheme() + "\r\n" +
-      "GT: " + r.getOt().getSweRef() + "\r\n" +
-      "Ep: " + r.getEp().getSweRef()+ "\r\n" +
-      "Ev: " + r.getGo().getSweRef() + "\r\n" +
-      "Ps: " + r.getPs().getSweRef() + "\r\n";
-    event.getProperties().add(new Description(descText)); // Revert to adding Description property
-  }
-
 }
