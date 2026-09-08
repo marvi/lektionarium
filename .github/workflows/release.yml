@@ -54,7 +54,7 @@ jobs:
       - name: Hämta hem befintligt repo
         run: |
           mkdir -p "$HOME/maven/"
-          rsync -a deploy@{{ vars.MAVEN_HOST }}:/srv/www/maven/ \
+          rsync -a deploy@${{ vars.MAVEN_HOST }}:/srv/www/maven/ \
                    "$HOME/maven/"
 
       - name: Deploya till det lokala trädet
@@ -65,7 +65,7 @@ jobs:
       - name: Ladda upp
         run: |
           rsync -a --chmod=D755,F644 \
-            "$HOME/maven/" deploy@{{ vars.MAVEN_HOST }}:/srv/www/maven/
+            "$HOME/maven/" deploy@${{ vars.MAVEN_HOST }}:/srv/www/maven/
 
       # Avbilden byggs sist, så den bara publiceras när testerna gått igenom.
       # Bygget sker på en Linux-runner för linux/amd64. Vill du ha arm64 med
