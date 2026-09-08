@@ -1,40 +1,28 @@
+# Byggresultat
+target/
+**/generated-sources/
+dependency-reduced-pom.xml
+
+# Maven Wrapper hämtar sin distribution till ~/.m2, inget checkas in här.
+
+# Editorer och IDE:er
+.idea/
+*.iml
+.vscode/
+*.swp
 *~
 \#*\#
 .\#*
-.idea
-*.iml
+.classpath
+.project
+.settings/
+.run/
+
+# Operativsystem
+.DS_Store
+
+# Java
 *.class
 *.log
-.DS_Store
-target/
-**/out/
-**/bin/
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
 hs_err_pid*
-### Gradle ###
-**/.gradle/
-**/build/
-
-# Ignore Gradle GUI config
-gradle-app.setting
-
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
-
-# Cache of project
-.gradletasknamecache
-
-/package-lock.json
-**/node_modules/
-
-**/.meghanada/
-**/.classpath/
-**/.project
-**/.settings/
-/.run/
-**/.classpath
+replay_pid*
