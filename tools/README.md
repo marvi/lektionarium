@@ -1,5 +1,13 @@
 # Verktyg
 
+## release.sh
+
+Släpper en ny version. Se avsnittet "Släppa en version" i projektets README.
+
+```sh
+tools/release.sh --dry-run
+```
+
 ## remove_text.py
 
 Tar bort bibeltexten ur evangelieboken och skriver en textlös variant.

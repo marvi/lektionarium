@@ -29,7 +29,7 @@ licensfrågor.
 <dependency>
   <groupId>io.marvi</groupId>
   <artifactId>lektionarium-api</artifactId>
-  <version>0.2.0</version>
+  <version>2.1</version>
 </dependency>
 ```
 
@@ -247,6 +247,37 @@ timmar för sent svensk sommartid.
 
 Statiska filer ligger på adresser utan versionsnummer och cachas därför bara
 ett dygn, med `must-revalidate`.
+
+## Släppa en version
+
+Testerna körs vid varje push. Publiceringen utlöses av en tagg.
+
+```sh
+tools/release.sh --dry-run   # visa vad som skulle hända
+tools/release.sh             # gör det
+```
+
+Skriptet tar versionen som står i pom-filerna, kör igenom hela bygget, taggar
+`vX.Y`, höjer pom-filerna ett steg och skickar upp alltihop. Taggen startar
+`release.yml`, som bygger om, publicerar till GitHub Packages och skapar en
+GitHub-release med jar-filerna.
+
+Versionerna går i steg om 0.1, med överslag till nästa heltal:
+
+```
+2.1 -> 2.2 -> ... -> 2.9 -> 3.0
+```
+
+En annan version går att tvinga fram med `--version 3.0`.
+
+Skriptet vägrar köra om arbetskopian är smutsig, om du står på fel gren, om
+grenen ligger efter `origin`, eller om versionen inte är högre än den högsta
+befintliga taggen. Det sista är värt att ha: projektet släpptes som `2.0.0`
+redan 2020, och en release med lägre nummer hade räknats som äldre av Maven.
+
+Arbetsflödet kontrollerar dessutom att taggen och pom-filerna är överens innan
+något publiceras, så en artefakt aldrig får ett annat versionsnummer än taggen
+utlovar.
 
 ## Köra som container
 

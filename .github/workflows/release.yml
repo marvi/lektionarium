@@ -1,20 +1,17 @@
 name: Publicera en version
 
+# Taggen är det som utlöser publiceringen. Skapa den med tools/release.sh,
+# som höjer versionen i pom-filerna, kör igenom bygget och taggar.
 on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version att publicera, t.ex. 0.2.0'
-        required: true
-      nextVersion:
-        description: 'Nästa utvecklingsversion utan -SNAPSHOT, t.ex. 0.3.0'
-        required: true
+  push:
+    tags:
+      - 'v*'
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: write   # för att kunna skjuta tagg och versionshöjning
+      contents: write   # för att kunna skapa en GitHub-release
       packages: write   # för att kunna publicera till GitHub Packages
 
     steps:
@@ -28,25 +25,38 @@ jobs:
           cache: 'maven'
           server-id: github
 
-      - name: Sätt versionsnummer
-        run: ./mvnw -B --no-transfer-progress versions:set
-          -DnewVersion=${{ inputs.version }} -DgenerateBackupPoms=false
+      - name: Läs versionen ur taggen
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
 
-      - name: Bygg och testa
-        run: ./mvnw -B --no-transfer-progress verify
+      # Taggen och pom-filerna måste vara överens, annars publiceras en
+      # artefakt vars versionsnummer inte är det taggen utlovar.
+      - name: Kontrollera att taggen stämmer med pom-filerna
+        run: |
+          pom=$(./mvnw -q -DforceStdout help:evaluate -Dexpression=project.version | tail -1)
+          tag=${{ steps.version.outputs.version }}
+          echo "pom: $pom, tagg: $tag"
+          if [ "$pom" != "$tag" ]; then
+            echo "::error::Taggen v$tag pekar på en commit där pom-filerna står på $pom"
+            exit 1
+          fi
+
+      - name: Bygg och kör testerna
+        run: ./mvnw -B --no-transfer-progress clean verify
 
       - name: Publicera till GitHub Packages
         run: ./mvnw -B --no-transfer-progress -Prelease deploy -DskipTests
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Tagga och höj till nästa utvecklingsversion
+      - name: Skapa en GitHub-release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ steps.version.outputs.version }}
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -am "Version ${{ inputs.version }}"
-          git tag -a "v${{ inputs.version }}" -m "Version ${{ inputs.version }}"
-          ./mvnw -B --no-transfer-progress versions:set \
-            -DnewVersion=${{ inputs.nextVersion }}-SNAPSHOT -DgenerateBackupPoms=false
-          git commit -am "Fortsätt på ${{ inputs.nextVersion }}-SNAPSHOT"
-          git push origin HEAD:${{ github.ref_name }} --follow-tags
+          gh release create "$GITHUB_REF_NAME" \
+            --title "Version $VERSION" \
+            --generate-notes \
+            api/target/lektionarium-api-"$VERSION".jar \
+            cli/target/lektionarium-cli-"$VERSION".jar \
+            web/target/lektionarium-web-"$VERSION".jar
