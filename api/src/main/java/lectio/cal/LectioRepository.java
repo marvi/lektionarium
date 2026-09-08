@@ -26,6 +26,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Läser evangelieboken från den medföljande XML-filen.
@@ -39,6 +41,9 @@ import java.util.Map;
 public final class LectioRepository {
 
   private static final String LECTIONARY = "/lectio/svk_lektionarium_sans_text.xml";
+
+  private static final Pattern PARAGRAPH_BREAK = Pattern.compile("\\n\\s*\\n");
+  private static final Pattern WHITESPACE = Pattern.compile("\\s+");
 
   private LectioRepository() {
   }
@@ -104,7 +109,7 @@ public final class LectioRepository {
           byType.put(readingElement.getAttribute("type"), new Reading(
             readingElement.getAttribute("svref"),
             readingElement.getAttribute("enref"),
-            readingElement.getTextContent()));
+            normalizeText(readingElement.getTextContent())));
         }
         Readings readings = new Readings(theme, byType.get("ot"), byType.get("ep"),
           byType.get("go"), byType.get("ps"), byType.get("alt"));
@@ -112,6 +117,27 @@ public final class LectioRepository {
       }
     }
     return cycles;
+  }
+
+  /**
+   * Plockar bort XML-filens egen formatering ur bibeltexten.
+   * <p>
+   * Filen är radbruten och indragen för att vara läsbar som fil. Det är
+   * formatering av dokumentet och inte av texten, så radbrytningar och indrag
+   * ska inte följa med ut till den som läser texten. Tomrader behålls som
+   * styckebrytning, men förekommer inte i den nuvarande filen.
+   *
+   * @param text texten så som den står i XML-filen
+   * @return texten som löpande stycken, utan indrag
+   */
+  private static String normalizeText(String text) {
+    if (text == null || text.isBlank()) {
+      return "";
+    }
+    return PARAGRAPH_BREAK.splitAsStream(text.strip())
+      .map(paragraph -> WHITESPACE.matcher(paragraph).replaceAll(" ").strip())
+      .filter(paragraph -> !paragraph.isEmpty())
+      .collect(Collectors.joining("\n\n"));
   }
 
   private static Cycle cycleOf(Element cycleElement, String dayName) {

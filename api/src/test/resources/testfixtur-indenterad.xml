@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  Testfixtur med påhittad platshållartext, formaterad som den riktiga filen:
+  radbruten och indragen för läsbarhet. Det är formatering av dokumentet och
+  ska inte följa med ut till läsaren.
+-->
+<year>
+  <day name="Domssöndagen" theme="Kristi återkomst">
+    <readings cycle="1">
+      <reading enref="Is. 65:17-19" svref="Jes 65:17-19" type="ot"> PLATSHALLARE rad ett
+        PLATSHALLARE rad tva
+        PLATSHALLARE rad tre</reading>
+      <reading enref="2Pet 3:8-13" svref="2 Petr 3:8-13" type="ep">PLATSHALLARE epistel</reading>
+      <reading enref="Matt. 25:31-46" svref="Matt 25:31-46" type="go">PLATSHALLARE evangelium</reading>
+      <reading enref="Psa. 102:26-29" svref="Ps 102:26-29" type="ps">PLATSHALLARE psaltaren</reading>
+    </readings>
+  </day>
+</year>

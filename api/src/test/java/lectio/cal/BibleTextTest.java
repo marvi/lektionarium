@@ -4,6 +4,7 @@ import lectio.format.JsonFormat;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -93,6 +94,25 @@ class BibleTextTest {
     assertTrue(JsonFormat.forDay(med).contains("PLATSHALLARE"), "enskild dag styr anroparen");
     assertFalse(JsonFormat.forDays(List.of(med)).contains("PLATSHALLARE"),
       "flera dagar stryks alltid");
+  }
+
+  /**
+   * XML-filen är radbruten och indragen för att vara läsbar som fil. Det är
+   * formatering av dokumentet, inte av texten, och ska inte följa med ut.
+   */
+  @Test
+  @DisplayName("filens radbrytning och indrag följer inte med texten")
+  void filensFormateringFoljerInteMed() throws Exception {
+    Path fixtur = Path.of(BibleTextTest.class
+      .getResource("/testfixtur-indenterad.xml").toURI());
+    Reading ot = LectioRepository.load(fixtur)
+      .readingsFor("Domssöndagen", 1).orElseThrow().ot();
+
+    assertEquals("PLATSHALLARE rad ett PLATSHALLARE rad tva PLATSHALLARE rad tre",
+      ot.text(), "radbrytningar och indrag ska bli enkla mellanslag");
+    assertFalse(ot.text().contains("\n"));
+    assertFalse(ot.text().contains("  "));
+    assertEquals(ot.text().strip(), ot.text(), "inga kantblanksteg");
   }
 
   @Test
