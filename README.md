@@ -289,63 +289,56 @@ podman build -t lektionarium .
 podman run --rm -p 8080:8080 lektionarium
 ```
 
+Applikationen lyssnar på 8080 och terminerar inte TLS. Den är tänkt att stå
+bakom en omvänd proxy.
+
+### Bibeltexten monteras in
+
 Avbilden innehåller **inte** evangelieboken med bibeltext. Filen ligger i
 `.dockerignore` och kan därför inte följa med in i avbilden ens av misstag.
-Montera in den skrivskyddat vid körning i stället:
+Har du rätt att återge texten monterar du in filen skrivskyddat:
 
 ```sh
 podman run --rm -p 8080:8080 \
-  -v /srv/lektionarium/svk_lektionarium.xml:/data/lektionarium.xml:ro \
+  -v /sökväg/till/svk_lektionarium.xml:/data/lektionarium.xml:ro \
   -e LEKTIONARIUM_LECTIONARYFILE=/data/lektionarium.xml \
-  -e LEKTIONARIUM_BASEURL=https://lektionarium.se \
   lektionarium
 ```
 
-Utan filen startar den ändå, med enbart bibelhänvisningar. Startloggen säger
-alltid vilken fil som lästes och om den bär text.
+Miljövariabeln pekar på sökvägen **inne i containern** och måste alltså matcha
+högersidan av monteringen. Utan filen startar applikationen ändå, med enbart
+bibelhänvisningar. Startloggen säger alltid vilken fil som lästes och om den
+bär text:
 
-`LEKTIONARIUM_BASEURL` behöver sättas till den publika adressen, eftersom det
-är den prenumerationsflödet uppger att klienter ska hämta om ifrån. Den läses
-inte ur `Host`-huvudet.
-
-Tidszonen behöver inte sättas. Applikationen räknar dagar i `lektionarium.zone`
-(Europe/Stockholm) oavsett vad containern har för zon.
-
-### Bakom en omvänd proxy
-
-Applikationen lyssnar på 8080 och terminerar inte TLS. Med Caddy framför:
-
-```caddyfile
-lektionarium.se {
-    reverse_proxy 127.0.0.1:8080
-}
 ```
+Evangeliebok: /data/lektionarium.xml (med bibeltext)
+```
+
+Filen måste vara läsbar för containerns användare, som är UID 10001 och inte
+root.
+
+### Inställningar
+
+| Miljövariabel | Standard | Styr |
+| :--- | :--- | :--- |
+| `LEKTIONARIUM_LECTIONARYFILE` | `svk_lektionarium.xml` | Sökväg inne i containern, ska matcha monteringen |
+| `LEKTIONARIUM_BASEURL` | `https://lektionarium.se` | Adressen prenumerationsflödet uppger att klienter ska hämta om ifrån. Läses inte ur `Host`-huvudet |
+| `LEKTIONARIUM_TEXTDAYS` | `3` | Hur många dagar framåt bibeltexten visas |
+| `LEKTIONARIUM_ZONE` | `Europe/Stockholm` | Tidszonen dagens dag räknas i, oavsett containerns egen zon |
+| `SERVER_PORT` | `8080` | Porten inne i containern |
+| `JAVA_TOOL_OPTIONS` | `-XX:MaxRAMPercentage=75.0` | Sätt om du ändrar minnesgränsen |
 
 ### Publicerad avbild
 
-Releasen bygger och publicerar avbilden till GitHub Container Registry när
-taggen skapas:
+Varje release publicerar avbilden till GitHub Container Registry:
 
 ```
 ghcr.io/marvi/lektionarium:2.1
 ghcr.io/marvi/lektionarium:latest
 ```
 
-Servern behöver då inte bygga något — Ansible hämtar hem den färdiga avbilden.
-
-Avbilden byggs för `linux/amd64`. Vill du ha `arm64` med krävs QEMU i
-arbetsflödet, och då körs hela Maven-bygget under emulering.
-
-**Ett nytt paket på ghcr.io är privat.** Ska servern kunna hämta utan
-inloggning måste paketet göras publikt en gång, under *Packages → lektionarium
-→ Package settings → Change visibility*. Annars behöver podman på servern en
-token:
-
-```sh
-podman login ghcr.io -u <användare>
-```
-
-Bygga lokalt går fortfarande bra, och ger då `localhost/lektionarium:latest`.
+Byggd för `linux/amd64`. Bygger du själv får avbilden i stället namnet
+`localhost/lektionarium:latest` under podman.
 
 ### Hälsokontroll
 
@@ -353,174 +346,12 @@ Bygga lokalt går fortfarande bra, och ger då `localhost/lektionarium:latest`.
 dagens dag. Kontrollen rör vid evangelieboken, årscachen och datumlogiken på
 en gång, så den säger något mer än att processen lever.
 
-Svaret innehåller inga detaljer, så ändpunkten kan nås utan att röja något om
-driftsättningen. Vill du se dagens dag och om bibeltexten är inläst, sätt
-`management.endpoint.health.show-details=always` — men bara när ändpunkten
-stannar på loopback. Inga andra actuator-ändpunkter är exponerade.
+Svaret innehåller inga detaljer och röjer därför inget om driftsättningen.
+Inga andra actuator-ändpunkter är exponerade. Grupperna
+`/actuator/health/liveness` och `/actuator/health/readiness` finns också.
 
-Grupperna `/actuator/health/liveness` och `/actuator/health/readiness` finns
-också. Avbilden har en `HEALTHCHECK` inbyggd, så podman följer tillståndet
+Avbilden har en `HEALTHCHECK` inbyggd, så podman och docker följer tillståndet
 utan att du behöver ange något.
-
-### Som systemd-tjänst
-
-Enheten hör hemma i ditt Ansible-projekt, inte här. Med Quadlet, i
-`/etc/containers/systemd/lektionarium.container`:
-
-```ini
-[Unit]
-Description=Lektionarium
-After=network-online.target
-Wants=network-online.target
-
-[Container]
-Image=ghcr.io/marvi/lektionarium:2.1
-ContainerName=lektionarium
-
-# Caddy terminerar TLS och proxar hit. Bind bara till loopback.
-PublishPort=127.0.0.1:8080:8080
-
-# Evangelieboken med bibeltext. z behövs om SELinux är enforcing.
-Volume=/srv/lektionarium/svk_lektionarium.xml:/data/lektionarium.xml:ro,z
-
-Environment=LEKTIONARIUM_LECTIONARYFILE=/data/lektionarium.xml
-Environment=LEKTIONARIUM_BASEURL=https://lektionarium.se
-
-PodmanArgs=--memory=512m
-
-[Service]
-Restart=always
-TimeoutStartSec=90
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Quadlet genererar enheten vid `systemctl daemon-reload`; det finns ingen
-`.service`-fil att aktivera för hand.
-
-Filen på värden måste vara läsbar för containerns användare, som är UID 10001
-och inte root. Med rootless podman mappas den dessutom till ett subuid, så
-`chmod 0644` behövs i praktiken.
-
-Kontrollera att texten hittades:
-
-```sh
-journalctl -u lektionarium | grep Evangeliebok
-```
-
-### Inställningar
-
-| Miljövariabel | Standard | Styr |
-| :--- | :--- | :--- |
-| `LEKTIONARIUM_LECTIONARYFILE` | `svk_lektionarium.xml` | Sökväg inne i containern, ska matcha monteringen |
-| `LEKTIONARIUM_BASEURL` | `https://lektionarium.se` | Adressen prenumerationsflödet uppger |
-| `LEKTIONARIUM_TEXTDAYS` | `3` | Hur många dagar framåt bibeltexten visas |
-| `LEKTIONARIUM_ZONE` | `Europe/Stockholm` | Tidszonen dagens dag räknas i |
-| `SERVER_PORT` | `8080` | Porten inne i containern |
-| `JAVA_TOOL_OPTIONS` | `-XX:MaxRAMPercentage=75.0` | Sätt om du ändrar minnesgränsen |
-
-## Släppa en version
-
-Testerna körs vid varje push. Publiceringen utlöses av en tagg.
-
-```sh
-tools/release.sh --dry-run   # visa vad som skulle hända
-tools/release.sh             # gör det
-```
-
-Skriptet tar versionen som står i pom-filerna, kör igenom hela bygget, taggar
-`vX.Y`, höjer pom-filerna ett steg och skickar upp alltihop. Taggen startar
-`release.yml`, som bygger om, publicerar till GitHub Packages och skapar en
-GitHub-release med jar-filerna.
-
-Versionerna går i steg om 0.1, med överslag till nästa heltal:
-
-```
-2.1 -> 2.2 -> ... -> 2.9 -> 3.0
-```
-
-En annan version går att tvinga fram med `--version 3.0`.
-
-Skriptet vägrar köra om arbetskopian är smutsig, om du står på fel gren, om
-grenen ligger efter `origin`, eller om versionen inte är högre än den högsta
-befintliga taggen. Det sista är värt att ha: projektet släpptes som `2.0.0`
-redan 2020, och en release med lägre nummer hade räknats som äldre av Maven.
-
-Arbetsflödet kontrollerar dessutom att taggen och pom-filerna är överens innan
-något publiceras, så en artefakt aldrig får ett annat versionsnummer än taggen
-utlovar.
-
-## Köra som container
-
-`Dockerfile` bygger webbapplikationen i två steg och kör den som en icke-root
-användare. Fungerar med både podman och docker.
-
-```sh
-podman build -t lektionarium .
-podman run --rm -p 8080:8080 lektionarium
-```
-
-Avbilden innehåller **inte** evangelieboken med bibeltext. Filen ligger i
-`.dockerignore` och kan därför inte följa med in i avbilden ens av misstag.
-Montera in den skrivskyddat vid körning i stället:
-
-```sh
-podman run --rm -p 8080:8080 \
-  -v /srv/lektionarium/svk_lektionarium.xml:/data/lektionarium.xml:ro \
-  -e LEKTIONARIUM_LECTIONARYFILE=/data/lektionarium.xml \
-  -e LEKTIONARIUM_BASEURL=https://lektionarium.se \
-  lektionarium
-```
-
-Utan filen startar den ändå, med enbart bibelhänvisningar. Startloggen säger
-alltid vilken fil som lästes och om den bär text.
-
-`LEKTIONARIUM_BASEURL` behöver sättas till den publika adressen, eftersom det
-är den prenumerationsflödet uppger att klienter ska hämta om ifrån. Den läses
-inte ur `Host`-huvudet.
-
-Tidszonen behöver inte sättas. Applikationen räknar dagar i `lektionarium.zone`
-(Europe/Stockholm) oavsett vad containern har för zon.
-
-### Bakom en omvänd proxy
-
-Applikationen lyssnar på 8080 och terminerar inte TLS. Med Caddy framför:
-
-```caddyfile
-lektionarium.se {
-    reverse_proxy 127.0.0.1:8080
-}
-```
-
-### Som systemd-tjänst
-
-Enheten hör hemma i ditt Ansible-projekt, inte här, men i korthet:
-
-```ini
-[Unit]
-Description=Lektionarium
-After=network-online.target
-Wants=network-online.target
-
-[Service]
-Restart=always
-ExecStartPre=-/usr/bin/podman rm -f lektionarium
-ExecStart=/usr/bin/podman run --rm --name lektionarium \
-  --publish 127.0.0.1:8080:8080 \
-  --memory 512m \
-  --volume /srv/lektionarium/svk_lektionarium.xml:/data/lektionarium.xml:ro \
-  --env LEKTIONARIUM_LECTIONARYFILE=/data/lektionarium.xml \
-  --env LEKTIONARIUM_BASEURL=https://lektionarium.se \
-  localhost/lektionarium:latest
-ExecStop=/usr/bin/podman stop lektionarium
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Kör du podman finns också `podman generate systemd` och Quadlet, som gör
-enheten åt dig.
 
 ## Omfattning
 
