@@ -1,0 +1,20 @@
+# Bibeltexten är upphovsrättsskyddad och får aldrig hamna i en avbild.
+# Den monteras in vid körning i stället. Se README.
+svk_lektionarium.xml
+*.xml.gz
+
+# Byggresultat: byggs om inne i avbilden
+target/
+**/target/
+
+# Behövs inte för att bygga
+.git/
+.github/
+.idea/
+.mvn/wrapper/*.jar
+tools/
+LICENSE
+README.md
+*.md
+.editorconfig
+.gitignore

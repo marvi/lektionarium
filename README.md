@@ -248,6 +248,77 @@ timmar för sent svensk sommartid.
 Statiska filer ligger på adresser utan versionsnummer och cachas därför bara
 ett dygn, med `must-revalidate`.
 
+## Köra som container
+
+`Dockerfile` bygger webbapplikationen i två steg och kör den som en icke-root
+användare. Fungerar med både podman och docker.
+
+```sh
+podman build -t lektionarium .
+podman run --rm -p 8080:8080 lektionarium
+```
+
+Avbilden innehåller **inte** evangelieboken med bibeltext. Filen ligger i
+`.dockerignore` och kan därför inte följa med in i avbilden ens av misstag.
+Montera in den skrivskyddat vid körning i stället:
+
+```sh
+podman run --rm -p 8080:8080 \
+  -v /srv/lektionarium/svk_lektionarium.xml:/data/lektionarium.xml:ro \
+  -e LEKTIONARIUM_LECTIONARYFILE=/data/lektionarium.xml \
+  -e LEKTIONARIUM_BASEURL=https://lektionarium.se \
+  lektionarium
+```
+
+Utan filen startar den ändå, med enbart bibelhänvisningar. Startloggen säger
+alltid vilken fil som lästes och om den bär text.
+
+`LEKTIONARIUM_BASEURL` behöver sättas till den publika adressen, eftersom det
+är den prenumerationsflödet uppger att klienter ska hämta om ifrån. Den läses
+inte ur `Host`-huvudet.
+
+Tidszonen behöver inte sättas. Applikationen räknar dagar i `lektionarium.zone`
+(Europe/Stockholm) oavsett vad containern har för zon.
+
+### Bakom en omvänd proxy
+
+Applikationen lyssnar på 8080 och terminerar inte TLS. Med Caddy framför:
+
+```caddyfile
+lektionarium.se {
+    reverse_proxy 127.0.0.1:8080
+}
+```
+
+### Som systemd-tjänst
+
+Enheten hör hemma i ditt Ansible-projekt, inte här, men i korthet:
+
+```ini
+[Unit]
+Description=Lektionarium
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/podman rm -f lektionarium
+ExecStart=/usr/bin/podman run --rm --name lektionarium \
+  --publish 127.0.0.1:8080:8080 \
+  --memory 512m \
+  --volume /srv/lektionarium/svk_lektionarium.xml:/data/lektionarium.xml:ro \
+  --env LEKTIONARIUM_LECTIONARYFILE=/data/lektionarium.xml \
+  --env LEKTIONARIUM_BASEURL=https://lektionarium.se \
+  localhost/lektionarium:latest
+ExecStop=/usr/bin/podman stop lektionarium
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Kör du podman finns också `podman generate systemd` och Quadlet, som gör
+enheten åt dig.
+
 ## Omfattning
 
 Evangelieboken som följer med gäller från 2003 års kyrkohandbok, så
