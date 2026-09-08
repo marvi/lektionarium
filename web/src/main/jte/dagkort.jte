@@ -14,11 +14,15 @@
         <li>
           @if(reading.hasText())
             <details>
-              <summary><span class="label">${reading.label()}</span> ${reading.sweRef()}</summary>
+              <summary>
+                <span class="label">${reading.label()}</span>
+                <span class="ref">${reading.sweRef()}</span>
+              </summary>
               <p class="bibletext">${reading.text()}</p>
             </details>
           @else
-            <span class="label">${reading.label()}</span> ${reading.sweRef()}
+            <span class="label">${reading.label()}</span>
+            <span class="ref ref-plain">${reading.sweRef()}</span>
           @endif
         </li>
       @endfor

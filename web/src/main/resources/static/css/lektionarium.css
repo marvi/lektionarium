@@ -190,7 +190,28 @@ main {
   text-transform: uppercase;
 }
 
-.readings summary { cursor: pointer; }
+/* Utfällningspilen ska sitta omedelbart före bibelhänvisningen, inte före
+   etiketten på raden ovanför. Webbläsarens egen markör hamnar först i
+   summary, så den stängs av och ersätts av en pil på hänvisningen. */
+.readings summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.readings summary::-webkit-details-marker { display: none; }
+
+.readings .ref::before {
+  content: "\25B8";
+  display: inline-block;
+  width: 1em;
+  color: var(--muted);
+  transition: transform 120ms ease;
+}
+
+.readings details[open] .ref::before { transform: rotate(90deg); }
+
+/* Håller hänvisningar utan text i linje med dem som går att fälla ut. */
+.readings .ref-plain::before { content: ""; }
 
 .bibletext {
   margin: 0.75rem 0 0.25rem;
