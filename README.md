@@ -170,6 +170,51 @@ Däremellan är svaret identiskt byte för byte, och en klient som skickar
 
 De årsvisa adresserna finns kvar för den som hellre laddar hem en fil en gång.
 
+## Bibeltexten
+
+Evangelieboken som följer med i `api`-modulen innehåller bara bibelhänvisningar.
+Bibeltexten är upphovsrättsskyddad och ligger därför inte i repot.
+
+Har du rätt att återge texten kan du lägga en egen fil med texten i projektets
+rot som `svk_lektionarium.xml`. Finns den läses den, annars används den
+medföljande. Sökvägen kan pekas om:
+
+```properties
+lektionarium.lectionary-file=/etc/lektionarium/svk_lektionarium.xml
+lektionarium.text-days=3
+```
+
+Filen läses från filsystemet och **aldrig från classpath**. En fil under
+`src/main/resources` hade packats in i jar-filen, följt med i container-avbilden
+och publicerats till GitHub Packages. Filnamnet ligger dessutom i `.gitignore`,
+och vid start loggas vilken fil som lästes och om den bär text.
+
+### Var texten visas
+
+Rätten att återge gäller begränsade mängder, så texten lämnas bara ut för den
+dag vi befinner oss i och de två närmast följande. Den visas inte direkt utan
+när man klickar på bibelhänvisningen.
+
+Principen är att stryka som standard. Att lämna ut en dag går via
+`BibleTextPolicy.redact`, i stället för att förlita sig på att just den
+ändpunkten råkar vara ofarlig:
+
+| | Bibeltext |
+| :--- | :--- |
+| `/` och `/dag/{datum}` inom fönstret | ja |
+| `/day` | ja |
+| `/dag/{datum}` utanför fönstret | nej |
+| `/day/{datum}`, `/next`, `/previous` | nej, cachas immutable i 30 dagar |
+| `/json/{år}`, `/csv`, `/txt`, `/ical` | nej, ett helt år är aldrig en begränsad mängd |
+
+De datumstyrda ändpunkterna kan anropas för vilket datum som helst och vore
+annars ett sätt att hämta hem hela evangelieboken. Svar som bär text får
+`Cache-Control: private`, så de inte blir kvar i mellanliggande cachar efter
+att fönstret flyttat sig.
+
+`JsonFormat.forDays` stryker alltid texten, oavsett anropare. `TextFormat`,
+`CsvFormat` och `IcalFormat` skriver aldrig annat än hänvisningar.
+
 ## Cachning
 
 Kalenderdata är dyr att räkna ut och ändras nästan aldrig, så det cachas i två

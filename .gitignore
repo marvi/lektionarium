@@ -21,6 +21,11 @@ dependency-reduced-pom.xml
 # Operativsystem
 .DS_Store
 
+# Evangelieboken med bibeltext är upphovsrättsskyddad och får inte checkas in.
+# Peka ut den med lektionarium.lectionary-file i stället.
+# Ankrad till roten, så att den inte råkar utesluta testfixturer.
+/svk_lektionarium.xml
+
 # Java
 *.class
 *.log

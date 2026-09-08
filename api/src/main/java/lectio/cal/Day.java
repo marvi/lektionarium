@@ -52,6 +52,22 @@ public sealed interface Day extends Comparable<Day> permits OrdinaryDay, HolyDay
   }
 
   /**
+   * Samma dag utan bibeltext, bara hänvisningar.
+   * <p>
+   * Bibeltexten är upphovsrättsskyddad och får bara visas i begränsad
+   * omfattning. Den som lämnar ut dagar utanför den ramen ska gå via den här
+   * metoden i stället för att lita på att mottagaren låter bli att titta.
+   *
+   * @return dagen utan bibeltext
+   */
+  Day withoutText();
+
+  /** @return true om dagen bär bibeltext och inte bara hänvisningar */
+  default boolean hasText() {
+    return findReadings().map(Readings::hasText).orElse(false);
+  }
+
+  /**
    * Ordnar dagar kronologiskt.
    * <p>
    * Observera att ordningen inte är förenlig med {@code equals}: två dagar med

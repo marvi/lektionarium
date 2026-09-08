@@ -30,12 +30,15 @@ import static org.springframework.http.HttpStatus.BAD_REQUEST;
 public class CalendarController {
 
   private final LiturgicalYearFactory calendar;
+  private final BibleTextPolicy textPolicy;
   private final Clock clock;
   private final String feedUrl;
 
-  public CalendarController(LiturgicalYearFactory calendar, Clock clock,
+  public CalendarController(LiturgicalYearFactory calendar, BibleTextPolicy textPolicy,
+                            Clock clock,
                             @Value("${lektionarium.base-url}") String baseUrl) {
     this.calendar = calendar;
+    this.textPolicy = textPolicy;
     this.clock = clock;
     this.feedUrl = (baseUrl.endsWith("/")
       ? baseUrl.substring(0, baseUrl.length() - 1)
@@ -55,7 +58,9 @@ public class CalendarController {
   }
 
   private String render(Model model, LocalDate date, String htmx) {
-    Day day = calendar.getCurrentDay(date);
+    // Bibeltexten följer med bara för dagen vi befinner oss i och de närmast
+    // följande. Övriga dagar visas med enbart bibelhänvisningar.
+    Day day = textPolicy.redact(calendar.getCurrentDay(date), LocalDate.now(clock));
     DayView view = DayView.of(day,
       calendar.getPreviousDay(day.date()).date(),
       calendar.getNextDay(day.date()).date());

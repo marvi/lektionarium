@@ -63,6 +63,21 @@ public final class ReadingCycles {
     return Collections.unmodifiableSet(byDay.keySet());
   }
 
+  /**
+   * Om den inlästa evangelieboken bär bibeltext eller bara hänvisningar.
+   * <p>
+   * Filen som följer med biblioteket har texten bortstrippad av
+   * upphovsrättsskäl. En driftsättning som har rätt att visa text pekar ut en
+   * egen fil, och kan använda det här för att veta vilken sorts fil som lästs.
+   *
+   * @return true om någon dag i evangelieboken har bibeltext
+   */
+  public boolean containsBibleText() {
+    return byDay.values().stream()
+      .flatMap(cycles -> cycles.values().stream())
+      .anyMatch(Readings::hasText);
+  }
+
   /** En läsningsserie i evangelieboken. */
   public enum Cycle {
     FIRST(1),

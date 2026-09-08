@@ -195,8 +195,12 @@ main {
 .bibletext {
   margin: 0.75rem 0 0.25rem;
   hyphens: auto;
-  text-align: justify;
+  /* Texten i evangelieboken är ren text med radbrytningar som bär mening,
+     till exempel versindelning. De ska bevaras. */
+  white-space: pre-wrap;
 }
+
+.readings details[open] summary { margin-bottom: 0.25rem; }
 
 /* Bläddring */
 .pager {

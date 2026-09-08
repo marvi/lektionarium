@@ -20,6 +20,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -49,13 +51,47 @@ public final class LectioRepository {
     static final ReadingCycles INSTANCE = parse(LECTIONARY);
   }
 
-  /** @return evangelieboken, tolkad en gång och återanvänd */
+  /** @return den medföljande evangelieboken, utan bibeltext, tolkad en gång */
   public static ReadingCycles getLectio() {
     return Holder.INSTANCE;
   }
 
+  /**
+   * Läser en evangeliebok från en fil i stället för den medföljande.
+   * <p>
+   * Avsett för en driftsättning som har rätt att visa bibeltext. Filen läses
+   * medvetet från filsystemet och inte från classpath: en fil som ligger
+   * utanför projektet kan inte råka packas in i en jar-fil eller en
+   * container-avbild och därmed spridas vidare.
+   *
+   * @param file sökväg till en evangeliebok i samma XML-format
+   * @return evangelieboken
+   * @throws IllegalStateException om filen saknas eller inte går att tolka
+   */
+  public static ReadingCycles load(Path file) {
+    if (!Files.isReadable(file)) {
+      throw new IllegalStateException("Kan inte läsa evangelieboken: " + file);
+    }
+    try (InputStream in = Files.newInputStream(file)) {
+      return parse(readDocument(in, file.toString()));
+    } catch (IOException ex) {
+      throw new UncheckedIOException("Kunde inte läsa " + file, ex);
+    }
+  }
+
   private static ReadingCycles parse(String resource) {
-    Document document = readDocument(resource);
+    InputStream in = LectioRepository.class.getResourceAsStream(resource);
+    if (in == null) {
+      throw new IllegalStateException("Hittar inte evangelieboken på classpath: " + resource);
+    }
+    try (in) {
+      return parse(readDocument(in, resource));
+    } catch (IOException ex) {
+      throw new UncheckedIOException("Kunde inte läsa " + resource, ex);
+    }
+  }
+
+  private static ReadingCycles parse(Document document) {
     ReadingCycles cycles = new ReadingCycles();
 
     for (Element dayElement : childElements(document.getDocumentElement())) {
@@ -88,17 +124,13 @@ public final class LectioRepository {
     }
   }
 
-  private static Document readDocument(String resource) {
-    InputStream in = LectioRepository.class.getResourceAsStream(resource);
-    if (in == null) {
-      throw new IllegalStateException("Hittar inte evangelieboken på classpath: " + resource);
-    }
-    try (in) {
+  private static Document readDocument(InputStream in, String source) {
+    try {
       return secureDocumentBuilderFactory().newDocumentBuilder().parse(in);
     } catch (IOException ex) {
-      throw new UncheckedIOException("Kunde inte läsa " + resource, ex);
+      throw new UncheckedIOException("Kunde inte läsa " + source, ex);
     } catch (ParserConfigurationException | SAXException ex) {
-      throw new IllegalStateException("Kunde inte tolka " + resource, ex);
+      throw new IllegalStateException("Kunde inte tolka " + source, ex);
     }
   }
 

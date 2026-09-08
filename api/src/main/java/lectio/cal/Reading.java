@@ -20,4 +20,16 @@ public record Reading(String sweRef, String enRef, String text) {
   public Reading(String sweRef, String enRef) {
     this(sweRef, enRef, "");
   }
+
+  /** @return true om bibeltexten finns med, inte bara hänvisningen */
+  public boolean hasText() {
+    return text != null && !text.isBlank();
+  }
+
+  /**
+   * @return samma läsning utan bibeltext
+   */
+  public Reading withoutText() {
+    return hasText() ? new Reading(sweRef, enRef, "") : this;
+  }
 }

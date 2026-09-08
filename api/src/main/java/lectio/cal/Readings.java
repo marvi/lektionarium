@@ -19,4 +19,26 @@ package lectio.cal;
  * @author marvi
  */
 public record Readings(String theme, Reading ot, Reading ep, Reading go, Reading ps, Reading alt) {
+
+  /** @return true om någon av läsningarna bär bibeltext */
+  public boolean hasText() {
+    return has(ot) || has(ep) || has(go) || has(ps) || has(alt);
+  }
+
+  /**
+   * @return samma texter med enbart bibelhänvisningar kvar
+   */
+  public Readings withoutText() {
+    return hasText()
+      ? new Readings(theme, strip(ot), strip(ep), strip(go), strip(ps), strip(alt))
+      : this;
+  }
+
+  private static boolean has(Reading reading) {
+    return reading != null && reading.hasText();
+  }
+
+  private static Reading strip(Reading reading) {
+    return reading == null ? null : reading.withoutText();
+  }
 }

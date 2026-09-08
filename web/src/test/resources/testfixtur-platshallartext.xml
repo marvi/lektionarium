@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  Testfixtur. Texten nedan är påhittad platshållartext, inte bibeltext, så att
+  testerna kan kontrollera att mekaniken för bortredigering fungerar utan att
+  upphovsrättsskyddat material behöver checkas in.
+-->
+<year>
+  <day name="Påskdagen" theme="Kristus är uppstånden">
+    <readings cycle="1">
+      <reading enref="Is. 25:6-9" svref="Jes 25:6-9" type="ot">PLATSHALLARE GT rad ett.
+PLATSHALLARE GT rad tva.</reading>
+      <reading enref="1Cor. 15:1-8" svref="1 Kor 15:1-8" type="ep">PLATSHALLARE EPISTEL.</reading>
+      <reading enref="Matt. 28:1-10" svref="Matt 28:1-10" type="go">PLATSHALLARE EVANGELIUM.</reading>
+      <reading enref="Psa. 118:15-24" svref="Ps 118:15-24" type="ps">PLATSHALLARE PSALTAREN.</reading>
+    </readings>
+    <readings cycle="2">
+      <reading enref="Is. 25:6-9" svref="Jes 25:6-9" type="ot">PLATSHALLARE GT tva.</reading>
+      <reading enref="1Cor. 15:1-8" svref="1 Kor 15:1-8" type="ep">PLATSHALLARE EPISTEL tva.</reading>
+      <reading enref="Matt. 28:1-10" svref="Matt 28:1-10" type="go">PLATSHALLARE EVANGELIUM tva.</reading>
+      <reading enref="Psa. 118:15-24" svref="Ps 118:15-24" type="ps">PLATSHALLARE PSALTAREN tva.</reading>
+    </readings>
+    <readings cycle="3">
+      <reading enref="Is. 25:6-9" svref="Jes 25:6-9" type="ot">PLATSHALLARE GT tre.</reading>
+      <reading enref="1Cor. 15:1-8" svref="1 Kor 15:1-8" type="ep">PLATSHALLARE EPISTEL tre.</reading>
+      <reading enref="Matt. 28:1-10" svref="Matt 28:1-10" type="go">PLATSHALLARE EVANGELIUM tre.</reading>
+      <reading enref="Psa. 118:15-24" svref="Ps 118:15-24" type="ps">PLATSHALLARE PSALTAREN tre.</reading>
+    </readings>
+    <readings cycle="4">
+      <reading enref="Is. 25:6-9" svref="Jes 25:6-9" type="ot">PLATSHALLARE GT fyra.</reading>
+      <reading enref="1Cor. 15:1-8" svref="1 Kor 15:1-8" type="ep">PLATSHALLARE EPISTEL fyra.</reading>
+      <reading enref="Matt. 28:1-10" svref="Matt 28:1-10" type="go">PLATSHALLARE EVANGELIUM fyra.</reading>
+      <reading enref="Psa. 118:15-24" svref="Ps 118:15-24" type="ps">PLATSHALLARE PSALTAREN fyra.</reading>
+    </readings>
+  </day>
+</year>

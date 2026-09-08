@@ -12,6 +12,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -54,6 +55,26 @@ public class LiturgicalYearFactory {
   private final Map<Integer, LiturgicalYear> cache =
     Collections.synchronizedMap(new LruCache(MAX_CACHED_YEARS));
 
+  private final ReadingCycles readingCycles;
+
+  /** Använder den medföljande evangelieboken, utan bibeltext. */
+  public LiturgicalYearFactory() {
+    this(LectioRepository.getLectio());
+  }
+
+  /**
+   * @param readingCycles evangelieboken att hämta texterna ur, t.ex. inläst
+   *                      med {@link LectioRepository#load}
+   */
+  public LiturgicalYearFactory(ReadingCycles readingCycles) {
+    this.readingCycles = Objects.requireNonNull(readingCycles, "readingCycles");
+  }
+
+  /** @return true om kalenderns dagar bär bibeltext och inte bara hänvisningar */
+  public boolean hasBibleText() {
+    return readingCycles.containsBibleText();
+  }
+
   /**
    * @param year kyrkoåret, räknat efter sin påskdag
    * @return kyrkoåret, uträknat vid första anropet och därefter återanvänt
@@ -65,7 +86,7 @@ public class LiturgicalYearFactory {
     }
     // Uträkningen sker utanför låset. Två trådar kan råka räkna ut samma år
     // samtidigt, vilket är ofarligt eftersom resultatet är detsamma.
-    LiturgicalYear computed = new LiturgicalYear(year);
+    LiturgicalYear computed = new LiturgicalYear(year, readingCycles);
     cache.put(year, computed);
     return computed;
   }

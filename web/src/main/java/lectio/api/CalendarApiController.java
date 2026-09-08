@@ -4,6 +4,7 @@ import lectio.cal.Day;
 import lectio.cal.LiturgicalYear;
 import lectio.cal.LiturgicalYearFactory;
 import lectio.format.CalendarBasis;
+import lectio.web.BibleTextPolicy;
 import lectio.format.CsvFormat;
 import lectio.format.IcalFormat;
 import lectio.format.JsonFormat;
@@ -78,12 +79,15 @@ public class CalendarApiController {
     CacheControl.maxAge(6, TimeUnit.HOURS).cachePublic();
 
   private final LiturgicalYearFactory calendar;
+  private final BibleTextPolicy textPolicy;
   private final Clock clock;
   private final String baseUrl;
 
-  public CalendarApiController(LiturgicalYearFactory calendar, Clock clock,
+  public CalendarApiController(LiturgicalYearFactory calendar, BibleTextPolicy textPolicy,
+                               Clock clock,
                                @Value("${lektionarium.base-url}") String baseUrl) {
     this.calendar = calendar;
+    this.textPolicy = textPolicy;
     this.clock = clock;
     this.baseUrl = baseUrl.endsWith("/")
       ? baseUrl.substring(0, baseUrl.length() - 1)
@@ -98,33 +102,50 @@ public class CalendarApiController {
    */
   @GetMapping(value = "/day", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<String> today(WebRequest request) {
-    Day day = calendar.getCurrentDay(today());
+    LocalDate today = today();
+    Day day = textPolicy.redact(calendar.getCurrentDay(today), today);
     Instant validFrom = startOfDay(day.date());
     if (request.checkNotModified(validFrom.toEpochMilli())) {
       return null;
     }
     Instant validUntil = startOfDay(calendar.getNextDay(day.date()).date());
+    long ttl = secondsUntil(validUntil);
+
+    // Bär svaret bibeltext får det inte ligga kvar i mellanliggande cachar
+    // efter att fönstret flyttat sig. Livslängden tar visserligen slut precis
+    // när nästa kyrkodag börjar, men private tar bort hela den risken.
+    CacheControl cache = day.hasText()
+      ? CacheControl.maxAge(ttl, TimeUnit.SECONDS).cachePrivate()
+      : CacheControl.maxAge(ttl, TimeUnit.SECONDS).cachePublic();
+
     return ResponseEntity.ok()
-      .cacheControl(CacheControl.maxAge(secondsUntil(validUntil), TimeUnit.SECONDS).cachePublic())
+      .cacheControl(cache)
       .lastModified(validFrom)
       .contentType(MediaType.APPLICATION_JSON)
       .body(JsonFormat.forDay(day));
   }
 
-  /** Dagen i kyrkoåret för ett visst datum. */
+  /**
+   * Dagen i kyrkoåret för ett visst datum.
+   * <p>
+   * De datumstyrda ändpunkterna svarar {@code immutable} i trettio dagar och
+   * lämnar därför aldrig ut bibeltext: ett cachat svar skulle överleva det
+   * fönster texten får visas i. De kan dessutom anropas för vilket datum som
+   * helst, och vore alltså ett sätt att hämta hem hela evangelieboken.
+   */
   @GetMapping(value = "/day/{date}", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<String> day(@PathVariable String date) {
-    return immutableJson(JsonFormat.forDay(calendar.getCurrentDay(parseDate(date))));
+    return immutableJson(calendar.getCurrentDay(parseDate(date)));
   }
 
   @GetMapping(value = "/next/{date}", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<String> next(@PathVariable String date) {
-    return immutableJson(JsonFormat.forDay(calendar.getNextDay(parseDate(date))));
+    return immutableJson(calendar.getNextDay(parseDate(date)));
   }
 
   @GetMapping(value = "/previous/{date}", produces = MediaType.APPLICATION_JSON_VALUE)
   public ResponseEntity<String> previous(@PathVariable String date) {
-    return immutableJson(JsonFormat.forDay(calendar.getPreviousDay(parseDate(date))));
+    return immutableJson(calendar.getPreviousDay(parseDate(date)));
   }
 
   /**
@@ -204,6 +225,11 @@ public class CalendarApiController {
     // Aldrig noll: ett svar utan livslängd tvingar fram omhämtning vid varje
     // sidvisning även när innehållet står stilla.
     return Math.max(60, Duration.between(clock.instant(), instant).toSeconds());
+  }
+
+  /** Utan bibeltext, eftersom svaret cachas långt bortom textens fönster. */
+  private static ResponseEntity<String> immutableJson(Day day) {
+    return immutableJson(JsonFormat.forDay(day.withoutText()));
   }
 
   private static ResponseEntity<String> immutableJson(String body) {

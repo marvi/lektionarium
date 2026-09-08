@@ -11,6 +11,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -55,6 +56,15 @@ public class LiturgicalYear {
    * @throws IllegalArgumentException om året ligger före {@value #FIRST_SUPPORTED_YEAR}
    */
   public LiturgicalYear(int year) {
+    this(year, LectioRepository.getLectio());
+  }
+
+  /**
+   * @param year          kyrkoåret
+   * @param readingCycles evangelieboken att hämta texterna ur
+   * @throws IllegalArgumentException om året ligger före {@value #FIRST_SUPPORTED_YEAR}
+   */
+  public LiturgicalYear(int year, ReadingCycles readingCycles) {
     if (year < FIRST_SUPPORTED_YEAR) {
       throw new IllegalArgumentException(
         "Endast år från och med " + FIRST_SUPPORTED_YEAR + " stöds, fick " + year);
@@ -63,7 +73,7 @@ public class LiturgicalYear {
     this.readingCycle = getReadingCycle(year);
     this.easterSeries = getEasterSeries(year);
     this.easterDay = CalculateEaster.forYear(year);
-    this.readingCycles = LectioRepository.getLectio();
+    this.readingCycles = Objects.requireNonNull(readingCycles, "readingCycles");
     populateDaysOfYear();
   }
 

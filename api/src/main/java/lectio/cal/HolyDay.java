@@ -39,6 +39,13 @@ public record HolyDay(String name, LocalDate date, LiturgicalColor color,
     this(name, date, color, List.of(), readings);
   }
 
+  @Override
+  public Day withoutText() {
+    return readings.hasText()
+      ? new HolyDay(name, date, color, memorials, readings.withoutText())
+      : this;
+  }
+
   /** Dagens tema, t.ex. "Ett nådens år". */
   public String theme() {
     return readings.theme();

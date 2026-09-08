@@ -74,6 +74,12 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <version>${spring-boot.version}</version>
+        <configuration>
+          <!-- Kör från projektets rot, inte från web/. Sökvägar i
+               application.properties tolkas då likadant vid utveckling som när
+               den paketerade jar-filen körs från roten. -->
+          <workingDirectory>${project.basedir}/..</workingDirectory>
+        </configuration>
         <executions>
           <execution>
             <goals><goal>repackage</goal></goals>

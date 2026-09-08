@@ -29,4 +29,10 @@ public record OrdinaryDay(String name, LocalDate date, LiturgicalColor color,
   public OrdinaryDay(String name, LocalDate date, LiturgicalColor color) {
     this(name, date, color, List.of());
   }
+
+  /** En dag utan läsningar har ingen text att stryka. */
+  @Override
+  public Day withoutText() {
+    return this;
+  }
 }

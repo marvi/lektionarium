@@ -73,14 +73,21 @@ public final class JsonFormat {
   }
 
   /**
+   * Skriver ut flera dagar.
+   * <p>
+   * Bibeltexten stryks alltid här. Ett helt år är aldrig den begränsade
+   * mängd som får visas, och en bulkändpunkt är det enklaste sättet att av
+   * misstag lämna ut hela evangelieboken. Enskilda dagar skrivs ut med
+   * {@link #forDay}, där anroparen själv avgör.
+   *
    * @param days dagarna att skriva ut, i den ordning de ska stå
-   * @return dagarna som en JSON-lista
+   * @return dagarna som en JSON-lista, utan bibeltext
    */
   public static String forDays(Collection<Day> days) {
     StringBuilder out = new StringBuilder("[\n");
     int remaining = days.size();
     for (Day day : days) {
-      appendDay(out, day, 1);
+      appendDay(out, day.withoutText(), 1);
       out.append(--remaining > 0 ? ",\n" : "\n");
     }
     return out.append("]").toString();
