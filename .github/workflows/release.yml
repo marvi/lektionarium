@@ -54,8 +54,10 @@ jobs:
       - name: Hämta hem befintligt repo
         run: |
           mkdir -p "$HOME/maven/"
-          rsync -a deploy@${{ vars.MAVEN_HOST }}:/srv/www/maven/ \
-                   "$HOME/maven/"
+          rsync -a \
+            -e "ssh -o StrictHostKeyChecking=accept-new" \
+            deploy@${{ vars.MAVEN_HOST }}:/srv/www/maven/ \
+            "$HOME/maven/"
 
       - name: Deploya till det lokala trädet
         run: |
@@ -65,6 +67,7 @@ jobs:
       - name: Ladda upp
         run: |
           rsync -a --chmod=D755,F644 \
+            -e "ssh -o StrictHostKeyChecking=accept-new" \
             "$HOME/maven/" deploy@${{ vars.MAVEN_HOST }}:/srv/www/maven/
 
       # Avbilden byggs sist, så den bara publiceras när testerna gått igenom.
