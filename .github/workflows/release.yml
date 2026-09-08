@@ -49,6 +49,28 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Avbilden byggs sist, så den bara publiceras när testerna gått igenom.
+      # Bygget sker på en Linux-runner för linux/amd64. Vill du ha arm64 med
+      # krävs QEMU, och då körs hela Maven-bygget under emulering.
+      - name: Logga in på ghcr.io
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" \
+            | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+
+      - name: Bygg och publicera containeravbilden
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          image="ghcr.io/${{ github.repository }}"
+          docker build \
+            --label org.opencontainers.image.version="$VERSION" \
+            --label org.opencontainers.image.revision="$GITHUB_SHA" \
+            --tag "$image:$VERSION" \
+            --tag "$image:latest" \
+            .
+          docker push "$image:$VERSION"
+          docker push "$image:latest"
+
       - name: Skapa en GitHub-release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

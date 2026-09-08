@@ -47,6 +47,12 @@ RUN java -Djarmode=tools -jar web/target/lektionarium-web-*.jar \
 # ---------- Kör ----------
 FROM docker.io/library/eclipse-temurin:21-jre
 
+# image.source kopplar paketet till repot på GitHub. Utan den hamnar avbilden
+# löst under kontot i stället för på projektsidan.
+LABEL org.opencontainers.image.source="https://github.com/marvi/lektionarium" \
+      org.opencontainers.image.description="Evighetskalender för Svenska kyrkans kyrkoår" \
+      org.opencontainers.image.licenses="GPL-3.0-or-later"
+
 # curl används av hälsokontrollen längre ned.
 RUN apt-get update \
  && apt-get install --yes --no-install-recommends curl \

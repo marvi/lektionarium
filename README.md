@@ -321,6 +321,32 @@ lektionarium.se {
 }
 ```
 
+### Publicerad avbild
+
+Releasen bygger och publicerar avbilden till GitHub Container Registry när
+taggen skapas:
+
+```
+ghcr.io/marvi/lektionarium:2.1
+ghcr.io/marvi/lektionarium:latest
+```
+
+Servern behöver då inte bygga något — Ansible hämtar hem den färdiga avbilden.
+
+Avbilden byggs för `linux/amd64`. Vill du ha `arm64` med krävs QEMU i
+arbetsflödet, och då körs hela Maven-bygget under emulering.
+
+**Ett nytt paket på ghcr.io är privat.** Ska servern kunna hämta utan
+inloggning måste paketet göras publikt en gång, under *Packages → lektionarium
+→ Package settings → Change visibility*. Annars behöver podman på servern en
+token:
+
+```sh
+podman login ghcr.io -u <användare>
+```
+
+Bygga lokalt går fortfarande bra, och ger då `localhost/lektionarium:latest`.
+
 ### Hälsokontroll
 
 `GET /actuator/health` svarar `{"status":"UP"}` när kalendern kan räkna ut
@@ -348,7 +374,7 @@ After=network-online.target
 Wants=network-online.target
 
 [Container]
-Image=localhost/lektionarium:2.1
+Image=ghcr.io/marvi/lektionarium:2.1
 ContainerName=lektionarium
 
 # Caddy terminerar TLS och proxar hit. Bind bara till loopback.
