@@ -256,7 +256,7 @@ bakom en omvänd proxy.
 | `SERVER_PORT` | `8080` | Porten inne i containern |
 | `JAVA_TOOL_OPTIONS` | `-XX:MaxRAMPercentage=75.0` | Sätt om du ändrar minnesgränsen |
 | `LEKTIONARIUM_UMAMI_URL` | tom | Adress till Umamis `script.js`. Lämnas den tom läggs ingen statistiktagg in |
-| `LEKTIONARIUM_UMAMI_WEBSITEID` | tom | Webbplatsens id i Umami |
+| `LEKTIONARIUM_UMAMI_WEBSITE_ID` | tom | Webbplatsens id i Umami |
 
 ### Publicerad avbild
 
