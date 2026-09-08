@@ -54,6 +54,7 @@
 
 <footer class="sitefooter">
   <img src="/img/logo_transparent.svg" alt="Lektionarium" width="120">
+  <p>Lektionarium för kyrkoåret i Svenska kyrkan</p>
   <ul>
     <li><a href="https://marvi.io">Gjort med &#9829; av marvi.io</a></li>
     <li><a href="https://github.com/marvi/lektionarium">Källkod och buggrapporter</a></li>
