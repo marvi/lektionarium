@@ -21,10 +21,17 @@ class LiturgicalYearFactoryTest {
 
   private final LiturgicalYearFactory factory = new LiturgicalYearFactory();
 
-  @Test
-  void kyrkoarSkiljerSigFranKalenderar() {
-    assertEquals("Andra söndagen i advent",
-      factory.getCurrentDay(LocalDate.of(2020, 12, 6)).name());
+  /** I kyrkoåret bor man kvar i den senast infallna dagen tills nästa infaller. */
+  @ParameterizedTest(name = "{0} tillhör {1}")
+  @CsvSource({
+    "2026-04-05, Påskdagen",
+    "2026-04-07, Annandag påsk",
+    "2026-04-11, Annandag påsk",
+    "2026-04-12, Andra söndagen i påsktiden",
+    "2020-12-06, Andra söndagen i advent",
+  })
+  void hittarDagenViBefinnerOssI(LocalDate date, String expected) {
+    assertEquals(expected, factory.getCurrentDay(date).name());
   }
 
   @ParameterizedTest(name = "föregående dag före {0} är {1}")
@@ -97,13 +104,9 @@ class LiturgicalYearFactoryTest {
       () -> factory.getDaysOfLiturgicalYears(2027, 2025));
   }
 
-  /** Ett rullande fönster ändras först när kyrkoåret gör det. */
   @Test
-  @DisplayName("kyrkoåret börjar första söndagen i advent")
   void kyrkoaretsBorjanArForstaAdvent() {
     assertEquals(LocalDate.of(2025, 11, 30), factory.startOfLiturgicalYear(2026));
-    assertEquals("Första söndagen i advent",
-      factory.getYear(2026).getDaysOfYear().get(LocalDate.of(2025, 11, 30)).name());
   }
 
   /**

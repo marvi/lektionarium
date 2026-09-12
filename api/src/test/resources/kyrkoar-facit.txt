@@ -1,0 +1,1029 @@
+# Kyrkoåren 2027-2041 så som LiturgicalYear lade ut dem 2026-09-12.
+# Namn och datum stämdes då av mot Alma, https://www.lysator.liu.se/alma/alma.cgi, utan avvikelse. Färgerna är inte kontrollerade mot Alma.
+# Kolumner: kyrkoår, datum, namn, färg. Facit för LiturgicalYearReferenceTest vid omskrivning av LiturgicalYear.
+2027	2026-11-29	Första söndagen i advent	WHITE
+2027	2026-12-06	Andra söndagen i advent	VIOLET
+2027	2026-12-13	Tredje söndagen i advent	VIOLET
+2027	2026-12-20	Fjärde söndagen i advent	VIOLET
+2027	2026-12-24	Julnatten	WHITE
+2027	2026-12-25	Juldagen	WHITE
+2027	2026-12-26	Annandag jul	WHITE
+2027	2026-12-27	Söndagen efter jul	WHITE
+2027	2027-01-01	Nyårsdagen	WHITE
+2027	2027-01-03	Söndagen efter nyår	WHITE
+2027	2027-01-06	Trettondedag jul	WHITE
+2027	2027-01-10	Första söndagen efter trettondedagen	GREEN
+2027	2027-01-17	Andra söndagen efter trettondedagen	GREEN
+2027	2027-01-24	Septuagesima	VIOLET
+2027	2027-01-31	Kyndelsmässodagen	WHITE
+2027	2027-02-07	Fastlagssöndagen	VIOLET
+2027	2027-02-10	Askonsdagen	VIOLET
+2027	2027-02-14	Första söndagen i fastan	VIOLET
+2027	2027-02-21	Andra söndagen i fastan	VIOLET
+2027	2027-02-28	Tredje söndagen i fastan	VIOLET
+2027	2027-03-07	Midfastosöndagen	VIOLET
+2027	2027-03-14	Jungfru Marie bebådelsedag	WHITE
+2027	2027-03-21	Palmsöndagen	WHITE
+2027	2027-03-22	Måndag i Stilla veckan	WHITE
+2027	2027-03-23	Tisdag i Stilla veckan	WHITE
+2027	2027-03-24	Onsdag i Stilla veckan	WHITE
+2027	2027-03-25	Skärtorsdagen	WHITE
+2027	2027-03-26	Långfredagen	WHITE
+2027	2027-03-27	Påsknatten	WHITE
+2027	2027-03-28	Påskdagen	WHITE
+2027	2027-03-29	Annandag påsk	WHITE
+2027	2027-04-04	Andra söndagen i påsktiden	WHITE
+2027	2027-04-11	Tredje söndagen i påsktiden	WHITE
+2027	2027-04-18	Fjärde söndagen i påsktiden	WHITE
+2027	2027-04-25	Femte söndagen i påsktiden	WHITE
+2027	2027-05-02	Bönsöndagen	WHITE
+2027	2027-05-06	Kristi himmelsfärds dag	WHITE
+2027	2027-05-09	Söndagen före pingst	WHITE
+2027	2027-05-16	Pingstdagen	WHITE
+2027	2027-05-17	Annandag pingst	WHITE
+2027	2027-05-23	Heliga trefaldighets dag	WHITE
+2027	2027-05-30	Första söndagen efter trefaldighet	GREEN
+2027	2027-06-06	Andra söndagen efter trefaldighet	GREEN
+2027	2027-06-13	Tredje söndagen efter trefaldighet	GREEN
+2027	2027-06-20	Fjärde söndagen efter trefaldighet	GREEN
+2027	2027-06-26	Midsommardagen	GREEN
+2027	2027-06-27	Den helige Johannes Döparens dag	RED
+2027	2027-07-04	Sjätte söndagen efter trefaldighet	GREEN
+2027	2027-07-11	Kristi förklarings dag	WHITE
+2027	2027-07-18	Åttonde söndagen efter trefaldighet	GREEN
+2027	2027-07-25	Nionde söndagen efter trefaldighet	GREEN
+2027	2027-08-01	Tionde söndagen efter trefaldighet	GREEN
+2027	2027-08-08	Elfte söndagen efter trefaldighet	GREEN
+2027	2027-08-15	Tolfte söndagen efter trefaldighet	GREEN
+2027	2027-08-22	Trettonde söndagen efter trefaldighet	GREEN
+2027	2027-08-29	Fjortonde söndagen efter trefaldighet	GREEN
+2027	2027-09-05	Femtonde söndagen efter trefaldighet	GREEN
+2027	2027-09-12	Sextonde söndagen efter trefaldighet	GREEN
+2027	2027-09-19	Sjuttonde söndagen efter trefaldighet	GREEN
+2027	2027-09-26	Artonde söndagen efter trefaldighet	GREEN
+2027	2027-10-03	Den helige Mikaels dag	GREEN
+2027	2027-10-10	Tacksägelsedagen	GREEN
+2027	2027-10-17	Tjugoförsta söndagen efter trefaldighet	GREEN
+2027	2027-10-24	Tjugoandra söndagen efter trefaldighet	GREEN
+2027	2027-10-31	Tjugotredje söndagen efter trefaldighet	GREEN
+2027	2027-11-06	Alla helgons dag	WHITE
+2027	2027-11-07	Söndagen efter alla helgons dag	WHITE
+2027	2027-11-14	Söndagen före domssöndagen	GREEN
+2027	2027-11-21	Domssöndagen	GREEN
+2028	2027-11-28	Första söndagen i advent	WHITE
+2028	2027-12-05	Andra söndagen i advent	VIOLET
+2028	2027-12-12	Tredje söndagen i advent	VIOLET
+2028	2027-12-19	Fjärde söndagen i advent	VIOLET
+2028	2027-12-24	Julnatten	WHITE
+2028	2027-12-25	Juldagen	WHITE
+2028	2027-12-26	Annandag jul	WHITE
+2028	2028-01-01	Nyårsdagen	WHITE
+2028	2028-01-02	Söndagen efter nyår	WHITE
+2028	2028-01-06	Trettondedag jul	WHITE
+2028	2028-01-09	Första söndagen efter trettondedagen	GREEN
+2028	2028-01-16	Andra söndagen efter trettondedagen	GREEN
+2028	2028-01-23	Tredje söndagen efter trettondedagen	GREEN
+2028	2028-01-30	Fjärde söndagen efter trettondedagen	GREEN
+2028	2028-02-06	Kyndelsmässodagen	WHITE
+2028	2028-02-13	Septuagesima	VIOLET
+2028	2028-02-20	Sexagesima	VIOLET
+2028	2028-02-27	Fastlagssöndagen	VIOLET
+2028	2028-03-01	Askonsdagen	VIOLET
+2028	2028-03-05	Första söndagen i fastan	VIOLET
+2028	2028-03-12	Andra söndagen i fastan	VIOLET
+2028	2028-03-19	Tredje söndagen i fastan	VIOLET
+2028	2028-03-26	Jungfru Marie bebådelsedag	WHITE
+2028	2028-04-02	Femte söndagen i fastan	VIOLET
+2028	2028-04-09	Palmsöndagen	WHITE
+2028	2028-04-10	Måndag i Stilla veckan	WHITE
+2028	2028-04-11	Tisdag i Stilla veckan	WHITE
+2028	2028-04-12	Onsdag i Stilla veckan	WHITE
+2028	2028-04-13	Skärtorsdagen	WHITE
+2028	2028-04-14	Långfredagen	WHITE
+2028	2028-04-15	Påsknatten	WHITE
+2028	2028-04-16	Påskdagen	WHITE
+2028	2028-04-17	Annandag påsk	WHITE
+2028	2028-04-23	Andra söndagen i påsktiden	WHITE
+2028	2028-04-30	Tredje söndagen i påsktiden	WHITE
+2028	2028-05-07	Fjärde söndagen i påsktiden	WHITE
+2028	2028-05-14	Femte söndagen i påsktiden	WHITE
+2028	2028-05-21	Bönsöndagen	WHITE
+2028	2028-05-25	Kristi himmelsfärds dag	WHITE
+2028	2028-05-28	Söndagen före pingst	WHITE
+2028	2028-06-04	Pingstdagen	WHITE
+2028	2028-06-05	Annandag pingst	WHITE
+2028	2028-06-11	Heliga trefaldighets dag	WHITE
+2028	2028-06-18	Första söndagen efter trefaldighet	GREEN
+2028	2028-06-24	Midsommardagen	GREEN
+2028	2028-06-25	Den helige Johannes Döparens dag	RED
+2028	2028-07-02	Tredje söndagen efter trefaldighet	GREEN
+2028	2028-07-09	Fjärde söndagen efter trefaldighet	GREEN
+2028	2028-07-16	Apostladagen	RED
+2028	2028-07-23	Sjätte söndagen efter trefaldighet	GREEN
+2028	2028-07-30	Kristi förklarings dag	WHITE
+2028	2028-08-06	Åttonde söndagen efter trefaldighet	GREEN
+2028	2028-08-13	Nionde söndagen efter trefaldighet	GREEN
+2028	2028-08-20	Tionde söndagen efter trefaldighet	GREEN
+2028	2028-08-27	Elfte söndagen efter trefaldighet	GREEN
+2028	2028-09-03	Tolfte söndagen efter trefaldighet	GREEN
+2028	2028-09-10	Trettonde söndagen efter trefaldighet	GREEN
+2028	2028-09-17	Fjortonde söndagen efter trefaldighet	GREEN
+2028	2028-09-24	Femtonde söndagen efter trefaldighet	GREEN
+2028	2028-10-01	Den helige Mikaels dag	GREEN
+2028	2028-10-08	Tacksägelsedagen	GREEN
+2028	2028-10-15	Artonde söndagen efter trefaldighet	GREEN
+2028	2028-10-22	Nittonde söndagen efter trefaldighet	GREEN
+2028	2028-10-29	Tjugonde söndagen efter trefaldighet	GREEN
+2028	2028-11-04	Alla helgons dag	WHITE
+2028	2028-11-05	Söndagen efter alla helgons dag	WHITE
+2028	2028-11-12	Tjugoandra söndagen efter trefaldighet	GREEN
+2028	2028-11-19	Söndagen före domssöndagen	GREEN
+2028	2028-11-26	Domssöndagen	GREEN
+2029	2028-12-03	Första söndagen i advent	WHITE
+2029	2028-12-10	Andra söndagen i advent	VIOLET
+2029	2028-12-17	Tredje söndagen i advent	VIOLET
+2029	2028-12-24	Fjärde söndagen i advent	VIOLET
+2029	2028-12-25	Juldagen	WHITE
+2029	2028-12-26	Annandag jul	WHITE
+2029	2028-12-31	Söndagen efter jul	WHITE
+2029	2029-01-01	Nyårsdagen	WHITE
+2029	2029-01-06	Trettondedag jul	WHITE
+2029	2029-01-07	Första söndagen efter trettondedagen	GREEN
+2029	2029-01-14	Andra söndagen efter trettondedagen	GREEN
+2029	2029-01-21	Tredje söndagen efter trettondedagen	GREEN
+2029	2029-01-28	Septuagesima	VIOLET
+2029	2029-02-04	Kyndelsmässodagen	WHITE
+2029	2029-02-11	Fastlagssöndagen	VIOLET
+2029	2029-02-14	Askonsdagen	VIOLET
+2029	2029-02-18	Första söndagen i fastan	VIOLET
+2029	2029-02-25	Andra söndagen i fastan	VIOLET
+2029	2029-03-04	Tredje söndagen i fastan	VIOLET
+2029	2029-03-11	Midfastosöndagen	VIOLET
+2029	2029-03-18	Jungfru Marie bebådelsedag	WHITE
+2029	2029-03-25	Palmsöndagen	WHITE
+2029	2029-03-26	Måndag i Stilla veckan	WHITE
+2029	2029-03-27	Tisdag i Stilla veckan	WHITE
+2029	2029-03-28	Onsdag i Stilla veckan	WHITE
+2029	2029-03-29	Skärtorsdagen	WHITE
+2029	2029-03-30	Långfredagen	WHITE
+2029	2029-03-31	Påsknatten	WHITE
+2029	2029-04-01	Påskdagen	WHITE
+2029	2029-04-02	Annandag påsk	WHITE
+2029	2029-04-08	Andra söndagen i påsktiden	WHITE
+2029	2029-04-15	Tredje söndagen i påsktiden	WHITE
+2029	2029-04-22	Fjärde söndagen i påsktiden	WHITE
+2029	2029-04-29	Femte söndagen i påsktiden	WHITE
+2029	2029-05-06	Bönsöndagen	WHITE
+2029	2029-05-10	Kristi himmelsfärds dag	WHITE
+2029	2029-05-13	Söndagen före pingst	WHITE
+2029	2029-05-20	Pingstdagen	WHITE
+2029	2029-05-21	Annandag pingst	WHITE
+2029	2029-05-27	Heliga trefaldighets dag	WHITE
+2029	2029-06-03	Första söndagen efter trefaldighet	GREEN
+2029	2029-06-10	Andra söndagen efter trefaldighet	GREEN
+2029	2029-06-17	Tredje söndagen efter trefaldighet	GREEN
+2029	2029-06-23	Midsommardagen	GREEN
+2029	2029-06-24	Den helige Johannes Döparens dag	RED
+2029	2029-07-01	Apostladagen	RED
+2029	2029-07-08	Sjätte söndagen efter trefaldighet	GREEN
+2029	2029-07-15	Kristi förklarings dag	WHITE
+2029	2029-07-22	Åttonde söndagen efter trefaldighet	GREEN
+2029	2029-07-29	Nionde söndagen efter trefaldighet	GREEN
+2029	2029-08-05	Tionde söndagen efter trefaldighet	GREEN
+2029	2029-08-12	Elfte söndagen efter trefaldighet	GREEN
+2029	2029-08-19	Tolfte söndagen efter trefaldighet	GREEN
+2029	2029-08-26	Trettonde söndagen efter trefaldighet	GREEN
+2029	2029-09-02	Fjortonde söndagen efter trefaldighet	GREEN
+2029	2029-09-09	Femtonde söndagen efter trefaldighet	GREEN
+2029	2029-09-16	Sextonde söndagen efter trefaldighet	GREEN
+2029	2029-09-23	Sjuttonde söndagen efter trefaldighet	GREEN
+2029	2029-09-30	Den helige Mikaels dag	GREEN
+2029	2029-10-07	Nittonde söndagen efter trefaldighet	GREEN
+2029	2029-10-14	Tacksägelsedagen	GREEN
+2029	2029-10-21	Tjugoförsta söndagen efter trefaldighet	GREEN
+2029	2029-10-28	Tjugoandra söndagen efter trefaldighet	GREEN
+2029	2029-11-03	Alla helgons dag	WHITE
+2029	2029-11-04	Söndagen efter alla helgons dag	WHITE
+2029	2029-11-11	Tjugofjärde söndagen efter trefaldighet	GREEN
+2029	2029-11-18	Söndagen före domssöndagen	GREEN
+2029	2029-11-25	Domssöndagen	GREEN
+2030	2029-12-02	Första söndagen i advent	WHITE
+2030	2029-12-09	Andra söndagen i advent	VIOLET
+2030	2029-12-16	Tredje söndagen i advent	VIOLET
+2030	2029-12-23	Fjärde söndagen i advent	VIOLET
+2030	2029-12-24	Julnatten	WHITE
+2030	2029-12-25	Juldagen	WHITE
+2030	2029-12-26	Annandag jul	WHITE
+2030	2029-12-30	Söndagen efter jul	WHITE
+2030	2030-01-01	Nyårsdagen	WHITE
+2030	2030-01-06	Trettondedag jul	WHITE
+2030	2030-01-13	Första söndagen efter trettondedagen	GREEN
+2030	2030-01-20	Andra söndagen efter trettondedagen	GREEN
+2030	2030-01-27	Tredje söndagen efter trettondedagen	GREEN
+2030	2030-02-03	Kyndelsmässodagen	WHITE
+2030	2030-02-10	Femte söndagen efter trettondedagen	GREEN
+2030	2030-02-17	Septuagesima	VIOLET
+2030	2030-02-24	Sexagesima	VIOLET
+2030	2030-03-03	Fastlagssöndagen	VIOLET
+2030	2030-03-06	Askonsdagen	VIOLET
+2030	2030-03-10	Första söndagen i fastan	VIOLET
+2030	2030-03-17	Andra söndagen i fastan	VIOLET
+2030	2030-03-24	Jungfru Marie bebådelsedag	WHITE
+2030	2030-03-31	Midfastosöndagen	VIOLET
+2030	2030-04-07	Femte söndagen i fastan	VIOLET
+2030	2030-04-14	Palmsöndagen	WHITE
+2030	2030-04-15	Måndag i Stilla veckan	WHITE
+2030	2030-04-16	Tisdag i Stilla veckan	WHITE
+2030	2030-04-17	Onsdag i Stilla veckan	WHITE
+2030	2030-04-18	Skärtorsdagen	WHITE
+2030	2030-04-19	Långfredagen	WHITE
+2030	2030-04-20	Påsknatten	WHITE
+2030	2030-04-21	Påskdagen	WHITE
+2030	2030-04-22	Annandag påsk	WHITE
+2030	2030-04-28	Andra söndagen i påsktiden	WHITE
+2030	2030-05-05	Tredje söndagen i påsktiden	WHITE
+2030	2030-05-12	Fjärde söndagen i påsktiden	WHITE
+2030	2030-05-19	Femte söndagen i påsktiden	WHITE
+2030	2030-05-26	Bönsöndagen	WHITE
+2030	2030-05-30	Kristi himmelsfärds dag	WHITE
+2030	2030-06-02	Söndagen före pingst	WHITE
+2030	2030-06-09	Pingstdagen	WHITE
+2030	2030-06-10	Annandag pingst	WHITE
+2030	2030-06-16	Heliga trefaldighets dag	WHITE
+2030	2030-06-22	Midsommardagen	GREEN
+2030	2030-06-23	Den helige Johannes Döparens dag	RED
+2030	2030-06-30	Andra söndagen efter trefaldighet	GREEN
+2030	2030-07-07	Tredje söndagen efter trefaldighet	GREEN
+2030	2030-07-14	Fjärde söndagen efter trefaldighet	GREEN
+2030	2030-07-21	Apostladagen	RED
+2030	2030-07-28	Sjätte söndagen efter trefaldighet	GREEN
+2030	2030-08-04	Kristi förklarings dag	WHITE
+2030	2030-08-11	Åttonde söndagen efter trefaldighet	GREEN
+2030	2030-08-18	Nionde söndagen efter trefaldighet	GREEN
+2030	2030-08-25	Tionde söndagen efter trefaldighet	GREEN
+2030	2030-09-01	Elfte söndagen efter trefaldighet	GREEN
+2030	2030-09-08	Tolfte söndagen efter trefaldighet	GREEN
+2030	2030-09-15	Trettonde söndagen efter trefaldighet	GREEN
+2030	2030-09-22	Fjortonde söndagen efter trefaldighet	GREEN
+2030	2030-09-29	Den helige Mikaels dag	GREEN
+2030	2030-10-06	Sextonde söndagen efter trefaldighet	GREEN
+2030	2030-10-13	Tacksägelsedagen	GREEN
+2030	2030-10-20	Artonde söndagen efter trefaldighet	GREEN
+2030	2030-10-27	Nittonde söndagen efter trefaldighet	GREEN
+2030	2030-11-02	Alla helgons dag	WHITE
+2030	2030-11-03	Söndagen efter alla helgons dag	WHITE
+2030	2030-11-10	Tjugoförsta söndagen efter trefaldighet	GREEN
+2030	2030-11-17	Söndagen före domssöndagen	GREEN
+2030	2030-11-24	Domssöndagen	GREEN
+2031	2030-12-01	Första söndagen i advent	WHITE
+2031	2030-12-08	Andra söndagen i advent	VIOLET
+2031	2030-12-15	Tredje söndagen i advent	VIOLET
+2031	2030-12-22	Fjärde söndagen i advent	VIOLET
+2031	2030-12-24	Julnatten	WHITE
+2031	2030-12-25	Juldagen	WHITE
+2031	2030-12-26	Annandag jul	WHITE
+2031	2030-12-29	Söndagen efter jul	WHITE
+2031	2031-01-01	Nyårsdagen	WHITE
+2031	2031-01-05	Söndagen efter nyår	WHITE
+2031	2031-01-06	Trettondedag jul	WHITE
+2031	2031-01-12	Första söndagen efter trettondedagen	GREEN
+2031	2031-01-19	Andra söndagen efter trettondedagen	GREEN
+2031	2031-01-26	Tredje söndagen efter trettondedagen	GREEN
+2031	2031-02-02	Kyndelsmässodagen	WHITE
+2031	2031-02-09	Septuagesima	VIOLET
+2031	2031-02-16	Sexagesima	VIOLET
+2031	2031-02-23	Fastlagssöndagen	VIOLET
+2031	2031-02-26	Askonsdagen	VIOLET
+2031	2031-03-02	Första söndagen i fastan	VIOLET
+2031	2031-03-09	Andra söndagen i fastan	VIOLET
+2031	2031-03-16	Tredje söndagen i fastan	VIOLET
+2031	2031-03-23	Jungfru Marie bebådelsedag	WHITE
+2031	2031-03-30	Femte söndagen i fastan	VIOLET
+2031	2031-04-06	Palmsöndagen	WHITE
+2031	2031-04-07	Måndag i Stilla veckan	WHITE
+2031	2031-04-08	Tisdag i Stilla veckan	WHITE
+2031	2031-04-09	Onsdag i Stilla veckan	WHITE
+2031	2031-04-10	Skärtorsdagen	WHITE
+2031	2031-04-11	Långfredagen	WHITE
+2031	2031-04-12	Påsknatten	WHITE
+2031	2031-04-13	Påskdagen	WHITE
+2031	2031-04-14	Annandag påsk	WHITE
+2031	2031-04-20	Andra söndagen i påsktiden	WHITE
+2031	2031-04-27	Tredje söndagen i påsktiden	WHITE
+2031	2031-05-04	Fjärde söndagen i påsktiden	WHITE
+2031	2031-05-11	Femte söndagen i påsktiden	WHITE
+2031	2031-05-18	Bönsöndagen	WHITE
+2031	2031-05-22	Kristi himmelsfärds dag	WHITE
+2031	2031-05-25	Söndagen före pingst	WHITE
+2031	2031-06-01	Pingstdagen	WHITE
+2031	2031-06-02	Annandag pingst	WHITE
+2031	2031-06-08	Heliga trefaldighets dag	WHITE
+2031	2031-06-15	Första söndagen efter trefaldighet	GREEN
+2031	2031-06-21	Midsommardagen	GREEN
+2031	2031-06-22	Den helige Johannes Döparens dag	RED
+2031	2031-06-29	Tredje söndagen efter trefaldighet	GREEN
+2031	2031-07-06	Fjärde söndagen efter trefaldighet	GREEN
+2031	2031-07-13	Apostladagen	RED
+2031	2031-07-20	Sjätte söndagen efter trefaldighet	GREEN
+2031	2031-07-27	Kristi förklarings dag	WHITE
+2031	2031-08-03	Åttonde söndagen efter trefaldighet	GREEN
+2031	2031-08-10	Nionde söndagen efter trefaldighet	GREEN
+2031	2031-08-17	Tionde söndagen efter trefaldighet	GREEN
+2031	2031-08-24	Elfte söndagen efter trefaldighet	GREEN
+2031	2031-08-31	Tolfte söndagen efter trefaldighet	GREEN
+2031	2031-09-07	Trettonde söndagen efter trefaldighet	GREEN
+2031	2031-09-14	Fjortonde söndagen efter trefaldighet	GREEN
+2031	2031-09-21	Femtonde söndagen efter trefaldighet	GREEN
+2031	2031-09-28	Sextonde söndagen efter trefaldighet	GREEN
+2031	2031-10-05	Den helige Mikaels dag	GREEN
+2031	2031-10-12	Tacksägelsedagen	GREEN
+2031	2031-10-19	Nittonde söndagen efter trefaldighet	GREEN
+2031	2031-10-26	Tjugonde söndagen efter trefaldighet	GREEN
+2031	2031-11-01	Alla helgons dag	WHITE
+2031	2031-11-02	Söndagen efter alla helgons dag	WHITE
+2031	2031-11-09	Tjugoandra söndagen efter trefaldighet	GREEN
+2031	2031-11-16	Söndagen före domssöndagen	GREEN
+2031	2031-11-23	Domssöndagen	GREEN
+2032	2031-11-30	Första söndagen i advent	WHITE
+2032	2031-12-07	Andra söndagen i advent	VIOLET
+2032	2031-12-14	Tredje söndagen i advent	VIOLET
+2032	2031-12-21	Fjärde söndagen i advent	VIOLET
+2032	2031-12-24	Julnatten	WHITE
+2032	2031-12-25	Juldagen	WHITE
+2032	2031-12-26	Annandag jul	WHITE
+2032	2031-12-28	Söndagen efter jul	WHITE
+2032	2032-01-01	Nyårsdagen	WHITE
+2032	2032-01-04	Söndagen efter nyår	WHITE
+2032	2032-01-06	Trettondedag jul	WHITE
+2032	2032-01-11	Första söndagen efter trettondedagen	GREEN
+2032	2032-01-18	Andra söndagen efter trettondedagen	GREEN
+2032	2032-01-25	Septuagesima	VIOLET
+2032	2032-02-01	Kyndelsmässodagen	WHITE
+2032	2032-02-08	Fastlagssöndagen	VIOLET
+2032	2032-02-11	Askonsdagen	VIOLET
+2032	2032-02-15	Första söndagen i fastan	VIOLET
+2032	2032-02-22	Andra söndagen i fastan	VIOLET
+2032	2032-02-29	Tredje söndagen i fastan	VIOLET
+2032	2032-03-07	Midfastosöndagen	VIOLET
+2032	2032-03-14	Jungfru Marie bebådelsedag	WHITE
+2032	2032-03-21	Palmsöndagen	WHITE
+2032	2032-03-22	Måndag i Stilla veckan	WHITE
+2032	2032-03-23	Tisdag i Stilla veckan	WHITE
+2032	2032-03-24	Onsdag i Stilla veckan	WHITE
+2032	2032-03-25	Skärtorsdagen	WHITE
+2032	2032-03-26	Långfredagen	WHITE
+2032	2032-03-27	Påsknatten	WHITE
+2032	2032-03-28	Påskdagen	WHITE
+2032	2032-03-29	Annandag påsk	WHITE
+2032	2032-04-04	Andra söndagen i påsktiden	WHITE
+2032	2032-04-11	Tredje söndagen i påsktiden	WHITE
+2032	2032-04-18	Fjärde söndagen i påsktiden	WHITE
+2032	2032-04-25	Femte söndagen i påsktiden	WHITE
+2032	2032-05-02	Bönsöndagen	WHITE
+2032	2032-05-06	Kristi himmelsfärds dag	WHITE
+2032	2032-05-09	Söndagen före pingst	WHITE
+2032	2032-05-16	Pingstdagen	WHITE
+2032	2032-05-17	Annandag pingst	WHITE
+2032	2032-05-23	Heliga trefaldighets dag	WHITE
+2032	2032-05-30	Första söndagen efter trefaldighet	GREEN
+2032	2032-06-06	Andra söndagen efter trefaldighet	GREEN
+2032	2032-06-13	Tredje söndagen efter trefaldighet	GREEN
+2032	2032-06-20	Fjärde söndagen efter trefaldighet	GREEN
+2032	2032-06-26	Midsommardagen	GREEN
+2032	2032-06-27	Den helige Johannes Döparens dag	RED
+2032	2032-07-04	Sjätte söndagen efter trefaldighet	GREEN
+2032	2032-07-11	Kristi förklarings dag	WHITE
+2032	2032-07-18	Åttonde söndagen efter trefaldighet	GREEN
+2032	2032-07-25	Nionde söndagen efter trefaldighet	GREEN
+2032	2032-08-01	Tionde söndagen efter trefaldighet	GREEN
+2032	2032-08-08	Elfte söndagen efter trefaldighet	GREEN
+2032	2032-08-15	Tolfte söndagen efter trefaldighet	GREEN
+2032	2032-08-22	Trettonde söndagen efter trefaldighet	GREEN
+2032	2032-08-29	Fjortonde söndagen efter trefaldighet	GREEN
+2032	2032-09-05	Femtonde söndagen efter trefaldighet	GREEN
+2032	2032-09-12	Sextonde söndagen efter trefaldighet	GREEN
+2032	2032-09-19	Sjuttonde söndagen efter trefaldighet	GREEN
+2032	2032-09-26	Artonde söndagen efter trefaldighet	GREEN
+2032	2032-10-03	Den helige Mikaels dag	GREEN
+2032	2032-10-10	Tacksägelsedagen	GREEN
+2032	2032-10-17	Tjugoförsta söndagen efter trefaldighet	GREEN
+2032	2032-10-24	Tjugoandra söndagen efter trefaldighet	GREEN
+2032	2032-10-31	Tjugotredje söndagen efter trefaldighet	GREEN
+2032	2032-11-06	Alla helgons dag	WHITE
+2032	2032-11-07	Söndagen efter alla helgons dag	WHITE
+2032	2032-11-14	Söndagen före domssöndagen	GREEN
+2032	2032-11-21	Domssöndagen	GREEN
+2033	2032-11-28	Första söndagen i advent	WHITE
+2033	2032-12-05	Andra söndagen i advent	VIOLET
+2033	2032-12-12	Tredje söndagen i advent	VIOLET
+2033	2032-12-19	Fjärde söndagen i advent	VIOLET
+2033	2032-12-24	Julnatten	WHITE
+2033	2032-12-25	Juldagen	WHITE
+2033	2032-12-26	Annandag jul	WHITE
+2033	2033-01-01	Nyårsdagen	WHITE
+2033	2033-01-02	Söndagen efter nyår	WHITE
+2033	2033-01-06	Trettondedag jul	WHITE
+2033	2033-01-09	Första söndagen efter trettondedagen	GREEN
+2033	2033-01-16	Andra söndagen efter trettondedagen	GREEN
+2033	2033-01-23	Tredje söndagen efter trettondedagen	GREEN
+2033	2033-01-30	Fjärde söndagen efter trettondedagen	GREEN
+2033	2033-02-06	Kyndelsmässodagen	WHITE
+2033	2033-02-13	Septuagesima	VIOLET
+2033	2033-02-20	Sexagesima	VIOLET
+2033	2033-02-27	Fastlagssöndagen	VIOLET
+2033	2033-03-02	Askonsdagen	VIOLET
+2033	2033-03-06	Första söndagen i fastan	VIOLET
+2033	2033-03-13	Andra söndagen i fastan	VIOLET
+2033	2033-03-20	Tredje söndagen i fastan	VIOLET
+2033	2033-03-27	Jungfru Marie bebådelsedag	WHITE
+2033	2033-04-03	Femte söndagen i fastan	VIOLET
+2033	2033-04-10	Palmsöndagen	WHITE
+2033	2033-04-11	Måndag i Stilla veckan	WHITE
+2033	2033-04-12	Tisdag i Stilla veckan	WHITE
+2033	2033-04-13	Onsdag i Stilla veckan	WHITE
+2033	2033-04-14	Skärtorsdagen	WHITE
+2033	2033-04-15	Långfredagen	WHITE
+2033	2033-04-16	Påsknatten	WHITE
+2033	2033-04-17	Påskdagen	WHITE
+2033	2033-04-18	Annandag påsk	WHITE
+2033	2033-04-24	Andra söndagen i påsktiden	WHITE
+2033	2033-05-01	Tredje söndagen i påsktiden	WHITE
+2033	2033-05-08	Fjärde söndagen i påsktiden	WHITE
+2033	2033-05-15	Femte söndagen i påsktiden	WHITE
+2033	2033-05-22	Bönsöndagen	WHITE
+2033	2033-05-26	Kristi himmelsfärds dag	WHITE
+2033	2033-05-29	Söndagen före pingst	WHITE
+2033	2033-06-05	Pingstdagen	WHITE
+2033	2033-06-06	Annandag pingst	WHITE
+2033	2033-06-12	Heliga trefaldighets dag	WHITE
+2033	2033-06-19	Första söndagen efter trefaldighet	GREEN
+2033	2033-06-25	Midsommardagen	GREEN
+2033	2033-06-26	Den helige Johannes Döparens dag	RED
+2033	2033-07-03	Tredje söndagen efter trefaldighet	GREEN
+2033	2033-07-10	Fjärde söndagen efter trefaldighet	GREEN
+2033	2033-07-17	Apostladagen	RED
+2033	2033-07-24	Sjätte söndagen efter trefaldighet	GREEN
+2033	2033-07-31	Kristi förklarings dag	WHITE
+2033	2033-08-07	Åttonde söndagen efter trefaldighet	GREEN
+2033	2033-08-14	Nionde söndagen efter trefaldighet	GREEN
+2033	2033-08-21	Tionde söndagen efter trefaldighet	GREEN
+2033	2033-08-28	Elfte söndagen efter trefaldighet	GREEN
+2033	2033-09-04	Tolfte söndagen efter trefaldighet	GREEN
+2033	2033-09-11	Trettonde söndagen efter trefaldighet	GREEN
+2033	2033-09-18	Fjortonde söndagen efter trefaldighet	GREEN
+2033	2033-09-25	Femtonde söndagen efter trefaldighet	GREEN
+2033	2033-10-02	Den helige Mikaels dag	GREEN
+2033	2033-10-09	Tacksägelsedagen	GREEN
+2033	2033-10-16	Artonde söndagen efter trefaldighet	GREEN
+2033	2033-10-23	Nittonde söndagen efter trefaldighet	GREEN
+2033	2033-10-30	Tjugonde söndagen efter trefaldighet	GREEN
+2033	2033-11-05	Alla helgons dag	WHITE
+2033	2033-11-06	Söndagen efter alla helgons dag	WHITE
+2033	2033-11-13	Söndagen före domssöndagen	GREEN
+2033	2033-11-20	Domssöndagen	GREEN
+2034	2033-11-27	Första söndagen i advent	WHITE
+2034	2033-12-04	Andra söndagen i advent	VIOLET
+2034	2033-12-11	Tredje söndagen i advent	VIOLET
+2034	2033-12-18	Fjärde söndagen i advent	VIOLET
+2034	2033-12-24	Julnatten	WHITE
+2034	2033-12-25	Juldagen	WHITE
+2034	2033-12-26	Annandag jul	WHITE
+2034	2034-01-01	Nyårsdagen	WHITE
+2034	2034-01-06	Trettondedag jul	WHITE
+2034	2034-01-08	Första söndagen efter trettondedagen	GREEN
+2034	2034-01-15	Andra söndagen efter trettondedagen	GREEN
+2034	2034-01-22	Tredje söndagen efter trettondedagen	GREEN
+2034	2034-01-29	Fjärde söndagen efter trettondedagen	GREEN
+2034	2034-02-05	Kyndelsmässodagen	WHITE
+2034	2034-02-12	Sexagesima	VIOLET
+2034	2034-02-19	Fastlagssöndagen	VIOLET
+2034	2034-02-22	Askonsdagen	VIOLET
+2034	2034-02-26	Första söndagen i fastan	VIOLET
+2034	2034-03-05	Andra söndagen i fastan	VIOLET
+2034	2034-03-12	Tredje söndagen i fastan	VIOLET
+2034	2034-03-19	Midfastosöndagen	VIOLET
+2034	2034-03-26	Jungfru Marie bebådelsedag	WHITE
+2034	2034-04-02	Palmsöndagen	WHITE
+2034	2034-04-03	Måndag i Stilla veckan	WHITE
+2034	2034-04-04	Tisdag i Stilla veckan	WHITE
+2034	2034-04-05	Onsdag i Stilla veckan	WHITE
+2034	2034-04-06	Skärtorsdagen	WHITE
+2034	2034-04-07	Långfredagen	WHITE
+2034	2034-04-08	Påsknatten	WHITE
+2034	2034-04-09	Påskdagen	WHITE
+2034	2034-04-10	Annandag påsk	WHITE
+2034	2034-04-16	Andra söndagen i påsktiden	WHITE
+2034	2034-04-23	Tredje söndagen i påsktiden	WHITE
+2034	2034-04-30	Fjärde söndagen i påsktiden	WHITE
+2034	2034-05-07	Femte söndagen i påsktiden	WHITE
+2034	2034-05-14	Bönsöndagen	WHITE
+2034	2034-05-18	Kristi himmelsfärds dag	WHITE
+2034	2034-05-21	Söndagen före pingst	WHITE
+2034	2034-05-28	Pingstdagen	WHITE
+2034	2034-05-29	Annandag pingst	WHITE
+2034	2034-06-04	Heliga trefaldighets dag	WHITE
+2034	2034-06-11	Första söndagen efter trefaldighet	GREEN
+2034	2034-06-18	Andra söndagen efter trefaldighet	GREEN
+2034	2034-06-24	Midsommardagen	GREEN
+2034	2034-06-25	Den helige Johannes Döparens dag	RED
+2034	2034-07-02	Fjärde söndagen efter trefaldighet	GREEN
+2034	2034-07-09	Apostladagen	RED
+2034	2034-07-16	Sjätte söndagen efter trefaldighet	GREEN
+2034	2034-07-23	Kristi förklarings dag	WHITE
+2034	2034-07-30	Åttonde söndagen efter trefaldighet	GREEN
+2034	2034-08-06	Nionde söndagen efter trefaldighet	GREEN
+2034	2034-08-13	Tionde söndagen efter trefaldighet	GREEN
+2034	2034-08-20	Elfte söndagen efter trefaldighet	GREEN
+2034	2034-08-27	Tolfte söndagen efter trefaldighet	GREEN
+2034	2034-09-03	Trettonde söndagen efter trefaldighet	GREEN
+2034	2034-09-10	Fjortonde söndagen efter trefaldighet	GREEN
+2034	2034-09-17	Femtonde söndagen efter trefaldighet	GREEN
+2034	2034-09-24	Sextonde söndagen efter trefaldighet	GREEN
+2034	2034-10-01	Den helige Mikaels dag	GREEN
+2034	2034-10-08	Tacksägelsedagen	GREEN
+2034	2034-10-15	Nittonde söndagen efter trefaldighet	GREEN
+2034	2034-10-22	Tjugonde söndagen efter trefaldighet	GREEN
+2034	2034-10-29	Tjugoförsta söndagen efter trefaldighet	GREEN
+2034	2034-11-04	Alla helgons dag	WHITE
+2034	2034-11-05	Söndagen efter alla helgons dag	WHITE
+2034	2034-11-12	Tjugotredje söndagen efter trefaldighet	GREEN
+2034	2034-11-19	Söndagen före domssöndagen	GREEN
+2034	2034-11-26	Domssöndagen	GREEN
+2035	2034-12-03	Första söndagen i advent	WHITE
+2035	2034-12-10	Andra söndagen i advent	VIOLET
+2035	2034-12-17	Tredje söndagen i advent	VIOLET
+2035	2034-12-24	Fjärde söndagen i advent	VIOLET
+2035	2034-12-25	Juldagen	WHITE
+2035	2034-12-26	Annandag jul	WHITE
+2035	2034-12-31	Söndagen efter jul	WHITE
+2035	2035-01-01	Nyårsdagen	WHITE
+2035	2035-01-06	Trettondedag jul	WHITE
+2035	2035-01-07	Första söndagen efter trettondedagen	GREEN
+2035	2035-01-14	Andra söndagen efter trettondedagen	GREEN
+2035	2035-01-21	Septuagesima	VIOLET
+2035	2035-01-28	Kyndelsmässodagen	WHITE
+2035	2035-02-04	Fastlagssöndagen	VIOLET
+2035	2035-02-07	Askonsdagen	VIOLET
+2035	2035-02-11	Första söndagen i fastan	VIOLET
+2035	2035-02-18	Andra söndagen i fastan	VIOLET
+2035	2035-02-25	Tredje söndagen i fastan	VIOLET
+2035	2035-03-04	Midfastosöndagen	VIOLET
+2035	2035-03-11	Jungfru Marie bebådelsedag	WHITE
+2035	2035-03-18	Palmsöndagen	WHITE
+2035	2035-03-19	Måndag i Stilla veckan	WHITE
+2035	2035-03-20	Tisdag i Stilla veckan	WHITE
+2035	2035-03-21	Onsdag i Stilla veckan	WHITE
+2035	2035-03-22	Skärtorsdagen	WHITE
+2035	2035-03-23	Långfredagen	WHITE
+2035	2035-03-24	Påsknatten	WHITE
+2035	2035-03-25	Påskdagen	WHITE
+2035	2035-03-26	Annandag påsk	WHITE
+2035	2035-04-01	Andra söndagen i påsktiden	WHITE
+2035	2035-04-08	Tredje söndagen i påsktiden	WHITE
+2035	2035-04-15	Fjärde söndagen i påsktiden	WHITE
+2035	2035-04-22	Femte söndagen i påsktiden	WHITE
+2035	2035-04-29	Bönsöndagen	WHITE
+2035	2035-05-03	Kristi himmelsfärds dag	WHITE
+2035	2035-05-06	Söndagen före pingst	WHITE
+2035	2035-05-13	Pingstdagen	WHITE
+2035	2035-05-14	Annandag pingst	WHITE
+2035	2035-05-20	Heliga trefaldighets dag	WHITE
+2035	2035-05-27	Första söndagen efter trefaldighet	GREEN
+2035	2035-06-03	Andra söndagen efter trefaldighet	GREEN
+2035	2035-06-10	Tredje söndagen efter trefaldighet	GREEN
+2035	2035-06-17	Fjärde söndagen efter trefaldighet	GREEN
+2035	2035-06-23	Midsommardagen	GREEN
+2035	2035-06-24	Den helige Johannes Döparens dag	RED
+2035	2035-07-01	Sjätte söndagen efter trefaldighet	GREEN
+2035	2035-07-08	Kristi förklarings dag	WHITE
+2035	2035-07-15	Åttonde söndagen efter trefaldighet	GREEN
+2035	2035-07-22	Nionde söndagen efter trefaldighet	GREEN
+2035	2035-07-29	Tionde söndagen efter trefaldighet	GREEN
+2035	2035-08-05	Elfte söndagen efter trefaldighet	GREEN
+2035	2035-08-12	Tolfte söndagen efter trefaldighet	GREEN
+2035	2035-08-19	Trettonde söndagen efter trefaldighet	GREEN
+2035	2035-08-26	Fjortonde söndagen efter trefaldighet	GREEN
+2035	2035-09-02	Femtonde söndagen efter trefaldighet	GREEN
+2035	2035-09-09	Sextonde söndagen efter trefaldighet	GREEN
+2035	2035-09-16	Sjuttonde söndagen efter trefaldighet	GREEN
+2035	2035-09-23	Artonde söndagen efter trefaldighet	GREEN
+2035	2035-09-30	Den helige Mikaels dag	GREEN
+2035	2035-10-07	Tjugonde söndagen efter trefaldighet	GREEN
+2035	2035-10-14	Tacksägelsedagen	GREEN
+2035	2035-10-21	Tjugoandra söndagen efter trefaldighet	GREEN
+2035	2035-10-28	Tjugotredje söndagen efter trefaldighet	GREEN
+2035	2035-11-03	Alla helgons dag	WHITE
+2035	2035-11-04	Söndagen efter alla helgons dag	WHITE
+2035	2035-11-11	Tjugofemte söndagen efter trefaldighet	GREEN
+2035	2035-11-18	Söndagen före domssöndagen	GREEN
+2035	2035-11-25	Domssöndagen	GREEN
+2036	2035-12-02	Första söndagen i advent	WHITE
+2036	2035-12-09	Andra söndagen i advent	VIOLET
+2036	2035-12-16	Tredje söndagen i advent	VIOLET
+2036	2035-12-23	Fjärde söndagen i advent	VIOLET
+2036	2035-12-24	Julnatten	WHITE
+2036	2035-12-25	Juldagen	WHITE
+2036	2035-12-26	Annandag jul	WHITE
+2036	2035-12-30	Söndagen efter jul	WHITE
+2036	2036-01-01	Nyårsdagen	WHITE
+2036	2036-01-06	Trettondedag jul	WHITE
+2036	2036-01-13	Första söndagen efter trettondedagen	GREEN
+2036	2036-01-20	Andra söndagen efter trettondedagen	GREEN
+2036	2036-01-27	Tredje söndagen efter trettondedagen	GREEN
+2036	2036-02-03	Kyndelsmässodagen	WHITE
+2036	2036-02-10	Septuagesima	VIOLET
+2036	2036-02-17	Sexagesima	VIOLET
+2036	2036-02-24	Fastlagssöndagen	VIOLET
+2036	2036-02-27	Askonsdagen	VIOLET
+2036	2036-03-02	Första söndagen i fastan	VIOLET
+2036	2036-03-09	Andra söndagen i fastan	VIOLET
+2036	2036-03-16	Tredje söndagen i fastan	VIOLET
+2036	2036-03-23	Jungfru Marie bebådelsedag	WHITE
+2036	2036-03-30	Femte söndagen i fastan	VIOLET
+2036	2036-04-06	Palmsöndagen	WHITE
+2036	2036-04-07	Måndag i Stilla veckan	WHITE
+2036	2036-04-08	Tisdag i Stilla veckan	WHITE
+2036	2036-04-09	Onsdag i Stilla veckan	WHITE
+2036	2036-04-10	Skärtorsdagen	WHITE
+2036	2036-04-11	Långfredagen	WHITE
+2036	2036-04-12	Påsknatten	WHITE
+2036	2036-04-13	Påskdagen	WHITE
+2036	2036-04-14	Annandag påsk	WHITE
+2036	2036-04-20	Andra söndagen i påsktiden	WHITE
+2036	2036-04-27	Tredje söndagen i påsktiden	WHITE
+2036	2036-05-04	Fjärde söndagen i påsktiden	WHITE
+2036	2036-05-11	Femte söndagen i påsktiden	WHITE
+2036	2036-05-18	Bönsöndagen	WHITE
+2036	2036-05-22	Kristi himmelsfärds dag	WHITE
+2036	2036-05-25	Söndagen före pingst	WHITE
+2036	2036-06-01	Pingstdagen	WHITE
+2036	2036-06-02	Annandag pingst	WHITE
+2036	2036-06-08	Heliga trefaldighets dag	WHITE
+2036	2036-06-15	Första söndagen efter trefaldighet	GREEN
+2036	2036-06-21	Midsommardagen	GREEN
+2036	2036-06-22	Den helige Johannes Döparens dag	RED
+2036	2036-06-29	Tredje söndagen efter trefaldighet	GREEN
+2036	2036-07-06	Fjärde söndagen efter trefaldighet	GREEN
+2036	2036-07-13	Apostladagen	RED
+2036	2036-07-20	Sjätte söndagen efter trefaldighet	GREEN
+2036	2036-07-27	Kristi förklarings dag	WHITE
+2036	2036-08-03	Åttonde söndagen efter trefaldighet	GREEN
+2036	2036-08-10	Nionde söndagen efter trefaldighet	GREEN
+2036	2036-08-17	Tionde söndagen efter trefaldighet	GREEN
+2036	2036-08-24	Elfte söndagen efter trefaldighet	GREEN
+2036	2036-08-31	Tolfte söndagen efter trefaldighet	GREEN
+2036	2036-09-07	Trettonde söndagen efter trefaldighet	GREEN
+2036	2036-09-14	Fjortonde söndagen efter trefaldighet	GREEN
+2036	2036-09-21	Femtonde söndagen efter trefaldighet	GREEN
+2036	2036-09-28	Sextonde söndagen efter trefaldighet	GREEN
+2036	2036-10-05	Den helige Mikaels dag	GREEN
+2036	2036-10-12	Tacksägelsedagen	GREEN
+2036	2036-10-19	Nittonde söndagen efter trefaldighet	GREEN
+2036	2036-10-26	Tjugonde söndagen efter trefaldighet	GREEN
+2036	2036-11-01	Alla helgons dag	WHITE
+2036	2036-11-02	Söndagen efter alla helgons dag	WHITE
+2036	2036-11-09	Tjugoandra söndagen efter trefaldighet	GREEN
+2036	2036-11-16	Söndagen före domssöndagen	GREEN
+2036	2036-11-23	Domssöndagen	GREEN
+2037	2036-11-30	Första söndagen i advent	WHITE
+2037	2036-12-07	Andra söndagen i advent	VIOLET
+2037	2036-12-14	Tredje söndagen i advent	VIOLET
+2037	2036-12-21	Fjärde söndagen i advent	VIOLET
+2037	2036-12-24	Julnatten	WHITE
+2037	2036-12-25	Juldagen	WHITE
+2037	2036-12-26	Annandag jul	WHITE
+2037	2036-12-28	Söndagen efter jul	WHITE
+2037	2037-01-01	Nyårsdagen	WHITE
+2037	2037-01-04	Söndagen efter nyår	WHITE
+2037	2037-01-06	Trettondedag jul	WHITE
+2037	2037-01-11	Första söndagen efter trettondedagen	GREEN
+2037	2037-01-18	Andra söndagen efter trettondedagen	GREEN
+2037	2037-01-25	Tredje söndagen efter trettondedagen	GREEN
+2037	2037-02-01	Septuagesima	VIOLET
+2037	2037-02-08	Kyndelsmässodagen	WHITE
+2037	2037-02-15	Fastlagssöndagen	VIOLET
+2037	2037-02-18	Askonsdagen	VIOLET
+2037	2037-02-22	Första söndagen i fastan	VIOLET
+2037	2037-03-01	Andra söndagen i fastan	VIOLET
+2037	2037-03-08	Tredje söndagen i fastan	VIOLET
+2037	2037-03-15	Midfastosöndagen	VIOLET
+2037	2037-03-22	Jungfru Marie bebådelsedag	WHITE
+2037	2037-03-29	Palmsöndagen	WHITE
+2037	2037-03-30	Måndag i Stilla veckan	WHITE
+2037	2037-03-31	Tisdag i Stilla veckan	WHITE
+2037	2037-04-01	Onsdag i Stilla veckan	WHITE
+2037	2037-04-02	Skärtorsdagen	WHITE
+2037	2037-04-03	Långfredagen	WHITE
+2037	2037-04-04	Påsknatten	WHITE
+2037	2037-04-05	Påskdagen	WHITE
+2037	2037-04-06	Annandag påsk	WHITE
+2037	2037-04-12	Andra söndagen i påsktiden	WHITE
+2037	2037-04-19	Tredje söndagen i påsktiden	WHITE
+2037	2037-04-26	Fjärde söndagen i påsktiden	WHITE
+2037	2037-05-03	Femte söndagen i påsktiden	WHITE
+2037	2037-05-10	Bönsöndagen	WHITE
+2037	2037-05-14	Kristi himmelsfärds dag	WHITE
+2037	2037-05-17	Söndagen före pingst	WHITE
+2037	2037-05-24	Pingstdagen	WHITE
+2037	2037-05-25	Annandag pingst	WHITE
+2037	2037-05-31	Heliga trefaldighets dag	WHITE
+2037	2037-06-07	Första söndagen efter trefaldighet	GREEN
+2037	2037-06-14	Andra söndagen efter trefaldighet	GREEN
+2037	2037-06-20	Midsommardagen	GREEN
+2037	2037-06-21	Den helige Johannes Döparens dag	RED
+2037	2037-06-28	Fjärde söndagen efter trefaldighet	GREEN
+2037	2037-07-05	Apostladagen	RED
+2037	2037-07-12	Sjätte söndagen efter trefaldighet	GREEN
+2037	2037-07-19	Kristi förklarings dag	WHITE
+2037	2037-07-26	Åttonde söndagen efter trefaldighet	GREEN
+2037	2037-08-02	Nionde söndagen efter trefaldighet	GREEN
+2037	2037-08-09	Tionde söndagen efter trefaldighet	GREEN
+2037	2037-08-16	Elfte söndagen efter trefaldighet	GREEN
+2037	2037-08-23	Tolfte söndagen efter trefaldighet	GREEN
+2037	2037-08-30	Trettonde söndagen efter trefaldighet	GREEN
+2037	2037-09-06	Fjortonde söndagen efter trefaldighet	GREEN
+2037	2037-09-13	Femtonde söndagen efter trefaldighet	GREEN
+2037	2037-09-20	Sextonde söndagen efter trefaldighet	GREEN
+2037	2037-09-27	Sjuttonde söndagen efter trefaldighet	GREEN
+2037	2037-10-04	Den helige Mikaels dag	GREEN
+2037	2037-10-11	Tacksägelsedagen	GREEN
+2037	2037-10-18	Tjugonde söndagen efter trefaldighet	GREEN
+2037	2037-10-25	Tjugoförsta söndagen efter trefaldighet	GREEN
+2037	2037-10-31	Alla helgons dag	WHITE
+2037	2037-11-01	Söndagen efter alla helgons dag	WHITE
+2037	2037-11-08	Tjugotredje söndagen efter trefaldighet	GREEN
+2037	2037-11-15	Söndagen före domssöndagen	GREEN
+2037	2037-11-22	Domssöndagen	GREEN
+2038	2037-11-29	Första söndagen i advent	WHITE
+2038	2037-12-06	Andra söndagen i advent	VIOLET
+2038	2037-12-13	Tredje söndagen i advent	VIOLET
+2038	2037-12-20	Fjärde söndagen i advent	VIOLET
+2038	2037-12-24	Julnatten	WHITE
+2038	2037-12-25	Juldagen	WHITE
+2038	2037-12-26	Annandag jul	WHITE
+2038	2037-12-27	Söndagen efter jul	WHITE
+2038	2038-01-01	Nyårsdagen	WHITE
+2038	2038-01-03	Söndagen efter nyår	WHITE
+2038	2038-01-06	Trettondedag jul	WHITE
+2038	2038-01-10	Första söndagen efter trettondedagen	GREEN
+2038	2038-01-17	Andra söndagen efter trettondedagen	GREEN
+2038	2038-01-24	Tredje söndagen efter trettondedagen	GREEN
+2038	2038-01-31	Fjärde söndagen efter trettondedagen	GREEN
+2038	2038-02-07	Kyndelsmässodagen	WHITE
+2038	2038-02-14	Sjätte söndagen efter trettondedagen	GREEN
+2038	2038-02-21	Septuagesima	VIOLET
+2038	2038-02-28	Sexagesima	VIOLET
+2038	2038-03-07	Fastlagssöndagen	VIOLET
+2038	2038-03-10	Askonsdagen	VIOLET
+2038	2038-03-14	Första söndagen i fastan	VIOLET
+2038	2038-03-21	Andra söndagen i fastan	VIOLET
+2038	2038-03-28	Jungfru Marie bebådelsedag	WHITE
+2038	2038-04-04	Midfastosöndagen	VIOLET
+2038	2038-04-11	Femte söndagen i fastan	VIOLET
+2038	2038-04-18	Palmsöndagen	WHITE
+2038	2038-04-19	Måndag i Stilla veckan	WHITE
+2038	2038-04-20	Tisdag i Stilla veckan	WHITE
+2038	2038-04-21	Onsdag i Stilla veckan	WHITE
+2038	2038-04-22	Skärtorsdagen	WHITE
+2038	2038-04-23	Långfredagen	WHITE
+2038	2038-04-24	Påsknatten	WHITE
+2038	2038-04-25	Påskdagen	WHITE
+2038	2038-04-26	Annandag påsk	WHITE
+2038	2038-05-02	Andra söndagen i påsktiden	WHITE
+2038	2038-05-09	Tredje söndagen i påsktiden	WHITE
+2038	2038-05-16	Fjärde söndagen i påsktiden	WHITE
+2038	2038-05-23	Femte söndagen i påsktiden	WHITE
+2038	2038-05-30	Bönsöndagen	WHITE
+2038	2038-06-03	Kristi himmelsfärds dag	WHITE
+2038	2038-06-06	Söndagen före pingst	WHITE
+2038	2038-06-13	Pingstdagen	WHITE
+2038	2038-06-14	Annandag pingst	WHITE
+2038	2038-06-20	Heliga trefaldighets dag	WHITE
+2038	2038-06-26	Midsommardagen	GREEN
+2038	2038-06-27	Den helige Johannes Döparens dag	RED
+2038	2038-07-04	Andra söndagen efter trefaldighet	GREEN
+2038	2038-07-11	Tredje söndagen efter trefaldighet	GREEN
+2038	2038-07-18	Fjärde söndagen efter trefaldighet	GREEN
+2038	2038-07-25	Apostladagen	RED
+2038	2038-08-01	Sjätte söndagen efter trefaldighet	GREEN
+2038	2038-08-08	Kristi förklarings dag	WHITE
+2038	2038-08-15	Åttonde söndagen efter trefaldighet	GREEN
+2038	2038-08-22	Nionde söndagen efter trefaldighet	GREEN
+2038	2038-08-29	Tionde söndagen efter trefaldighet	GREEN
+2038	2038-09-05	Elfte söndagen efter trefaldighet	GREEN
+2038	2038-09-12	Tolfte söndagen efter trefaldighet	GREEN
+2038	2038-09-19	Trettonde söndagen efter trefaldighet	GREEN
+2038	2038-09-26	Fjortonde söndagen efter trefaldighet	GREEN
+2038	2038-10-03	Den helige Mikaels dag	GREEN
+2038	2038-10-10	Tacksägelsedagen	GREEN
+2038	2038-10-17	Sjuttonde söndagen efter trefaldighet	GREEN
+2038	2038-10-24	Artonde söndagen efter trefaldighet	GREEN
+2038	2038-10-31	Nittonde söndagen efter trefaldighet	GREEN
+2038	2038-11-06	Alla helgons dag	WHITE
+2038	2038-11-07	Söndagen efter alla helgons dag	WHITE
+2038	2038-11-14	Söndagen före domssöndagen	GREEN
+2038	2038-11-21	Domssöndagen	GREEN
+2039	2038-11-28	Första söndagen i advent	WHITE
+2039	2038-12-05	Andra söndagen i advent	VIOLET
+2039	2038-12-12	Tredje söndagen i advent	VIOLET
+2039	2038-12-19	Fjärde söndagen i advent	VIOLET
+2039	2038-12-24	Julnatten	WHITE
+2039	2038-12-25	Juldagen	WHITE
+2039	2038-12-26	Annandag jul	WHITE
+2039	2039-01-01	Nyårsdagen	WHITE
+2039	2039-01-02	Söndagen efter nyår	WHITE
+2039	2039-01-06	Trettondedag jul	WHITE
+2039	2039-01-09	Första söndagen efter trettondedagen	GREEN
+2039	2039-01-16	Andra söndagen efter trettondedagen	GREEN
+2039	2039-01-23	Tredje söndagen efter trettondedagen	GREEN
+2039	2039-01-30	Fjärde söndagen efter trettondedagen	GREEN
+2039	2039-02-06	Kyndelsmässodagen	WHITE
+2039	2039-02-13	Sexagesima	VIOLET
+2039	2039-02-20	Fastlagssöndagen	VIOLET
+2039	2039-02-23	Askonsdagen	VIOLET
+2039	2039-02-27	Första söndagen i fastan	VIOLET
+2039	2039-03-06	Andra söndagen i fastan	VIOLET
+2039	2039-03-13	Tredje söndagen i fastan	VIOLET
+2039	2039-03-20	Midfastosöndagen	VIOLET
+2039	2039-03-27	Jungfru Marie bebådelsedag	WHITE
+2039	2039-04-03	Palmsöndagen	WHITE
+2039	2039-04-04	Måndag i Stilla veckan	WHITE
+2039	2039-04-05	Tisdag i Stilla veckan	WHITE
+2039	2039-04-06	Onsdag i Stilla veckan	WHITE
+2039	2039-04-07	Skärtorsdagen	WHITE
+2039	2039-04-08	Långfredagen	WHITE
+2039	2039-04-09	Påsknatten	WHITE
+2039	2039-04-10	Påskdagen	WHITE
+2039	2039-04-11	Annandag påsk	WHITE
+2039	2039-04-17	Andra söndagen i påsktiden	WHITE
+2039	2039-04-24	Tredje söndagen i påsktiden	WHITE
+2039	2039-05-01	Fjärde söndagen i påsktiden	WHITE
+2039	2039-05-08	Femte söndagen i påsktiden	WHITE
+2039	2039-05-15	Bönsöndagen	WHITE
+2039	2039-05-19	Kristi himmelsfärds dag	WHITE
+2039	2039-05-22	Söndagen före pingst	WHITE
+2039	2039-05-29	Pingstdagen	WHITE
+2039	2039-05-30	Annandag pingst	WHITE
+2039	2039-06-05	Heliga trefaldighets dag	WHITE
+2039	2039-06-12	Första söndagen efter trefaldighet	GREEN
+2039	2039-06-19	Andra söndagen efter trefaldighet	GREEN
+2039	2039-06-25	Midsommardagen	GREEN
+2039	2039-06-26	Den helige Johannes Döparens dag	RED
+2039	2039-07-03	Fjärde söndagen efter trefaldighet	GREEN
+2039	2039-07-10	Apostladagen	RED
+2039	2039-07-17	Sjätte söndagen efter trefaldighet	GREEN
+2039	2039-07-24	Kristi förklarings dag	WHITE
+2039	2039-07-31	Åttonde söndagen efter trefaldighet	GREEN
+2039	2039-08-07	Nionde söndagen efter trefaldighet	GREEN
+2039	2039-08-14	Tionde söndagen efter trefaldighet	GREEN
+2039	2039-08-21	Elfte söndagen efter trefaldighet	GREEN
+2039	2039-08-28	Tolfte söndagen efter trefaldighet	GREEN
+2039	2039-09-04	Trettonde söndagen efter trefaldighet	GREEN
+2039	2039-09-11	Fjortonde söndagen efter trefaldighet	GREEN
+2039	2039-09-18	Femtonde söndagen efter trefaldighet	GREEN
+2039	2039-09-25	Sextonde söndagen efter trefaldighet	GREEN
+2039	2039-10-02	Den helige Mikaels dag	GREEN
+2039	2039-10-09	Tacksägelsedagen	GREEN
+2039	2039-10-16	Nittonde söndagen efter trefaldighet	GREEN
+2039	2039-10-23	Tjugonde söndagen efter trefaldighet	GREEN
+2039	2039-10-30	Tjugoförsta söndagen efter trefaldighet	GREEN
+2039	2039-11-05	Alla helgons dag	WHITE
+2039	2039-11-06	Söndagen efter alla helgons dag	WHITE
+2039	2039-11-13	Söndagen före domssöndagen	GREEN
+2039	2039-11-20	Domssöndagen	GREEN
+2040	2039-11-27	Första söndagen i advent	WHITE
+2040	2039-12-04	Andra söndagen i advent	VIOLET
+2040	2039-12-11	Tredje söndagen i advent	VIOLET
+2040	2039-12-18	Fjärde söndagen i advent	VIOLET
+2040	2039-12-24	Julnatten	WHITE
+2040	2039-12-25	Juldagen	WHITE
+2040	2039-12-26	Annandag jul	WHITE
+2040	2040-01-01	Nyårsdagen	WHITE
+2040	2040-01-06	Trettondedag jul	WHITE
+2040	2040-01-08	Första söndagen efter trettondedagen	GREEN
+2040	2040-01-15	Andra söndagen efter trettondedagen	GREEN
+2040	2040-01-22	Tredje söndagen efter trettondedagen	GREEN
+2040	2040-01-29	Septuagesima	VIOLET
+2040	2040-02-05	Kyndelsmässodagen	WHITE
+2040	2040-02-12	Fastlagssöndagen	VIOLET
+2040	2040-02-15	Askonsdagen	VIOLET
+2040	2040-02-19	Första söndagen i fastan	VIOLET
+2040	2040-02-26	Andra söndagen i fastan	VIOLET
+2040	2040-03-04	Tredje söndagen i fastan	VIOLET
+2040	2040-03-11	Midfastosöndagen	VIOLET
+2040	2040-03-18	Jungfru Marie bebådelsedag	WHITE
+2040	2040-03-25	Palmsöndagen	WHITE
+2040	2040-03-26	Måndag i Stilla veckan	WHITE
+2040	2040-03-27	Tisdag i Stilla veckan	WHITE
+2040	2040-03-28	Onsdag i Stilla veckan	WHITE
+2040	2040-03-29	Skärtorsdagen	WHITE
+2040	2040-03-30	Långfredagen	WHITE
+2040	2040-03-31	Påsknatten	WHITE
+2040	2040-04-01	Påskdagen	WHITE
+2040	2040-04-02	Annandag påsk	WHITE
+2040	2040-04-08	Andra söndagen i påsktiden	WHITE
+2040	2040-04-15	Tredje söndagen i påsktiden	WHITE
+2040	2040-04-22	Fjärde söndagen i påsktiden	WHITE
+2040	2040-04-29	Femte söndagen i påsktiden	WHITE
+2040	2040-05-06	Bönsöndagen	WHITE
+2040	2040-05-10	Kristi himmelsfärds dag	WHITE
+2040	2040-05-13	Söndagen före pingst	WHITE
+2040	2040-05-20	Pingstdagen	WHITE
+2040	2040-05-21	Annandag pingst	WHITE
+2040	2040-05-27	Heliga trefaldighets dag	WHITE
+2040	2040-06-03	Första söndagen efter trefaldighet	GREEN
+2040	2040-06-10	Andra söndagen efter trefaldighet	GREEN
+2040	2040-06-17	Tredje söndagen efter trefaldighet	GREEN
+2040	2040-06-23	Midsommardagen	GREEN
+2040	2040-06-24	Den helige Johannes Döparens dag	RED
+2040	2040-07-01	Apostladagen	RED
+2040	2040-07-08	Sjätte söndagen efter trefaldighet	GREEN
+2040	2040-07-15	Kristi förklarings dag	WHITE
+2040	2040-07-22	Åttonde söndagen efter trefaldighet	GREEN
+2040	2040-07-29	Nionde söndagen efter trefaldighet	GREEN
+2040	2040-08-05	Tionde söndagen efter trefaldighet	GREEN
+2040	2040-08-12	Elfte söndagen efter trefaldighet	GREEN
+2040	2040-08-19	Tolfte söndagen efter trefaldighet	GREEN
+2040	2040-08-26	Trettonde söndagen efter trefaldighet	GREEN
+2040	2040-09-02	Fjortonde söndagen efter trefaldighet	GREEN
+2040	2040-09-09	Femtonde söndagen efter trefaldighet	GREEN
+2040	2040-09-16	Sextonde söndagen efter trefaldighet	GREEN
+2040	2040-09-23	Sjuttonde söndagen efter trefaldighet	GREEN
+2040	2040-09-30	Den helige Mikaels dag	GREEN
+2040	2040-10-07	Nittonde söndagen efter trefaldighet	GREEN
+2040	2040-10-14	Tacksägelsedagen	GREEN
+2040	2040-10-21	Tjugoförsta söndagen efter trefaldighet	GREEN
+2040	2040-10-28	Tjugoandra söndagen efter trefaldighet	GREEN
+2040	2040-11-03	Alla helgons dag	WHITE
+2040	2040-11-04	Söndagen efter alla helgons dag	WHITE
+2040	2040-11-11	Tjugofjärde söndagen efter trefaldighet	GREEN
+2040	2040-11-18	Söndagen före domssöndagen	GREEN
+2040	2040-11-25	Domssöndagen	GREEN
+2041	2040-12-02	Första söndagen i advent	WHITE
+2041	2040-12-09	Andra söndagen i advent	VIOLET
+2041	2040-12-16	Tredje söndagen i advent	VIOLET
+2041	2040-12-23	Fjärde söndagen i advent	VIOLET
+2041	2040-12-24	Julnatten	WHITE
+2041	2040-12-25	Juldagen	WHITE
+2041	2040-12-26	Annandag jul	WHITE
+2041	2040-12-30	Söndagen efter jul	WHITE
+2041	2041-01-01	Nyårsdagen	WHITE
+2041	2041-01-06	Trettondedag jul	WHITE
+2041	2041-01-13	Första söndagen efter trettondedagen	GREEN
+2041	2041-01-20	Andra söndagen efter trettondedagen	GREEN
+2041	2041-01-27	Tredje söndagen efter trettondedagen	GREEN
+2041	2041-02-03	Kyndelsmässodagen	WHITE
+2041	2041-02-10	Femte söndagen efter trettondedagen	GREEN
+2041	2041-02-17	Septuagesima	VIOLET
+2041	2041-02-24	Sexagesima	VIOLET
+2041	2041-03-03	Fastlagssöndagen	VIOLET
+2041	2041-03-06	Askonsdagen	VIOLET
+2041	2041-03-10	Första söndagen i fastan	VIOLET
+2041	2041-03-17	Andra söndagen i fastan	VIOLET
+2041	2041-03-24	Jungfru Marie bebådelsedag	WHITE
+2041	2041-03-31	Midfastosöndagen	VIOLET
+2041	2041-04-07	Femte söndagen i fastan	VIOLET
+2041	2041-04-14	Palmsöndagen	WHITE
+2041	2041-04-15	Måndag i Stilla veckan	WHITE
+2041	2041-04-16	Tisdag i Stilla veckan	WHITE
+2041	2041-04-17	Onsdag i Stilla veckan	WHITE
+2041	2041-04-18	Skärtorsdagen	WHITE
+2041	2041-04-19	Långfredagen	WHITE
+2041	2041-04-20	Påsknatten	WHITE
+2041	2041-04-21	Påskdagen	WHITE
+2041	2041-04-22	Annandag påsk	WHITE
+2041	2041-04-28	Andra söndagen i påsktiden	WHITE
+2041	2041-05-05	Tredje söndagen i påsktiden	WHITE
+2041	2041-05-12	Fjärde söndagen i påsktiden	WHITE
+2041	2041-05-19	Femte söndagen i påsktiden	WHITE
+2041	2041-05-26	Bönsöndagen	WHITE
+2041	2041-05-30	Kristi himmelsfärds dag	WHITE
+2041	2041-06-02	Söndagen före pingst	WHITE
+2041	2041-06-09	Pingstdagen	WHITE
+2041	2041-06-10	Annandag pingst	WHITE
+2041	2041-06-16	Heliga trefaldighets dag	WHITE
+2041	2041-06-22	Midsommardagen	GREEN
+2041	2041-06-23	Den helige Johannes Döparens dag	RED
+2041	2041-06-30	Andra söndagen efter trefaldighet	GREEN
+2041	2041-07-07	Tredje söndagen efter trefaldighet	GREEN
+2041	2041-07-14	Fjärde söndagen efter trefaldighet	GREEN
+2041	2041-07-21	Apostladagen	RED
+2041	2041-07-28	Sjätte söndagen efter trefaldighet	GREEN
+2041	2041-08-04	Kristi förklarings dag	WHITE
+2041	2041-08-11	Åttonde söndagen efter trefaldighet	GREEN
+2041	2041-08-18	Nionde söndagen efter trefaldighet	GREEN
+2041	2041-08-25	Tionde söndagen efter trefaldighet	GREEN
+2041	2041-09-01	Elfte söndagen efter trefaldighet	GREEN
+2041	2041-09-08	Tolfte söndagen efter trefaldighet	GREEN
+2041	2041-09-15	Trettonde söndagen efter trefaldighet	GREEN
+2041	2041-09-22	Fjortonde söndagen efter trefaldighet	GREEN
+2041	2041-09-29	Den helige Mikaels dag	GREEN
+2041	2041-10-06	Sextonde söndagen efter trefaldighet	GREEN
+2041	2041-10-13	Tacksägelsedagen	GREEN
+2041	2041-10-20	Artonde söndagen efter trefaldighet	GREEN
+2041	2041-10-27	Nittonde söndagen efter trefaldighet	GREEN
+2041	2041-11-02	Alla helgons dag	WHITE
+2041	2041-11-03	Söndagen efter alla helgons dag	WHITE
+2041	2041-11-10	Tjugoförsta söndagen efter trefaldighet	GREEN
+2041	2041-11-17	Söndagen före domssöndagen	GREEN
+2041	2041-11-24	Domssöndagen	GREEN
