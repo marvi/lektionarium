@@ -6,7 +6,7 @@
 
   <groupId>io.marvi</groupId>
   <artifactId>lektionarium-parent</artifactId>
-  <version>2.7.2-SNAPSHOT</version>
+  <version>3.0.0</version>
   <packaging>pom</packaging>
 
   <name>Lektionarium</name>
