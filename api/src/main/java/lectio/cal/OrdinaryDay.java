@@ -13,12 +13,20 @@ import java.util.Objects;
 
 /**
  * En dag i kyrkoåret utan egna texter i evangelieboken.
+ * <p>
+ * Kyrkoåret i det här biblioteket lägger inte ut några sådana dagar, men
+ * typen finns för den som bygger egna kalendrar med samma format.
  *
+ * @param name      dagens namn
+ * @param date      datumet dagen infaller
+ * @param color     liturgisk färg
+ * @param memorials minnesdagar knutna till datumet, ofta inga
  * @author marvi
  */
 public record OrdinaryDay(String name, LocalDate date, LiturgicalColor color,
                           List<Memorial> memorials) implements Day {
 
+  /** Kopierar minnesdagarna så att dagen inte kan ändras utifrån. */
   public OrdinaryDay {
     Objects.requireNonNull(name, "name");
     Objects.requireNonNull(date, "date");
@@ -26,6 +34,7 @@ public record OrdinaryDay(String name, LocalDate date, LiturgicalColor color,
     memorials = List.copyOf(memorials);
   }
 
+  /** En dag utan minnesdagar. */
   public OrdinaryDay(String name, LocalDate date, LiturgicalColor color) {
     this(name, date, color, List.of());
   }

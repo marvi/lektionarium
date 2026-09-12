@@ -106,7 +106,7 @@ class BibleTextTest {
     Path fixtur = Path.of(BibleTextTest.class
       .getResource("/testfixtur-indenterad.xml").toURI());
     Reading ot = LectioRepository.load(fixtur)
-      .readingsFor("Domssöndagen", 1).orElseThrow().ot();
+      .readingsFor("Domssöndagen", Cycle.FIRST).orElseThrow().ot();
 
     assertEquals("PLATSHALLARE rad ett PLATSHALLARE rad tva PLATSHALLARE rad tre",
       ot.text(), "radbrytningar och indrag ska bli enkla mellanslag");

@@ -101,15 +101,12 @@ class LiturgicalYearTest {
     void hittarHelgdagPaNamn() {
       assertEquals(LocalDate.of(2026, 4, 5), year(2026).findHolyDayByName("Påskdagen").orElseThrow().date());
       assertTrue(year(2026).findHolyDayByName("Finns inte").isEmpty());
-      assertTrue(year(2026).findHolyDayByName("Måndag i Stilla veckan").isEmpty(),
-        "dagar utan egna texter är inte helgdagar");
     }
 
     @Test
-    @DisplayName("dagar med texter i evangelieboken blir helgdagar, övriga vanliga dagar")
-    void dagtypFoljerEvangelieboken() {
-      assertInstanceOf(HolyDay.class, dayOn(LocalDate.of(2026, 4, 5)), "Påskdagen");
-      assertInstanceOf(OrdinaryDay.class, dayOn(LocalDate.of(2026, 3, 30)), "Måndag i Stilla veckan");
+    @DisplayName("varje dag i kyrkoåret har egna texter i evangelieboken")
+    void allaDagarHarTexter() {
+      year(2026).getDaysOfYear().values().forEach(day -> assertInstanceOf(HolyDay.class, day, day.name()));
     }
   }
 
@@ -263,9 +260,6 @@ class LiturgicalYearTest {
     @ParameterizedTest(name = "{0} infaller {1} dagar efter påskdagen")
     @CsvSource({
       "Palmsöndagen,               -7",
-      "Måndag i Stilla veckan,     -6",
-      "Tisdag i Stilla veckan,     -5",
-      "Onsdag i Stilla veckan,     -4",
       "Skärtorsdagen,              -3",
       "Långfredagen,               -2",
       "Påsknatten,                 -1",
@@ -405,6 +399,8 @@ class LiturgicalYearTest {
       "GREEN,  2026-01-11, Första söndagen efter trettondedagen",
       "VIOLET, 2026-02-01, Septuagesima",
       "WHITE,  2026-03-29, Palmsöndagen",
+      "RED,    2026-05-24, Pingstdagen",
+      "RED,    2026-05-25, Annandag pingst",
       "GREEN,  2026-06-20, Midsommardagen",
       "RED,    2026-06-21, Den helige Johannes Döparens dag",
       "RED,    2026-07-05, Apostladagen",
@@ -424,21 +420,29 @@ class LiturgicalYearTest {
   class Serier {
 
     @ParameterizedTest(name = "kyrkoåret {0} har läsningsserie {1}")
-    @CsvSource({"1985,0", "1986,1", "2002,2", "2003,1", "2007,2", "2010,2", "2011,3", "2013,2", "2020,3", "2021,1"})
-    void lasningsserieLoperITreArsCykler(int year, int expected) {
-      assertEquals(expected, LiturgicalYear.getReadingCycle(year));
+    @CsvSource({"2004,SECOND", "2007,SECOND", "2010,SECOND", "2011,THIRD", "2013,SECOND", "2020,THIRD", "2021,FIRST"})
+    void lasningsserieLoperITreArsCykler(int year, Cycle expected) {
+      assertEquals(expected, Cycle.readingCycleOf(year));
     }
 
     @ParameterizedTest(name = "kyrkoåret {0} har påskserie {1}")
-    @CsvSource({"2003,0", "2004,1", "2008,1", "2009,2", "2010,3", "2011,4", "2012,1", "2020,1", "2021,2"})
-    void paskserieLoperIFyraArsCykler(int year, int expected) {
-      assertEquals(expected, LiturgicalYear.getEasterSeries(year));
+    @CsvSource({"2004,FIRST", "2008,FIRST", "2009,SECOND", "2010,THIRD", "2011,FOURTH", "2012,FIRST", "2020,FIRST", "2021,SECOND"})
+    void paskserieLoperIFyraArsCykler(int year, Cycle expected) {
+      assertEquals(expected, Cycle.easterSeriesOf(year));
+    }
+
+    @Test
+    void serierFinnsBaraForStoddaAr() {
+      assertThrows(IllegalArgumentException.class, () -> Cycle.readingCycleOf(2003));
+      assertThrows(IllegalArgumentException.class, () -> Cycle.easterSeriesOf(2003));
+      assertEquals(Cycle.FOURTH, Cycle.of(4));
+      assertThrows(IllegalArgumentException.class, () -> Cycle.of(5));
     }
 
     @Test
     void aretBarSinaSerier() {
-      assertEquals(3, year(2026).getReadingCycle());
-      assertEquals(3, year(2026).getEasterSeries());
+      assertEquals(Cycle.THIRD, year(2026).getReadingCycle());
+      assertEquals(Cycle.THIRD, year(2026).getEasterSeries());
     }
 
     @Test
@@ -446,11 +450,11 @@ class LiturgicalYearTest {
     void paskensDagarFoljerPaskserien() {
       ReadingCycles lectio = LectioRepository.getLectio();
       LiturgicalYear y = year(2007);
-      assertEquals(4, y.getEasterSeries());
-      assertEquals(2, y.getReadingCycle());
-      assertEquals(lectio.readingsFor("Påskdagen", 4).orElseThrow(),
+      assertEquals(Cycle.FOURTH, y.getEasterSeries());
+      assertEquals(Cycle.SECOND, y.getReadingCycle());
+      assertEquals(lectio.readingsFor("Påskdagen", Cycle.FOURTH).orElseThrow(),
         y.findHolyDayByName("Påskdagen").orElseThrow().readings());
-      assertEquals(lectio.readingsFor("Pingstdagen", 2).orElseThrow(),
+      assertEquals(lectio.readingsFor("Pingstdagen", Cycle.SECOND).orElseThrow(),
         y.findHolyDayByName("Pingstdagen").orElseThrow().readings());
     }
   }

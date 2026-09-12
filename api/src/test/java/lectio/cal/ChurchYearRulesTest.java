@@ -32,10 +32,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class ChurchYearRulesTest {
 
-  /** Dagar i kyrkoåret som saknar egna texter i evangelieboken. */
-  private static final Set<String> WITHOUT_READINGS =
-    Set.of("Måndag i Stilla veckan", "Tisdag i Stilla veckan", "Onsdag i Stilla veckan");
-
   @Test
   @DisplayName("ordningen i tabellen saknar betydelse")
   void ordningenSaknarBetydelse() {
@@ -73,7 +69,6 @@ class ChurchYearRulesTest {
 
     Set<String> unknown = new TreeSet<>(laidOut);
     unknown.removeAll(lectio);
-    unknown.removeAll(WITHOUT_READINGS);
     assertTrue(unknown.isEmpty(), "dagar utan texter i evangelieboken: " + unknown);
 
     Set<String> neverPlaced = new TreeSet<>(lectio);

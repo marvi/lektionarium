@@ -17,8 +17,8 @@ import java.util.Set;
 /**
  * Evangelieboken: läsningarna för varje dag i kyrkoåret, per läsningsserie.
  * <p>
- * De flesta dagar har tre serier. Dagarna i stilla veckan och påsken har i
- * stället fyra, se {@link HolyDay#usesEasterSeries(String)}.
+ * De flesta dagar har tre serier. Palmsöndagen, stilla veckan och påsken har i
+ * stället fyra, se {@link Cycle}.
  *
  * @author marvi
  */
@@ -41,16 +41,6 @@ public final class ReadingCycles {
    */
   public Optional<Readings> readingsFor(String holyDay, Cycle cycle) {
     return Optional.ofNullable(byDay.getOrDefault(holyDay, Map.of()).get(cycle));
-  }
-
-  /**
-   * @param holyDay dagens namn i kyrkoåret
-   * @param cycle   läsningsserie som siffra, 1-4
-   * @return läsningarna, eller tomt om dagen saknar texter i den serien
-   * @throws IllegalArgumentException om serien inte är 1-4
-   */
-  public Optional<Readings> readingsFor(String holyDay, int cycle) {
-    return readingsFor(holyDay, Cycle.of(cycle));
   }
 
   /** @return true om dagen alls förekommer i evangelieboken */
@@ -76,38 +66,5 @@ public final class ReadingCycles {
     return byDay.values().stream()
       .flatMap(cycles -> cycles.values().stream())
       .anyMatch(Readings::hasText);
-  }
-
-  /** En läsningsserie i evangelieboken. */
-  public enum Cycle {
-    FIRST(1),
-    SECOND(2),
-    THIRD(3),
-    FOURTH(4);
-
-    private final int value;
-
-    Cycle(int value) {
-      this.value = value;
-    }
-
-    /** @return seriens nummer, 1-4 */
-    public int value() {
-      return value;
-    }
-
-    /**
-     * @param value seriens nummer, 1-4
-     * @return motsvarande serie
-     * @throws IllegalArgumentException om numret ligger utanför 1-4
-     */
-    public static Cycle of(int value) {
-      for (Cycle cycle : values()) {
-        if (cycle.value == value) {
-          return cycle;
-        }
-      }
-      throw new IllegalArgumentException("Okänd läsningsserie: " + value);
-    }
   }
 }

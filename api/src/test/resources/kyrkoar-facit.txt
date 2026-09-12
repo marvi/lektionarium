@@ -1,6 +1,7 @@
 # Kyrkoåren 2027-2041 så som LiturgicalYear lade ut dem 2026-09-12.
 # Namn och datum stämdes då av mot Alma, https://www.lysator.liu.se/alma/alma.cgi, utan avvikelse. Färgerna är inte kontrollerade mot Alma.
 # Kolumner: kyrkoår, datum, namn, färg. Facit för LiturgicalYearReferenceTest vid omskrivning av LiturgicalYear.
+# Medvetet ändrat 2026-09-12: pingstdagen och annandag pingst röda, stilla veckans vardagar utan texter borttagna.
 2027	2026-11-29	Första söndagen i advent	WHITE
 2027	2026-12-06	Andra söndagen i advent	VIOLET
 2027	2026-12-13	Tredje söndagen i advent	VIOLET
@@ -24,9 +25,6 @@
 2027	2027-03-07	Midfastosöndagen	VIOLET
 2027	2027-03-14	Jungfru Marie bebådelsedag	WHITE
 2027	2027-03-21	Palmsöndagen	WHITE
-2027	2027-03-22	Måndag i Stilla veckan	WHITE
-2027	2027-03-23	Tisdag i Stilla veckan	WHITE
-2027	2027-03-24	Onsdag i Stilla veckan	WHITE
 2027	2027-03-25	Skärtorsdagen	WHITE
 2027	2027-03-26	Långfredagen	WHITE
 2027	2027-03-27	Påsknatten	WHITE
@@ -39,8 +37,8 @@
 2027	2027-05-02	Bönsöndagen	WHITE
 2027	2027-05-06	Kristi himmelsfärds dag	WHITE
 2027	2027-05-09	Söndagen före pingst	WHITE
-2027	2027-05-16	Pingstdagen	WHITE
-2027	2027-05-17	Annandag pingst	WHITE
+2027	2027-05-16	Pingstdagen	RED
+2027	2027-05-17	Annandag pingst	RED
 2027	2027-05-23	Heliga trefaldighets dag	WHITE
 2027	2027-05-30	Första söndagen efter trefaldighet	GREEN
 2027	2027-06-06	Andra söndagen efter trefaldighet	GREEN
@@ -95,9 +93,6 @@
 2028	2028-03-26	Jungfru Marie bebådelsedag	WHITE
 2028	2028-04-02	Femte söndagen i fastan	VIOLET
 2028	2028-04-09	Palmsöndagen	WHITE
-2028	2028-04-10	Måndag i Stilla veckan	WHITE
-2028	2028-04-11	Tisdag i Stilla veckan	WHITE
-2028	2028-04-12	Onsdag i Stilla veckan	WHITE
 2028	2028-04-13	Skärtorsdagen	WHITE
 2028	2028-04-14	Långfredagen	WHITE
 2028	2028-04-15	Påsknatten	WHITE
@@ -110,8 +105,8 @@
 2028	2028-05-21	Bönsöndagen	WHITE
 2028	2028-05-25	Kristi himmelsfärds dag	WHITE
 2028	2028-05-28	Söndagen före pingst	WHITE
-2028	2028-06-04	Pingstdagen	WHITE
-2028	2028-06-05	Annandag pingst	WHITE
+2028	2028-06-04	Pingstdagen	RED
+2028	2028-06-05	Annandag pingst	RED
 2028	2028-06-11	Heliga trefaldighets dag	WHITE
 2028	2028-06-18	Första söndagen efter trefaldighet	GREEN
 2028	2028-06-24	Midsommardagen	GREEN
@@ -161,9 +156,6 @@
 2029	2029-03-11	Midfastosöndagen	VIOLET
 2029	2029-03-18	Jungfru Marie bebådelsedag	WHITE
 2029	2029-03-25	Palmsöndagen	WHITE
-2029	2029-03-26	Måndag i Stilla veckan	WHITE
-2029	2029-03-27	Tisdag i Stilla veckan	WHITE
-2029	2029-03-28	Onsdag i Stilla veckan	WHITE
 2029	2029-03-29	Skärtorsdagen	WHITE
 2029	2029-03-30	Långfredagen	WHITE
 2029	2029-03-31	Påsknatten	WHITE
@@ -176,8 +168,8 @@
 2029	2029-05-06	Bönsöndagen	WHITE
 2029	2029-05-10	Kristi himmelsfärds dag	WHITE
 2029	2029-05-13	Söndagen före pingst	WHITE
-2029	2029-05-20	Pingstdagen	WHITE
-2029	2029-05-21	Annandag pingst	WHITE
+2029	2029-05-20	Pingstdagen	RED
+2029	2029-05-21	Annandag pingst	RED
 2029	2029-05-27	Heliga trefaldighets dag	WHITE
 2029	2029-06-03	Första söndagen efter trefaldighet	GREEN
 2029	2029-06-10	Andra söndagen efter trefaldighet	GREEN
@@ -232,9 +224,6 @@
 2030	2030-03-31	Midfastosöndagen	VIOLET
 2030	2030-04-07	Femte söndagen i fastan	VIOLET
 2030	2030-04-14	Palmsöndagen	WHITE
-2030	2030-04-15	Måndag i Stilla veckan	WHITE
-2030	2030-04-16	Tisdag i Stilla veckan	WHITE
-2030	2030-04-17	Onsdag i Stilla veckan	WHITE
 2030	2030-04-18	Skärtorsdagen	WHITE
 2030	2030-04-19	Långfredagen	WHITE
 2030	2030-04-20	Påsknatten	WHITE
@@ -247,8 +236,8 @@
 2030	2030-05-26	Bönsöndagen	WHITE
 2030	2030-05-30	Kristi himmelsfärds dag	WHITE
 2030	2030-06-02	Söndagen före pingst	WHITE
-2030	2030-06-09	Pingstdagen	WHITE
-2030	2030-06-10	Annandag pingst	WHITE
+2030	2030-06-09	Pingstdagen	RED
+2030	2030-06-10	Annandag pingst	RED
 2030	2030-06-16	Heliga trefaldighets dag	WHITE
 2030	2030-06-22	Midsommardagen	GREEN
 2030	2030-06-23	Den helige Johannes Döparens dag	RED
@@ -300,9 +289,6 @@
 2031	2031-03-23	Jungfru Marie bebådelsedag	WHITE
 2031	2031-03-30	Femte söndagen i fastan	VIOLET
 2031	2031-04-06	Palmsöndagen	WHITE
-2031	2031-04-07	Måndag i Stilla veckan	WHITE
-2031	2031-04-08	Tisdag i Stilla veckan	WHITE
-2031	2031-04-09	Onsdag i Stilla veckan	WHITE
 2031	2031-04-10	Skärtorsdagen	WHITE
 2031	2031-04-11	Långfredagen	WHITE
 2031	2031-04-12	Påsknatten	WHITE
@@ -315,8 +301,8 @@
 2031	2031-05-18	Bönsöndagen	WHITE
 2031	2031-05-22	Kristi himmelsfärds dag	WHITE
 2031	2031-05-25	Söndagen före pingst	WHITE
-2031	2031-06-01	Pingstdagen	WHITE
-2031	2031-06-02	Annandag pingst	WHITE
+2031	2031-06-01	Pingstdagen	RED
+2031	2031-06-02	Annandag pingst	RED
 2031	2031-06-08	Heliga trefaldighets dag	WHITE
 2031	2031-06-15	Första söndagen efter trefaldighet	GREEN
 2031	2031-06-21	Midsommardagen	GREEN
@@ -367,9 +353,6 @@
 2032	2032-03-07	Midfastosöndagen	VIOLET
 2032	2032-03-14	Jungfru Marie bebådelsedag	WHITE
 2032	2032-03-21	Palmsöndagen	WHITE
-2032	2032-03-22	Måndag i Stilla veckan	WHITE
-2032	2032-03-23	Tisdag i Stilla veckan	WHITE
-2032	2032-03-24	Onsdag i Stilla veckan	WHITE
 2032	2032-03-25	Skärtorsdagen	WHITE
 2032	2032-03-26	Långfredagen	WHITE
 2032	2032-03-27	Påsknatten	WHITE
@@ -382,8 +365,8 @@
 2032	2032-05-02	Bönsöndagen	WHITE
 2032	2032-05-06	Kristi himmelsfärds dag	WHITE
 2032	2032-05-09	Söndagen före pingst	WHITE
-2032	2032-05-16	Pingstdagen	WHITE
-2032	2032-05-17	Annandag pingst	WHITE
+2032	2032-05-16	Pingstdagen	RED
+2032	2032-05-17	Annandag pingst	RED
 2032	2032-05-23	Heliga trefaldighets dag	WHITE
 2032	2032-05-30	Första söndagen efter trefaldighet	GREEN
 2032	2032-06-06	Andra söndagen efter trefaldighet	GREEN
@@ -438,9 +421,6 @@
 2033	2033-03-27	Jungfru Marie bebådelsedag	WHITE
 2033	2033-04-03	Femte söndagen i fastan	VIOLET
 2033	2033-04-10	Palmsöndagen	WHITE
-2033	2033-04-11	Måndag i Stilla veckan	WHITE
-2033	2033-04-12	Tisdag i Stilla veckan	WHITE
-2033	2033-04-13	Onsdag i Stilla veckan	WHITE
 2033	2033-04-14	Skärtorsdagen	WHITE
 2033	2033-04-15	Långfredagen	WHITE
 2033	2033-04-16	Påsknatten	WHITE
@@ -453,8 +433,8 @@
 2033	2033-05-22	Bönsöndagen	WHITE
 2033	2033-05-26	Kristi himmelsfärds dag	WHITE
 2033	2033-05-29	Söndagen före pingst	WHITE
-2033	2033-06-05	Pingstdagen	WHITE
-2033	2033-06-06	Annandag pingst	WHITE
+2033	2033-06-05	Pingstdagen	RED
+2033	2033-06-06	Annandag pingst	RED
 2033	2033-06-12	Heliga trefaldighets dag	WHITE
 2033	2033-06-19	Första söndagen efter trefaldighet	GREEN
 2033	2033-06-25	Midsommardagen	GREEN
@@ -504,9 +484,6 @@
 2034	2034-03-19	Midfastosöndagen	VIOLET
 2034	2034-03-26	Jungfru Marie bebådelsedag	WHITE
 2034	2034-04-02	Palmsöndagen	WHITE
-2034	2034-04-03	Måndag i Stilla veckan	WHITE
-2034	2034-04-04	Tisdag i Stilla veckan	WHITE
-2034	2034-04-05	Onsdag i Stilla veckan	WHITE
 2034	2034-04-06	Skärtorsdagen	WHITE
 2034	2034-04-07	Långfredagen	WHITE
 2034	2034-04-08	Påsknatten	WHITE
@@ -519,8 +496,8 @@
 2034	2034-05-14	Bönsöndagen	WHITE
 2034	2034-05-18	Kristi himmelsfärds dag	WHITE
 2034	2034-05-21	Söndagen före pingst	WHITE
-2034	2034-05-28	Pingstdagen	WHITE
-2034	2034-05-29	Annandag pingst	WHITE
+2034	2034-05-28	Pingstdagen	RED
+2034	2034-05-29	Annandag pingst	RED
 2034	2034-06-04	Heliga trefaldighets dag	WHITE
 2034	2034-06-11	Första söndagen efter trefaldighet	GREEN
 2034	2034-06-18	Andra söndagen efter trefaldighet	GREEN
@@ -570,9 +547,6 @@
 2035	2035-03-04	Midfastosöndagen	VIOLET
 2035	2035-03-11	Jungfru Marie bebådelsedag	WHITE
 2035	2035-03-18	Palmsöndagen	WHITE
-2035	2035-03-19	Måndag i Stilla veckan	WHITE
-2035	2035-03-20	Tisdag i Stilla veckan	WHITE
-2035	2035-03-21	Onsdag i Stilla veckan	WHITE
 2035	2035-03-22	Skärtorsdagen	WHITE
 2035	2035-03-23	Långfredagen	WHITE
 2035	2035-03-24	Påsknatten	WHITE
@@ -585,8 +559,8 @@
 2035	2035-04-29	Bönsöndagen	WHITE
 2035	2035-05-03	Kristi himmelsfärds dag	WHITE
 2035	2035-05-06	Söndagen före pingst	WHITE
-2035	2035-05-13	Pingstdagen	WHITE
-2035	2035-05-14	Annandag pingst	WHITE
+2035	2035-05-13	Pingstdagen	RED
+2035	2035-05-14	Annandag pingst	RED
 2035	2035-05-20	Heliga trefaldighets dag	WHITE
 2035	2035-05-27	Första söndagen efter trefaldighet	GREEN
 2035	2035-06-03	Andra söndagen efter trefaldighet	GREEN
@@ -641,9 +615,6 @@
 2036	2036-03-23	Jungfru Marie bebådelsedag	WHITE
 2036	2036-03-30	Femte söndagen i fastan	VIOLET
 2036	2036-04-06	Palmsöndagen	WHITE
-2036	2036-04-07	Måndag i Stilla veckan	WHITE
-2036	2036-04-08	Tisdag i Stilla veckan	WHITE
-2036	2036-04-09	Onsdag i Stilla veckan	WHITE
 2036	2036-04-10	Skärtorsdagen	WHITE
 2036	2036-04-11	Långfredagen	WHITE
 2036	2036-04-12	Påsknatten	WHITE
@@ -656,8 +627,8 @@
 2036	2036-05-18	Bönsöndagen	WHITE
 2036	2036-05-22	Kristi himmelsfärds dag	WHITE
 2036	2036-05-25	Söndagen före pingst	WHITE
-2036	2036-06-01	Pingstdagen	WHITE
-2036	2036-06-02	Annandag pingst	WHITE
+2036	2036-06-01	Pingstdagen	RED
+2036	2036-06-02	Annandag pingst	RED
 2036	2036-06-08	Heliga trefaldighets dag	WHITE
 2036	2036-06-15	Första söndagen efter trefaldighet	GREEN
 2036	2036-06-21	Midsommardagen	GREEN
@@ -709,9 +680,6 @@
 2037	2037-03-15	Midfastosöndagen	VIOLET
 2037	2037-03-22	Jungfru Marie bebådelsedag	WHITE
 2037	2037-03-29	Palmsöndagen	WHITE
-2037	2037-03-30	Måndag i Stilla veckan	WHITE
-2037	2037-03-31	Tisdag i Stilla veckan	WHITE
-2037	2037-04-01	Onsdag i Stilla veckan	WHITE
 2037	2037-04-02	Skärtorsdagen	WHITE
 2037	2037-04-03	Långfredagen	WHITE
 2037	2037-04-04	Påsknatten	WHITE
@@ -724,8 +692,8 @@
 2037	2037-05-10	Bönsöndagen	WHITE
 2037	2037-05-14	Kristi himmelsfärds dag	WHITE
 2037	2037-05-17	Söndagen före pingst	WHITE
-2037	2037-05-24	Pingstdagen	WHITE
-2037	2037-05-25	Annandag pingst	WHITE
+2037	2037-05-24	Pingstdagen	RED
+2037	2037-05-25	Annandag pingst	RED
 2037	2037-05-31	Heliga trefaldighets dag	WHITE
 2037	2037-06-07	Första söndagen efter trefaldighet	GREEN
 2037	2037-06-14	Andra söndagen efter trefaldighet	GREEN
@@ -781,9 +749,6 @@
 2038	2038-04-04	Midfastosöndagen	VIOLET
 2038	2038-04-11	Femte söndagen i fastan	VIOLET
 2038	2038-04-18	Palmsöndagen	WHITE
-2038	2038-04-19	Måndag i Stilla veckan	WHITE
-2038	2038-04-20	Tisdag i Stilla veckan	WHITE
-2038	2038-04-21	Onsdag i Stilla veckan	WHITE
 2038	2038-04-22	Skärtorsdagen	WHITE
 2038	2038-04-23	Långfredagen	WHITE
 2038	2038-04-24	Påsknatten	WHITE
@@ -796,8 +761,8 @@
 2038	2038-05-30	Bönsöndagen	WHITE
 2038	2038-06-03	Kristi himmelsfärds dag	WHITE
 2038	2038-06-06	Söndagen före pingst	WHITE
-2038	2038-06-13	Pingstdagen	WHITE
-2038	2038-06-14	Annandag pingst	WHITE
+2038	2038-06-13	Pingstdagen	RED
+2038	2038-06-14	Annandag pingst	RED
 2038	2038-06-20	Heliga trefaldighets dag	WHITE
 2038	2038-06-26	Midsommardagen	GREEN
 2038	2038-06-27	Den helige Johannes Döparens dag	RED
@@ -847,9 +812,6 @@
 2039	2039-03-20	Midfastosöndagen	VIOLET
 2039	2039-03-27	Jungfru Marie bebådelsedag	WHITE
 2039	2039-04-03	Palmsöndagen	WHITE
-2039	2039-04-04	Måndag i Stilla veckan	WHITE
-2039	2039-04-05	Tisdag i Stilla veckan	WHITE
-2039	2039-04-06	Onsdag i Stilla veckan	WHITE
 2039	2039-04-07	Skärtorsdagen	WHITE
 2039	2039-04-08	Långfredagen	WHITE
 2039	2039-04-09	Påsknatten	WHITE
@@ -862,8 +824,8 @@
 2039	2039-05-15	Bönsöndagen	WHITE
 2039	2039-05-19	Kristi himmelsfärds dag	WHITE
 2039	2039-05-22	Söndagen före pingst	WHITE
-2039	2039-05-29	Pingstdagen	WHITE
-2039	2039-05-30	Annandag pingst	WHITE
+2039	2039-05-29	Pingstdagen	RED
+2039	2039-05-30	Annandag pingst	RED
 2039	2039-06-05	Heliga trefaldighets dag	WHITE
 2039	2039-06-12	Första söndagen efter trefaldighet	GREEN
 2039	2039-06-19	Andra söndagen efter trefaldighet	GREEN
@@ -913,9 +875,6 @@
 2040	2040-03-11	Midfastosöndagen	VIOLET
 2040	2040-03-18	Jungfru Marie bebådelsedag	WHITE
 2040	2040-03-25	Palmsöndagen	WHITE
-2040	2040-03-26	Måndag i Stilla veckan	WHITE
-2040	2040-03-27	Tisdag i Stilla veckan	WHITE
-2040	2040-03-28	Onsdag i Stilla veckan	WHITE
 2040	2040-03-29	Skärtorsdagen	WHITE
 2040	2040-03-30	Långfredagen	WHITE
 2040	2040-03-31	Påsknatten	WHITE
@@ -928,8 +887,8 @@
 2040	2040-05-06	Bönsöndagen	WHITE
 2040	2040-05-10	Kristi himmelsfärds dag	WHITE
 2040	2040-05-13	Söndagen före pingst	WHITE
-2040	2040-05-20	Pingstdagen	WHITE
-2040	2040-05-21	Annandag pingst	WHITE
+2040	2040-05-20	Pingstdagen	RED
+2040	2040-05-21	Annandag pingst	RED
 2040	2040-05-27	Heliga trefaldighets dag	WHITE
 2040	2040-06-03	Första söndagen efter trefaldighet	GREEN
 2040	2040-06-10	Andra söndagen efter trefaldighet	GREEN
@@ -984,9 +943,6 @@
 2041	2041-03-31	Midfastosöndagen	VIOLET
 2041	2041-04-07	Femte söndagen i fastan	VIOLET
 2041	2041-04-14	Palmsöndagen	WHITE
-2041	2041-04-15	Måndag i Stilla veckan	WHITE
-2041	2041-04-16	Tisdag i Stilla veckan	WHITE
-2041	2041-04-17	Onsdag i Stilla veckan	WHITE
 2041	2041-04-18	Skärtorsdagen	WHITE
 2041	2041-04-19	Långfredagen	WHITE
 2041	2041-04-20	Påsknatten	WHITE
@@ -999,8 +955,8 @@
 2041	2041-05-26	Bönsöndagen	WHITE
 2041	2041-05-30	Kristi himmelsfärds dag	WHITE
 2041	2041-06-02	Söndagen före pingst	WHITE
-2041	2041-06-09	Pingstdagen	WHITE
-2041	2041-06-10	Annandag pingst	WHITE
+2041	2041-06-09	Pingstdagen	RED
+2041	2041-06-10	Annandag pingst	RED
 2041	2041-06-16	Heliga trefaldighets dag	WHITE
 2041	2041-06-22	Midsommardagen	GREEN
 2041	2041-06-23	Den helige Johannes Döparens dag	RED

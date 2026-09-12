@@ -109,9 +109,6 @@ final class ChurchYearRules {
 
     // Stilla veckan och påsktiden
     new Feast("Palmsöndagen", WHITE, SUNDAY, fromEaster(-7)),
-    new Feast("Måndag i Stilla veckan", WHITE, FEAST, fromEaster(-6)),
-    new Feast("Tisdag i Stilla veckan", WHITE, FEAST, fromEaster(-5)),
-    new Feast("Onsdag i Stilla veckan", WHITE, FEAST, fromEaster(-4)),
     new Feast("Skärtorsdagen", WHITE, FEAST, fromEaster(-3)),
     new Feast("Långfredagen", WHITE, FEAST, fromEaster(-2)),
     new Feast("Påsknatten", WHITE, NIGHT, fromEaster(-1)),
@@ -124,8 +121,8 @@ final class ChurchYearRules {
     new Feast("Bönsöndagen", WHITE, SUNDAY, fromEaster(35)),
     new Feast("Kristi himmelsfärds dag", WHITE, FEAST, fromEaster(39)),
     new Feast("Söndagen före pingst", WHITE, SUNDAY, fromEaster(42)),
-    new Feast("Pingstdagen", WHITE, FEAST, fromEaster(49)),
-    new Feast("Annandag pingst", WHITE, FEAST, fromEaster(50)),
+    new Feast("Pingstdagen", RED, FEAST, fromEaster(49)),
+    new Feast("Annandag pingst", RED, FEAST, fromEaster(50)),
     new Feast("Heliga trefaldighets dag", WHITE, FEAST, fromEaster(56)),
 
     // Sommar och höst

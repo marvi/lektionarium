@@ -21,7 +21,7 @@ import java.util.TreeMap;
  * advent under föregående kalenderår. Året som används i den här klassen är året
  * för kyrkoårets påskdag: kyrkoåret 2013 börjar alltså 2012-12-02.
  * <p>
- * Vilka dagar som finns och när de infaller står i {@link ChurchYearRules}.
+ * Vilka dagar som finns och när de infaller står i {@code ChurchYearRules}.
  * Den här klassen lägger ut dem för ett år och hämtar deras läsningar.
  * <p>
  * Instanser är oföränderliga och kan delas mellan trådar. Skapa dem via
@@ -40,8 +40,8 @@ public class LiturgicalYear {
 
   private final int year;
   private final LocalDate easterDay;
-  private final int readingCycle;
-  private final int easterSeries;
+  private final Cycle readingCycle;
+  private final Cycle easterSeries;
   private final ReadingCycles readingCycles;
   private final SortedMap<LocalDate, Day> daysOfYear = new TreeMap<>();
 
@@ -64,8 +64,8 @@ public class LiturgicalYear {
         "Endast år från och med " + FIRST_SUPPORTED_YEAR + " stöds, fick " + year);
     }
     this.year = year;
-    this.readingCycle = getReadingCycle(year);
-    this.easterSeries = getEasterSeries(year);
+    this.readingCycle = Cycle.readingCycleOf(year);
+    this.easterSeries = Cycle.easterSeriesOf(year);
     this.readingCycles = Objects.requireNonNull(readingCycles, "readingCycles");
     Anchors anchors = Anchors.of(year);
     this.easterDay = anchors.easter();
@@ -79,9 +79,9 @@ public class LiturgicalYear {
       .orElseGet(() -> new OrdinaryDay(name, date, color));
   }
 
-  /** Stilla veckan och påsken följer påskserien, övriga dagar läsningsserien. */
+  /** Palmsöndagen, stilla veckan och påsken följer påskserien, övriga dagar läsningsserien. */
   private Optional<Readings> readingsFor(String name) {
-    int cycle = HolyDay.usesEasterSeries(name) ? easterSeries : readingCycle;
+    Cycle cycle = HolyDay.usesEasterSeries(name) ? easterSeries : readingCycle;
     return readingCycles.readingsFor(name, cycle);
   }
 
@@ -106,42 +106,14 @@ public class LiturgicalYear {
       .findFirst();
   }
 
-  /** @return läsningsserien, 1-3, för det här kyrkoåret */
-  public int getReadingCycle() {
+  /** @return läsningsserien för det här kyrkoåret, se {@link Cycle#readingCycleOf} */
+  public Cycle getReadingCycle() {
     return readingCycle;
   }
 
-  /**
-   * Läsningsserien löper i treårscykler från 2003.
-   *
-   * @param year ett kyrkoår
-   * @return serien, 1-3, eller 0 för år före 1986
-   */
-  public static int getReadingCycle(int year) {
-    if (year < 1986) {
-      return 0;
-    } else if (year < 2003) {
-      return (year - 1986) % 3 + 1;
-    }
-    return (year - 2003) % 3 + 1;
-  }
-
-  /** @return påskserien, 1-4, för det här kyrkoåret */
-  public int getEasterSeries() {
+  /** @return påskserien för det här kyrkoåret, se {@link Cycle#easterSeriesOf} */
+  public Cycle getEasterSeries() {
     return easterSeries;
-  }
-
-  /**
-   * Påskserien löper i fyraårscykler från 2004.
-   *
-   * @param year ett kyrkoår
-   * @return serien, 1-4, eller 0 för år före 2004
-   */
-  public static int getEasterSeries(int year) {
-    if (year < FIRST_SUPPORTED_YEAR) {
-      return 0;
-    }
-    return (year - FIRST_SUPPORTED_YEAR) % 4 + 1;
   }
 
   /** @return kyrkoåret, räknat efter sin påskdag */
