@@ -213,17 +213,18 @@ tools/release.sh             # gör det
 ```
 
 Skriptet tar versionen som står i pom-filerna, kör igenom hela bygget, taggar
-`vX.Y`, höjer pom-filerna ett steg och skickar upp alltihop. Taggen startar
+`vX.Y.Z`, höjer pom-filerna ett steg och skickar upp alltihop. Taggen startar
 `release.yml`, som bygger om, publicerar till GitHub Packages och skapar en
 GitHub-release med jar-filerna.
 
-Versionerna går i steg om 0.1, med överslag till nästa heltal:
+Versionerna går i små steg, tredje siffran höjs varje gång:
 
 ```
-2.1 -> 2.2 -> ... -> 2.9 -> 3.0
+2.8.1 -> 2.8.2 -> 2.8.3 -> ...
 ```
 
-En annan version går att tvinga fram med `--version 3.0`.
+En ny minor eller major ges uttryckligen med `--version 2.9` eller
+`--version 3.0`, och stegen fortsätter därifrån: `2.9 -> 2.9.1 -> 2.9.2`.
 
 Skriptet vägrar köra om arbetskopian är smutsig, om du står på fel gren, om
 grenen ligger efter `origin`, eller om versionen inte är högre än den högsta
