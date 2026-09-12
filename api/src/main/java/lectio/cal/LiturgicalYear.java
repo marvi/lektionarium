@@ -7,9 +7,7 @@
  */
 package lectio.cal;
 
-import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.temporal.TemporalAdjusters;
 import java.util.Collections;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +20,9 @@ import java.util.TreeMap;
  * Kalenderår och kyrkoår sammanfaller inte. Kyrkoåret börjar första söndagen i
  * advent under föregående kalenderår. Året som används i den här klassen är året
  * för kyrkoårets påskdag: kyrkoåret 2013 börjar alltså 2012-12-02.
+ * <p>
+ * Vilka dagar som finns och när de infaller står i {@link ChurchYearRules}.
+ * Den här klassen lägger ut dem för ett år och hämtar deras läsningar.
  * <p>
  * Instanser är oföränderliga och kan delas mellan trådar. Skapa dem via
  * {@link LiturgicalYearFactory}, som återanvänder redan uträknade år.
@@ -151,15 +152,6 @@ public class LiturgicalYear {
   /** @return påskdagen detta kyrkoår */
   public LocalDate getEasterDay() {
     return easterDay;
-  }
-
-  /**
-   * @param dayOfWeek veckodagen att leta efter
-   * @param from      datumet att räkna från, exklusive
-   * @return nästa datum efter {@code from} som infaller på veckodagen
-   */
-  protected static LocalDate nextWeekdayOfType(DayOfWeek dayOfWeek, LocalDate from) {
-    return from.with(TemporalAdjusters.next(dayOfWeek));
   }
 
   @Override
