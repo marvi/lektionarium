@@ -3,13 +3,23 @@ package lectio.cal;
 import java.time.LocalDate;
 
 /**
- * Calculate Easter Sunday
+ * Räknar ut påskdagen i den gregorianska kalendern.
  * <p>
- * Implements Meeus/Jones/Butcher Gregorian algorithm<br>
- * From: <http://en.wikipedia.org/wiki/Computus><br>
+ * Algoritmen är Meeus/Jones/Butcher, se
+ * <a href="https://en.wikipedia.org/wiki/Date_of_Easter">Date of Easter</a>.
+ * Den gäller alla år från 1583 och framåt.
+ *
+ * @author marvi
  */
-public class CalculateEaster {
+public final class CalculateEaster {
 
+  private CalculateEaster() {
+  }
+
+  /**
+   * @param year kalenderår
+   * @return påskdagen det året
+   */
   public static LocalDate forYear(int year) {
 
     int a = year % 19;

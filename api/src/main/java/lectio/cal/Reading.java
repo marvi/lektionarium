@@ -17,6 +17,7 @@ package lectio.cal;
  */
 public record Reading(String sweRef, String enRef, String text) {
 
+  /** En läsning med enbart hänvisningar, utan bibeltext. */
   public Reading(String sweRef, String enRef) {
     this(sweRef, enRef, "");
   }

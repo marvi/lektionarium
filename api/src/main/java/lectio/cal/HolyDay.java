@@ -15,6 +15,11 @@ import java.util.Set;
 /**
  * En dag i kyrkoåret med egna texter i evangelieboken.
  *
+ * @param name      dagens namn, t.ex. "Påskdagen"
+ * @param date      datumet dagen infaller
+ * @param color     liturgisk färg
+ * @param memorials minnesdagar knutna till datumet, ofta inga
+ * @param readings  dagens texter i den serie som gäller för året
  * @author marvi
  */
 public record HolyDay(String name, LocalDate date, LiturgicalColor color,
@@ -27,6 +32,7 @@ public record HolyDay(String name, LocalDate date, LiturgicalColor color,
   private static final Set<String> EASTER_SERIES_DAYS = Set.of(
     "Palmsöndagen", "Skärtorsdagen", "Långfredagen", "Påsknatten", "Påskdagen");
 
+  /** Kopierar minnesdagarna så att dagen inte kan ändras utifrån. */
   public HolyDay {
     Objects.requireNonNull(name, "name");
     Objects.requireNonNull(date, "date");
@@ -35,6 +41,7 @@ public record HolyDay(String name, LocalDate date, LiturgicalColor color,
     memorials = List.copyOf(memorials);
   }
 
+  /** En dag utan minnesdagar. */
   public HolyDay(String name, LocalDate date, LiturgicalColor color, Readings readings) {
     this(name, date, color, List.of(), readings);
   }
